@@ -11,9 +11,8 @@ WIP
 
 ## Development
 
-* npm run lint : eslint the javascript code
-* npm run unit : run the javascript unit tests
 * npm run test : runs both 'lint' and 'unit' tasks
+* npm run serve : runs a server (documentation pages) with live reloading
 
 ## License
 
