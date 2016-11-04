@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "indent": ["error", 4, {"SwitchCase": 1}],
+    "no-use-before-define": ["error", {"functions": false, "classes": true}],
+    "object-curly-spacing": ["error", "never"],
+    "default-case": 0,
+    "eol-last": 0,
+    "no-console": 0,
+    "no-trailing-spaces": ["error", {"skipBlankLines": true}],
+    "max-len": [2, 120, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
+    "space-before-function-paren": [2, "never"],
+    "arrow-parens": ["error", "always"],
+
+    "import/prefer-default-export": "off"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "kunstmaan-snippet-js",
+  "version": "0.1.0",
+  "description": "Small re-usable javascript code snippets",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "3.9.1",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.kunstmaan.be:9999/kunstmaan/snippet-js.git"
+  },
+  "keywords": [
+    "kunstmaan",
+    "javascript",
+    "code",
+    "snippet",
+    "snippets",
+    "ecmascript",
+    "es6",
+    "es2015"
+  ],
+  "author": "Kunstmaan",
+  "license": "ISC"
+}
