@@ -4,14 +4,17 @@
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src/",
+    "unit": "",
+    "test": "npm run lint && npm run unit"
   },
   "devDependencies": {
     "eslint": "3.9.1",
     "eslint-config-airbnb": "12.0.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.5.0"
+    "eslint-plugin-react": "6.5.0",
+    "jasmine": "2.5.2"
   },
   "repository": {
     "type": "git",
