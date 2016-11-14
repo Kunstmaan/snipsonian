@@ -37,4 +37,26 @@ describe('is:', () => {
             expect(is.null(undefined)).toEqual(false);
         });
     });
+
+    describe('is.set()', () => {
+        it('returns true if input defined and not null', () => {
+            expect(is.set('')).toEqual(true);
+            expect(is.set(0)).toEqual(true);
+            expect(is.set([])).toEqual(true);
+            expect(is.set({})).toEqual(true);
+
+            const obj = {
+                dummyVar: 'dummyVal'
+            };
+            expect(is.set(obj.dummyVar)).toEqual(true);
+        });
+
+        it('returns false if input undefined or null', () => {
+            expect(is.set()).toEqual(false);
+            expect(is.set(null)).toEqual(false);
+
+            const obj = {};
+            expect(is.set(obj.dummyVar)).toEqual(false);
+        });
+    });
 });

@@ -4,10 +4,12 @@
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint src/",
+    "lint:js": "eslint src/",
     "unit": "karma start",
-    "test": "npm run lint && npm run unit",
-    "serve": "browser-sync start --server './' --files 'src' 'doc'"
+    "test": "npm run lint:js && npm run unit",
+    "serve": "browser-sync start --server './' --files 'src' 'doc'",
+    "watch:js": "watch 'npm run test' src/",
+    "dev": "npm-run-all --parallel 'serve' 'watch:js'"
   },
   "devDependencies": {
     "babel-polyfill": "6.16.0",
@@ -24,8 +26,10 @@
     "karma-chrome-launcher": "2.0.0",
     "karma-jasmine": "1.0.2",
     "karma-systemjs": "0.15.0",
+    "npm-run-all": "3.1.1",
     "systemjs": "0.19.40",
-    "systemjs-plugin-babel": "0.0.17"
+    "systemjs-plugin-babel": "0.0.17",
+    "watch": "1.0.1"
   },
   "repository": {
     "type": "git",

@@ -11,8 +11,9 @@ WIP
 
 ## Development
 
-* npm run test : runs both 'lint' and 'unit' tasks
+* npm run test : runs sequentially the 'lint:js' and 'unit' (= karma) tasks
 * npm run serve : runs a server (documentation pages) with live reloading
+* npm run dev : runs the 'serve' task + watches in parallel for changes to re-trigger the 'test' task
 
 ## License
 
