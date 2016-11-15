@@ -31,4 +31,7 @@ snippet(is)
     )
     .add();
 
+// TODO tab >> group
+
 // TODO wordt te complex >> beter hier ineens (html) component maken vanuit js
+// TODO al beter indien geen propBuilder, of alles gewoon met object/properties?

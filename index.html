@@ -8,10 +8,16 @@
 </head>
 <body>
 
+<div id="app">
+    <app-header></app-header>
+    <app-body></app-body>
+    <app-footer></app-footer>
+</div>
+
 <script src="./node_modules/systemjs/dist/system.js"></script>
 <script src="./systemJs.config.js"></script>
 <script>
-    SystemJS.import('src/docs.js');
+    SystemJS.import('doc/docs.js');
 </script>
 
 </body>
