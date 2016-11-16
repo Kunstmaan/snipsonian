@@ -2,7 +2,7 @@ import Vue from 'vue';
 import {VERSIONS, getCurrentVersion, setCurrentVersion} from '../versions';
 
 const template = `
-<div>
+<div class="doc-app__header">
     <h1>Kunstmaan SnippetJS</h1>
     <div class="version">
         <label>Version:</label>

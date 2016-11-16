@@ -3,7 +3,7 @@ import Vue from 'vue';
 const INITIAL_YEAR = 2016;
 
 const template = `
-<div>
+<div class="doc-app__footer">
     <hr />
     <p>&copy; {{ year }} Kunstmaan</p>
 </div>

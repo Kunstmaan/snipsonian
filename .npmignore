@@ -1,0 +1,14 @@
+/src/**/*.spec.js
+/src/**/*.doc.js
+/doc
+*.html
+.babelrc
+.eslintrc
+.gitignore
+.npmignore
+.nvmrc
+/*.js
+
+.idea
+.DS_Store
+*.log

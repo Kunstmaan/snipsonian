@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 const template = `
-<div>
+<div class="doc-app__body">
     xxxxxxx
 </div>
 `;
