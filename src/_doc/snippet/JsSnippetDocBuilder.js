@@ -1,10 +1,9 @@
 import inspectJsSnippet from './inspectJsSnippet';
-import {addJsDocSnippet} from './jsDocSnippets';
 import {buildIfBuilder, buildIfBuilders} from '../../builder/buildIfBuilder';
 
-class JsDocBuilder {
-    static snippet(jsSnippet) {
-        return new JsDocBuilder(jsSnippet);
+class JsSnippetDocBuilder {
+    static jsSnippetDoc(jsSnippet) {
+        return new JsSnippetDocBuilder(jsSnippet);
     }
 
     constructor(jsSnippet) {
@@ -18,11 +17,6 @@ class JsDocBuilder {
 
     type(type) {
         this.doc.type = type;
-        return this;
-    }
-
-    tab(tab) {
-        this.doc.tab = tab;
         return this;
     }
 
@@ -56,18 +50,14 @@ class JsDocBuilder {
         return this;
     }
 
-    subDocs(...subJsDocBuilders) {
-        this.doc.subDocs = buildIfBuilders(subJsDocBuilders);
+    parts(...partsJsSnippetDocBuilder) {
+        this.doc.parts = buildIfBuilders(partsJsSnippetDocBuilder);
         return this;
     }
 
     build() {
         return this.doc;
     }
-
-    add() {
-        addJsDocSnippet(this);
-    }
 }
 
-export default JsDocBuilder;
+export default JsSnippetDocBuilder;

@@ -1,4 +1,9 @@
-import './generic/is.doc';
-import {getJsDocSnippets} from './_doc/snippet/jsDocSnippets';
+import {group} from './_doc/documentJs';
 
-console.log('JsDocSnippets', getJsDocSnippets());
+import isDoc from './generic/is.doc';
+
+export default [
+    group('generic').jsSnippets(
+        isDoc
+    )
+];

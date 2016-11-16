@@ -1,4 +1,4 @@
-import DOC_TYPE from './docTypes';
+import DOC_TYPE from './jsDocTypes';
 import is from '../../generic/is';
 
 const inspectJsSnippet = (jsSnippet) => {

@@ -1,49 +1,45 @@
-import PROP_TYPE from './propTypes';
+import PROP_TYPE from './jsPropTypes';
 
-class JsPropBuilder {
-    static bool() {
-        return new JsPropBuilder(PROP_TYPE.BOOLEAN);
+export class JsPropBuilder {
+    static bool(desc) {
+        return new JsPropBuilder(PROP_TYPE.BOOLEAN, desc);
     }
 
-    static func() {
-        return new JsPropBuilder(PROP_TYPE.FUNCTION);
+    static func(desc) {
+        return new JsPropBuilder(PROP_TYPE.FUNCTION, desc);
     }
 
-    static numb() {
-        return new JsPropBuilder(PROP_TYPE.NUMBER);
+    static numb(desc) {
+        return new JsPropBuilder(PROP_TYPE.NUMBER, desc);
     }
 
-    static obj() {
-        return new JsPropBuilder(PROP_TYPE.OBJECT);
+    static obj(desc) {
+        return new JsPropBuilder(PROP_TYPE.OBJECT, desc);
     }
 
-    static str() {
-        return new JsPropBuilder(PROP_TYPE.STRING);
+    static str(desc) {
+        return new JsPropBuilder(PROP_TYPE.STRING, desc);
     }
 
-    static any() {
-        return new JsPropBuilder(PROP_TYPE.ANY);
+    static any(desc) {
+        return new JsPropBuilder(PROP_TYPE.ANY, desc);
     }
 
-    static custom(typeString) {
-        return new JsPropBuilder(typeString);
+    static custom(desc, typeString) {
+        return new JsPropBuilder(typeString, desc);
     }
 
-    constructor(type) {
+    constructor(type, desc = '') {
         // TODO verify type is a string
         this.prop = {
             type,
+            desc,
             isArray: false
         };
     }
 
     name(name) {
         this.prop.name = name;
-        return this;
-    }
-
-    desc(desc) {
-        this.prop.desc = desc;
         return this;
     }
 
@@ -61,5 +57,3 @@ class JsPropBuilder {
         return this.prop;
     }
 }
-
-export default JsPropBuilder;
