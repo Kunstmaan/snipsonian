@@ -11,7 +11,11 @@ class JsSnippetDocBuilder {
 
         this.doc = {
             type: docType,
-            name
+            name,
+            params: [],
+            examples: [],
+            throws: [],
+            parts: []
         };
     }
 

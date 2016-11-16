@@ -2,9 +2,9 @@ import JsSnippetDocBuilder from './snippet/JsSnippetDocBuilder';
 import {buildIfBuilders} from '../builder/buildIfBuilder';
 
 export const group = (groupName) => ({
-    jsSnippets: (...jsSnippetDocs) => ({
+    snippets: (...jsSnippetDocs) => ({
         name: groupName,
-        jsSnippets: buildIfBuilders(jsSnippetDocs)
+        snippets: buildIfBuilders(jsSnippetDocs)
     })
 });
 

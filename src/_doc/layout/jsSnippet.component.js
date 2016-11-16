@@ -2,6 +2,6 @@ import Vue from 'vue';
 
 const template = '';
 
-Vue.component('js-doc', {
+Vue.component('js-snippet', {
     template
 });

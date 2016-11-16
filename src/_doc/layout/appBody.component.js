@@ -1,8 +1,9 @@
 import Vue from 'vue';
+import './snippetsMenu.component';
 
 const template = `
 <div class="doc-app__body">
-    xxxxxxx
+    <snippets-menu></snippets-menu>
 </div>
 `;
 
