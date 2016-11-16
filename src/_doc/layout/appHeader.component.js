@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {VERSIONS, getCurrentVersion, setCurrentVersion} from '../versions';
+import {VERSIONS, getCurrentVersion, setCurrentVersion} from '../../_versions';
 
 const template = `
 <div class="doc-app__header">

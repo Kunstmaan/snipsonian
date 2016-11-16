@@ -1,6 +1,6 @@
 import inspectJsSnippet from './inspectJsSnippet';
 import {addJsDocSnippet} from './jsDocSnippets';
-import {buildIfBuilder, buildIfBuilders} from '../builder/buildIfBuilder';
+import {buildIfBuilder, buildIfBuilders} from '../../builder/buildIfBuilder';
 
 class JsDocBuilder {
     static snippet(jsSnippet) {

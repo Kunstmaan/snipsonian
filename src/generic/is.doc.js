@@ -1,5 +1,5 @@
 import is from './is';
-import {snippet, prop} from '../documentation/document';
+import {snippet, prop} from '../_doc/document';
 
 const isSet = snippet(is.set)
     .desc('Determines if the input is defined and not null.')

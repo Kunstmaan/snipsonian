@@ -1,5 +1,6 @@
 /src/**/*.spec.js
 /src/**/*.doc.js
+/src/_*
 /doc
 *.html
 .babelrc

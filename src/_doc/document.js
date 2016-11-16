@@ -1,5 +1,5 @@
-import JsDocBuilder from './JsDocBuilder';
-import JsPropBuilder from './JsPropBuilder';
+import JsDocBuilder from './snippet/JsDocBuilder';
+import JsPropBuilder from './prop/JsPropBuilder';
 
 export const snippet = (jsSnippet) =>
     JsDocBuilder.snippet(jsSnippet);

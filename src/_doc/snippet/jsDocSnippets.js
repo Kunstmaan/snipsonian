@@ -1,4 +1,4 @@
-import {buildIfBuilder} from '../builder/buildIfBuilder';
+import {buildIfBuilder} from '../../builder/buildIfBuilder';
 
 const jsDocSnippets = [];
 

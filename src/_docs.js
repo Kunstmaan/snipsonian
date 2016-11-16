@@ -1,4 +1,4 @@
 import './generic/is.doc';
-import {getJsDocSnippets} from './documentation/jsDocSnippets';
+import {getJsDocSnippets} from './_doc/snippet/jsDocSnippets';
 
 console.log('JsDocSnippets', getJsDocSnippets());
