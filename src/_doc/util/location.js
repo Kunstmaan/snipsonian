@@ -1,5 +1,5 @@
 import getNameIfDefined from './getNameIfDefined';
-import is from '../../generic/is';
+import {is} from '../../index';
 
 export const getSnippetLocation = (group, snippet, part) =>
     getLocation(

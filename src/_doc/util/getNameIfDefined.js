@@ -1,4 +1,4 @@
-import is from '../../generic/is';
+import {is} from '../../index';
 
 const getNameIfDefined = (entity) => {
     if (is.set(entity)) {

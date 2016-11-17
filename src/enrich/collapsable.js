@@ -1,4 +1,4 @@
-import is from '../generic/is';
+import {is} from '../index';
 
 const collapsable = (entity, isCollapsed = false) => {
     if (is.array(entity)) {

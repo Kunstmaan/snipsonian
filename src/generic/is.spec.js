@@ -1,4 +1,4 @@
-import is from './is';
+import {is} from './is';
 
 describe('is:', () => {
     describe('is.undefined()', () => {

@@ -1,4 +1,4 @@
-import is from './is';
+import {is} from './is';
 import {snippet, prop} from '../_doc/documentJs';
 
 const isSet = snippet(is.set)

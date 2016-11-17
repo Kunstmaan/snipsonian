@@ -1,4 +1,4 @@
-import is from '../generic/is';
+import {is} from '../index';
 
 export const buildIfBuilder = (builder) => {
     if (is.builder(builder)) {
