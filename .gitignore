@@ -1,4 +1,5 @@
 /node_modules
+/src/_doc/css
 
 .idea
 .DS_Store

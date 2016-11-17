@@ -12,10 +12,10 @@ const template = `
 </div>
 `;
 
-const app = new Vue({
-    el: '#app',
+const docApp = new Vue({
+    el: '#docApp',
     router,
     template
 });
 
-export default app;
+export default docApp;
