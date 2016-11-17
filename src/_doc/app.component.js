@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import router from './router/appRouter';
+import router from './router/router';
 import './layout/appHeader.component';
 import './layout/appBody.component';
 import './layout/appFooter.component';

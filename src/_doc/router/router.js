@@ -1,11 +1,19 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import '../snippet/jsSnippets.component';
+import {scrollToSnippet} from '../util/navId';
 
 Vue.use(VueRouter);
 
 const allSnippets = {
     template: '<js-snippets></js-snippets>',
+    mounted() {
+        scrollToSnippet(
+            decorateAsObjWithName(this.$route.params.groupName),
+            decorateAsObjWithName(this.$route.params.snippetName),
+            decorateAsObjWithName(this.$route.params.partName)
+        );
+    },
     watch: {
         $route(to) {
             console.log('Route changed', {
@@ -33,3 +41,7 @@ const router = new VueRouter({
 });
 
 export default router;
+
+function decorateAsObjWithName(name) {
+    return {name};
+}

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import {groups} from '../../_docs';
-import router from '../router/appRouter';
+import router from '../router/router';
 import {getSnippetLocation} from '../util/location';
 import {scrollToSnippet} from '../util/navId';
 
