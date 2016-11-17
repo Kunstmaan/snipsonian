@@ -1,3 +1,3 @@
 import './_docs';
 
-import './_doc/layout/app.component';
+import './_doc/app.component';

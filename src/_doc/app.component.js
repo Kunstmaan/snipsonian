@@ -1,7 +1,8 @@
 import Vue from 'vue';
-import './appHeader.component';
-import './appBody.component';
-import './appFooter.component';
+import router from './router/appRouter';
+import './layout/appHeader.component';
+import './layout/appBody.component';
+import './layout/appFooter.component';
 
 const template = `
 <div class="doc-app">
@@ -13,6 +14,7 @@ const template = `
 
 const app = new Vue({
     el: '#app',
+    router,
     template
 });
 
