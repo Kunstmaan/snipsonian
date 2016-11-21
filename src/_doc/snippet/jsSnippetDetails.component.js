@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import '../util/displayCode.component';
 
 const template = `
 <div class="js-snippet-details">
@@ -22,7 +23,7 @@ const template = `
     
     <div class="js-snippet__examples">
         <div v-for="example in snippet.examples">
-            <pre><code>{{ example }}</code></pre>
+            <display-code :code="example" code-lang="javascript"></display-code>
         </div>
     </div>
 </div>

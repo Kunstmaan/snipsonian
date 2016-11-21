@@ -1,5 +1,6 @@
 import inspectJsSnippet from './inspectJsSnippet';
 import {buildIfBuilder, buildIfBuilders} from '../../builder/buildIfBuilder';
+import beautifyJsCode from '../util/beautifyJsCode';
 
 class JsSnippetDocBuilder {
     static jsSnippetDoc(jsSnippet) {
@@ -50,7 +51,7 @@ class JsSnippetDocBuilder {
     }
 
     examples(...examples) {
-        this.doc.examples = examples.map((example) => example.toString());
+        this.doc.examples = examples.map((example) => beautifyJsCode(example));
         return this;
     }
 

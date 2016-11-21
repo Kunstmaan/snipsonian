@@ -10,8 +10,8 @@ const isSet = snippet(is.set)
         prop.bool('True if input is defined and not null, false otherwise.')
     )
     .examples(
-        (optionalInut) => {
-            if (is.set(optionalInut)) {
+        () => {
+            if (is.set(prop)) {
                 // do something
             } else {
                 // do something else
