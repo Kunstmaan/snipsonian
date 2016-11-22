@@ -30,9 +30,21 @@
         return decodeURIComponent(keyValue[2].replace(/\+/g, ' '));
     }
 
+    function isLatestVersion(version) {
+        if (version === null || version.length === 0) {
+            return true;
+        }
+
+        if (version === 'latest') {
+            return true;
+        }
+
+        return false;
+    }
+
     var version = getUrlParam('v');
 
-    var mainJsToImport = (version === null || version.length === 0) ? 'src/_docApp.js' : 'prev_versions/' + version + '/_docApp.js';
+    var mainJsToImport = isLatestVersion(version) ? 'src/_docApp.js' : 'prev_versions/' + version + '/_docApp.js';
 
     SystemJS.import(mainJsToImport);
 </script>

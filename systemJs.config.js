@@ -24,6 +24,10 @@ System.config({
         'vue-router': 'node_modules/vue-router/dist/vue-router.js',
         'highlight.js': 'node_modules/highlight.js/lib/index.js',
         'js-beautify': 'node_modules/js-beautify/js/index.js',
+        'query-string': 'node_modules/query-string/index.js',
+        // deps of query-string
+        'strict-uri-encode': 'node_modules/strict-uri-encode/index.js',
+        'object-assign': 'node_modules/object-assign/index.js',
         // local package
         'doc-package': 'src/_doc'
     }

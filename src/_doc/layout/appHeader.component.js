@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import {VERSIONS, getCurrentVersion, setCurrentVersion} from '../../_versions';
+import {getVersions, getCurrentVersion, setCurrentVersion} from '../../_versions';
+import {getParsedUrlParams, setUrlParams} from '../util/url';
 
 const template = `
 <div class="container-fluid doc-app__header">
@@ -22,15 +23,26 @@ const template = `
 Vue.component('app-header', {
     data() {
         return {
-            versions: VERSIONS,
+            versions: undefined,
             currentVersion: undefined
         };
     },
     created() {
+        this.versions = getVersions();
         this.currentVersion = getCurrentVersion();
     },
     updated() {
         setCurrentVersion(this.currentVersion);
+
+        refreshPageWithNewVersion(this.currentVersion);
     },
     template
 });
+
+function refreshPageWithNewVersion(newVersion) {
+    const parsedUrlParams = getParsedUrlParams();
+
+    parsedUrlParams.v = newVersion;
+
+    setUrlParams(parsedUrlParams);
+}
