@@ -23,6 +23,8 @@ System.config({
         vue: 'node_modules/vue/dist/vue.js',
         'vue-router': 'node_modules/vue-router/dist/vue-router.js',
         'highlight.js': 'node_modules/highlight.js/lib/index.js',
-        'js-beautify': 'node_modules/js-beautify/js/index.js'
+        'js-beautify': 'node_modules/js-beautify/js/index.js',
+        // local package
+        'doc-package': 'src/_doc'
     }
 });

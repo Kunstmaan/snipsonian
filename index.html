@@ -7,7 +7,7 @@
     <title>Kunstmaan - SnippetJS</title>
 
     <link rel="stylesheet" href="./node_modules/highlight.js/styles/dracula.css">
-    <link rel="stylesheet" href="./src/_doc/css/docApp.css">
+    <link rel="stylesheet" href="./assets/css/docApp.css">
 </head>
 <body>
 
@@ -16,7 +16,25 @@
 <script src="./node_modules/systemjs/dist/system.js"></script>
 <script src="./systemJs.config.js"></script>
 <script>
-    SystemJS.import('src/_docApp.js');
+    function getUrlParam(paramKey) {
+        var paramKeyRegex = new RegExp('[?&]' + paramKey + '(=([^&#]*)|&|#|$)');
+
+        var keyValue = paramKeyRegex.exec(window.location.href);
+        if (!keyValue) {
+            return null
+        };
+        if (!keyValue[2]) {
+            return '';
+        }
+
+        return decodeURIComponent(keyValue[2].replace(/\+/g, ' '));
+    }
+
+    var version = getUrlParam('v');
+
+    var mainJsToImport = (version === null || version.length === 0) ? 'src/_docApp.js' : 'prev_versions/' + version + '/_docApp.js';
+
+    SystemJS.import(mainJsToImport);
 </script>
 
 </body>

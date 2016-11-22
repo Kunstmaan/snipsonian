@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {groups} from '../../_docs';
+import {getRegisteredGroups} from '../../_docRef';
 import router from '../router/router';
 import {getSnippetLocation} from '../util/location';
 import {scrollToSnippet} from '../util/navId';
@@ -25,7 +25,7 @@ const template = `
 Vue.component('snippets-menu', {
     data() {
         return {
-            groups
+            groups: getRegisteredGroups()
         };
     },
     methods: {

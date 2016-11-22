@@ -1,9 +1,9 @@
-import {group} from './_doc/documentJs';
+import {group, registerGroups} from './_docRef';
 
 import isDoc from './generic/is.doc';
 
-export const groups = [
+registerGroups([
     group('generic').snippets(
         isDoc
     )
-];
+]);

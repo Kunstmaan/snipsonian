@@ -14,3 +14,12 @@ export const snippet = (jsSnippet) =>
     JsSnippetDocBuilder.jsSnippetDoc(jsSnippet);
 
 export {JsPropBuilder as prop} from './prop/JsPropBuilder';
+
+let registeredGroups = [];
+
+export const registerGroups = (groups) => {
+    registeredGroups = groups;
+};
+
+export const getRegisteredGroups = () =>
+    registeredGroups;

@@ -1,8 +1,8 @@
-/assets/scss
+/assets
+/prev_versions
 /src/**/*.spec.js
 /src/**/*.doc.js
 /src/_*
-/doc
 *.html
 .babelrc
 .eslintrc

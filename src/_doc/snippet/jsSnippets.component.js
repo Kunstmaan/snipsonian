@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import '../util/navAnchor.component';
 import './jsSnippet.component';
-import {groups} from '../../_docs';
+import {getRegisteredGroups} from '../../_docRef';
 
 const template = `
 <div>
@@ -20,7 +20,7 @@ const template = `
 Vue.component('js-snippets', {
     data() {
         return {
-            groups
+            groups: getRegisteredGroups()
         };
     },
     template

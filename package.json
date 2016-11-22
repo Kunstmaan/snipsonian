@@ -4,10 +4,10 @@
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
-    "lint:js": "eslint src/ doc/",
+    "lint:js": "eslint src/",
     "unit": "karma start",
     "test": "npm run lint:js && npm run unit",
-    "sass": "node-sass assets/scss/docApp.scss src/_doc/css/docApp.css",
+    "sass": "node-sass assets/scss/docApp.scss assets/css/docApp.css",
     "build": "npm run test && npm run sass",
     "preserve": "npm run sass  # autoruns before the serve task",
     "serve": "browser-sync start --server './' --files 'src'",
