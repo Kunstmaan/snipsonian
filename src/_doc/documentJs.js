@@ -1,12 +1,12 @@
 import JsSnippetDocBuilder from './snippet/JsSnippetDocBuilder';
-import {buildIfBuilders} from '../builder/buildIfBuilder';
+import buildIfBuilder from '../builder/buildIfBuilder';
 import collapsable from '../enrich/collapsable';
 
 export const group = (groupName) => ({
     snippets: (...jsSnippetDocs) =>
         collapsable({
             name: groupName,
-            snippets: collapsable(buildIfBuilders(jsSnippetDocs))
+            snippets: collapsable(buildIfBuilder(jsSnippetDocs))
         })
 });
 

@@ -1,12 +1,19 @@
 import {is} from '../index';
 
-export const buildIfBuilder = (builder) => {
-    if (is.builder(builder)) {
-        return builder.build();
+const buildIfBuilder = (entity) => {
+    if (is.array(entity)) {
+        return entity.map(buildSingleEntityIfBuilder);
     }
 
-    return builder;
+    return buildSingleEntityIfBuilder(entity);
 };
 
-export const buildIfBuilders = (builders) =>
-    builders.map(buildIfBuilder);
+export default buildIfBuilder;
+
+function buildSingleEntityIfBuilder(entity) {
+    if (is.builder(entity)) {
+        return entity.build();
+    }
+
+    return entity;
+}

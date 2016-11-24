@@ -1,5 +1,5 @@
 import inspectJsSnippet from './inspectJsSnippet';
-import {buildIfBuilder, buildIfBuilders} from '../../builder/buildIfBuilder';
+import buildIfBuilder from '../../builder/buildIfBuilder';
 import beautifyJsCode from '../util/beautifyJsCode';
 
 class JsSnippetDocBuilder {
@@ -36,7 +36,7 @@ class JsSnippetDocBuilder {
     }
 
     params(...paramJsPropBuilders) {
-        this.doc.params = buildIfBuilders(paramJsPropBuilders);
+        this.doc.params = buildIfBuilder(paramJsPropBuilders);
         return this;
     }
 
@@ -56,7 +56,7 @@ class JsSnippetDocBuilder {
     }
 
     parts(...partsJsSnippetDocBuilder) {
-        this.doc.parts = buildIfBuilders(partsJsSnippetDocBuilder);
+        this.doc.parts = buildIfBuilder(partsJsSnippetDocBuilder);
         return this;
     }
 
