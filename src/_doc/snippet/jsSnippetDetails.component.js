@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import '../util/displayCode.component';
+import beautifyJsCode from '../util/beautifyJsCode';
 
 const template = `
 <div class="js-snippet-details">
@@ -22,7 +23,7 @@ const template = `
     </div>
     
     <div class="js-snippet__examples">
-        <div v-for="example in snippet.examples">
+        <div v-for="example in beautifiedExamples">
             <display-code :code="example" code-lang="javascript"></display-code>
         </div>
     </div>
@@ -31,5 +32,12 @@ const template = `
 
 Vue.component('js-snippet-details', {
     props: ['snippet'],
+    created() {
+        this.beautifiedExamples = beautifyExamples(this.snippet.examples);
+    },
     template
 });
+
+function beautifyExamples(examples) {
+    return examples.map((example) => beautifyJsCode(example));
+}
