@@ -15,7 +15,8 @@ export const snippet = (jsSnippet) =>
             params: [],
             examples: [],
             throws: [],
-            parts: []
+            parts: [],
+            authors: []
         };
 
         target.build = () => target.doc;
@@ -62,6 +63,12 @@ export const examples = (...exampleFuncs) =>
 export const parts = (...partSnippetDocs) =>
     function decorate(target) {
         target.doc.parts = buildIfBuilder(partSnippetDocs);
+        return target;
+    };
+
+export const authors = (...authorNames) =>
+    function decorate(target) {
+        target.doc.authors = authorNames;
         return target;
     };
 

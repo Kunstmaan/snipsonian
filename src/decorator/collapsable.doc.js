@@ -1,5 +1,5 @@
 import collapsable from './collapsable';
-import {decorate, snippet, desc, params, returns, examples, prop} from '../_docRef';
+import {decorate, snippet, desc, params, returns, examples, authors, prop} from '../_docRef';
 
 class collapsableDoc {}
 decorate(collapsableDoc).with(
@@ -33,7 +33,8 @@ decorate(collapsableDoc).with(
             secondBlock.toggleCollapse();
             // isCollapsed => false
         }
-    )
+    ),
+    authors('Ben')
 );
 
 export default collapsableDoc;

@@ -1,5 +1,5 @@
 import {is} from './is';
-import {decorate, snippet, desc, params, returns, examples, parts, prop} from '../_docRef';
+import {decorate, snippet, desc, params, returns, examples, parts, authors, prop} from '../_docRef';
 
 class set {}
 decorate(set).with(
@@ -27,7 +27,8 @@ decorate(isDoc).with(
         'if their input val is as requested, false otherwise.'),
     parts(
         set
-    )
+    ),
+    authors('Ben')
 );
 
 export default isDoc;
