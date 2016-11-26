@@ -1,5 +1,4 @@
-import inspectJsSnippet from './inspectJsSnippet';
-import buildIfBuilder from '../../builder/buildIfBuilder';
+import * as jsSnippetDecorators from './jsSnippetDocDecorators';
 
 class JsSnippetDocBuilder {
     static jsSnippetDoc(jsSnippet) {
@@ -7,56 +6,41 @@ class JsSnippetDocBuilder {
     }
 
     constructor(jsSnippet) {
-        const {docType, name} = inspectJsSnippet(jsSnippet);
-
-        this.doc = {
-            code: jsSnippet,
-            type: docType,
-            name,
-            params: [],
-            examples: [],
-            throws: [],
-            parts: []
-        };
+        jsSnippetDecorators.snippet(jsSnippet)(this);
     }
 
     type(type) {
-        this.doc.type = type;
-        return this;
-    }
-
-    name(name) {
-        this.doc.name = name;
+        jsSnippetDecorators.type(type)(this);
         return this;
     }
 
     desc(description) {
-        this.doc.desc = description;
+        jsSnippetDecorators.desc(description)(this);
         return this;
     }
 
     params(...paramJsPropBuilders) {
-        this.doc.params = buildIfBuilder(paramJsPropBuilders);
+        jsSnippetDecorators.params(...paramJsPropBuilders)(this);
         return this;
     }
 
-    return(returnJsPropBuilder) {
-        this.doc.return = buildIfBuilder(returnJsPropBuilder);
+    returns(returnJsPropBuilder) {
+        jsSnippetDecorators.returns(returnJsPropBuilder)(this);
         return this;
     }
 
-    throws(...throws) {
-        this.doc.throws = throws;
+    throws(...potentialErrors) {
+        jsSnippetDecorators.throws(...potentialErrors)(this);
         return this;
     }
 
-    examples(...examples) {
-        this.doc.examples = examples;
+    examples(...exampleFuncs) {
+        jsSnippetDecorators.examples(...exampleFuncs)(this);
         return this;
     }
 
     parts(...partsJsSnippetDocBuilder) {
-        this.doc.parts = buildIfBuilder(partsJsSnippetDocBuilder);
+        jsSnippetDecorators.parts(...partsJsSnippetDocBuilder)(this);
         return this;
     }
 

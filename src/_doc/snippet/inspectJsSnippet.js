@@ -3,7 +3,7 @@ import {is} from '../../index';
 
 const inspectJsSnippet = (jsSnippet) => {
     const docType = determineDocType(jsSnippet);
-    const name = determineName(jsSnippet, docType);
+    const name = determineName(jsSnippet);
 
     return {
         docType,
@@ -38,11 +38,13 @@ function determineDocType(jsSnippet) {
         return DOC_TYPE.OBJECT;
     }
 
+    // TODO DOC_TYPE.CLASS (via toString / constructor / ... ?)
+
     return undefined;
 }
 
-function determineName(jsSnippet, docType) {
-    if (docType === DOC_TYPE.FUNCTION) {
+function determineName(jsSnippet) {
+    if (is.set(jsSnippet.name)) {
         return jsSnippet.name;
     }
 

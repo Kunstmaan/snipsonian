@@ -14,7 +14,7 @@ const template = `
         </div>
     </div>
     
-    <div class="js-snippet__return">{{ snippet.return }}</div>
+    <div class="js-snippet__return">{{ snippet.returns }}</div>
     
     <div class="js-snippet__throws">
         <div v-for="canThrow in snippet.throws">
