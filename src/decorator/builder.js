@@ -15,6 +15,8 @@ const builder = (initialBuildParams = {}, buildStateName = '_builder') =>
             return target;
         };
 
+        target.getBuildParam = (key) => target[buildStateName][key];
+
         target.build = () => target[buildStateName];
 
         return target;

@@ -9,8 +9,6 @@ export const group = (groupName) => ({
         })
 });
 
-export {JsPropBuilder as prop} from './prop/JsPropBuilder';
-
 let registeredGroups = [];
 
 export const registerGroups = (groups) => {

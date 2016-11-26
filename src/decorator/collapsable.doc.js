@@ -1,13 +1,21 @@
 import collapsable from './collapsable';
-import {decorate, snippet, desc, params, returns, examples, authors, prop} from '../_docRef';
+import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class collapsableDoc {}
 decorate(collapsableDoc).with(
     snippet(collapsable),
     desc('Decorator that makes the target collapsable by adding a isCollapsed boolean variable ' +
         'and a toggleCollapse to togle the isCollapsed value.'),
-    params(prop.bool('Optional. Initial value of isCollapsed. Default false.').name('initialIsCollapsed')),
-    returns(prop.func('Function that will do the decoration of the target input.')),
+    param({
+        type: JS_DOC_TYPE.BOOLEAN,
+        desc: 'Optional. Initial value of isCollapsed. Default false.',
+        name: 'initialIsCollapsed',
+        isOptional: true
+    }),
+    returns({
+        type: JS_DOC_TYPE.FUNCTION,
+        desc: 'Function that will do the decoration of the target input.'
+    }),
     examples(
         () => {
             const firstBlock = {

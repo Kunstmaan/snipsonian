@@ -1,4 +1,4 @@
-const DOC_TYPE = {
+export const JS_DOC_TYPE = {
     ARRAY: 'array',
     BOOLEAN: 'boolean',
     CLASS: 'class',
@@ -6,7 +6,6 @@ const DOC_TYPE = {
     // GENERATOR: 'generator',
     NUMBER: 'number',
     OBJECT: 'Object',
-    STRING: 'string'
+    STRING: 'string',
+    ANY: '?'
 };
-
-export default DOC_TYPE;

@@ -1,17 +1,22 @@
 import {is} from './is';
-import {decorate, snippet, desc, params, returns, examples, parts, authors, prop} from '../_docRef';
+import {decorate, snippet, desc, param, returns, examples, parts, authors, JS_DOC_TYPE} from '../_docRef';
 
 class set {}
 decorate(set).with(
     snippet(is.set),
     desc('Determines if the input is defined and not null.'),
-    params(
-        prop.any('The input to be checked.').name('val')
-    ),
-    returns(prop.bool('True if input is defined and not null, false otherwise.')),
+    param({
+        type: JS_DOC_TYPE.ANY,
+        desc: 'The input to be checked.',
+        name: 'val'
+    }),
+    returns({
+        type: JS_DOC_TYPE.BOOLEAN,
+        desc: 'True if input is defined and not null, false otherwise.'
+    }),
     examples(
         () => {
-            if (is.set(prop)) {
+            if (is.set(param)) {
                 // do something
             } else {
                 // do something else
