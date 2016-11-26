@@ -16,13 +16,13 @@ const template = `
         <div class="snippets-menu__group__snippets" v-show="!group.isCollapsed">
             <div class="snippets-menu__group__snippet" v-for="snippet in group.snippets">
                 <div class="row">
-                    <toggle-collapse :collapsable="snippet" class="col-sm-2"></toggle-collapse>
+                    <toggle-collapse :collapsable="snippet" class="col-sm-2" v-if="snippet.parts.length > 0"></toggle-collapse>
                     <div class="snippets-menu__group__snippet__name col-sm-10" v-on:click="showSnippet(group, snippet)">{{ snippet.name }}</div>
                 </div>
                 
                 <div class="snippets-menu__group__snippet_parts" v-show="!snippet.isCollapsed">
                     <div class="row">
-                        <div class="snippets-menu__group__snippet_part col-sm-10 offset-sm-2" v-for="part in snippet.parts" v-on:click="showSnippet(group, snippet, part)">{{ part.name }}</div>
+                        <div class="snippets-menu__group__snippet_part col-sm-10" v-for="part in snippet.parts" v-on:click="showSnippet(group, snippet, part)">{{ part.name }}</div>
                     </div>
                 </div>
             </div>
