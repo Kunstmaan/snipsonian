@@ -4,8 +4,4 @@ export {group, prop, registerGroups, getRegisteredGroups} from 'doc-package/docu
 export {snippet, type, desc, params, returns, throws, examples, parts}
     from 'doc-package/snippet/jsSnippetDocDecorators';
 
-export const decorate = (classToDecorate) => ({
-    with: (...decorators) => {
-        decorators.forEach((decorator) => decorator(classToDecorate));
-    }
-});
+export {decorate} from './decorator/decorateWith';
