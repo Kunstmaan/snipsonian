@@ -1,11 +1,11 @@
 import buildIfBuilder from '../builder/buildIfBuilder';
-import collapsable from '../enrich/collapsable';
+import collapsable from '../decorator/collapsable';
 
 export const group = (groupName) => ({
     snippets: (...jsSnippetDocs) =>
-        collapsable({
+        collapsable()({
             name: groupName,
-            snippets: collapsable(buildIfBuilder(jsSnippetDocs))
+            snippets: collapsable()(buildIfBuilder(jsSnippetDocs))
         })
 });
 

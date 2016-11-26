@@ -1,5 +1,5 @@
-export const decorate = (entiryToDecorate) => ({
+export const decorate = (target) => ({
     with: (...decorators) => {
-        decorators.forEach((decorator) => decorator(entiryToDecorate));
+        decorators.forEach((decorator) => decorator(target));
     }
 });
