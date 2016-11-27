@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import './jsProp.component';
 import '../util/displayCode.component';
 import beautifyJsCode from '../util/beautifyJsCode';
 import {is} from '../../index';
@@ -12,12 +13,14 @@ const template = `
     <div v-if="snippet.params.length > 0" class="js-snippet__subtitle">Param(s):</div>
     <div class="js-snippet__params">
         <div v-for="param in snippet.params">
-            {{ param }}
+            <js-prop :prop="param"></js-prop>
         </div>
     </div>
     
     <div v-if="snippet.returns" class="js-snippet__subtitle">Returns:</div>
-    <div class="js-snippet__returns">{{ snippet.returns }}</div>
+    <div v-if="snippet.returns" class="js-snippet__returns">
+        <js-prop :prop="snippet.returns"></js-prop>
+    </div>
     
     <div v-if="snippet.throws.length > 0" class="js-snippet__subtitle">Can throw:</div>
     <div class="js-snippet__throws">
