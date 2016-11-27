@@ -71,9 +71,16 @@ export const desc = (description) =>
         return target.with('desc', description);
     };
 
-export const throws = (...potentialErrors) =>
+export const canThrow = ({
+    error = '',
+    when = ''
+}) =>
     function decorate(target) {
-        return target.with('throws', potentialErrors);
+        target.getBuildParam('throws').push({
+            error,
+            when
+        });
+        return target;
     };
 
 export const examples = (...exampleFuncs) =>
