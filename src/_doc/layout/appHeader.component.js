@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import {getVersions, getCurrentVersion, setCurrentVersion} from '../../_versions';
+import {getVersions, getCurrentVersion, setCurrentVersion} from '../../_docRef';
 import {getParsedUrlParams, setUrlParams} from '../util/url';
 
 const template = `

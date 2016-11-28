@@ -1,5 +1,5 @@
-import {getParsedUrlParams} from './_doc/util/url';
-import {is} from './index';
+import {getParsedUrlParams} from '../_doc/util/url';
+import {is} from '../index';
 
 const PREV_VERSIONS = [
     '0.1.0'

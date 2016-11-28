@@ -28,7 +28,8 @@ System.config({
         // deps of query-string
         'strict-uri-encode': 'node_modules/strict-uri-encode/index.js',
         'object-assign': 'node_modules/object-assign/index.js',
-        // local package
+        // local package(s)
+        'config-package': 'src/_config',
         'doc-package': 'src/_doc'
     }
 });

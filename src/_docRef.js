@@ -7,3 +7,6 @@ export {snippet, type, desc, param, returns, canThrow, examples, parts, authors}
 export {decorate} from './decorator/decorateWith';
 
 export {JS_DOC_TYPE} from 'doc-package/snippet/jsDocTypes';
+
+export {getVersions, getCurrentVersion, setCurrentVersion} from 'config-package/versions';
+export {SETTING} from 'config-package/settings';

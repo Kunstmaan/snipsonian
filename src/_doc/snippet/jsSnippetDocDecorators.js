@@ -3,6 +3,7 @@
 import inspectJsSnippet from './inspectJsSnippet';
 import {JS_DOC_TYPE} from './jsDocTypes';
 import builder from '../../decorator/builder';
+import addProp from '../../decorator/addProp';
 import buildIfBuilder from '../../builder/buildIfBuilder';
 import {is} from '../../index';
 
@@ -90,9 +91,8 @@ export const examples = (...exampleFuncs) =>
 
 export const parts = (...partSnippetDocs) =>
     function decorate(target) {
-        return target.with('parts', enrichEachPartWithParentName(
-            buildIfBuilder(partSnippetDocs),
-            target.getBuildParam('name')
+        return target.with('parts', addProp('parentName', target.getBuildParam('name'))(
+            buildIfBuilder(partSnippetDocs)
         ));
     };
 
@@ -107,11 +107,4 @@ function getNameOfClass(clazz) {
 
 function removeDocIfAtEndOfName(docClassName) {
     return docClassName.replace(/Doc$/, '');
-}
-
-function enrichEachPartWithParentName(partsToEnrich, parentName) {
-    partsToEnrich.forEach((part) => {
-        part.parentName = parentName;
-    });
-    return partsToEnrich;
 }
