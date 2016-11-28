@@ -90,7 +90,10 @@ export const examples = (...exampleFuncs) =>
 
 export const parts = (...partSnippetDocs) =>
     function decorate(target) {
-        return target.with('parts', buildIfBuilder(partSnippetDocs));
+        return target.with('parts', enrichEachPartWithParentName(
+            buildIfBuilder(partSnippetDocs),
+            target.getBuildParam('name')
+        ));
     };
 
 export const authors = (...authorNames) =>
@@ -104,4 +107,11 @@ function getNameOfClass(clazz) {
 
 function removeDocIfAtEndOfName(docClassName) {
     return docClassName.replace(/Doc$/, '');
+}
+
+function enrichEachPartWithParentName(partsToEnrich, parentName) {
+    partsToEnrich.forEach((part) => {
+        part.parentName = parentName;
+    });
+    return partsToEnrich;
 }

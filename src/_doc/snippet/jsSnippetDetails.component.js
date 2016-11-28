@@ -6,6 +6,8 @@ import {is} from '../../index';
 
 const template = `
 <div class="js-snippet-details">
+    <h4 class="js-snippet__name">{{ snippetName }}</h4>
+
     <div class="js-snippet__type">{{ snippet.type }}</div>
     
     <p class="js-snippet__desc">{{ snippet.desc }}</p>
@@ -44,11 +46,19 @@ const template = `
 Vue.component('js-snippet-details', {
     props: ['snippet'],
     created() {
+        this.snippetName = getSnippetName(this.snippet);
         this.beautifiedExamples = beautifyExamples(this.snippet.examples);
         this.concatenatedAuthors = concatenateAuthors(this.snippet.authors);
     },
     template
 });
+
+function getSnippetName(snippet) {
+    if (is.set(snippet.parentName)) {
+        return `${snippet.parentName}.${snippet.name}`;
+    }
+    return snippet.name;
+}
 
 function beautifyExamples(examples) {
     if (is.undefined(examples)) {
