@@ -1,11 +1,14 @@
 import collapsable from './collapsable';
+import {is} from '../index';
 
 describe('collapsable()', () => {
     it('follows the decorator pattern = returns a decorate function that in turn expects the target as input', () => {
+        const actual = collapsable();
 
+        expect(is.function(actual)).toEqual(true);
     });
 
-    it('enriches the inout entity (= target) to be collapsible', () => {
+    it('enriches the input entity (= target) to be collapsible', () => {
         const someBlock = {
             title: 'Block that will be collapsable',
             parts: []

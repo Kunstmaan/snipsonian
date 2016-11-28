@@ -4,22 +4,30 @@ import {is} from '../index';
 
 const builder = (initialBuildParams = {}, buildStateName = '_builder') =>
     function decorate(target) {
-        if (is.undefined(target[buildStateName])) {
-            target[buildStateName] = initialBuildParams;
-        } else {
-            Object.assign(target[buildStateName], initialBuildParams);
+        if (is.array(target)) {
+            return target.map((entity) => enrichToBeBuilder(entity, initialBuildParams, buildStateName));
         }
 
-        target.with = (key, val) => {
-            target[buildStateName][key] = val;
-            return target;
-        };
-
-        target.getBuildParam = (key) => target[buildStateName][key];
-
-        target.build = () => target[buildStateName];
-
-        return target;
+        return enrichToBeBuilder(target, initialBuildParams, buildStateName);
     };
 
 export default builder;
+
+function enrichToBeBuilder(target, initialBuildParams, buildStateName) {
+    if (is.undefined(target[buildStateName])) {
+        target[buildStateName] = initialBuildParams;
+    } else {
+        Object.assign(target[buildStateName], initialBuildParams);
+    }
+
+    target.with = (key, val) => {
+        target[buildStateName][key] = val;
+        return target;
+    };
+
+    target.getBuildParam = (key) => target[buildStateName][key];
+
+    target.build = () => target[buildStateName];
+
+    return target;
+}
