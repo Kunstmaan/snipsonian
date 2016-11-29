@@ -2,7 +2,7 @@ import collapsable from './collapsable';
 import {is} from '../index';
 
 describe('collapsable()', () => {
-    it('follows the decorator pattern = returns a decorate function that in turn expects the target as input', () => {
+    it('follows the decorator pattern : returns a decorate function that in turn expects the target as input', () => {
         const actual = collapsable();
 
         expect(is.function(actual)).toEqual(true);

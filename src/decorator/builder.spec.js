@@ -2,7 +2,7 @@ import builder from './builder';
 import {is} from '../index';
 
 describe('builder()', () => {
-    it('follows the decorator pattern = returns a decorate function that in turn expects the target as input', () => {
+    it('follows the decorator pattern : returns a decorate function that in turn expects the target as input', () => {
         const actual = builder();
 
         expect(is.function(actual)).toEqual(true);

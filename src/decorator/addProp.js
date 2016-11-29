@@ -1,7 +1,9 @@
-import {is} from '../index';
+import {is, assert} from '../index';
 
 const addProp = (propName, propValue) =>
     function decorate(target) {
+        assert(propName, is.set, 'Required input argument \'propName\' is missing.');
+
         if (is.array(target)) {
             return target.map((entity) => enrichWithProp(entity, propName, propValue));
         }

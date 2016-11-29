@@ -4,3 +4,4 @@
  */
 
 export {is} from './generic/is';
+export {assert} from './generic/assert';
