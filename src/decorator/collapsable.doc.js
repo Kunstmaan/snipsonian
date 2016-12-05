@@ -4,8 +4,8 @@ import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE}
 class collapsableDoc {}
 decorate(collapsableDoc).with(
     snippet(collapsable),
-    desc('Decorator that makes the target collapsable by adding a isCollapsed boolean variable ' +
-        'and a toggleCollapse to togle the isCollapsed value.'),
+    desc('Decorator that makes the target (or an array of targets) collapsable ' +
+        'by adding a isCollapsed boolean variable and a toggleCollapse to toggle the isCollapsed value.'),
     param({
         type: JS_DOC_TYPE.BOOLEAN,
         desc: 'Optional. Initial value of isCollapsed. Default false.',
@@ -14,7 +14,8 @@ decorate(collapsableDoc).with(
     }),
     returns({
         type: JS_DOC_TYPE.FUNCTION,
-        desc: 'Function that will do the decoration of the target input.'
+        desc: 'Function that will do the decoration of the target input. This input can be a single target, ' +
+        'or an array of targets (in which case all targets will be made collapsable).'
     }),
     examples(
         () => {
