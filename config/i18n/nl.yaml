@@ -1,0 +1,6 @@
+# NL
+
+test:
+  label: test waarde van yaml
+  in:
+    md: vertaald in markdown

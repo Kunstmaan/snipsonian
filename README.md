@@ -15,6 +15,18 @@ WIP
 * npm run serve : runs a server (documentation pages) with live reloading
 * npm run dev : runs the 'serve' task + watches in parallel for changes to re-trigger the 'test' task
 
+## Gatsby
+
+The documentation site is using Gatsby.
+
+Some gatsby specials:
+* wrapRootComponentWithReduxAndIntlProvider (gatsby-browser.js & gatsby-ssr.js)
+* i18n (react-intl) : SSR sets the default lang (en) and when loaded on clientside - 
+and if there is already a localStorage - the lang can be changed according to the user's 
+previous language.
+* reactdown so that we can do react (e.g. FormattedMessage for i18n) in markdown (.md) 
+files (gatsby-node.js & .reactdownrc & wrappers/md.js)
+
 ## License
 
 The ISC License
