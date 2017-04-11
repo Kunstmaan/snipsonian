@@ -11,6 +11,7 @@
     "deploy": "gatsby build --prefix-links && gh-pages -d public"
   },
   "dependencies": {
+    "babel-loader": "^6.4.1",
     "flat": "^2.0.1",
     "front-matter": "^2.1.2",
     "gatsby": "^0.12.36",
@@ -31,6 +32,7 @@
     "react-redux": "^5.0.3",
     "react-responsive-grid": "^0.3.3",
     "react-typography": "^0.15.0",
+    "reactdown": "^1.0.0-alpha14",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.0",
     "toml-js": "0.0.8",
