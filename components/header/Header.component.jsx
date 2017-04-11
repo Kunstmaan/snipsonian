@@ -1,6 +1,6 @@
 import React from 'react';
 import Headroom from 'react-headroom';
-import {Container, Grid, Span} from 'react-responsive-grid'
+import {Container, Grid, Span} from 'react-responsive-grid';
 import {Link} from 'react-router';
 import {prefixLink} from 'gatsby-helpers'
 

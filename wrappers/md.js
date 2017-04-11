@@ -10,16 +10,16 @@ module.exports = React.createClass({
         }
     },
     render () {
-        const post = this.props.route.page.data;
-        const Document = this.props.route.page.data.default;
+        const pageDate = this.props.route.page.data;
+        const pageTitle = pageDate.meta.data.title;
+        const Document = pageDate.default;
 
         return (
             <div className="markdown">
                 <Helmet
-                    title={`${config.siteTitle} | ${post.title}`}
+                    title={`${config.siteTitle} | ${pageTitle}`}
                 />
-                <h1>{post.title}</h1>
-                {/*<div dangerouslySetInnerHTML={{ __html: post.body }} />*/}
+                <h1>{pageTitle}</h1>
                 <Document />
             </div>
         );
