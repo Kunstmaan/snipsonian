@@ -9,9 +9,7 @@ const Version = ({
     version, children
 }) => (
     <div>
-        <Helmet
-            title={`${config.siteTitle} | ${version}`}
-        />
+        <Helmet title={`${config.siteTitle} | ${version}`} />
         <Container>
             <Grid columns={12}>
                 <Span columns={4}>
