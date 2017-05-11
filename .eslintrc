@@ -1,7 +1,6 @@
 {
   "root": true,
   "extends": ["airbnb"],
-  "plugins": ["jsx-a11y"],
   "env": {
     "jasmine": true
   },
@@ -16,7 +15,6 @@
     "no-trailing-spaces": ["error", {"skipBlankLines": true}],
     "no-use-before-define": ["error", {"functions": false, "classes": true}],
     "object-curly-spacing": ["error", "never"],
-    "semi": ["error", "never"],
     "space-before-function-paren": ["error", "never"],
 
     "import/extensions": ["error", "never", {"scss": "always", "yaml": "always"}],

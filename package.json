@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "babel-loader": "^6.4.1",
-    "eslint-plugin-jsx-a11y": "3.0.2",
     "flat": "^2.0.1",
     "front-matter": "^2.1.2",
     "gatsby": "^0.12.36",
@@ -44,6 +43,7 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.3",
     "gh-pages": "^0.12.0"
