@@ -1,9 +1,10 @@
 import React from 'react';
+import Version from '../../components/version/Version.component';
 
 const v010 = () => (
-    <div>
+    <Version>
         <p>dummy 0.1.0</p>
-    </div>
+    </Version>
 );
 
 export default v010;

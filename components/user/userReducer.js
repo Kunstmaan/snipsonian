@@ -4,7 +4,7 @@ import {LATEST_VERSION} from '../../config/versions.config';
 
 const INITIAL_STATE = {
     lang: DEFAULT_LANGUAGE,
-    version: LATEST_VERSION
+    version: getVersionIfAnyFromUrl() || LATEST_VERSION
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -35,3 +35,19 @@ const userReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default userReducer;
+
+function getVersionIfAnyFromUrl() {
+    if (isClientSide()) {
+        const matches = window.location.pathname.match(/\/doc\/(.*)\//);
+
+        if (matches !== null) {
+            return matches[1];
+        }
+    }
+
+    return false;
+}
+
+function isClientSide() {
+    return (typeof window !== 'undefined') && window.location;
+}

@@ -9,6 +9,12 @@ import {rhythm} from '../../utils/typography';
 import LangSwitch from './LangSwitch.component';
 import Versions from './Versions.component';
 
+const containerStyle = {
+    maxWidth: styleConfig.container.maxWidth,
+    paddingTop: 0,
+    padding: `${rhythm(1)} ${rhythm(3/4)}`
+};
+
 const Header = () => (
     <Headroom
         wrapperStyle={{
@@ -20,11 +26,7 @@ const Header = () => (
         }}
     >
         <Container
-            style={{
-                maxWidth: styleConfig.container.maxWidth,
-                paddingTop: 0,
-                padding: `${rhythm(1)} ${rhythm(3/4)}`
-            }}
+            style={containerStyle}
         >
             <Grid columns={12}>
                 <Span columns={8}>

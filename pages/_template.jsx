@@ -8,6 +8,12 @@ import {rhythm} from '../utils/typography'
 import Header from '../components/header/Header.component';
 import styleConfig from '../config/style.config';
 
+const containerStyle = {
+    maxWidth: styleConfig.container.maxWidth,
+    padding: `${rhythm(1)} ${rhythm(3/4)}`,
+    paddingTop: 0
+};
+
 module.exports = React.createClass({
   propTypes () {
     return {
@@ -18,13 +24,7 @@ module.exports = React.createClass({
     return (
       <div>
         <Header />
-        <Container
-          style={{
-            maxWidth: styleConfig.container.maxWidth,
-            padding: `${rhythm(1)} ${rhythm(3/4)}`,
-            paddingTop: 0,
-          }}
-        >
+        <Container style={containerStyle} >
           {this.props.children}
         </Container>
       </div>
