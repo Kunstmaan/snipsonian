@@ -1,23 +1,34 @@
 {
   "root": true,
-  "extends": "airbnb",
+  "extends": ["airbnb"],
+  "plugins": ["jsx-a11y"],
   "env": {
     "jasmine": true
   },
   "rules": {
+    "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", "never"],
-    "indent": ["error", 4, {"SwitchCase": 1}],
-    "no-use-before-define": ["error", {"functions": false, "classes": true}],
-    "object-curly-spacing": ["error", "never"],
     "default-case": "off",
-    "eol-last": "off",
+    "eol-last": ["off"],
+    "indent": ["error", 4, {"SwitchCase": 1}],
+    "max-len": ["error", 120, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
     "no-console": "off",
     "no-trailing-spaces": ["error", {"skipBlankLines": true}],
-    "max-len": ["error", 120, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
+    "no-use-before-define": ["error", {"functions": false, "classes": true}],
+    "object-curly-spacing": ["error", "never"],
+    "semi": ["error", "never"],
     "space-before-function-paren": ["error", "never"],
-    "arrow-parens": ["error", "always"],
 
-    "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/_doc/**/*.js"]}]
+    "import/extensions": ["error", "never", {"scss": "always", "yaml": "always"}],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/_doc/**/*.js"]}],
+    "import/no-unresolved": ["error", {"ignore": ["^react$", "^react-dom$"]}],
+    "import/prefer-default-export": ["off"],
+
+    "react/jsx-closing-bracket-location": ["error", "after-props"],
+    "react/jsx-filename-extension": ["off"],
+    "react/jsx-first-prop-new-line": ["error", "never"],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["off"],
+    "react/require-default-props": ["off"]
   }
 }
