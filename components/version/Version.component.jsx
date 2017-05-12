@@ -1,21 +1,36 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {config} from 'config';
-import {connect} from 'react-redux';
-import {getVersion, getDocGroupsForCurrentVersion} from '../user/userSelectors';
 
-import Collapsible from './collapsible.component';
+import Sidebar from './Sidebar';
+import Snippets from './Snippets';
 
+class Version extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
-const Version = ({version, children, docGroups}) => (
+    render() {
+        return (
+            <div>
+                <Helmet title={`${config.siteTitle} | ${this.props.config.v}`} />
+                <div className="flex-container">
+                    <Sidebar docGroups={this.props.config.docs} />
+                    <Snippets config={this.props.config} />
+                </div>
+            </div>
+        );
+    }
+}
+
+export default Version;
+
+/* const Version = ({version, children, docGroups}) => (
     <div>
         <Helmet title={`${config.siteTitle} | ${version}`} />
         <div className="flex-container">
-            <div className="flex-sidbar version-component">
-                <ul className="group-list">
-                    {docGroups.map((group) => <Collapsible key={group.name} group={group} />)}
-                </ul>
-            </div>
+
             <div className="flex-content">
                 <h2>{version}</h2>
                 {children}
@@ -34,4 +49,4 @@ function mapStateToProps(state, ownProps) {
         docGroups: getDocGroupsForCurrentVersion(state),
         children: ownProps.children
     };
-}
+}*/

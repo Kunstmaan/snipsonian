@@ -23,7 +23,7 @@ decorate(assertDoc).with(
         isOptional: true
     }),
     examples(
-        `
+        () => {
             const someUser = {
                 age: 17
             };
@@ -32,7 +32,7 @@ decorate(assertDoc).with(
 
             assert(someUser, isAnAdult, 'Sorry. You should be 18 years old.');
             // => throws Error with message 'Sorry. You should be 18 years old.'
-        `
+        }
     ),
     authors('Ben')
 );

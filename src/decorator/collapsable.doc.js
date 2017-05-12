@@ -18,7 +18,7 @@ decorate(collapsableDoc).with(
         'or an array of targets (in which case all targets will be made collapsable).'
     }),
     examples(
-        () => {
+        `
             const firstBlock = {
                 title: '1st title'
             };
@@ -41,7 +41,7 @@ decorate(collapsableDoc).with(
 
             secondBlock.toggleCollapse();
             // isCollapsed => false
-        }
+        `
     ),
     authors('Ben')
 );

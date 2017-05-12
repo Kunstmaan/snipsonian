@@ -26,7 +26,7 @@ decorate(addPropDoc).with(
         when: 'No input parameters.'
     }),
     examples(
-        () => {
+        `
             const someTicket = {
                 title: 'Important bug'
             };
@@ -35,7 +35,7 @@ decorate(addPropDoc).with(
 
             console.log(someTicket.priority);
             // => 1
-        }
+        `
     ),
     authors('Ben')
 );
