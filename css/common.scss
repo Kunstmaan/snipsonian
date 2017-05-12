@@ -1,5 +1,8 @@
 //TODO cleanup unused
 
+@import "grid";
+@import "header";
+
 $color: pink;
 
 @mixin borderRadius ($radius: 5px) {

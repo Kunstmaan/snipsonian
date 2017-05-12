@@ -1,4 +1,4 @@
-exports.modifyWebpackConfig = function(config /*, stage*/) {
+exports.modifyWebpackConfig = function(config /* , stage*/) {
     config.removeLoader('md');
     config.loader('md', {
         test: /\.md$/,
@@ -6,4 +6,4 @@ exports.modifyWebpackConfig = function(config /*, stage*/) {
     });
 
     return config;
-}
+};

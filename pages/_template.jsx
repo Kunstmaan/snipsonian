@@ -1,33 +1,24 @@
-import React from 'react'
-import {Container} from 'react-responsive-grid'
+import React from 'react';
 
-import '../css/markdown-styles.css'
-import '../css/common.scss'
+import '../css/markdown-styles.css';
+import '../css/common.scss';
 
-import {rhythm} from '../utils/typography'
 import Header from '../components/header/Header.component';
-import styleConfig from '../config/style.config';
-
-const containerStyle = {
-    maxWidth: styleConfig.container.maxWidth,
-    padding: `${rhythm(1)} ${rhythm(3/4)}`,
-    paddingTop: 0
-};
 
 module.exports = React.createClass({
-  propTypes () {
-    return {
-      children: React.PropTypes.any,
+    propTypes() {
+        return {
+            children: React.PropTypes.any
+        };
+    },
+    render() {
+        return (
+            <div>
+                <Header />
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        );
     }
-  },
-  render () {
-    return (
-      <div>
-        <Header />
-        <Container style={containerStyle} >
-          {this.props.children}
-        </Container>
-      </div>
-    )
-  },
-})
+});
