@@ -2,17 +2,19 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {config} from 'config';
 import {connect} from 'react-redux';
-import {Container, Grid, Span} from 'react-responsive-grid';
-import {getVersion} from '../user/userSelectors';
+import {getVersion, getDocGroupsForCurrentVersion} from '../user/userSelectors';
 
-const Version = ({
- version, children
-}) => (
+import Collapsible from './collapsible.component';
+
+
+const Version = ({version, children, docGroups}) => (
     <div>
-        <Helmet title={`${config.siteTitle} | ${version}`}/>
+        <Helmet title={`${config.siteTitle} | ${version}`} />
         <div className="flex-container">
-            <div className="flex-sidbar">
-                test
+            <div className="flex-sidbar version-component">
+                <ul className="group-list">
+                    {docGroups.map((group) => <Collapsible key={group.name} group={group} />)}
+                </ul>
             </div>
             <div className="flex-content">
                 <h2>{version}</h2>
@@ -29,6 +31,7 @@ export default connect(
 function mapStateToProps(state, ownProps) {
     return {
         version: getVersion(state),
+        docGroups: getDocGroupsForCurrentVersion(state),
         children: ownProps.children
     };
 }

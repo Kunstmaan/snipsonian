@@ -1,12 +1,12 @@
 /* eslint import/no-unresolved: ["off"] */
-export {group, registerGroups, getRegisteredGroups} from 'doc-package/documentJs';
+export {group, registerGroups, getRegisteredGroups} from './_doc/documentJs';
 
 export {snippet, type, desc, param, returns, canThrow, examples, parts, authors}
-    from 'doc-package/snippet/jsSnippetDocDecorators';
+    from './_doc/snippet/jsSnippetDocDecorators';
 
 export {decorate} from './decorator/decorateWith';
 
-export {JS_DOC_TYPE} from 'doc-package/snippet/jsDocTypes';
+export {JS_DOC_TYPE} from './_doc/snippet/jsDocTypes';
 
-export {getVersions, getCurrentVersion, setCurrentVersion} from 'config-package/versions';
-export {SETTING} from 'config-package/settings';
+export {getVersions, getCurrentVersion, setCurrentVersion} from './_config/versions';
+export {SETTING} from './_config/settings';

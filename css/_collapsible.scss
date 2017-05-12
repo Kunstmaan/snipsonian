@@ -1,0 +1,13 @@
+.collapsible-content {
+  height: auto;
+  transition: 1s ease-in;
+  &.collapsed {
+    height: 0;
+    overflow: hidden;
+  }
+
+  & .collapsible-switch {
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+}
