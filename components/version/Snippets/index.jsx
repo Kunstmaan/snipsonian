@@ -6,7 +6,8 @@ class Snippets extends React.Component {
         return (
             <div className="flex-content">
                 <h2>{this.props.config.v}</h2>
-                {this.props.config.docs.map((group) => <SnippetGroup key={group.name} group={group} />)}
+                {this.props.config.docs.map((group) => <SnippetGroup key={group.name} group={group} >
+                </SnippetGroup>)}
             </div>
         );
     }
