@@ -4,7 +4,7 @@ import docs from '../../prev_versions/0.1.0/_docs';
 
 const versionConfig = {
     docs,
-    v: '0.1.0',
+    v: '0.1.0'
 };
 
 export default () => (
