@@ -13,10 +13,10 @@ const Index = () => (
             ]} />
 
         <p>Snipsonian is a library that contains some re-usable - and tested - javascript snippets, so that we
-            @Kunstmaan do not have to rewrite them every time we need them in some project. And we decided to give it
-            to the community.</p>
+            of the Kunstmaan Development team do not have to rewrite them every time we need them in some project.
+            And we decided to give it to the community.</p>
         <p>It does not offer a bundle containing all snippets as that would enlarge your app unnecessarily! Instead you
-            should just directly import - using the es6 import syntax - only those snippet you need.</p>
+            should just directly import - using the es6 import syntax - only those snippets you need.</p>
 
         <h2>Below are some pages showing different capabilities built-in to Gatsby</h2>
         <h3>Supported file types</h3>
