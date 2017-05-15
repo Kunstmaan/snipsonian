@@ -3,7 +3,7 @@
 import {STORAGE_KEY} from '../redux.config';
 
 const createMiddleware = () =>
-    store => next => action => {
+    (store) => (next) => (action) => {
         const r = next(action);
         saveStore(store);
         return r;
@@ -16,7 +16,7 @@ const destroyStore = () => {
     if (isLocalStorageSupported()) {
         window.localStorage.removeItem(STORAGE_KEY);
     }
-}
+};
 
 export default {
     createMiddleware,

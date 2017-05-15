@@ -2,7 +2,7 @@ const COLOR = {
     grey: '#3e4651',
     blue: '#3a9ad9',
     black: '#000000',
-    white: '#ffffff',
+    white: '#ffffff'
 };
 
 export default {

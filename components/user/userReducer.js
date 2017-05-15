@@ -1,3 +1,5 @@
+/* global window */
+
 import {SWITCH_LANG, SWITCH_VERSION} from './userActions';
 import {DEFAULT_LANGUAGE} from '../../config/i18n.config';
 import {LATEST_VERSION} from '../../config/versions.config';

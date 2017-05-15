@@ -11,4 +11,4 @@ export const getDocGroupsForCurrentVersion = (state) => {
 
     // TODO other versions
     return (version === 'latest') ? getRegisteredGroups() : [];
-}
+};

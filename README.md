@@ -1,4 +1,7 @@
-# Kunstmaan - SnippetJS
+# Snipsonian
+
+JS Snippets powered by Kunstmaan Development
+
 
 ## Goal
 

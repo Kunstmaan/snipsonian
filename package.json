@@ -1,11 +1,13 @@
 {
-  "name": "Snipsonian",
+  "name": "snipsonian",
   "version": "0.2.0",
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
+    "lintJs": "esw *.js components config loaders pages prev_versions src utils *.js",
+    "lintJs:watch": "npm run lintJs -- --watch",
     "develop": "gatsby develop",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lintJs",
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public"
@@ -27,6 +29,7 @@
     "markdown-it-sub": "^1.0.0",
     "object-assign": "^4.1.1",
     "react": "^15.5.4",
+    "react-dom": "15.5.4",
     "react-headroom": "^2.1.2",
     "react-helmet": "^3.2.2",
     "react-intl": "^2.2.3",
@@ -46,6 +49,7 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "eslint-watch": "^3.1.0",
     "gh-pages": "^0.12.0"
   },
   "repository": {
