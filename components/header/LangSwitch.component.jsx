@@ -5,7 +5,6 @@ import {getLang} from '../user/userSelectors';
 import {switchLang} from '../user/userActions';
 import {LANGUAGES} from '../../config/i18n.config';
 import styleConfig from '../../config/style.config';
-import {rhythm} from '../../utils/typography';
 
 const LangSwitch = ({
     currentLang,
@@ -16,8 +15,7 @@ const LangSwitch = ({
             <span onClick={() => onSwitchLang(lang)}
                   key={index}
                   style={{
-                      color: getLangColor(lang, currentLang),
-                      paddingRight: `${rhythm(1/3)}`
+                      color: getLangColor(lang, currentLang)
                   }}>
                 {lang}
             </span>

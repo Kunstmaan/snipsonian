@@ -13,9 +13,9 @@ module.exports = React.createClass({
     },
     render() {
         return (
-            <div>
+            <div className="main-wrapper">
                 <Header />
-                <div>
+                <div className="content-wrapper">
                     {this.props.children}
                 </div>
             </div>

@@ -1,5 +1,6 @@
 .flex-container {
   display: flex;
+  height: 100vh;
 }
 
 .flex-sidbar {
@@ -8,6 +9,8 @@
   min-height: 10rem;
   background-color: #E0E0E0;
   padding: 1rem;
+  overflow: auto;
+  padding-top: 50px;
 }
 
 .flex-content {
@@ -16,4 +19,6 @@
   min-height: 10rem;
   background-color: #EEEEEE;
   padding: 1rem;
+  overflow: auto;
+  padding-top: 50px;
 }
