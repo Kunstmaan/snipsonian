@@ -25,28 +25,3 @@ class Version extends React.Component {
 }
 
 export default Version;
-
-/* const Version = ({version, children, docGroups}) => (
-    <div>
-        <Helmet title={`${config.siteTitle} | ${version}`} />
-        <div className="flex-container">
-
-            <div className="flex-content">
-                <h2>{version}</h2>
-                {children}
-            </div>
-        </div>
-    </div>
-);
-
-export default connect(
-    mapStateToProps
-)(Version);
-
-function mapStateToProps(state, ownProps) {
-    return {
-        version: getVersion(state),
-        docGroups: getDocGroupsForCurrentVersion(state),
-        children: ownProps.children
-    };
-}*/
