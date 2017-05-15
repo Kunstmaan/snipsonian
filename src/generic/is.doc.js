@@ -1,5 +1,5 @@
 import {is} from './is';
-import {decorate, snippet, desc, param, returns, examples, parts, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, returns, examples, parts, authors, JS_DOC_TYPE} from '../_docRef';
 
 class undefinedDoc {}
 decorate(undefinedDoc).with(
@@ -94,6 +94,7 @@ decorate(builderDoc).with(
 class isDoc {}
 decorate(isDoc).with(
     snippet(is),
+    name('is'),
     desc('Offers convenient is.xxx(val) functions that all return true ' +
         'if their input val is as requested, false otherwise.'),
     examples(

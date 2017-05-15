@@ -1,9 +1,10 @@
 import addProp from './addProp';
-import {decorate, snippet, desc, param, returns, canThrow, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, returns, canThrow, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class addPropDoc {}
 decorate(addPropDoc).with(
     snippet(addProp),
+    name('addProp'),
     desc('Decorator to add a property to a target (or array of targets).'),
     param({
         type: JS_DOC_TYPE.STRING,

@@ -1,9 +1,10 @@
 import builder from './builder';
-import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class builderDoc {}
 decorate(builderDoc).with(
     snippet(builder),
+    name('builder'),
     desc('Decorator to make a target (or an array of targets) into a builder. A "builder" offers a fluent api ' +
         'using "with" functions to eventually "build" a result object.'),
     param({

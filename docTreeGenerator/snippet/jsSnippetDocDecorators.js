@@ -68,6 +68,12 @@ export const type = (val) =>
         return target.with('type', val);
     };
 
+export const name = (val) =>
+    function decorate(target) {
+        return target.with('name', val);
+    };
+
+
 export const desc = (description) =>
     function decorate(target) {
         return target.with('desc', description);

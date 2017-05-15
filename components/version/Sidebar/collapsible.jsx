@@ -17,7 +17,7 @@ class Collapsible extends React.Component {
                 {this.props.children &&
                     <button onClick={this.toggleCollapse}>{this.state.isCollapsed ? '+' : '-'}</button>
                 }
-                {this.props.value}
+                <a href={`#${this.props.href}`}>{this.props.value}</a>
                 {this.props.children &&
                     <ul className={`collapsible-content ${this.state.isCollapsed && 'collapsed'}`}>
                         {this.props.children}

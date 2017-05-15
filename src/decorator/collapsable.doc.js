@@ -1,9 +1,10 @@
 import collapsable from './collapsable';
-import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class collapsableDoc {}
 decorate(collapsableDoc).with(
     snippet(collapsable),
+    name('collapsable'),
     desc('Decorator that makes the target (or an array of targets) collapsable ' +
         'by adding a isCollapsed boolean variable and a toggleCollapse to toggle the isCollapsed value.'),
     param({

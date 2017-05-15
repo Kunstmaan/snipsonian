@@ -4,45 +4,51 @@ import SnippetParams from './SnippetParams';
 import SnippetExample from './SnippetExample';
 
 class SnippetDetail extends React.Component {
+    constructor(props) {
+        super(props);
+        this.snippet = props.snippet;
+        this.id = `${this.snippet.groupName ? `${this.snippet.groupName}-` : ''}${this.snippet.parentName ? `${this.snippet.parentName}-` : ''}${this.snippet.getName()}`;
+    }
     render() {
         return (
-            <div className={this.props.snippet.parentName !== undefined && 'snippet-detail__part'}>
+            <div className={this.snippet.parentName !== undefined && 'snippet-detail__part'}
+                id={this.id}>
                 <h4>
-                    {`${this.props.snippet.parentName !== undefined ?
-                    `${this.props.snippet.parentName}.` : ''}${this.props.snippet.getName()}`
+                    {`${this.snippet.parentName !== undefined ?
+                    `${this.snippet.parentName}.` : ''}${this.snippet.getName()}`
                     }
-                    {this.props.snippet.type === 'function' &&
-                        ` (${paramsToString(this.props.snippet.params)})`
+                    {this.snippet.type === 'function' &&
+                        ` (${paramsToString(this.snippet.params)})`
                     }
                 </h4>
                 {
-                    this.props.snippet.authors.length > 0 &&
+                    this.snippet.authors.length > 0 &&
                         <div>
-                            <strong>Author{this.props.snippet.authors.length > 1 ? 's' : ''}: </strong>
-                            {this.props.snippet.authors.join(', ')}
+                            <strong>Author{this.snippet.authors.length > 1 ? 's' : ''}: </strong>
+                            {this.snippet.authors.join(', ')}
                         </div>
                 }
                 <div>
                     <strong>Description: </strong>
-                    {this.props.snippet.desc}
+                    {this.snippet.desc}
                 </div>
                 {
-                    this.props.snippet.params.length > 0 &&
+                    this.snippet.params.length > 0 &&
                     <div>
                         <strong>Params: </strong>
-                        <SnippetParams params={this.props.snippet.params} />
+                        <SnippetParams params={this.snippet.params} />
                     </div>
                 }
-                {this.props.snippet.returns &&
+                {this.snippet.returns &&
                     <div>
                         <strong>Returns: </strong>
-                        {this.props.snippet.returns.type} - {this.props.snippet.returns.desc}
+                        {this.snippet.returns.type} - {this.snippet.returns.desc}
                     </div>
                 }
-                { this.props.snippet.examples.length > 0 &&
+                { this.snippet.examples.length > 0 &&
                     <div>
                         <strong>Example: </strong>
-                        {this.props.snippet.examples.map((example) => (
+                        {this.snippet.examples.map((example) => (
                             <SnippetExample key={example} example={example} />
                         ))}
                     </div>

@@ -3,21 +3,18 @@ import React from 'react';
 import Collapsible from './collapsible';
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
             <div className="flex-sidbar version-component">
                 <ul className="group-list">
                     {this.props.docGroups.map((group) => (
-                        <Collapsible key={`sidebar-${group.name}`} value={group.name}>
+                        <Collapsible key={`sidebar-${group.name}`} value={group.name} href={group.name}>
                             {group.snippets.map((snippet) => (
-                                <Collapsible key={`snippet-${snippet.getName()}`} value={snippet.getName()}>
+                                <Collapsible key={`snippet-${snippet.getName()}`} value={snippet.getName()} href={`${group.name}-${snippet.getName()}`}>
                                     {snippet.parts.length > 0 && snippet.parts.map((part) => (
-                                        <Collapsible key={`part${part.getName()}`} value={part.getName()} />
+                                        <Collapsible key={`part${part.getName()}`}
+                                            value={part.getName()}
+                                            href={`${group.name}-${snippet.getName()}-${part.getName()}`} />
                                     ))}
                                 </Collapsible>
                             ))}

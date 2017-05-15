@@ -7,7 +7,10 @@ export const group = (groupName) => ({
             name: groupName,
             snippets: (
                 addProp('groupName', groupName)(
-                    buildIfBuilder(jsSnippetDocs)
+                    addGroupNameToPartsOfSnippets(
+                        groupName,
+                        buildIfBuilder(jsSnippetDocs)
+                    )
                 )
             )
         })
@@ -21,3 +24,16 @@ export const registerGroups = (groups) => {
 
 export const getRegisteredGroups = () =>
     registeredGroups;
+
+function addGroupNameToPartsOfSnippets(groupName, jsSnippetDocs) {
+    return jsSnippetDocs.map((jsSnippetDoc) => addGroupNameToParts(groupName, jsSnippetDoc));
+}
+
+function addGroupNameToParts(groupName, jsSnippetDoc) {
+    jsSnippetDoc.parts.map((part) =>
+        addProp('groupName', groupName)(
+            part
+        )
+    );
+    return jsSnippetDoc;
+}

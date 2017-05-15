@@ -1,9 +1,10 @@
 import {assert} from './assert';
-import {decorate, snippet, desc, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class assertDoc {}
 decorate(assertDoc).with(
     snippet(assert),
+    name('assert'),
     desc('To easily assert a certain value. Will throw an error if the value is not valid ' +
         'according to the input validator.'),
     param({
