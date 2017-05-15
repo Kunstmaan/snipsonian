@@ -12,11 +12,17 @@ JS Snippets powered by Kunstmaan Development
 
 WIP
 
+## Setup
+
+* nvm install
+* yarn install
+
 ## Development
 
-* npm run test : runs sequentially the 'lint:js' and 'unit' (= karma) tasks
-* npm run serve : runs a server (documentation pages) with live reloading
-* npm run dev : runs the 'serve' task + watches in parallel for changes to re-trigger the 'test' task
+* yarn run test : runs sequentially the js linter the unit tests
+* yarn run develop : runs a localhost server for developping with live reloading
+* yarn run build : does the gatsby build
+* yarn run serve-build : runs the builded site in a local server
 
 ## Gatsby
 
