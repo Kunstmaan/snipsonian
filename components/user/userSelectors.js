@@ -1,4 +1,4 @@
-import {getRegisteredGroups} from '../../src/_doc/documentJs';
+import {getRegisteredGroups} from '../../docTreeGenerator/documentJs';
 
 export const getLang = (state) =>
     state.user.lang;

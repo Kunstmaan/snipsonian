@@ -4,7 +4,6 @@ import SnippetDetail from './SnippetDetail';
 
 class SnippetGroup extends React.Component {
     render() {
-        console.log(this.props.group);
         return (
             <div id={this.props.group.name}>
                 <h3>{this.props.group.name}</h3>

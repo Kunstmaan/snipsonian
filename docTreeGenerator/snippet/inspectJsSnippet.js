@@ -1,5 +1,5 @@
 import {JS_DOC_TYPE} from './jsDocTypes';
-import {is} from '../../index';
+import {is} from '../../src/index';
 
 const inspectJsSnippet = (jsSnippet) => {
     const docType = determineDocType(jsSnippet);

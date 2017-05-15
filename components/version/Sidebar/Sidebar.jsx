@@ -15,9 +15,9 @@ class Sidebar extends React.Component {
                     {this.props.docGroups.map((group) => (
                         <Collapsible key={`sidebar-${group.name}`} value={group.name}>
                             {group.snippets.map((snippet) => (
-                                <Collapsible key={`snippet-${snippet.name}`} value={snippet.name}>
+                                <Collapsible key={`snippet-${snippet.getName()}`} value={snippet.getName()}>
                                     {snippet.parts.length > 0 && snippet.parts.map((part) => (
-                                        <Collapsible key={`part${part.name}`} value={part.name} />
+                                        <Collapsible key={`part${part.getName()}`} value={part.getName()} />
                                     ))}
                                 </Collapsible>
                             ))}

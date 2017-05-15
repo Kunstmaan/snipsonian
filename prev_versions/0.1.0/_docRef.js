@@ -1,2 +1,9 @@
 /* eslint import/no-unresolved: ["off"] */
-export {group, snippet, prop, registerGroups, getRegisteredGroups} from '../../src/_doc/documentJs';
+export {group, registerGroups, getRegisteredGroups} from '../../docTreeGenerator/documentJs';
+
+export {snippet, type, desc, param, returns, canThrow, examples, parts, authors}
+    from '../../docTreeGenerator/snippet/jsSnippetDocDecorators';
+
+export {decorate} from './decorator/decorateWith';
+
+export {JS_DOC_TYPE} from '../../docTreeGenerator/snippet/jsDocTypes';

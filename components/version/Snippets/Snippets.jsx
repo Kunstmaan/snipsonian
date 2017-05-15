@@ -2,7 +2,7 @@ import React from 'react';
 import SnippetGroup from './SnippetGroup';
 
 class Snippets extends React.Component {
-    render(){
+    render() {
         return (
             <div className="flex-content">
                 <h2>{this.props.config.v}</h2>

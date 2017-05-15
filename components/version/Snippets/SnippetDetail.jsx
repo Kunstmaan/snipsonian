@@ -9,7 +9,7 @@ class SnippetDetail extends React.Component {
             <div className={this.props.snippet.parentName !== undefined && 'snippet-detail__part'}>
                 <h4>
                     {`${this.props.snippet.parentName !== undefined ?
-                    `${this.props.snippet.parentName}.` : ''}${this.props.snippet.name.replace(/^_/, '')}`
+                    `${this.props.snippet.parentName}.` : ''}${this.props.snippet.getName()}`
                     }
                     {this.props.snippet.type === 'function' &&
                         ` (${paramsToString(this.props.snippet.params)})`
@@ -60,7 +60,6 @@ function paramsToString(params) {
     const paramNames = params.map((param) =>
         `${param.isOptional ? '[' : ''}, ${param.name}${param.isOptional ? ']' : ''}`
     );
-    console.log(paramNames);
     paramNames[0] = paramNames[0].replace(', ', '');
     return paramNames.join('');
 }

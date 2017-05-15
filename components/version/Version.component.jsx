@@ -2,8 +2,8 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {config} from 'config';
 
-import Sidebar from './Sidebar';
-import Snippets from './Snippets';
+import Sidebar from './Sidebar/Sidebar';
+import Snippets from './Snippets/Snippets';
 
 class Version extends React.Component {
     constructor(props) {

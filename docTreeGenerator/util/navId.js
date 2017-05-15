@@ -1,7 +1,7 @@
 /* global document */
 
 import getNameIfDefined from './getNameIfDefined';
-import {is} from '../../index';
+import {is} from '../../src/index';
 
 export const getSnippetNavId = (group, snippet, part) =>
     getNavId('snippet',

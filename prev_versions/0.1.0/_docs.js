@@ -1,5 +1,11 @@
-import {group, registerGroups} from './_docRef';
+import {group} from './_docRef';
 
-registerGroups([
-    group('generic')
-]);
+import assertDoc from './generic/assert.doc';
+import isDoc from './generic/is.doc';
+
+export default [
+    group('generic').snippets(
+        assertDoc,
+        isDoc
+    )
+];

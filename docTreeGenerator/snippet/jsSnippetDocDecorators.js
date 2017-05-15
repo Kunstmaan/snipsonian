@@ -2,10 +2,10 @@
 
 import inspectJsSnippet from './inspectJsSnippet';
 import {JS_DOC_TYPE} from './jsDocTypes';
-import builder from '../../decorator/builder';
-import addProp from '../../decorator/addProp';
-import buildIfBuilder from '../../builder/buildIfBuilder';
-import {is} from '../../index';
+import builder from '../../src/decorator/builder';
+import addProp from '../../src/decorator/addProp';
+import buildIfBuilder from '../../src/builder/buildIfBuilder';
+import {is} from '../../src/index';
 
 export const snippet = (jsSnippet) =>
     function decorate(target) {
@@ -19,7 +19,8 @@ export const snippet = (jsSnippet) =>
             examples: [],
             throws: [],
             parts: [],
-            authors: []
+            authors: [],
+            getName: () => removeUnderscoreIfAtStartOfName(initial.name)
         };
 
         builder(initial)(target);
@@ -102,9 +103,14 @@ export const authors = (...authorNames) =>
     };
 
 function getNameOfClass(clazz) {
-    return removeDocIfAtEndOfName(clazz.name);
+    return [clazz.name]
+        .map(removeDocIfAtEndOfName)[0];
 }
 
-function removeDocIfAtEndOfName(docClassName) {
-    return docClassName.replace(/Doc$/, '');
+function removeDocIfAtEndOfName(name) {
+    return name.replace(/Doc$/, '');
+}
+
+function removeUnderscoreIfAtStartOfName(name) {
+    return name.replace(/^_/, '');
 }

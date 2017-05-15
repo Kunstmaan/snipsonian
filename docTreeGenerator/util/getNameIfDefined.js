@@ -1,4 +1,4 @@
-import {is} from '../../index';
+import {is} from '../../src/index';
 
 const getNameIfDefined = (entity) => {
     if (is.set(entity)) {

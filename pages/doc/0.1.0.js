@@ -1,8 +1,12 @@
 import React from 'react';
 import Version from '../../components/version/Version.component';
+import docs from '../../prev_versions/0.1.0/_docs';
 
-const v010 = () => (
+const versionConfig = {
+    docs,
+    v: '0.1.0',
+};
+
+export default () => (
     <Version config={versionConfig} />
 );
-
-export default v010;

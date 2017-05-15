@@ -2,7 +2,7 @@ import React from 'react';
 import Highlight from 'react-highlight';
 import 'highlight.js/styles/darkula.css';
 
-import beautifyJsCode from '../../../src/_doc/util/beautifyJsCode';
+import beautifyJsCode from '../../../docTreeGenerator/util/beautifyJsCode';
 
 class SnippetExample extends React.Component {
     render() {
