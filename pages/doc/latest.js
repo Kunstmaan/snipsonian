@@ -1,11 +1,12 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
 import Version from '../../components/version/Version.component';
-import '../../src/_docs';
+import docs from '../../src/_docs';
+
+const versionConfig = {
+    docs,
+    v: 'latest'
+};
 
 export default () => (
-    <Version>
-        <p>dummy latest</p>
-        <FormattedMessage id="test.label" />
-    </Version>
+    <Version config={versionConfig} />
 );

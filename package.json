@@ -32,6 +32,7 @@
     "react-dom": "15.5.4",
     "react-headroom": "^2.1.2",
     "react-helmet": "^3.2.2",
+    "react-highlight": "^0.10.0",
     "react-intl": "^2.2.3",
     "react-redux": "^5.0.3",
     "react-responsive-grid": "^0.3.3",
@@ -44,6 +45,7 @@
     "typography-plugin-code": "^0.15.0"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.4.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",

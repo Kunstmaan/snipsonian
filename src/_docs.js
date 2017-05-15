@@ -1,4 +1,4 @@
-import {group, registerGroups} from './_docRef';
+import {group} from './_docRef';
 
 import assertDoc from './generic/assert.doc';
 import isDoc from './generic/is.doc';
@@ -7,7 +7,7 @@ import addPropDoc from './decorator/addProp.doc';
 import builderDoc from './decorator/builder.doc';
 import collapsableDoc from './decorator/collapsable.doc';
 
-registerGroups([
+export default [
     group('generic').snippets(
         assertDoc,
         isDoc
@@ -17,4 +17,4 @@ registerGroups([
         builderDoc,
         collapsableDoc
     )
-]);
+];

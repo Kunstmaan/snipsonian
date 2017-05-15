@@ -26,7 +26,7 @@ decorate(builderDoc).with(
         'or an array of targets (in which case all targets will get the extra property).'
     }),
     examples(
-        () => {
+        `
             class AddressBuilder {}
             const initialBuildParams = {
                 country: 'Belgium'
@@ -44,7 +44,7 @@ decorate(builderDoc).with(
 
             console.log(kunstmaanAddress);
             // => {country: 'Belgium', postcalCode: 3001, city: 'Leuven', ...}
-        }
+        `
     ),
     authors('Ben')
 );
