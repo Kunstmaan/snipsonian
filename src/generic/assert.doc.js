@@ -1,4 +1,4 @@
-import assert from './assert';
+import {assert} from './assert';
 import {decorate, snippet, name, desc, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class assertDoc {}
