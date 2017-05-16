@@ -1,6 +1,6 @@
 import {is} from '../index';
 
-const collapsable = (initialIsCollapsed = false) =>
+const collapsable = ({initialIsCollapsed = false} = {}) =>
     function decorate(target) {
         if (is.array(target)) {
             return target.map((entity) => enrichToBeCollapsable(entity, initialIsCollapsed));

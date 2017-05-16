@@ -27,12 +27,12 @@ describe('collapsable()', () => {
     });
 
     it('initial isCollapsed value can be set', () => {
-        expect(collapsable(true)({}).isCollapsed).toEqual(true);
-        expect(collapsable(false)({}).isCollapsed).toEqual(false);
+        expect(collapsable({initialIsCollapsed: true})({}).isCollapsed).toEqual(true);
+        expect(collapsable({initialIsCollapsed: false})({}).isCollapsed).toEqual(false);
     });
 
     it('the enriched toggleCollapse() function toggles the isCollapsed value', () => {
-        const actual = collapsable(false)({
+        const actual = collapsable({initialIsCollapsed: false})({
             someVar: 'some value'
         });
 
@@ -51,7 +51,7 @@ describe('collapsable()', () => {
         const firstEntity = {};
         const secondEntity = {};
 
-        const actual = collapsable(true)([firstEntity, secondEntity]);
+        const actual = collapsable({initialIsCollapsed: true})([firstEntity, secondEntity]);
 
         expect(actual.length).toEqual(2);
 

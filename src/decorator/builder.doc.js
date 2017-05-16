@@ -33,7 +33,7 @@ decorate(builderDoc).with(
                 country: 'Belgium'
             };
 
-            builder(initialBuildParams)(AddressBuilder);
+            builder({initialBuildParams})(AddressBuilder);
 
             const kunstmaanAddress = AddressBuilder
                 .with('postalCode', 3001)

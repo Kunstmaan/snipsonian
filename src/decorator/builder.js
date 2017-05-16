@@ -2,7 +2,7 @@ import {is} from '../index';
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
-const builder = (initialBuildParams = {}, buildStateName = '_builder') =>
+const builder = ({initialBuildParams = {}, buildStateName = '_builder'} = {}) =>
     function decorate(target) {
         if (is.array(target)) {
             return target.map((entity) => enrichToBeBuilder(entity, initialBuildParams, buildStateName));
