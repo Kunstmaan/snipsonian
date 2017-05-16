@@ -20,7 +20,8 @@ decorate(assertDoc).with(
     param({
         name: 'errorMessage',
         type: JS_DOC_TYPE.STRING,
-        desc: 'The error message to throw if \'val\' is not valid. If omitted, a generic error message will be thrown.',
+        desc: 'The error message to throw if \'val\' is not valid. If omitted, a generic error message ' +
+        'will be thrown. If it contains {val} it will be replaced with the input val param.',
         isOptional: true
     }),
     examples(
