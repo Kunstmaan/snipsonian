@@ -1,6 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import React from 'react';
-import {Link} from 'react-router';
-import {prefixLink} from 'gatsby-helpers';
 import Helmet from 'react-helmet';
 import {config} from 'config';
 import Highlight from 'react-highlight';
@@ -28,7 +27,7 @@ const Index = () => (
         <h3>Use some snippet</h3>
         <p>Directly import (es6 import syntax) the snippet you need</p>
         <p>Example:</p>
-        <Highlight className="javascript">import is from 'snipsonian/generic/is';</Highlight>
+        <Highlight className="javascript">{'import is from \'snipsonian/generic/is\';'}</Highlight>
     </div>
 );
 

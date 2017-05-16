@@ -2,11 +2,10 @@
   "root": true,
   "extends": ["airbnb"],
   "env": {
-    "jasmine": true
+    "jest": true
   },
   "globals": {
-    "window": true,
-    "compose": true
+    "window": true
   },
   "rules": {
     "arrow-parens": ["error", "always"],

@@ -1,11 +1,7 @@
-import {group, registerGroups} from './_docRef';
+/**
+ * Only exports generic snippets.
+ * This is to prevent that you get/bundle all snippets if you just need a few.
+ */
 
-import assertDoc from './generic/assert.doc';
-import isDoc from './generic/is.doc';
-
-registerGroups([
-    group('generic').snippets(
-        assertDoc,
-        isDoc
-    )
-]);
+export {is} from './generic/is';
+export {assert} from './generic/assert';

@@ -18,6 +18,12 @@ decorate(getUrlPartBetweenDoc).with(
         desc: 'The string after the part you are looking for. Defaults to "/"',
         isOptional: true
     }),
+    param({
+        name: 'url',
+        type: JS_DOC_TYPE.STRING,
+        desc: 'The url out of which you want to get the part. Defaults to "window.location.pathname',
+        isOptional: true
+    }),
     examples(
         `
             const urlPartImLookingFor = getUrlPartBetween({firstPart: 'doc/'});

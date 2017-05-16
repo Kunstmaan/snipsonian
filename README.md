@@ -14,15 +14,32 @@ WIP
 
 ## Setup
 
-* nvm install
-* yarn install
+    nvm install
+OR
+
+    yarn
+
+If you want to watch jest tests:
+
+    brew install watchman
 
 ## Development
 
-* yarn run test : runs sequentially the js linter the unit tests
-* yarn run develop : runs a localhost server for developping with live reloading
-* yarn run build : does the gatsby build
-* yarn run serve-build : runs the builded site in a local server
+runs sequentially the js linter the unit tests:
+
+    yarn run test [-- --watch]
+    
+runs a localhost server for developping with live reloading:
+
+    yarn run develop
+    
+does the gatsby build:
+
+    yarn run build
+    
+runs the builded site in a local server:
+    
+    yarn run serve-build
 
 ## Gatsby
 
