@@ -10,7 +10,9 @@
     "test": "npm run lintJs && jest",
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
-    "deploy": "gatsby build --prefix-links && gh-pages -d public"
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "createPrevVersionsList": "node ./bin/createPrevVersionsList.js",
+    "postinstall": "npm run createPrevVersionsList"
   },
   "dependencies": {
     "babel-loader": "^6.4.1",

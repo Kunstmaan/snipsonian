@@ -1,6 +1,6 @@
-export const PREV_VERSIONS = [
-    '0.1.0'
-];
+import prevVersionList from './prevVersionsList';
+
+export const PREV_VERSIONS = prevVersionList;
 
 export const LATEST_VERSION = 'latest';
 
