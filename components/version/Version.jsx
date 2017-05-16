@@ -15,6 +15,10 @@ import {switchVersion} from '../user/userActions';
 import getUrlPartBetween from '../../src/url/getUrlPartBetween';
 
 class Version extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
     componentDidMount() {
         matchStateToUrl.bind(this)();
     }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SnippetDetail from './SnippetDetail';
 
 const SnippetGroup = ({group}) => (
-    <div id={group.name}>
+    <div id={group.name} className="snippet">
         <h3>{group.name}</h3>
         {group.snippets.map((snippet) => (
             <div key={snippet.name}>

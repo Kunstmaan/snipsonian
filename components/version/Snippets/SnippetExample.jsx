@@ -13,7 +13,7 @@ const SnippetExample = ({example}) => (
 );
 
 SnippetExample.propTypes = {
-    example: PropTypes.string.isRequired
+    example: PropTypes.func.isRequired
 };
 
 export default SnippetExample;
