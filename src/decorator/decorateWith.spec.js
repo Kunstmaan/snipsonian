@@ -10,7 +10,7 @@ describe('decorate(target).with(...decorators)', () => {
 
         const actual = decorate(target).with(
             addProp('otherVar', 12098),
-            collapsable(true)
+            collapsable({initialIsCollapsed: true})
         );
 
         expect(actual.someVar).toEqual('some val');

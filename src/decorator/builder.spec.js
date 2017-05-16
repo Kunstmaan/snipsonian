@@ -34,7 +34,7 @@ describe('builder()', () => {
         };
         const buildStateName = 'customState';
 
-        const actual = builder(initialBuildParams, buildStateName)({});
+        const actual = builder({initialBuildParams, buildStateName})({});
 
         expect(actual.customState).toEqual({
             someParam: 'some val',
@@ -44,7 +44,7 @@ describe('builder()', () => {
 
     it('the enriched with() function sets a property, with the input key as name and val as its value, on the ' +
         'buildState object and returns the builder (so allowing a fluent api)', () => {
-        const dummyBuilder = builder({}, 'myBuilderState')({});
+        const dummyBuilder = builder({initialBuildParams: {}, buildStateName: 'myBuilderState'})({});
         expect(dummyBuilder.build).toBeDefined();
 
         const actual = dummyBuilder.with('type', 4);
@@ -66,7 +66,7 @@ describe('builder()', () => {
         const initialBuildParams = {
             message: 'some message'
         };
-        const dummyBuilder = builder(initialBuildParams)({
+        const dummyBuilder = builder({initialBuildParams})({
             someVar: 'this var is not returned by the build method'
         })
             .with('uniqueId', 123704)

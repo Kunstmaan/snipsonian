@@ -1,10 +1,13 @@
 import {is} from './is';
+import replacePlaceholders from '../string/replacePlaceholders';
 
-export const assert = (val, validator, errorMessage) => {
+export const assert = (val, validator, errorMessage = 'Assertion error for value \'{val}\'.') => {
     assertValidValidator(validator);
 
     if (!validator(val)) {
-        throw new Error(errorMessage || `Assertion error for value '${val}'.`);
+        throw new Error(
+            replacePlaceholders({msg: errorMessage, placeholders: {val}})
+        );
     }
 };
 
