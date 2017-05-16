@@ -1,5 +1,7 @@
 import React from 'react';
 
+const textCenterStyle = {textAlign: 'center'};
+
 class SnippetParams extends React.Component {
     render() {
         return (
@@ -10,8 +12,8 @@ class SnippetParams extends React.Component {
                             <th>Name</th>
                             <th>Type</th>
                             <th>Description</th>
-                            <th style={{textAlign: 'center'}}>isArray</th>
-                            <th style={{textAlign: 'center'}}>isOptional</th>
+                            <th style={textCenterStyle}>isArray</th>
+                            <th style={textCenterStyle}>isOptional</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -20,8 +22,8 @@ class SnippetParams extends React.Component {
                                 <td>{param.name}</td>
                                 <td>{param.type}</td>
                                 <td>{param.desc}</td>
-                                <td style={{textAlign: 'center'}}>{param.isArray ? '✔' : '✖'}</td>
-                                <td style={{textAlign: 'center'}}>{param.isOptional ? '✔' : '✖'}</td>
+                                <td style={textCenterStyle}>{param.isArray ? '✔' : '✖'}</td>
+                                <td style={textCenterStyle}>{param.isOptional ? '✔' : '✖'}</td>
                             </tr>
                         ))}
                     </tbody>

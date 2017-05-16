@@ -38,10 +38,6 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-// function goTo(lang, version) {
-//     browserHistory.push(`/${lang}/doc/${version}/`);
-// }
-
 function goTo(version) {
     browserHistory.push(`/doc/${version}/`);
 }

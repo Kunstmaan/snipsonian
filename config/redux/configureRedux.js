@@ -7,9 +7,12 @@ import {middlewares} from './middlewares';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, localStorageMiddleware.getStore(), composeEnhancers(
-    applyMiddleware(...middlewares)
-));
 /* eslint-enable */
+
+const store = createStore(
+    reducers,
+    localStorageMiddleware.getStore(),
+    composeEnhancers(applyMiddleware(...middlewares))
+);
 
 export default store;
