@@ -22,11 +22,13 @@ const Index = () => (
             Usage
         </h2>
         <h3>Install</h3>
-        <Highlight>npm install --save snipsonian</Highlight>
+        <Highlight className="bash">npm install --save snipsonian</Highlight>
+        OR
+        <Highlight className="bash">yarn add snipsonian</Highlight>
         <h3>Use some snippet</h3>
         <p>Directly import (es6 import syntax) the snippet you need</p>
         <p>Example:</p>
-        <Highlight>import is from 'snipsonian/generic/is';</Highlight>
+        <Highlight className="javascript">import is from 'snipsonian/generic/is';</Highlight>
     </div>
 );
 

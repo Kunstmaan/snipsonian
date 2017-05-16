@@ -7,7 +7,7 @@ class Sidebar extends React.Component {
     render() {
         return (
             <div className="flex-sidbar version-component">
-                <div>Version: <VersionSelect /></div>
+                <div className="version-select-wrapper">Version: <VersionSelect /></div>
                 <ul className="group-list">
                     {this.props.docGroups.map((group) => (
                         <Collapsible key={`sidebar-${group.name}`} value={group.name} href={group.name}>

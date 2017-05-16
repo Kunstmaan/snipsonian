@@ -7,6 +7,7 @@ class Snippets extends React.Component {
         if (hash) {
             const el = document.getElementById(hash.replace(/^#/, ''));
             el.scrollIntoView();
+            window.scrollBy(0, -50);
         }
     }
     render() {

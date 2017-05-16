@@ -11,7 +11,7 @@ class SnippetDetail extends React.Component {
     }
     render() {
         return (
-            <div className={this.snippet.parentName !== undefined && 'snippet-detail__part'}
+            <div className={`${this.snippet.parentName !== undefined ? 'snippet-detail__part' : ''} snippet-detail`}
                 id={this.id}>
                 <h4>
                     {`${this.snippet.parentName !== undefined ?

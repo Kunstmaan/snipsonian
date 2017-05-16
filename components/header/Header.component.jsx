@@ -3,7 +3,6 @@ import {Link} from 'react-router';
 import {prefixLink} from 'gatsby-helpers';
 
 import styleConfig from '../../config/style.config';
-import Versions from './Versions.component';
 
 const Header = () => (
     <div className="header-container">
