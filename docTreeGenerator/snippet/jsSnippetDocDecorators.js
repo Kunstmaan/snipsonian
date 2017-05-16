@@ -23,7 +23,7 @@ export const snippet = (jsSnippet) =>
             getName: () => removeUnderscoreIfAtStartOfName(initial.name)
         };
 
-        builder(initial)(target);
+        builder({initialBuildParams: initial})(target);
 
         return target;
     };

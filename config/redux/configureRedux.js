@@ -1,5 +1,4 @@
-/* global compose */
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import localStorageMiddleware from './localStorageMiddleware';
 
 import reducers from './reducers';
