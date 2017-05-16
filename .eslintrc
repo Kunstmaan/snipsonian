@@ -5,7 +5,8 @@
     "jest": true
   },
   "globals": {
-    "window": true
+    "window": true,
+    "document": true
   },
   "rules": {
     "arrow-parens": ["error", "always"],
@@ -20,7 +21,7 @@
     "object-curly-spacing": ["error", "never"],
     "space-before-function-paren": ["error", "never"],
 
-    "import/extensions": ["error", "never", {"scss": "always", "yaml": "always"}],
+    "import/extensions": ["error", "never", {"scss": "always", "yaml": "always", "toml": "always"}],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/_doc/**/*.js"]}],
     "import/no-unresolved": ["error", {"ignore": ["^react$", "^react-dom$"]}],
     "import/prefer-default-export": ["off"],

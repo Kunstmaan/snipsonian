@@ -1,18 +1,19 @@
 import React from 'react';
 import Highlight from 'react-highlight';
+import PropTypes from 'prop-types';
+
 import 'highlight.js/styles/darkula.css';
 
 import beautifyJsCode from '../../../docTreeGenerator/util/beautifyJsCode';
 
-class SnippetExample extends React.Component {
-    render() {
-        return (
-            <Highlight className="javascript">
-                {beautifyJsCode(this.props.example)}
-            </Highlight>
-        );
+const SnippetExample = ({example}) => (
+    <Highlight className="javascript">
+        {beautifyJsCode(example)}
+    </Highlight>
+);
 
-    }
-}
+SnippetExample.propTypes = {
+    example: PropTypes.string.isRequired
+};
 
 export default SnippetExample;

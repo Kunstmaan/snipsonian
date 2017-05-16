@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from 'react-redux';
 import {IntlProvider, addLocaleData} from 'react-intl';
 import nlLocale from 'react-intl/locale-data/nl';

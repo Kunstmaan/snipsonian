@@ -1,14 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import SnippetGroup from './SnippetGroup';
 
 class Snippets extends React.Component {
     componentDidMount() {
-        const hash = window.location.hash;
-        if (hash) {
-            const el = document.getElementById(hash.replace(/^#/, ''));
-            el.scrollIntoView();
-            window.scrollBy(0, -50);
-        }
+        scrollToHash();
     }
     render() {
         console.log(this.props.config.docs);
@@ -21,4 +18,20 @@ class Snippets extends React.Component {
     }
 }
 
+Snippets.propTypes = {
+    config: PropTypes.shape({
+        v: PropTypes.string,
+        docs: PropTypes.array
+    })
+};
+
 export default Snippets;
+
+function scrollToHash() {
+    const hash = window.location.hash;
+    if (hash) {
+        const el = document.getElementById(hash.replace(/^#/, ''));
+        el.scrollIntoView();
+        window.scrollBy(0, -50);
+    }
+}

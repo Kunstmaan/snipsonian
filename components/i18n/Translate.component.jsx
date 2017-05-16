@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as ReactIntl from 'react-intl';
 
 const FormattedMessage = ReactIntl.FormattedMessage;
@@ -10,5 +11,9 @@ const Translate = ({line = 'test.label'}) => (
         <FormattedMessage id={line} />
     </div>
 );
+
+Translate.propTypes = {
+    line: PropTypes.string
+};
 
 export default Translate;

@@ -4,7 +4,7 @@
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
-    "lintJs": "esw *.js components config loaders pages prev_versions src utils *.js",
+    "lintJs": "esw --ext .js,.jsx components config loaders pages prev_versions src utils *.js",
     "lintJs:watch": "npm run lintJs -- --watch",
     "develop": "gatsby develop",
     "test": "npm run lintJs && jest",
@@ -29,6 +29,7 @@
     "markdown-it-sub": "^1.0.0",
     "normalize.css": "^7.0.0",
     "object-assign": "^4.1.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "15.5.4",
     "react-helmet": "^3.2.2",

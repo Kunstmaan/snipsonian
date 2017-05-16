@@ -1,38 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Collapsible from './collapsible';
 import VersionSelect from '../../header/Versions.component';
 
-class Sidebar extends React.Component {
-    render() {
-        return (
-            <div className="flex-sidbar version-component">
-                <div className="version-select-wrapper">Version: <VersionSelect /></div>
-                <ul className="group-list">
-                    {this.props.docGroups.map((group) => (
-                        <Collapsible key={`sidebar-${group.name}`} value={group.name} href={group.name}>
-                            {group.snippets.map((snippet) => (
-                                <Collapsible key={`snippet-${snippet.getName()}`} value={snippet.getName()} href={`${group.name}-${snippet.getName()}`}>
-                                    {snippet.parts.length > 0 && snippet.parts.map((part) => (
-                                        <Collapsible key={`part${part.getName()}`}
-                                            value={part.getName()}
-                                            href={`${group.name}-${snippet.getName()}-${part.getName()}`} />
-                                    ))}
-                                </Collapsible>
+const Sidebar = ({docGroups}) => (
+    <div className="flex-sidbar version-component">
+        <div className="version-select-wrapper">Version: <VersionSelect /></div>
+        <ul className="group-list">
+            {docGroups.map((group) => (
+                <Collapsible key={`sidebar-${group.name}`} value={group.name} href={group.name}>
+                    {group.snippets.map((snippet) => (
+                        <Collapsible key={`snippet-${snippet.getName()}`} value={snippet.getName()}
+                                     href={`${group.name}-${snippet.getName()}`}>
+                            {snippet.parts.length > 0 && snippet.parts.map((part) => (
+                                <Collapsible key={`part${part.getName()}`}
+                                             value={part.getName()}
+                                             href={`${group.name}-${snippet.getName()}-${part.getName()}`} />
                             ))}
                         </Collapsible>
                     ))}
-                </ul>
-            </div>
-        );
-    }
-}
+                </Collapsible>
+            ))}
+        </ul>
+    </div>
+);
 
-Sidebar.proptypes = {
-    docGroups: React.PropTypes.arrayOf(React.PropTypes.shape({
-        name: React.PropTypes.string.isRequired,
-        snippets: React.PropTypes.arrayOf(React.PropTypes.shape({
-            name: React.PropTypes.string.isRequired
+Sidebar.propTypes = {
+    docGroups: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        snippets: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.string.isRequired
         }))
     }))
 };

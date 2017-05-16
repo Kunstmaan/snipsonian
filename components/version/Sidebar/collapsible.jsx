@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 class Collapsible extends React.Component {
     constructor(props) {
@@ -27,5 +28,11 @@ class Collapsible extends React.Component {
         );
     }
 }
+
+Collapsible.propTypes = {
+    children: Proptypes.node,
+    href: Proptypes.string.isRequired,
+    value: Proptypes.string.isRequired
+};
 
 export default Collapsible;

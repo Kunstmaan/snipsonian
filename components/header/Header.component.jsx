@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import {prefixLink} from 'gatsby-helpers';
+/* eslint-enable */
 
 import styleConfig from '../../config/style.config';
 

@@ -1,6 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import PropTypes from 'prop-types';
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import {config} from 'config';
+/* eslint-enable */
 import {connect} from 'react-redux';
 
 import Sidebar from './Sidebar/Sidebar';
@@ -12,16 +15,8 @@ import {switchVersion} from '../user/userActions';
 import getUrlPartBetween from '../../src/url/getUrlPartBetween';
 
 class Version extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     componentDidMount() {
-        const urlVersion = getUrlPartBetween({firstPart: 'doc/'});
-        if (this.state.version !== urlVersion) {
-            this.props.switchVersion(urlVersion);
-        }
+        matchStateToUrl.bind(this)();
     }
 
     render() {
@@ -36,6 +31,13 @@ class Version extends React.Component {
         );
     }
 }
+
+Version.propTypes = {
+    config: PropTypes.shape({
+        v: PropTypes.string,
+        docs: PropTypes.array
+    })
+};
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -55,3 +57,10 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Version);
+
+function matchStateToUrl() {
+    const urlVersion = getUrlPartBetween({firstPart: 'doc/'});
+    if (this.state.version !== urlVersion) {
+        this.props.switchVersion(urlVersion);
+    }
+}
