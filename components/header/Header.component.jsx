@@ -23,7 +23,7 @@ const Header = () => (
                     Small, re-usable javascript code snippets
                 </span>
         <Link to={prefixLink('/doc/latest/')} style={{color: styleConfig.header.title.color}}>Go To Docs</Link>
-        <span>powered by Kunstmaan</span>
+        <span>powered by Kunstmaan Development</span>
         <Link to={prefixLink('/usage/')}>usage</Link>
     </div>
 );
