@@ -9,11 +9,9 @@ import addPropDoc from './decorator/addProp.doc';
 import builderDoc from './decorator/builder.doc';
 import collapsableDoc from './decorator/collapsable.doc';
 
+import getUrlPartBetweenDoc from './url/getUrlPartBetween.doc';
+
 export default [
-    group('generic').snippets(
-        assertDoc,
-        isDoc
-    ),
     group('builder').snippets(
         buildIfBuilderDoc
     ),
@@ -21,5 +19,12 @@ export default [
         addPropDoc,
         builderDoc,
         collapsableDoc
+    ),
+    group('generic').snippets(
+        assertDoc,
+        isDoc
+    ),
+    group('url').snippets(
+        getUrlPartBetweenDoc
     )
 ];

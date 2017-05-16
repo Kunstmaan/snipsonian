@@ -4,6 +4,10 @@
   "env": {
     "jasmine": true
   },
+  "globals": {
+    "window": true,
+    "compose": true
+  },
   "rules": {
     "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", "never"],

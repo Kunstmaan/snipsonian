@@ -7,7 +7,7 @@
     "lintJs": "esw *.js components config loaders pages prev_versions src utils *.js",
     "lintJs:watch": "npm run lintJs -- --watch",
     "develop": "gatsby develop",
-    "test": "npm run lintJs",
+    "test": "jest",
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public"
@@ -38,7 +38,6 @@
     "react-router": "2.8.1",
     "reactdown": "^1.0.0-alpha14",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.0",
     "toml-js": "0.0.8"
   },
   "devDependencies": {
@@ -48,7 +47,8 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "eslint-watch": "^3.1.0",
-    "gh-pages": "^0.12.0"
+    "gh-pages": "^0.12.0",
+    "jest": "^20.0.1"
   },
   "repository": {
     "type": "git",

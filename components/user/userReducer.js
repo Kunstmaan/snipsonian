@@ -41,7 +41,6 @@ export default userReducer;
 function getVersionIfAnyFromUrl() {
     if (isClientSide()) {
         const matches = window.location.pathname.match(/\/doc\/(.*)\//);
-
         if (matches !== null) {
             return matches[1];
         }
