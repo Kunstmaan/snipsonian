@@ -7,7 +7,7 @@ import beautifyJsCode from '../../../docTreeGenerator/util/beautifyJsCode';
 class SnippetExample extends React.Component {
     render() {
         return (
-            <Highlight>
+            <Highlight className="javascript">
                 {beautifyJsCode(this.props.example)}
             </Highlight>
         );
