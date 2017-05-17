@@ -2,7 +2,6 @@
 
 import createStoreEnhancer, {NO_STORAGE} from './createStoreEnhancer';
 import {STORAGE_TYPE} from '../storage/browserStorageFactory';
-import {is} from '../generic/is';
 
 export const STORE_STORAGE_TYPE = {
     LOCAL: STORAGE_TYPE.localStorage,
@@ -24,7 +23,8 @@ function createReduxStore({
     });
 
     /* eslint-disable no-underscore-dangle */
-    const composeEnhancers = (!is.undefined(window) && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || redux.compose;
+    const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+        || redux.compose;
     /* eslint-enable */
 
     const store = redux.createStore(
