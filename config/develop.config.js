@@ -1,21 +1,12 @@
-import localStorage from '../src/storage/localStorage';
-
-const STORAGE_KEY = 'SNIPSONIAN_DVLP';
+import getLocalDvlpConfig from '../src/dvlp/getLocalDvlpConfig';
 
 const DEFAULT_DEV_CONFIG = {
     ENABLE_STATE_STORAGE: true
 };
 
-const storedDevConfig = localStorage.readOrSave({
-    key: STORAGE_KEY,
-    valueToSaveIfNotThere: DEFAULT_DEV_CONFIG
+const devConfig = getLocalDvlpConfig({
+    storageKey: 'SNIPSONIAN_DVLP',
+    defaultDevConfig: DEFAULT_DEV_CONFIG
 });
 
-const mergedDevConfig = Object.assign({}, DEFAULT_DEV_CONFIG, storedDevConfig);
-
-localStorage.save({
-    key: STORAGE_KEY,
-    value: mergedDevConfig
-});
-
-export const isStateStorageEnabled = mergedDevConfig.ENABLE_STATE_STORAGE;
+export const isStateStorageEnabled = devConfig.ENABLE_STATE_STORAGE;
