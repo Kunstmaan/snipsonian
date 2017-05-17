@@ -3,7 +3,7 @@ import reducers from './reducers';
 import storeEnhancer from './storeEnhancer';
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 /* eslint-enable */
 
 const store = createStore(

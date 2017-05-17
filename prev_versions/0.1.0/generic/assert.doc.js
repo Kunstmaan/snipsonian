@@ -1,9 +1,10 @@
 import {assert} from './assert';
-import {decorate, snippet, desc, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, desc, name, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class assertDoc {}
 decorate(assertDoc).with(
     snippet(assert),
+    name('assert'),
     desc('To easily assert a certain value. Will throw an error if the value is not valid ' +
         'according to the input validator.'),
     param({
@@ -23,7 +24,7 @@ decorate(assertDoc).with(
         isOptional: true
     }),
     examples(
-        () => {
+        `
             const someUser = {
                 age: 17
             };
@@ -32,7 +33,7 @@ decorate(assertDoc).with(
 
             assert(someUser, isAnAdult, 'Sorry. You should be 18 years old.');
             // => throws Error with message 'Sorry. You should be 18 years old.'
-        }
+        `
     ),
     authors('Ben')
 );

@@ -1,9 +1,10 @@
 import replacePlaceholders from './replacePlaceholders';
-import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, desc, name, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class replacePlaceholdersDoc {}
 decorate(replacePlaceholdersDoc).with(
     snippet(replacePlaceholders),
+    name('replacePlaceHolders'),
     desc('Replaces placeholders of the format {key} with the appropriate values.'),
     param({
         type: JS_DOC_TYPE.STRING,

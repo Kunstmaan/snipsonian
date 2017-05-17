@@ -1,5 +1,5 @@
 import {is} from './is';
-import {decorate, snippet, desc, param, returns, examples, parts, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, desc, name, param, returns, examples, parts, authors, JS_DOC_TYPE} from '../_docRef';
 
 class undefinedDoc {}
 decorate(undefinedDoc).with(
@@ -69,7 +69,7 @@ decorate(builderDoc).with(
         desc: 'True if input is defined and has a build function, false otherwise.'
     }),
     examples(
-        () => {
+        `
             class DummyBuilder {
                 constructor() {
                     this.parts = ['A', 'B', 'C'];
@@ -87,17 +87,18 @@ decorate(builderDoc).with(
             }
 
             return dummyObj;
-        }
+        `
     )
 );
 
 class isDoc {}
 decorate(isDoc).with(
     snippet(is),
+    name('is'),
     desc('Offers convenient is.xxx(val) functions that all return true ' +
         'if their input val is as requested, false otherwise.'),
     examples(
-        () => {
+        `
             const someVar = 'some value';
             is.undefined(someVar);  // => false
             is.null(someVar); // => false
@@ -109,7 +110,7 @@ decorate(isDoc).with(
             is.object(someVar); // => false
             is.array(someVar); // => false
             is.builder(someVar); // => false
-        }
+        `
     ),
     parts(
         undefinedDoc,

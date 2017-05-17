@@ -1,9 +1,10 @@
 import buildIfBuilder from './buildIfBuilder';
-import {decorate, snippet, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class buildIfBuilderDoc {}
 decorate(buildIfBuilderDoc).with(
     snippet(buildIfBuilder),
+    name('buildIfBuilder'),
     desc('If the input entity is a builder, it returns the return value of its build function. ' +
         'Otherwise the input is returned. Will also try to build each item if the input is an array.'),
     param({

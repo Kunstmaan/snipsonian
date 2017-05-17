@@ -35,12 +35,26 @@ runs a localhost server for developping with live reloading:
     
 does the gatsby build:
 
-    yarn run build
+    yarn build
     
 runs the builded site in a local server:
     
     yarn run serve-build
+    
+## New Versions
+When it's time to move to a new version, here are the steps to use: 
 
+* ...
+* ...
+* Recreate the prevVersionsList.json file:
+
+        yarn run createPrevVersionsList
+        
+* Build the public folder:
+
+        yarn build
+
+* Success
 ## Gatsby
 
 The documentation site is using Gatsby.
