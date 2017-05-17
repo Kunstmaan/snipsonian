@@ -12,7 +12,10 @@
     "test": "npm run lintJs && jest",
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
-    "deploy": "gatsby build --prefix-links && gh-pages -d public"
+    "deploy": "gatsby build --prefix-links && gh-pages -d public",
+    "postinstall": "npm run createPrevVersionsList",
+    "precopyLatestToVersion": "yarn version && yarn test && yarn build",
+    "copyLatestToVersion": "node ./bin/copyLatestToVersion"
   },
   "dependencies": {
     "babel-loader": "^6.4.1",
