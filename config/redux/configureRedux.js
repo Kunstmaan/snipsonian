@@ -1,15 +1,14 @@
-import {createStore, applyMiddleware, compose} from 'redux';
+import * as redux from 'redux';
+
+import createReduxStore, {STORE_STORAGE_TYPE} from '../../src/redux/createReduxStore';
 import reducers from './reducers';
-import storeEnhancer from './storeEnhancer';
+import {STORAGE_KEY} from '../redux.config';
+import {isStateStorageEnabled} from '../develop.config';
 
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-/* eslint-enable */
-
-const store = createStore(
+export default createReduxStore({
+    redux,
     reducers,
-    storeEnhancer.preloadedState,
-    composeEnhancers(applyMiddleware(...storeEnhancer.middlewares))
-);
-
-export default store;
+    middlewares: [],
+    storeStorageType: isStateStorageEnabled ? STORE_STORAGE_TYPE.LOCAL : STORE_STORAGE_TYPE.NO_STORAGE,
+    storeStorageKey: STORAGE_KEY
+});

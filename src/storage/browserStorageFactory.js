@@ -1,11 +1,16 @@
 /* global window */
 
+import {assert} from '../generic/assert';
+import {is} from '../generic/is';
+
 export const STORAGE_TYPE = {
-    LOCAL_STORAGE: 'localStorage',
-    SESSION_STORAGE: 'sessionStorage'
+    localStorage: 'localStorage',
+    sessionStorage: 'sessionStorage'
 };
 
-function create(storageType = STORAGE_TYPE.LOCAL_STORAGE) {
+function create(storageType = STORAGE_TYPE.localStorage) {
+    assert(storageType, isValidStorageType, 'Input storageType `{val}` has an unexpected value.');
+
     const storage = {
         isSupported: isStorageSupported(storageType),
 
@@ -45,6 +50,10 @@ function create(storageType = STORAGE_TYPE.LOCAL_STORAGE) {
 
 function isStorageSupported(storageType) {
     return (typeof window !== 'undefined') && window[storageType];
+}
+
+function isValidStorageType(storageType) {
+    return is.set(STORAGE_TYPE[storageType]);
 }
 
 export default {
