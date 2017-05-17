@@ -18,7 +18,7 @@ walkThroughdir(SOURCE_DIR)
 
 function walkThroughdir(dir) {
     return new Promise((resolve, reject) => {
-        console.log('\t🚶\tWalking through the source directory to get full paths for all files...');
+        console.log(' 🚶\tWalking through the source directory to get full paths for all files...');
         walk(dir, (err, data) => {
             if (err) return reject(err);
             return resolve(data);
@@ -28,14 +28,14 @@ function walkThroughdir(dir) {
 
 function filterOutSpec(data) {
     return new Promise((resolve) => {
-        console.log('\t🔍\tFiltering out the spec files...');
+        console.log(' 🔍\tFiltering out the spec files...');
         resolve(data.filter((d) => !d.includes('.spec.')));
     });
 }
 
 function copyFilesToNewLocation(data) {
     return new Promise((resolve, reject) => {
-        console.log('\t📄 📄\tCopying the files to their new location...');
+        console.log(' 📄 📄\tCopying the files to their new location...');
         const promiseArr = [];
         data.forEach((file) => {
             promiseArr.push(new Promise((res, rej) => {
@@ -56,7 +56,7 @@ function copyFilesToNewLocation(data) {
 
 function createFolders(data) {
     return new Promise((resolve) => {
-        console.log('\t📁\tCreating the folders in the destination...');
+        console.log(' 📁\tCreating the folders in the destination...');
         const onlyFolders = data.map((pathName) => path.dirname(pathName));
         const dedupedFolders = dedupeArray(onlyFolders);
         const newFolderPaths = dedupedFolders.map(convertSrcPathToDestPath);
@@ -96,5 +96,5 @@ function convertSrcPathToDestPath(srcPath) {
 }
 
 function showFinishedMessage(){
-    console.log(`\t🎉\tSuccess! You can find your files in '${DEST_DIR}'`);
+    console.log(` 🎉\tSuccess! You can find your files in '${DEST_DIR}'`);
 }
