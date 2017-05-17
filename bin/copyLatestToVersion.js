@@ -7,7 +7,7 @@ const walk = require('./helpers/walk');
 const SOURCE_DIR = path.resolve(__dirname, '../src');
 const DEST_DIR = path.resolve(__dirname, '../prev_versions', packageJson.version);
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
-const DOC_TREE_GENERATOR_DEST= '../../docTreeGenerator';
+const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
 
 walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
