@@ -15,9 +15,7 @@ WIP
 ## Setup
 
     nvm install
-OR
-
-    yarn
+    yarn run setup
 
 If you want to watch jest tests:
 
