@@ -6,11 +6,14 @@ const walk = require('./helpers/walk');
 
 const SOURCE_DIR = path.resolve(__dirname, '../src');
 const DEST_DIR = path.resolve(__dirname, '../prev_versions', packageJson.version);
+const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
+const DOC_TREE_GENERATOR_DEST= '../../docTreeGenerator';
 
 walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
     .then(createFolders)
     .then(copyFilesToNewLocation)
+    .then(editDocRef)
     .then(showFinishedMessage)
     .catch((e) => {
         throw e;
@@ -47,7 +50,7 @@ function copyFilesToNewLocation(data) {
             }));
         });
         Promise.all(promiseArr)
-            .then(resolve())
+            .then(resolve)
             .catch((e) => {
                 reject(e);
             });
@@ -66,6 +69,17 @@ function createFolders(data) {
             }
         });
         return resolve(data);
+    });
+}
+
+function editDocRef() {
+    return new Promise((resolve, reject) => {
+        const docRef = fs.readFileSync(path.resolve(DEST_DIR, '_docRef.js'), 'utf8');
+        const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
+        fs.writeFile(path.resolve(DEST_DIR, '_docRef.js'), updatedDocRef, (err) => {
+            if(err) return reject(err);
+            resolve();
+        });
     });
 }
 
