@@ -1,8 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import localStorageMiddleware from './localStorageMiddleware';
-
 import reducers from './reducers';
-import {middlewares} from './middlewares';
+import storeEnhancer from './storeEnhancer';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -10,8 +8,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     reducers,
-    localStorageMiddleware.getStore(),
-    composeEnhancers(applyMiddleware(...middlewares))
+    storeEnhancer.preloadedState,
+    composeEnhancers(applyMiddleware(...storeEnhancer.middlewares))
 );
 
 export default store;
