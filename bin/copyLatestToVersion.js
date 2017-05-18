@@ -19,6 +19,7 @@ walkThroughdir(SOURCE_DIR)
     .then(createPage)
     .then(showFinishedMessage)
     .catch((e) => {
+        console.error(e);
         throw e;
     });
 
@@ -54,9 +55,7 @@ function copyFilesToNewLocation(data) {
         });
         Promise.all(promiseArr)
             .then(resolve)
-            .catch((e) => {
-                reject(e);
-            });
+            .catch(reject);
     });
 }
 
@@ -78,10 +77,11 @@ function createFolders(data) {
 function editDocRef() {
     console.log(' ✏️\tEditing the _docRef file...');
     return new Promise((resolve, reject) => {
-        readFilePromise(path.resolve(DEST_DIR, '_docRef.js'), 'utf8')
+        const docRefPath = path.resolve(DEST_DIR, '_docRef.js');
+        readFilePromise(docRefPath, 'utf8')
             .then((docRef) => {
                 const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
-                return writeFilePromise(path.resolve(DEST_DIR, '_docRef.js'), updatedDocRef);
+                return writeFilePromise(docRefPath, updatedDocRef);
             })
             .then(resolve)
             .catch(reject);
@@ -100,7 +100,8 @@ function createPage() {
             })
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
-                return writeFilePromise(path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.js`), updatedPage);
+                const updatedPagePath = path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.js`);
+                return writeFilePromise(updatedPagePath, updatedPage);
             })
             .then(resolve)
             .catch(reject);
