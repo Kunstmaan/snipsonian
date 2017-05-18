@@ -100,7 +100,7 @@ function createPage() {
             })
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
-                const updatedPagePath = path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.js`);
+                const updatedPagePath = path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.jsx`);
                 return writeFilePromise(updatedPagePath, updatedPage);
             })
             .then(resolve)
@@ -143,7 +143,7 @@ function getPreviousVersionPagePath() {
         fs.readdir(PAGES_PATH, (err, content) => {
             if (err) reject(err);
             const theFile = content[content.length - 2];
-            resolve({name: path.basename(theFile, '.js'), path: path.resolve(PAGES_PATH, theFile)});
+            resolve({name: path.basename(theFile, '.jsx'), path: path.resolve(PAGES_PATH, theFile)});
         });
     });
 }

@@ -1,6 +1,0 @@
-# EN
-
-test:
-  label: test value from yaml
-  in:
-    md: translated in markdown

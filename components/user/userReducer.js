@@ -1,11 +1,9 @@
 /* global window */
 
-import {SWITCH_LANG, SWITCH_VERSION} from './userActions';
-import {DEFAULT_LANGUAGE} from '../../config/i18n.config';
+import {SWITCH_VERSION} from './userActions';
 import {LATEST_VERSION} from '../../config/versions.config';
 
 const INITIAL_STATE = {
-    lang: DEFAULT_LANGUAGE,
     version: getVersionIfAnyFromUrl() || LATEST_VERSION
 };
 
@@ -15,14 +13,6 @@ const userReducer = (state = INITIAL_STATE, action) => {
     }
 
     switch (action.type) {
-        case SWITCH_LANG: {
-            const newState = Object.assign({}, state);
-
-            newState.lang = action.payload.newLang;
-
-            return newState;
-        }
-
         case SWITCH_VERSION: {
             const newState = Object.assign({}, state);
 
