@@ -1,6 +1,6 @@
 import getUrlPartBetween from './getUrlPartBetween';
 
-import {decorate, snippet, name, desc, paramObject, paramObjectPart, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, paramObject, returns, paramObjectPart, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
 class getUrlPartBetweenDoc {
 }
@@ -27,6 +27,10 @@ decorate(getUrlPartBetweenDoc).with(
         desc: 'The url out of which you want to get the part.',
         defaultValue: 'window.location.pathname',
         isOptional: true
+    }),
+    returns({
+        type: JS_DOC_TYPE.STRING,
+        desc: 'The part of the string found between the two given parts'
     }),
     examples(
         `

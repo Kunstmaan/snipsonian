@@ -10,6 +10,7 @@ const SnippetParams = ({params}) => (
                 <th>Name</th>
                 <th>Type</th>
                 <th>Description</th>
+                <th>Default value</th>
                 <th style={textCenterStyle}>isArray</th>
                 <th style={textCenterStyle}>isOptional</th>
             </tr>
@@ -20,6 +21,7 @@ const SnippetParams = ({params}) => (
                     <td>{param.name}</td>
                     <td>{param.type}</td>
                     <td>{param.desc}</td>
+                    <td>{param.defaultValue}</td>
                     <td style={textCenterStyle}>{resolveBoolToEmoji(param.isArray)}</td>
                     <td style={textCenterStyle}>{resolveBoolToEmoji(param.isOptional)}</td>
                 </tr>

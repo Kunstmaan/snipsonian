@@ -13,7 +13,7 @@ const SnippetDetail = ({children, snippet}) => (
                 `${snippet.parentName}.` : ''}${snippet.getName()}`
             }
             {snippet.type === 'function' &&
-            ` (${paramsToString(snippet.params)}${paramObjectsToString(snippet.paramObjects)})`
+            ` (${paramsToString(snippet.params)}${paramObjectsToString(snippet.paramObjects)})${snippet.returns ? ` => (${snippet.returns.type})` : ''}`
             }
         </h4>
         {
@@ -44,7 +44,7 @@ const SnippetDetail = ({children, snippet}) => (
         {snippet.returns &&
         <div>
             <strong>Returns: </strong>
-            {snippet.returns.type} - {snippet.returns.desc}
+            {snippet.returns.type}{snippet.returns.desc ? ` - ${snippet.returns.desc}` : ''}
         </div>
         }
         { snippet.examples.length > 0 &&
