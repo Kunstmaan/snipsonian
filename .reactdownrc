@@ -1,8 +1,0 @@
-{
-    directives: {
-        Translate: {
-            line: 'required',
-            component: './components/i18n/Translate.component'
-        }
-    }
-}

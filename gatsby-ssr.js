@@ -1,3 +1,3 @@
-import wrapRootComponentWithReduxAndIntlProvider from './utils/wrapRootComponentWithReduxAndIntlProvider';
+import wrapRootComponent from './utils/wrapRootComponent';
 
-exports.wrapRootComponent = (Root) => wrapRootComponentWithReduxAndIntlProvider(Root);
+exports.wrapRootComponent = (Root) => wrapRootComponent(Root);
