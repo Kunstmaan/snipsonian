@@ -2,7 +2,7 @@
   margin-left: 9rem;
   padding-left: 1rem;
   padding-bottom: 3rem;
-  border-left: 1px solid #455A64;
+  border-left: 1px solid $header-color;
 }
 
 .snippet-detail {
@@ -13,4 +13,14 @@
 .snippet {
   padding-top: 50px;
   margin-top: -50px;
+}
+
+.flex-content {
+  flex-direction: row;
+  flex: 1;
+  min-height: 10rem;
+  background-color: $content-color;
+  padding: 1rem;
+  overflow: auto;
+  padding-top: 50px;
 }

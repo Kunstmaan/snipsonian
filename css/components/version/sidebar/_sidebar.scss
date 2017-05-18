@@ -1,0 +1,21 @@
+@import "collapsible";
+
+.group-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.flex-sidbar {
+  flex-direction: column;
+  flex: 0 0 200px;
+  min-height: 10rem;
+  background-color: $sidebar-color;
+  padding: 1rem;
+  overflow: auto;
+  padding-top: 50px;
+}
+
+.version-select-wrapper {
+  padding-top: 1rem;
+}

@@ -5,7 +5,7 @@ import Collapsible from './collapsible';
 import VersionSelect from '../../header/Versions.component';
 
 const Sidebar = ({docGroups}) => (
-    <div className="flex-sidbar version-component">
+    <div className="flex-sidbar">
         <div className="version-select-wrapper">Version: <VersionSelect /></div>
         <ul className="group-list">
             {docGroups.map((group) => (
