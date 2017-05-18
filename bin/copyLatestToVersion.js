@@ -6,6 +6,7 @@ const walk = require('./helpers/walk');
 
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
+const PAGES_PATH = path.resolve(__dirname, '../pages/doc');
 const SOURCE_DIR = path.resolve(__dirname, '../src');
 const NEW_VERSION = packageJson.version;
 const DEST_DIR = path.resolve(__dirname, '../prev_versions', NEW_VERSION);
@@ -90,9 +91,15 @@ function editDocRef() {
 function createPage() {
     console.log(' ✍️\tCreating page...');
     return new Promise((resolve, reject) => {
-        readFilePromise(path.resolve(__dirname, '../pages/doc/0.1.0.js'), 'utf8')
+        let previousVersionPageVersion;
+        getPreviousVersionPagePath()
+            .then((prevVersionPage) => {
+                console.log(prevVersionPage);
+                previousVersionPageVersion = prevVersionPage.name;
+                return readFilePromise(prevVersionPage.path, 'utf8');
+            })
             .then((page) => {
-                const updatedPage = page.replace(new RegExp('0.1.0', 'g'), NEW_VERSION);
+                const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
                 return writeFilePromise(path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.js`), updatedPage);
             })
             .then(resolve)
@@ -128,4 +135,14 @@ function convertSrcPathToDestPath(srcPath) {
 
 function showFinishedMessage() {
     console.log(` 🎉\tSuccess! You can find your files in '${DEST_DIR}'`);
+}
+
+function getPreviousVersionPagePath() {
+    return new Promise((resolve, reject) => {
+        fs.readdir(PAGES_PATH, (err, content) => {
+            if (err) reject(err);
+            const theFile = content[content.length - 2];
+            resolve({name: path.basename(theFile, '.js'), path: path.resolve(PAGES_PATH, theFile)});
+        });
+    });
 }
