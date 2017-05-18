@@ -12,9 +12,17 @@ JS Snippets powered by Kunstmaan Development
 
 WIP
 
+## Dependencies
+
+* yarn
+    * Not really a hard dependency, but it is preferred to npm for this project.
+    * To install:
+          
+          brew update
+          brew install yarn
+
 ## Setup
 
-    nvm install
     yarn run setup
 
 If you want to watch jest tests:
@@ -40,25 +48,19 @@ runs the builded site in a local server:
     yarn run serve-build
     
 ## New Versions
-When it's time to move to a new version, here are the steps to use: 
+When it's time to move to a new version, here's what to do: 
 
-* ...
-* ...
-* Recreate the prevVersionsList.json file:
-
-        yarn run createPrevVersionsList
+        yarn version --new-version [patch|minor|major]
         
-* Build the public folder:
+That's it! The script will make sure all files are copied from 'src' to 'prev_versions', everything is set up correctly
+ and pushed under a new tag to git.
 
-        yarn build
-
-* Success
 ## Gatsby
 
 The documentation site is using Gatsby.
 
 Some gatsby specials:
-* wrapRootComponentWithReduxAndIntlProvider (gatsby-browser.js & gatsby-ssr.js)
+* wrapRootComponentWithRedux (gatsby-browser.js & gatsby-ssr.js)
 
 ## License
 
