@@ -1,19 +1,21 @@
 const fs = require('fs');
 const path = require('path');
-const packageJson = require('../package.json');
 
+const packageJson = require('../package.json');
 const walk = require('./helpers/walk');
 
-const SOURCE_DIR = path.resolve(__dirname, '../src');
-const DEST_DIR = path.resolve(__dirname, '../prev_versions', packageJson.version);
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
+const SOURCE_DIR = path.resolve(__dirname, '../src');
+const NEW_VERSION = packageJson.version;
+const DEST_DIR = path.resolve(__dirname, '../prev_versions', NEW_VERSION);
 
 walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
     .then(createFolders)
     .then(copyFilesToNewLocation)
     .then(editDocRef)
+    .then(createPage)
     .then(showFinishedMessage)
     .catch((e) => {
         throw e;
@@ -73,19 +75,34 @@ function createFolders(data) {
 }
 
 function editDocRef() {
+    console.log(' ✏️\tEditing the _docRef file...');
     return new Promise((resolve, reject) => {
-        const docRef = fs.readFileSync(path.resolve(DEST_DIR, '_docRef.js'), 'utf8');
-        const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
-        fs.writeFile(path.resolve(DEST_DIR, '_docRef.js'), updatedDocRef, (err) => {
-            if(err) return reject(err);
-            resolve();
-        });
+        readFilePromise(path.resolve(DEST_DIR, '_docRef.js'), 'utf8')
+            .then((docRef) => {
+                const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
+                return writeFilePromise(path.resolve(DEST_DIR, '_docRef.js'), updatedDocRef);
+            })
+            .then(resolve)
+            .catch(reject);
     });
 }
 
-function readFilePromise(filePath) {
+function createPage() {
+    console.log(' ✍️\tCreating page...');
     return new Promise((resolve, reject) => {
-        fs.readFile(filePath, (err, fileContent) => {
+        readFilePromise(path.resolve(__dirname, '../pages/doc/0.1.0.js'), 'utf8')
+            .then((page) => {
+                const updatedPage = page.replace(new RegExp('0.1.0', 'g'), NEW_VERSION);
+                return writeFilePromise(path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.js`), updatedPage);
+            })
+            .then(resolve)
+            .catch(reject);
+    });
+}
+
+function readFilePromise(filePath, options = {}) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filePath, options, (err, fileContent) => {
             if (err) return reject(err);
             return resolve(fileContent);
         });
@@ -109,6 +126,6 @@ function convertSrcPathToDestPath(srcPath) {
     return path.resolve(DEST_DIR, srcPath.split('src/')[1] || '');
 }
 
-function showFinishedMessage(){
+function showFinishedMessage() {
     console.log(` 🎉\tSuccess! You can find your files in '${DEST_DIR}'`);
 }

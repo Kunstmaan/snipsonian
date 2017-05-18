@@ -16,7 +16,7 @@
     "postinstall": "npm run createPrevVersionsList",
     "preversion": "yarn test && yarn build",
     "version": "yarn run copyLatestToVersion && git add -A prev_versions",
-    "postversion": "git push && git push --tags",
+    "postversion": "git push && git push --tags && yarn run createPrevVersionsList",
     "copyLatestToVersion": "node ./bin/copyLatestToVersion"
   },
   "dependencies": {
