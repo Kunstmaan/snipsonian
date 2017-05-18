@@ -16,6 +16,7 @@ export const snippet = (jsSnippet) =>
             type: docType,
             name: is.set(name) ? name : getNameOfClass(target),
             params: [],
+            paramObjects: [],
             examples: [],
             throws: [],
             parts: [],
@@ -33,6 +34,8 @@ export const param = ({
     desc = '',
     name = '',
     examples = [],
+    parts = [],
+    defaultValue = '',
     isArray = false,
     isOptional = false
 }) =>
@@ -42,6 +45,48 @@ export const param = ({
             desc,
             name,
             examples,
+            parts,
+            defaultValue,
+            isArray,
+            isOptional
+        });
+        return target;
+    };
+
+export const paramObject = ({
+    type = JS_DOC_TYPE.OBJECT,
+    parts = [],
+    isOptional = false,
+    id = Math.round(Math.random() * 10000)
+}) =>
+    function decorate(target) {
+        target.getBuildParam('paramObjects').push({
+            type,
+            parts,
+            isOptional,
+            id
+        });
+        return target;
+    };
+
+export const paramObjectPart = (paramObjectNumber, {
+    type = JS_DOC_TYPE.ANY,
+    desc = '',
+    name = '',
+    examples = [],
+    parts = [],
+    defaultValue = '',
+    isArray = false,
+    isOptional = false
+}) =>
+    function decorate(target) {
+        target.getBuildParam('paramObjects')[paramObjectNumber].parts.push({
+            type,
+            desc,
+            name,
+            examples,
+            parts,
+            defaultValue,
             isArray,
             isOptional
         });

@@ -1,27 +1,31 @@
 import getUrlPartBetween from './getUrlPartBetween';
 
-import {decorate, snippet, name, desc, param, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {decorate, snippet, name, desc, paramObject, paramObjectPart, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
-class getUrlPartBetweenDoc {}
+class getUrlPartBetweenDoc {
+}
 decorate(getUrlPartBetweenDoc).with(
     snippet(getUrlPartBetween),
     name('getUrlPartBetween'),
     desc('Returns the part from the current url pathname between the strings specified.'),
-    param({
+    paramObject({}),
+    paramObjectPart(0, {
+        type: JS_DOC_TYPE.STRING,
         name: 'firstPart',
-        type: JS_DOC_TYPE.STRING,
-        description: 'The string before the part you are looking for'
+        desc: 'The part that comes before the string you are looking for'
     }),
-    param({
-        name: 'secondPart',
+    paramObjectPart(0, {
         type: JS_DOC_TYPE.STRING,
-        desc: 'The string after the part you are looking for. Defaults to "/"',
+        name: 'secondPart',
+        desc: 'The part after the string you are looking for',
+        defaultValue: '/',
         isOptional: true
     }),
-    param({
-        name: 'url',
+    paramObjectPart(0, {
         type: JS_DOC_TYPE.STRING,
-        desc: 'The url out of which you want to get the part. Defaults to "window.location.pathname',
+        name: 'url',
+        desc: 'The url out of which you want to get the part.',
+        defaultValue: 'window.location.pathname',
         isOptional: true
     }),
     examples(

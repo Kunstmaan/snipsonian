@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SnippetParams from './SnippetParams';
 import SnippetExample from './SnippetExample';
+import SnippetParamObjects from './SnippetParamObjects';
 
 const SnippetDetail = ({children, snippet}) => (
     <div className={`${snippet.parentName !== undefined ? 'snippet-detail__part' : ''} snippet-detail`}
@@ -12,7 +13,7 @@ const SnippetDetail = ({children, snippet}) => (
                 `${snippet.parentName}.` : ''}${snippet.getName()}`
             }
             {snippet.type === 'function' &&
-            ` (${paramsToString(snippet.params)})`
+            ` (${paramsToString(snippet.params)}${paramObjectsToString(snippet.paramObjects)})`
             }
         </h4>
         {
@@ -31,6 +32,13 @@ const SnippetDetail = ({children, snippet}) => (
             <div>
                 <strong>Params: </strong>
                 <SnippetParams params={snippet.params} />
+            </div>
+        }
+        {
+            snippet.paramObjects.length > 0 &&
+            <div>
+                <strong>Param Objects: </strong>
+                <SnippetParamObjects paramObjects={snippet.paramObjects} />
             </div>
         }
         {snippet.returns &&
@@ -80,6 +88,21 @@ function paramsToString(params) {
     const paramNames = params.map(putBracketsAroundOptionalParams);
     paramNames[0] = paramNames[0].replace(', ', '');
     return paramNames.join('');
+}
+
+function paramObjectsToString(paramObjects) {
+    if (paramObjects.length <= 0) return '';
+    const newParamObjects = paramObjects.map((paramObject) => {
+        let paramObjectParts = paramObject.parts.map(putBracketsAroundOptionalParams);
+        paramObjectParts[0] = paramObjectParts[0].replace(', ', '');
+        paramObjectParts = paramObjectParts.join(' ');
+        const updatedParamObject = paramObject;
+        updatedParamObject.name = `{${paramObjectParts}}`;
+        return updatedParamObject;
+    });
+    const allParamObjects = newParamObjects.map(putBracketsAroundOptionalParams);
+    allParamObjects[0] = allParamObjects[0].replace(', ', '');
+    return allParamObjects.join('');
 }
 
 function createId(snippet) {
