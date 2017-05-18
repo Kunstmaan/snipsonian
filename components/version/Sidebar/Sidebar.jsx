@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Collapsible from './collapsible';
-import VersionSelect from '../../header/Versions.component';
+import VersionSelect from '../../versionSelect/VersionSelect';
 
 const Sidebar = ({docGroups}) => (
     <div className="flex-sidbar">

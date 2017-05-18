@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import '../css/styles.scss';
 
-import Header from '../components/header/Header.component';
+import Header from '../components/header/Header';
 
 const template = ({children}) => (
     <div className="main-wrapper">

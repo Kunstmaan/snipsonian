@@ -5,10 +5,44 @@
   background: $header-color;
   align-items: center;
   text-align: center;
-  justify-content: space-around;
-  height: 50px;
+  height: 100px;
+  z-index: 1;
+  color: #CFD8DC;
 
   & .brand {
-    font-size: 32px;
+    display: flex;
+    flex: 0 0 200px;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    & .brand-name{
+      font-size: 32px;
+    }
+  }
+
+  & .header-content {
+    display: flex;
+    flex: 1;
+
+    & .docs-button {
+      background-color: #263238;
+      height: 100px;
+      padding: 0 1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        background-color: #78909C;
+      }
+    }
+
+    & .powered-by {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1;
+      padding-right: 1rem;
+    }
   }
 }

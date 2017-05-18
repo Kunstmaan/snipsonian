@@ -20,22 +20,25 @@ class Header extends React.Component {
     render() {
         return (
             <div className="header-container">
-                <div>
-                    <Link to={prefixLink('/')}
+                <div className="brand">
+                    <Link className="brand-name" to={prefixLink('/')}
                           style={{
                               textDecoration: 'none',
                               color: styleConfig.header.title.color
                           }}>
-                        <span className="brand">Snipsonian</span>
+                        <span>Snipsonian</span>
                     </Link>
+                    <div style={{
+                        color: styleConfig.color.primary
+                    }}>
+                        Small, re-usable javascript code snippets
+                    </div>
                 </div>
-                <span style={{
-                    color: styleConfig.color.primary
-                }}>
-                    Small, re-usable javascript code snippets
-                </span>
-                <Link to={prefixLink(`/doc/${this.props.version}/`)} style={{color: styleConfig.header.title.color}}>Go To Docs</Link>
-                <span>powered by Kunstmaan Development</span>
+                <div className="header-content">
+                    <Link className="docs-button" to={prefixLink(`/doc/${this.props.version}/`)}
+                          style={{color: styleConfig.header.title.color}}><span>Go To Docs</span></Link>
+                    <div className="powered-by"><span>Powered by Kunstmaan Development</span></div>
+                </div>
             </div>
         );
     }
