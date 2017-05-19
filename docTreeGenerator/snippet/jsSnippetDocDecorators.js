@@ -30,22 +30,22 @@ export const snippet = (jsSnippet) =>
     };
 
 export const param = ({
-    type = JS_DOC_TYPE.ANY,
-    desc = '',
-    name = '',
-    examples = [],
-    parts = [],
-    defaultValue = '',
-    isArray = false,
-    isOptional = false
-}) =>
+                          type = JS_DOC_TYPE.ANY,
+                          desc = '',
+                          name = '',
+                          examples = [],
+                          fields = [],
+                          defaultValue = '',
+                          isArray = false,
+                          isOptional = false
+                      }) =>
     function decorate(target) {
         target.getBuildParam('params').push({
             type,
             desc,
             name,
             examples,
-            parts,
+            fields,
             defaultValue,
             isArray,
             isOptional
@@ -53,52 +53,43 @@ export const param = ({
         return target;
     };
 
-export const paramObject = ({
-    type = JS_DOC_TYPE.OBJECT,
-    parts = [],
-    isOptional = false,
-    id = Math.round(Math.random() * 10000)
-}) =>
+export const paramObject = (...fields) =>
     function decorate(target) {
         target.getBuildParam('paramObjects').push({
-            type,
-            parts,
-            isOptional,
-            id
+            type: JS_DOC_TYPE.OBJECT,
+            fields,
+            isOptional: false,
+            id: Math.round(Math.random() * 10000)
         });
         return target;
     };
 
-export const paramObjectPart = (paramObjectNumber, {
+export const paramObjectField = ({
     type = JS_DOC_TYPE.ANY,
     desc = '',
     name = '',
     examples = [],
-    parts = [],
+    fields = [],
     defaultValue = '',
     isArray = false,
     isOptional = false
-}) =>
-    function decorate(target) {
-        target.getBuildParam('paramObjects')[paramObjectNumber].parts.push({
-            type,
-            desc,
-            name,
-            examples,
-            parts,
-            defaultValue,
-            isArray,
-            isOptional
-        });
-        return target;
-    };
+}) => ({
+    type,
+    desc,
+    name,
+    examples,
+    fields,
+    defaultValue,
+    isArray,
+    isOptional
+});
 
 export const returns = ({
-    type = JS_DOC_TYPE.ANY,
-    desc = '',
-    examples = [],
-    isArray = false
-}) =>
+                            type = JS_DOC_TYPE.ANY,
+                            desc = '',
+                            examples = [],
+                            isArray = false
+                        }) =>
     function decorate(target) {
         return target.with('returns', {
             type,
@@ -125,9 +116,9 @@ export const desc = (description) =>
     };
 
 export const canThrow = ({
-    error = '',
-    when = ''
-}) =>
+                             error = '',
+                             when = ''
+                         }) =>
     function decorate(target) {
         target.getBuildParam('throws').push({
             error,
@@ -158,10 +149,10 @@ function getNameOfClass(clazz) {
         .map(removeDocIfAtEndOfName)[0];
 }
 
-function removeDocIfAtEndOfName(name) {
-    return name.replace(/Doc$/, '');
+function removeDocIfAtEndOfName(nme) {
+    return nme.replace(/Doc$/, '');
 }
 
-function removeUnderscoreIfAtStartOfName(name) {
-    return name.replace(/^_/, '');
+function removeUnderscoreIfAtStartOfName(nme) {
+    return nme.replace(/^_/, '');
 }

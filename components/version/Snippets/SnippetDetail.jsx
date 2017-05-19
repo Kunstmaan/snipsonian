@@ -93,7 +93,7 @@ function paramsToString(params) {
 function paramObjectsToString(paramObjects) {
     if (paramObjects.length <= 0) return '';
     const newParamObjects = paramObjects.map((paramObject) => {
-        let paramObjectParts = paramObject.parts.map(putBracketsAroundOptionalParams);
+        let paramObjectParts = paramObject.fields.map(putBracketsAroundOptionalParams);
         paramObjectParts[0] = paramObjectParts[0].replace(', ', '');
         paramObjectParts = paramObjectParts.join(' ');
         const updatedParamObject = paramObject;

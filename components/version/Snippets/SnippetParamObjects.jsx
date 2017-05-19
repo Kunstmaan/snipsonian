@@ -18,14 +18,14 @@ const SnippetParamObjects = ({paramObjects}) => (
                     </tr>
                 </thead>
                 <tbody>
-                    {paramObject.parts.map((param) => (
-                        <tr key={param.name}>
-                            <td>{param.name}</td>
-                            <td>{param.type}</td>
-                            <td>{param.desc}</td>
-                            <td>{param.defaultValue}</td>
-                            <td style={textCenterStyle}>{resolveBoolToEmoji(param.isArray)}</td>
-                            <td style={textCenterStyle}>{resolveBoolToEmoji(param.isOptional)}</td>
+                    {paramObject.fields.map((field) => (
+                        <tr key={field.name}>
+                            <td>{field.name}</td>
+                            <td>{field.type}</td>
+                            <td>{field.desc}</td>
+                            <td>{field.defaultValue}</td>
+                            <td style={textCenterStyle}>{resolveBoolToEmoji(field.isArray)}</td>
+                            <td style={textCenterStyle}>{resolveBoolToEmoji(field.isOptional)}</td>
                         </tr>
                     ))}
                 </tbody>
