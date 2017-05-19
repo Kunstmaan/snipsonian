@@ -13,7 +13,6 @@
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
-    "postinstall": "npm run createPrevVersionsList",
     "preversion": "yarn test && yarn build",
     "version": "yarn run copyLatestToVersion && git add -A prev_versions",
     "postversion": "git push && git push --tags && yarn run createPrevVersionsList",

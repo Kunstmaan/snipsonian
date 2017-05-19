@@ -48,6 +48,7 @@ runs the builded site in a local server:
     yarn run serve-build
     
 ## New Versions
+
 When it's time to move to a new version, here's what to do: 
 
         yarn version --new-version [patch|minor|major]

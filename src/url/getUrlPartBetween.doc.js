@@ -29,12 +29,10 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
     type: JS_DOC_TYPE.STRING,
     desc: 'The part of the string found between the two given parts'
 })
-@examples(
-    `
-            const urlPartImLookingFor = getUrlPartBetween({firstPart: 'doc/'});
-            const urlPartImLookingFor2 = getUrlPartBetween({firstPart: 'doc/', secondPart: '/'});
-        `
-)
+@examples(`
+    const urlPartImLookingFor = getUrlPartBetween({firstPart: 'doc/'});
+    const urlPartImLookingFor2 = getUrlPartBetween({firstPart: 'doc/', secondPart: '/'});
+`)
 @authors('Thomas')
 @snippet(getUrlPartBetween)
 class getUrlPartBetweenDoc {
