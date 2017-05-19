@@ -1,28 +1,37 @@
 import replacePlaceholders from './replacePlaceholders';
-import {decorate, snippet, desc, name, param, returns, examples, authors, JS_DOC_TYPE} from '../_docRef';
+import {
+    snippet,
+    desc,
+    name,
+    paramObject,
+    paramObjectField,
+    returns,
+    examples,
+    authors,
+    JS_DOC_TYPE
+} from '../_docRef';
 
-class replacePlaceholdersDoc {}
-decorate(replacePlaceholdersDoc).with(
-    snippet(replacePlaceholders),
-    name('replacePlaceHolders'),
-    desc('Replaces placeholders of the format {key} with the appropriate values.'),
-    param({
+@name('replacePlaceHolders')
+@desc('Replaces placeholders of the format {key} with the appropriate values.')
+@paramObject(
+    paramObjectField({
         type: JS_DOC_TYPE.STRING,
         desc: 'The message containing the {placeholders}.',
         name: 'msg'
     }),
-    param({
+    paramObjectField({
         type: JS_DOC_TYPE.OBJECT,
         desc: 'Object containing for each placeholder a \'key: value\' pair',
         name: 'placeholders',
         isOptional: true
-    }),
-    returns({
-        type: JS_DOC_TYPE.STRING,
-        desc: 'The input msg where the placeholders have been replaced.'
-    }),
-    examples(
-        `
+    })
+)
+@returns({
+    type: JS_DOC_TYPE.STRING,
+    desc: 'The input msg where the placeholders have been replaced.'
+})
+@examples(
+    `
             const msg = 'Hello {firstName} {lastName}!';
         
             replacePlaceholders({
@@ -34,8 +43,10 @@ decorate(replacePlaceholdersDoc).with(
             });
             // => 'Hello John Doe!'
         `
-    ),
-    authors('Ben')
-);
+)
+@authors('Ben')
+@snippet(replacePlaceholders)
+class replacePlaceholdersDoc {
+}
 
 export default replacePlaceholdersDoc;
