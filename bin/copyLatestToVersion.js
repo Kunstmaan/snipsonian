@@ -94,7 +94,6 @@ function createPage() {
         let previousVersionPageVersion;
         getPreviousVersionPagePath()
             .then((prevVersionPage) => {
-                console.log(prevVersionPage);
                 previousVersionPageVersion = prevVersionPage.name;
                 return readFilePromise(prevVersionPage.path, 'utf8');
             })
