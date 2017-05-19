@@ -9,6 +9,8 @@ import collapsableDoc from './decorator/collapsable.doc';
 import assertDoc from './generic/assert.doc';
 import isDoc from './generic/is.doc';
 
+import writeFilePromise from './node/writeFilePromise.doc';
+
 import replacePlaceholdersDoc from './string/replacePlaceholders.doc';
 
 import getUrlPartBetweenDoc from './url/getUrlPartBetween.doc';
@@ -25,6 +27,9 @@ export default [
     group('generic').snippets(
         assertDoc,
         isDoc
+    ),
+    group('node').snippets(
+        writeFilePromise
     ),
     group('string').snippets(
         replacePlaceholdersDoc

@@ -7,5 +7,6 @@ export const JS_DOC_TYPE = {
     NUMBER: 'number',
     OBJECT: 'Object',
     STRING: 'string',
+    PROMISE: 'Promise',
     ANY: '?'
 };
