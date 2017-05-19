@@ -14,7 +14,7 @@
     "serve-build": "gatsby serve-build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
     "preversion": "yarn test && yarn build",
-    "version": "yarn run copyLatestToVersion && git add -A prev_versions",
+    "version": "yarn run copyLatestToVersion && git add -A prev_versions pages/doc",
     "postversion": "git push && git push --tags && yarn run createPrevVersionsList",
     "copyLatestToVersion": "node ./bin/copyLatestToVersion"
   },
