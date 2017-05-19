@@ -1,15 +1,25 @@
-/assets
+/bin
+/components
+/config
+/css
+/docTreeGenerator
+/images
+/pages
 /prev_versions
 /src/**/*.spec.js
 /src/**/*.doc.js
 /src/_*
+/utils
+/wrappers
 *.html
 .babelrc
-.eslintrc
+.eslint*
 .gitignore
 .npmignore
 .nvmrc
+/*.toml
 /*.js
+yarn.lock
 
 .idea
 .DS_Store
