@@ -24,7 +24,7 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
         name: 'options',
         defaultValue: '{}',
         isOptional: true,
-        desc: 'Options that are passes to fs when writing the file'
+        desc: 'Options that are passed to fs when writing the file'
     })
 )
 @returns({

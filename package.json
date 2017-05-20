@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.kunstmaan.be:9999/kunstmaan/snippet-js.git"
+    "url": "ssh://git@git.kunstmaan.be:9999/kunstmaan/snipsonian.git"
   },
   "keywords": [
     "kunstmaan",
