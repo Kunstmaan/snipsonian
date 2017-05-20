@@ -24,7 +24,7 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
         name: 'options',
         defaultValue: '{}',
         isOptional: true,
-        desc: 'Options for saving'
+        desc: 'Options that are passes to fs when writing the file'
     })
 )
 @returns({
@@ -32,12 +32,15 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
     desc: 'Gets resolved when the file has been written to the disk'
 })
 @authors('Thomas')
-@examples(
-    `
-        const thePromise = writeFilePromise({'/path/to/somewhere', 'Lorem Ipsum Dolor Sit Amet', fs});
-        thePromise.then(doSomething)
-    `
-)
+@examples(`
+    const thePromise = writeFilePromise({
+        filePath: '/path/to/somewhere',
+        data: 'Lorem Ipsum Dolor Sit Amet',
+        fs
+    });
+        
+    thePromise.then(doSomething)
+`)
 @snippet(writeFilePromise)
 class writeFilePromiseDoc {
 }
