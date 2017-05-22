@@ -23,7 +23,7 @@
     "space-before-function-paren": ["error", "never"],
 
     "import/extensions": ["error", "never", {"scss": "always", "yaml": "always", "toml": "always"}],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/_doc/**/*.js"]}],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-unresolved": ["error", {"ignore": ["^react$", "^react-dom$"]}],
     "import/prefer-default-export": ["off"],
 
