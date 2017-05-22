@@ -1,7 +1,7 @@
-import writeFilePromise from './writeFilePromise';
+import writeFile from './writeFile';
 import {snippet, name, desc, paramObject, returns, paramObjectField, examples, authors, JS_DOC_TYPE} from '../_docRef';
 
-@name('writeFilePromise')
+@name('writeFile')
 @desc('Creates a promise to write a file with fs')
 @paramObject(
     paramObjectField({
@@ -41,7 +41,7 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
         
     thePromise.then(doSomething)
 `)
-@snippet(writeFilePromise)
+@snippet(writeFile)
 class writeFilePromiseDoc {
 }
 

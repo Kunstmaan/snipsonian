@@ -9,7 +9,7 @@ import collapsableDoc from './decorator/collapsable.doc';
 import assertDoc from './generic/assert.doc';
 import isDoc from './generic/is.doc';
 
-import writeFilePromise from './node/writeFilePromise.doc';
+import writeFilePromise from './node/writeFile.doc';
 
 import replacePlaceholdersDoc from './string/replacePlaceholders.doc';
 

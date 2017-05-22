@@ -5,4 +5,4 @@ module.exports = function writeFile({filePath, data, options = {}, fs}) {
             return resolve();
         });
     });
-};
+}

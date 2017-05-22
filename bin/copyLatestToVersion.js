@@ -3,6 +3,7 @@ const path = require('path');
 
 const packageJson = require('../package.json');
 const walk = require('./helpers/walk');
+const writeFile = require('../src/node/writeFile');
 
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
@@ -45,10 +46,11 @@ function copyFilesToNewLocation(data) {
         console.log(' 📄 📄\tCopying the files to their new location...');
         const promiseArr = [];
         data.forEach((file) => {
+            if (path.basename(file) === '.eslintrc') return;
             promiseArr.push(new Promise((res, rej) => {
                 const newFilePath = convertSrcPathToDestPath(file);
-                readFilePromise(file)
-                    .then((content) => writeFilePromise(newFilePath, content))
+                return readFilePromise(file)
+                    .then((content) => writeFile({filePath: newFilePath, data: content, fs}))
                     .then(res)
                     .catch(rej);
             }));
@@ -81,7 +83,7 @@ function editDocRef() {
         readFilePromise(docRefPath, 'utf8')
             .then((docRef) => {
                 const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
-                return writeFilePromise(docRefPath, updatedDocRef);
+                return writeFile({filePath: docRefPath, data: updatedDocRef, fs});
             })
             .then(resolve)
             .catch(reject);
@@ -100,7 +102,7 @@ function createPage() {
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
                 const updatedPagePath = path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.jsx`);
-                return writeFilePromise(updatedPagePath, updatedPage);
+                return writeFile({filePath: updatedPagePath, data: updatedPage, fs});
             })
             .then(resolve)
             .catch(reject);
@@ -112,15 +114,6 @@ function readFilePromise(filePath, options = {}) {
         fs.readFile(filePath, options, (err, fileContent) => {
             if (err) return reject(err);
             return resolve(fileContent);
-        });
-    });
-}
-
-function writeFilePromise(newFilePath, fileContent) {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(newFilePath, fileContent, (err) => {
-            if (err) return reject(err);
-            return resolve();
         });
     });
 }
