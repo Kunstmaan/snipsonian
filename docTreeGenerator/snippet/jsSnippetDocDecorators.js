@@ -31,15 +31,16 @@ export const snippet = (jsSnippet) =>
     };
 
 export const param = ({
-                          type = JS_DOC_TYPE.ANY,
-                          desc = '',
-                          name = '',
-                          examples = [],
-                          fields = [],
-                          defaultValue = '',
-                          isArray = false,
-                          isOptional = false
-                      }) =>
+    type = JS_DOC_TYPE.ANY,
+    desc = '',
+    name = '',
+    examples = [],
+    fields = [],
+    defaultValue = '',
+    isArray = false,
+    canBeArray = false,
+    isOptional = false
+}) =>
     function decorate(target) {
         target.getBuildParam('params').push({
             type,
@@ -49,6 +50,7 @@ export const param = ({
             fields,
             defaultValue,
             isArray,
+            canBeArray,
             isOptional
         });
         return target;
@@ -86,11 +88,11 @@ export const paramObjectField = ({
 });
 
 export const returns = ({
-                            type = JS_DOC_TYPE.ANY,
-                            desc = '',
-                            examples = [],
-                            isArray = false
-                        }) =>
+    type = JS_DOC_TYPE.ANY,
+    desc = '',
+    examples = [],
+    isArray = false
+}) =>
     function decorate(target) {
         return target.with('returns', {
             type,
@@ -117,9 +119,9 @@ export const desc = (description) =>
     };
 
 export const canThrow = ({
-                             error = '',
-                             when = ''
-                         }) =>
+    error = '',
+    when = ''
+}) =>
     function decorate(target) {
         target.getBuildParam('throws').push({
             error,

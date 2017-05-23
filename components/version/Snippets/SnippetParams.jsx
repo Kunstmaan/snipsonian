@@ -22,7 +22,7 @@ const SnippetParams = ({params}) => (
                     <td>{param.type}</td>
                     <td>{param.desc}</td>
                     <td>{param.defaultValue}</td>
-                    <td style={textCenterStyle}>{resolveBoolToEmoji(param.isArray)}</td>
+                    <td style={textCenterStyle}>{resolveArray(param.isArray, param.canBeArray)}</td>
                     <td style={textCenterStyle}>{resolveBoolToEmoji(param.isOptional)}</td>
                 </tr>
             ))}
@@ -44,4 +44,9 @@ export default SnippetParams;
 
 function resolveBoolToEmoji(input) {
     return input ? '✔' : '✖';
+}
+
+function resolveArray(isArray, canBeArray) {
+    if (canBeArray) return 'can';
+    return resolveBoolToEmoji(isArray);
 }
