@@ -21,6 +21,7 @@ export const snippet = (jsSnippet) =>
             throws: [],
             parts: [],
             authors: [],
+            since: '',
             getName: () => removeUnderscoreIfAtStartOfName(initial.name)
         };
 
@@ -143,6 +144,12 @@ export const authors = (...authorNames) =>
     function decorate(target) {
         return target.with('authors', authorNames);
     };
+
+export const since = (version) =>
+    function decorate(target) {
+        return target.with('since', version);
+    };
+
 
 function getNameOfClass(clazz) {
     return [clazz.name]

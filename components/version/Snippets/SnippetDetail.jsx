@@ -17,6 +17,13 @@ const SnippetDetail = ({children, snippet}) => (
             }
         </h4>
         {
+            snippet.since &&
+            <div>
+                <strong>Since: </strong>
+                v{snippet.since}
+            </div>
+        }
+        {
             snippet.authors.length > 0 &&
             <div>
                 <strong>Author{snippet.authors.length > 1 ? 's' : ''}: </strong>
