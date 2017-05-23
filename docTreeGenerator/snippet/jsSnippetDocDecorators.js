@@ -150,6 +150,10 @@ export const since = (version) =>
         return target.with('since', version);
     };
 
+export const deprecated = (message) =>
+    function decorate(target) {
+        return target.with('depracated', message);
+    };
 
 function getNameOfClass(clazz) {
     return [clazz.name]

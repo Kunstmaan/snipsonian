@@ -14,7 +14,8 @@ export {
     examples,
     parts,
     authors,
-    since
+    since,
+    deprecated
 }
     from '../docTreeGenerator/snippet/jsSnippetDocDecorators';
 

@@ -17,6 +17,13 @@ const SnippetDetail = ({children, snippet}) => (
             }
         </h4>
         {
+            snippet.deprecated &&
+                <div>
+                    <strong>Deprecated: </strong>
+                    {snippet.deprecated}
+                </div>
+        }
+        {
             snippet.since &&
             <div>
                 <strong>Since: </strong>

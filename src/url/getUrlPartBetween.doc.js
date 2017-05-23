@@ -1,6 +1,17 @@
 import getUrlPartBetween from './getUrlPartBetween';
 
-import {snippet, name, desc, paramObject, returns, paramObjectField, examples, authors, since, JS_DOC_TYPE} from '../_docRef';
+import {
+    snippet,
+    name,
+    desc,
+    paramObject,
+    returns,
+    paramObjectField,
+    examples,
+    authors,
+    since,
+    JS_DOC_TYPE
+} from '../_docRef';
 
 @name('getUrlPartBetween')
 @desc('Returns the part from the current url pathname between the strings specified.')
