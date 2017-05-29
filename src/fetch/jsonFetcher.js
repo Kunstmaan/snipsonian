@@ -12,21 +12,14 @@ const jsonFetcher = {
 
         nameValueHeaderPairs['Content-Type'] = 'application/json';
 
-        return new Promise((resolve, reject) => {
-            fetcher.fetch({
-                url,
-                method,
-                body: JSON.stringify(body),
-                nameValueHeaderPairs
-            })
-                .then((response) => response.json())
-                .then((json) => {
-                    resolve(mapResponseJson(json));
-                })
-                .catch((error) => {
-                    reject(error.message);
-                });
-        });
+        return fetcher.fetch({
+            url,
+            method,
+            body: JSON.stringify(body),
+            nameValueHeaderPairs
+        })
+            .then((response) => response.json())
+            .then(mapResponseJson);
     }
 };
 

@@ -2,15 +2,19 @@
 
 import createFetchRequest from './createFetchRequest';
 import rejectPromiseOnHttpErrorStatus from './rejectPromiseOnHttpErrorStatus';
+import is from '../generic/is';
 
 let fetchFn = window.fetch;
+
+export const ERROR_CODE_TIMEOUT = 'TIMEOUT';
 
 const fetcher = {
     fetch: ({
         url,
         method = 'GET',
         body,
-        nameValueHeaderPairs
+        nameValueHeaderPairs,
+        timeoutInMillis = 3000
     }) => {
         const fetchRequest = createFetchRequest({
             url,
@@ -19,8 +23,32 @@ const fetcher = {
             nameValueHeaderPairs
         });
 
-        return fetchFn.call(window, fetchRequest)
-            .then(rejectPromiseOnHttpErrorStatus);
+        return new Promise((resolve, reject) => {
+            let timer;
+
+            if (isValidTimeoutInMillis(timeoutInMillis)) {
+                timer = window.setTimeout(
+                    function onTimeout() {
+                        reject({
+                            status: 0,
+                            errorCode: ERROR_CODE_TIMEOUT
+                        });
+                    },
+                    timeoutInMillis
+                );
+            }
+
+            fetchFn.call(window, fetchRequest)
+                .then((response => {
+                    if (is.set(timer)) {
+                        window.clearTimeout(timer);
+                    }
+                    resolve(rejectPromiseOnHttpErrorStatus(response));
+                }))
+                .catch((error) => {
+                    reject(error);
+                });
+        });
     },
 
     /**
@@ -32,3 +60,7 @@ const fetcher = {
 };
 
 export default fetcher;
+
+function isValidTimeoutInMillis(timeoutInMillis) {
+    return is.set(timeoutInMillis) && is.number(timeoutInMillis) && (timeoutInMillis > 0);
+}
