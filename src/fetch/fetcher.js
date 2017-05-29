@@ -2,7 +2,7 @@
 
 import createFetchRequest from './createFetchRequest';
 import rejectPromiseOnHttpErrorStatus from './rejectPromiseOnHttpErrorStatus';
-import is from '../generic/is';
+import {is} from '../generic/is';
 
 let fetchFn = window.fetch;
 
@@ -28,26 +28,28 @@ const fetcher = {
 
             if (isValidTimeoutInMillis(timeoutInMillis)) {
                 timer = window.setTimeout(
-                    function onTimeout() {
-                        reject({
-                            status: 0,
-                            errorCode: ERROR_CODE_TIMEOUT
-                        });
-                    },
+                    onTimeout,
                     timeoutInMillis
                 );
             }
 
             fetchFn.call(window, fetchRequest)
-                .then((response => {
+                .then((response) => {
                     if (is.set(timer)) {
                         window.clearTimeout(timer);
                     }
                     resolve(rejectPromiseOnHttpErrorStatus(response));
-                }))
+                })
                 .catch((error) => {
                     reject(error);
                 });
+
+            function onTimeout() {
+                reject({
+                    status: 0,
+                    errorCode: ERROR_CODE_TIMEOUT
+                });
+            }
         });
     },
 
