@@ -1,3 +1,1 @@
-export default {
-    STORAGE_KEY: 'SNIPSONIAN'
-};
+export const STORE_STORAGE_KEY = 'SNIPSONIAN';

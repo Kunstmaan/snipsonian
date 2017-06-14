@@ -2,31 +2,26 @@
 
 import {SWITCH_VERSION} from './userActions';
 import {LATEST_VERSION} from '../../config/versions.config';
+import createReducer from '../../src/redux/createReducer'
 
-const INITIAL_STATE = {
+const initialState = {
     version: getVersionIfAnyFromUrl() || LATEST_VERSION
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
-    if (!action.type || !action.payload) {
-        return state;
-    }
+const actionHandlers = {
+    [SWITCH_VERSION]: ({state, action}) => {
+        const newState = Object.assign({}, state);
 
-    switch (action.type) {
-        case SWITCH_VERSION: {
-            const newState = Object.assign({}, state);
+        newState.version = action.payload.newVersion;
 
-            newState.version = action.payload.newVersion;
-
-            return newState;
-        }
-
-        default:
-            return state;
+        return newState;
     }
 };
 
-export default userReducer;
+export default createReducer({
+    initialState,
+    actionHandlers
+});
 
 function getVersionIfAnyFromUrl() {
     if (isClientSide()) {
