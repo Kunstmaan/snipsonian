@@ -1,3 +1,4 @@
+import {is, assert} from '../index'
 import browserStorageFactory from '../storage/browserStorageFactory';
 import createStoreStorageMiddleWare from './createStoreStorageMiddleWare';
 
@@ -11,6 +12,12 @@ export default function createStoreEnhancer({
     let preloadedState = {};
 
     if (storeStorageType !== NO_STORAGE) {
+        assert(
+            storeStorageKey,
+            isValidStorageKey,
+            `The storeStorageKey input {val} should be a valid string when storeStorageType is not ${NO_STORAGE}`
+        );
+
         const storage = browserStorageFactory.create(storeStorageType);
         const storeStorageMiddleWare = createStoreStorageMiddleWare({storage, storeStorageKey});
 
@@ -23,4 +30,8 @@ export default function createStoreEnhancer({
         preloadedState,
         middlewares
     };
+}
+
+function isValidStorageKey(storeStorageKey) {
+    return is.set(storeStorageKey) && is.string(storeStorageKey) && (storeStorageKey.trim().length > 0)
 }
