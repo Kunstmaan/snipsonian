@@ -127,6 +127,21 @@ describe('is:', () => {
         });
     });
 
+    describe('is.array()', () => {
+        it('returns only true if input is an array', () => {
+            const dummyArr = [7, 'b', {}];
+
+            expect(is.array([])).toEqual(true);
+            expect(is.array(dummyArr)).toEqual(true);
+
+            expect(is.array()).toEqual(false);
+            expect(is.array('')).toEqual(false);
+            expect(is.array(0)).toEqual(false);
+            expect(is.array({})).toEqual(false);
+            expect(is.array(() => {})).toEqual(false);
+        });
+    });
+
     describe('is.object()', () => {
         it('returns only true if input is an object', () => {
             const dummyObj = {someVar: 'some value'};
@@ -143,18 +158,19 @@ describe('is:', () => {
         });
     });
 
-    describe('is.array()', () => {
-        it('returns only true if input is an array', () => {
-            const dummyArr = [7, 'b', {}];
+    describe('is.objectPure()', () => {
+        it('returns only true if input is an object but not an array', () => {
+            const dummyObj = {someVar: 'some value'};
 
-            expect(is.array([])).toEqual(true);
-            expect(is.array(dummyArr)).toEqual(true);
+            expect(is.objectPure(dummyObj)).toEqual(true);
+            expect(is.objectPure({})).toEqual(true);
 
-            expect(is.array()).toEqual(false);
-            expect(is.array('')).toEqual(false);
-            expect(is.array(0)).toEqual(false);
-            expect(is.array({})).toEqual(false);
-            expect(is.array(() => {})).toEqual(false);
+            expect(is.objectPure([])).toEqual(false); // !!!
+
+            expect(is.objectPure()).toEqual(false);
+            expect(is.objectPure('')).toEqual(false);
+            expect(is.objectPure(0)).toEqual(false);
+            expect(is.objectPure(() => {})).toEqual(false);
         });
     });
 

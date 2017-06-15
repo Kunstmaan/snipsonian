@@ -1,4 +1,4 @@
-import {is, assert} from '../index'
+import {is, assert} from '../index';
 import browserStorageFactory from '../storage/browserStorageFactory';
 import createStoreStorageMiddleWare from './createStoreStorageMiddleWare';
 
@@ -33,5 +33,5 @@ export default function createStoreEnhancer({
 }
 
 function isValidStorageKey(storeStorageKey) {
-    return is.set(storeStorageKey) && is.string(storeStorageKey) && (storeStorageKey.trim().length > 0)
+    return is.set(storeStorageKey) && is.string(storeStorageKey) && (storeStorageKey.trim().length > 0);
 }

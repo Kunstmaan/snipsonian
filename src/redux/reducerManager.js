@@ -1,4 +1,4 @@
-import {is, assert} from '../index'
+import {is, assert} from '../index';
 import createReducer from './createReducer';
 
 const reducerConfigs = [];

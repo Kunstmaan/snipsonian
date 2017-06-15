@@ -36,14 +36,19 @@ class numberDoc {
 class stringDoc {
 }
 
+@desc('Determines if the input is an array.')
+@snippet(is.array)
+class arrayDoc {
+}
+
 @desc('Determines if the input is an object.')
 @snippet(is.object)
 class objectDoc {
 }
 
-@desc('Determines if the input is an array.')
-@snippet(is.array)
-class arrayDoc {
+@desc('Determines if the input is an object but not an array.')
+@snippet(is.objectPure())
+class objectPureDoc {
 }
 
 @desc('Determines if the input has a build() method.')
@@ -107,8 +112,9 @@ class builderDoc {
     booleanDoc,
     numberDoc,
     stringDoc,
-    objectDoc,
     arrayDoc,
+    objectDoc,
+    objectPureDoc,
     builderDoc
 )
 @authors('Ben')
