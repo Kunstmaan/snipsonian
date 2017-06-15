@@ -8,7 +8,6 @@ class Snippets extends React.Component {
         scrollToHash();
     }
     render() {
-        console.log(this.props.config.docs);
         return (
             <div className="flex-content">
                 <h2>{this.props.config.v}</h2>

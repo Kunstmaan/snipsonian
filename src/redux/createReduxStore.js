@@ -1,6 +1,7 @@
 /* global window */
 
 import createStoreEnhancer, {NO_STORAGE} from './createStoreEnhancer';
+import {getRegisteredReducers} from './reducerManager';
 import {STORAGE_TYPE} from '../storage/browserStorageFactory';
 
 export const STORE_STORAGE_TYPE = {
@@ -11,7 +12,7 @@ export const STORE_STORAGE_TYPE = {
 
 function createReduxStore({
     redux,
-    reducers = {},
+    reducers = getRegisteredReducers(),
     middlewares = [],
     storeStorageType = STORE_STORAGE_TYPE.NO_STORAGE,
     storeStorageKey

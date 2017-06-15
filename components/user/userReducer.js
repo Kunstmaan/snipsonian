@@ -2,7 +2,7 @@
 
 import {SWITCH_VERSION} from './userActions';
 import {LATEST_VERSION} from '../../config/versions.config';
-import createReducer from '../../src/redux/createReducer'
+import {registerReducer} from '../../src/redux/reducerManager'
 
 const initialState = {
     version: getVersionIfAnyFromUrl() || LATEST_VERSION
@@ -18,7 +18,8 @@ const actionHandlers = {
     }
 };
 
-export default createReducer({
+export default registerReducer({
+    key: 'user',
     initialState,
     actionHandlers
 });

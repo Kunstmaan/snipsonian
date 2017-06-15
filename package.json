@@ -9,6 +9,7 @@
     "lintJs": "esw --ext .js,.jsx components config loaders pages prev_versions src utils *.js",
     "lintJs:watch": "npm run lintJs -- --watch",
     "develop": "gatsby develop",
+    "start": "npm run develop develop",
     "test": "npm run lintJs && jest",
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
