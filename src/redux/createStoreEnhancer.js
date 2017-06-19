@@ -1,6 +1,8 @@
 import {is, assert} from '../index';
 import browserStorageFactory from '../storage/browserStorageFactory';
 import createStoreStorageMiddleWare from './createStoreStorageMiddleWare';
+import {getCombinedInitialState} from './reducerManager';
+import mergeObjectPropsDeeply from '../generic/mergeObjectPropsDeeply';
 
 export const NO_STORAGE = 'NO_STORAGE';
 
@@ -23,7 +25,9 @@ export default function createStoreEnhancer({
 
         middlewares.push(storeStorageMiddleWare.createMiddleware());
 
-        preloadedState = storeStorageMiddleWare.getStore();
+        joinStoredStoreWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(
+            storeStorageMiddleWare.getStore()
+        );
     }
 
     return {
@@ -34,4 +38,11 @@ export default function createStoreEnhancer({
 
 function isValidStorageKey(storeStorageKey) {
     return is.set(storeStorageKey) && is.string(storeStorageKey) && (storeStorageKey.trim().length > 0);
+}
+
+function joinStoredStoreWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedStore) {
+    // TODO also remove the top reducer props that do not occur anymore in the combined initial state?
+
+    // 2nd source takes precedence above the 1st source
+    return mergeObjectPropsDeeply(getCombinedInitialState(), storedStore);
 }

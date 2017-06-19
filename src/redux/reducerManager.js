@@ -27,6 +27,20 @@ export function getRegisteredReducers() {
     return registeredReducers;
 }
 
+export function getCombinedInitialState() {
+    const initialValue = {};
+
+    return reducerConfigs
+        .reduce(
+            (accumulator, reducerConfig) => {
+                // eslint-disable-next-line no-param-reassign
+                accumulator[reducerConfig.key] = reducerConfig.initialState;
+                return accumulator;
+            },
+            initialValue
+        );
+}
+
 function findReducerConfig(key) {
     return reducerConfigs.find((reducer) => reducer.key === key);
 }

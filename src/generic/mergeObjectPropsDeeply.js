@@ -17,7 +17,7 @@ export default function mergeObjectPropsDeeply(...sources) {
     );
 }
 
-function mergeObjectPropsDeeplyFromSourceToTarget({target, source}) {
+export function mergeObjectPropsDeeplyFromSourceToTarget({target, source}) {
     if (is.objectPure(target) && is.objectPure(source)) {
         Object.keys(source).forEach((key) => {
             if (is.objectPure(source[key])) {
