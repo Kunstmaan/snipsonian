@@ -1,14 +1,9 @@
 /* global window */
 
-import createStoreEnhancer, {NO_STORAGE} from './createStoreEnhancer';
+import createStoreEnhancer from './createStoreEnhancer';
 import {getRegisteredReducers} from './reducerManager';
-import {STORAGE_TYPE} from '../storage/browserStorageFactory';
 
-export const STORE_STORAGE_TYPE = {
-    LOCAL: STORAGE_TYPE.localStorage,
-    SESSION: STORAGE_TYPE.sessionStorage,
-    NO_STORAGE
-};
+import STORE_STORAGE_TYPE from './storeStorageType';
 
 function createReduxStore({
     redux,

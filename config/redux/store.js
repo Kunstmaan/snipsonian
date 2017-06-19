@@ -1,6 +1,7 @@
 import * as redux from 'redux';
 
-import createReduxStore, {STORE_STORAGE_TYPE} from '../../src/redux/createReduxStore';
+import createReduxStore from '../../src/redux/createReduxStore';
+import STORE_STORAGE_TYPE from '../../src/redux/storeStorageType';
 import {STORE_STORAGE_KEY} from '../redux.config';
 import {isStateStorageEnabled} from '../develop.config';
 

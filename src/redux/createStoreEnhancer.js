@@ -2,22 +2,21 @@ import {is, assert} from '../index';
 import browserStorageFactory from '../storage/browserStorageFactory';
 import createStoreStorageMiddleWare from './createStoreStorageMiddleWare';
 import {getCombinedInitialState} from './reducerManager';
+import STORE_STORAGE_TYPE from './storeStorageType';
 import mergeObjectPropsDeeply from '../generic/mergeObjectPropsDeeply';
-
-export const NO_STORAGE = 'NO_STORAGE';
 
 export default function createStoreEnhancer({
     middlewares = [],
-    storeStorageType = NO_STORAGE,
+    storeStorageType = STORE_STORAGE_TYPE.NO_STORAGE,
     storeStorageKey
 }) {
     let preloadedState = {};
 
-    if (storeStorageType !== NO_STORAGE) {
+    if (storeStorageType !== STORE_STORAGE_TYPE.NO_STORAGE) {
         assert(
             storeStorageKey,
             isValidStorageKey,
-            `The storeStorageKey input {val} should be a valid string when storeStorageType is not ${NO_STORAGE}`
+            `The storeStorageKey input {val} should be a valid string when storeStorageType is not ${STORE_STORAGE_TYPE.NO_STORAGE}`
         );
 
         const storage = browserStorageFactory.create(storeStorageType);
