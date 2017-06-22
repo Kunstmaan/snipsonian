@@ -10,7 +10,7 @@ export default function createStoreEnhancer({
     storeStorageType = STORE_STORAGE_TYPE.NO_STORAGE,
     storeStorageKey
 }) {
-    let preloadedState = {};
+    const preloadedState = {};
 
     if (storeStorageType !== STORE_STORAGE_TYPE.NO_STORAGE) {
         assert(

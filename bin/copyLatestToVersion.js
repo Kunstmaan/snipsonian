@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const del = require('del');
 
 const packageJson = require('../package.json');
 const walk = require('./helpers/walk');
@@ -10,12 +11,14 @@ const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
 const PAGES_PATH = path.resolve(__dirname, '../pages/doc');
 const SOURCE_DIR = path.resolve(__dirname, '../src');
 const NEW_VERSION = packageJson.version;
-const DEST_DIR = path.resolve(__dirname, '../prev_versions', NEW_VERSION);
+const PREV_VERSION_PATH = path.resolve(__dirname, '../prev_versions');
+const DEST_DIR = path.resolve(PREV_VERSION_PATH, NEW_VERSION);
 
 walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
     .then(createFolders)
     .then(copyFilesToNewLocation)
+    .then(removePreviousMinorVersion)
     .then(editDocRef)
     .then(createPage)
     .then(showFinishedMessage)
@@ -136,6 +139,23 @@ function getPreviousVersionPagePath() {
             if (err) reject(err);
             const theFile = content[content.length - 2];
             resolve({name: path.basename(theFile, '.jsx'), path: path.resolve(PAGES_PATH, theFile)});
+        });
+    });
+}
+
+function removePreviousMinorVersion() {
+    return new Promise((resolve, reject) => {
+        fs.readdir(PREV_VERSION_PATH, (err, content) => {
+            if (err) reject(err);
+            const splitDirNames = content.map((dir) => dir.split('.'));
+            const previousSplitDirName = splitDirNames[splitDirNames.length - 2];
+            const splitNewVersion = NEW_VERSION.split('.');
+            if (splitNewVersion[0] > previousSplitDirName[0]) resolve();
+            if (splitNewVersion[2] !== 0 && splitNewVersion[1] === previousSplitDirName[1]) {
+                del.sync(path.resolve(PREV_VERSION_PATH, previousSplitDirName.join('.')));
+                del.sync(path.resolve(PAGES_PATH, `${previousSplitDirName.join('.')}.jsx`));
+            }
+            resolve();
         });
     });
 }
