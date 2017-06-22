@@ -6,8 +6,9 @@ export const is = {
     boolean: (val) => typeof val === 'boolean',
     number: (val) => typeof val === 'number',
     string: (val) => typeof val === 'string',
-    object: (val) => typeof val === 'object',
     array: (val) => Array.isArray(val),
+    object: (val) => typeof val === 'object',
+    objectPure: (val) => is.object(val) && !is.array(val),
     builder: (val) => is.set(val) && is.function(val.build)
 };
 
