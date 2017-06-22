@@ -18,7 +18,7 @@ walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
     .then(createFolders)
     .then(copyFilesToNewLocation)
-    .then(removePreviousMinorVersion)
+    .then(removePreviousPatchVersion)
     .then(editDocRef)
     .then(createPage)
     .then(showFinishedMessage)
@@ -143,7 +143,8 @@ function getPreviousVersionPagePath() {
     });
 }
 
-function removePreviousMinorVersion() {
+function removePreviousPatchVersion() {
+    console.log(' 🗑️\tRemoving previous patch versions ...');
     return new Promise((resolve, reject) => {
         fs.readdir(PREV_VERSION_PATH, (err, content) => {
             if (err) reject(err);
