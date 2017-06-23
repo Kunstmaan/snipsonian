@@ -15,6 +15,8 @@ import replacePlaceholdersDoc from './string/replacePlaceholders.doc';
 
 import getUrlPartBetweenDoc from './url/getUrlPartBetween.doc';
 
+/* ADD MORE DOC FILES HERE */
+
 export default [
     group('builder').snippets(
         buildIfBuilderDoc

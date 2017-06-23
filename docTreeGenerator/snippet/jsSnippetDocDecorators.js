@@ -157,6 +157,11 @@ export const deprecated = (message) =>
         return target.with('depracated', message);
     };
 
+export const signature = (sig) =>
+    function decorate(target) {
+        return target.with('signature', sig);
+    };
+
 function getNameOfClass(clazz) {
     return [clazz.name]
         .map(removeDocIfAtEndOfName)[0];

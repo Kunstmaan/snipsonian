@@ -44,6 +44,15 @@ function filterOutSpec(data) {
     });
 }
 
+function changeSinceValue(data) {
+    return new Promise((resolve) => {
+        const updatedData = data.map((file) => {
+            return file.replace('<$SINCE$>', NEW_VERSION);
+        });
+        resolve(updatedData);
+    });
+}
+
 function copyFilesToNewLocation(data) {
     return new Promise((resolve, reject) => {
         console.log(' 📄 📄\tCopying the files to their new location...');
