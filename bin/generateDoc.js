@@ -119,7 +119,7 @@ import {snippet, name, desc, authors, signature, since} from '../_docRef';
 @desc('${snippet.description}')
 @authors('${os.userInfo().username}')
 @since('<$SINCE$>')
-@signature('${snippet.signature}')
+@signature('${snippet.signature.replace(/'/g, '\\\'')}')
 @snippet(${snippet.name})
 class ${snippet.name}Doc {
 }
