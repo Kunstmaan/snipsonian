@@ -18,7 +18,7 @@ module.exports = function createPage() {
             })
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), config.NEW_VERSION);
-                const updatedPagePath = path.resolve(__dirname, `../pages/doc/${config.NEW_VERSION}.jsx`);
+                const updatedPagePath = path.resolve(__dirname, `${config.PAGES_PATH}${config.NEW_VERSION}.jsx`);
                 return writeFile({filePath: updatedPagePath, data: updatedPage});
             })
             .then(resolve)
