@@ -1,6 +1,6 @@
 const path = require('path');
 
-const packageJson = require('./package.json');
+const packageJson = require('../../package.json');
 
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
