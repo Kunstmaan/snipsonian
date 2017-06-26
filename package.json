@@ -18,7 +18,7 @@
     "version": "yarn run copyLatestToVersion && git add -A prev_versions pages/doc",
     "postversion": "git push && git push --tags && yarn run createPrevVersionsList",
     "copyLatestToVersion": "node ./bin/copyLatestToVersion",
-    "generateDoc": "node ./bin/generateDoc.js"
+    "generateDoc": "node ./bin/generateDoc/index.js"
   },
   "dependencies": {
   },

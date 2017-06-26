@@ -56,7 +56,7 @@ function changeSinceValue(data) {
             .then((fileContents) => {
                 if (fileContents.includes('<$SINCE$>')) {
                     const updatedFileContents = fileContents.replace('<$SINCE$>', NEW_VERSION);
-                    promiseArr.push(writeFile({filePath: file, data: updatedFileContents, fs}));
+                    promiseArr.push(writeFile({filePath: file, data: updatedFileContents}));
                 }
             })
         );
@@ -91,7 +91,7 @@ function copyFilesToNewLocation(data) {
             promiseArr.push(new Promise((res, rej) => {
                 const newFilePath = convertSrcPathToDestPath(file);
                 return readFile({filePath: file, options: 'utf8'})
-                    .then((content) => writeFile({filePath: newFilePath, data: content, fs}))
+                    .then((content) => writeFile({filePath: newFilePath, data: content}))
                     .then(res)
                     .catch(rej);
             }));
@@ -126,7 +126,7 @@ function editDocRef() {
         readFile({filePath: docRefPath, options: 'utf8'})
             .then((docRef) => {
                 const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
-                return writeFile({filePath: docRefPath, data: updatedDocRef, fs});
+                return writeFile({filePath: docRefPath, data: updatedDocRef});
             })
             .then(resolve)
             .catch(reject);
@@ -145,7 +145,7 @@ function createPage() {
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
                 const updatedPagePath = path.resolve(__dirname, `../pages/doc/${NEW_VERSION}.jsx`);
-                return writeFile({filePath: updatedPagePath, data: updatedPage, fs});
+                return writeFile({filePath: updatedPagePath, data: updatedPage});
             })
             .then(resolve)
             .catch(reject);
