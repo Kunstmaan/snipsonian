@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const PATH = {
-    PREV_VERSIONS_DIR: '../prev_versions',
-    PREV_VERSIONS_LIST: '../config/prevVersionsList.json'
+    PREV_VERSIONS_DIR: '../../prev_versions',
+    PREV_VERSIONS_LIST: '../../config/prevVersionsList.json'
 };
 
 const dirName = path.resolve(__dirname, PATH.PREV_VERSIONS_DIR);
