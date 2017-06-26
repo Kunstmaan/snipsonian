@@ -6,6 +6,7 @@ const semver = require('semver');
 const packageJson = require('../package.json');
 const walk = require('./helpers/walk');
 const writeFile = require('../src/node/writeFile');
+const readFile = require('../src/node/readFile');
 
 const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
@@ -51,7 +52,7 @@ function changeSinceValue(data) {
     return new Promise((resolve, reject) => {
         const promiseArr = [];
 
-        data.forEach((file) => readFilePromise(file, 'utf8')
+        data.forEach((file) => readFile({filePath: file, options: 'utf8'})
             .then((fileContents) => {
                 if (fileContents.includes('<$SINCE$>')) {
                     const updatedFileContents = fileContents.replace('<$SINCE$>', NEW_VERSION);
@@ -89,7 +90,7 @@ function copyFilesToNewLocation(data) {
             if (path.basename(file) === '.eslintrc') return;
             promiseArr.push(new Promise((res, rej) => {
                 const newFilePath = convertSrcPathToDestPath(file);
-                return readFilePromise(file)
+                return readFile({filePath: file, options: 'utf8'})
                     .then((content) => writeFile({filePath: newFilePath, data: content, fs}))
                     .then(res)
                     .catch(rej);
@@ -122,7 +123,7 @@ function editDocRef() {
     console.log(' ✏️\tEditing the _docRef file...');
     return new Promise((resolve, reject) => {
         const docRefPath = path.resolve(DEST_DIR, '_docRef.js');
-        readFilePromise(docRefPath, 'utf8')
+        readFile({filePath: docRefPath, options: 'utf8'})
             .then((docRef) => {
                 const updatedDocRef = docRef.replace(new RegExp(DOC_TREE_GENERATOR_SRC, 'g'), DOC_TREE_GENERATOR_DEST);
                 return writeFile({filePath: docRefPath, data: updatedDocRef, fs});
@@ -139,7 +140,7 @@ function createPage() {
         getPreviousVersionPagePath()
             .then((prevVersionPage) => {
                 previousVersionPageVersion = prevVersionPage.name;
-                return readFilePromise(prevVersionPage.path, 'utf8');
+                return readFile({filePath: prevVersionPage.path, options: 'utf8'});
             })
             .then((page) => {
                 const updatedPage = page.replace(new RegExp(previousVersionPageVersion, 'g'), NEW_VERSION);
@@ -148,15 +149,6 @@ function createPage() {
             })
             .then(resolve)
             .catch(reject);
-    });
-}
-
-function readFilePromise(filePath, options = {}) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(filePath, options, (err, fileContent) => {
-            if (err) return reject(err);
-            return resolve(fileContent);
-        });
     });
 }
 

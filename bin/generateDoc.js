@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const clear = require('clear');
 const gitUserName = require('git-user-name');
 const writeFile = require('../src/node/writeFile');
+const readFile = require('../src/node/readFile');
 
 const snippet = {};
 
@@ -15,7 +16,7 @@ getSnippetPath()
     .then(readFunctionSignature)
     .then(getParameters)
     .then(generateDocFile)
-    .then(() => console.log(chalk.green.bold('The End. snippet:', JSON.stringify(snippet, null, 2))))
+    .then(() => console.log(chalk.green.bold('The End.')))
     .catch((e) => console.error(chalk.red.bold(e)));
 
 function getSnippetPath() {
@@ -97,12 +98,12 @@ function getSnippetDescription() {
 }
 
 function readFunctionSignature() {
-    console.log(chalk.bold('Reading the snippet file to get the parameters'));
+    console.log(chalk.bold('Reading the snippet file to get the signature...'));
     return new Promise((resolve) => {
-        readFilePromise(snippet.path, 'utf8')
+        readFile({filePath: snippet.path, options: 'utf8'})
             .then((content) => {
                 if (content.includes(`function ${snippet.name}`)) {
-                    snippet.signature = content.match(new RegExp(`(function ${snippet.name}\()(.*?)(\))`))[1] || '';
+                    snippet.signature = content.match(new RegExp(`(function ${snippet.name}\()(.*?)(\) {)`))[1] || '';
                     snippet.signature = snippet.signature.replace(`function ${snippet.name}`, '');
                 } else if (content.includes(`const ${snippet.name} = (`)) {
                     snippet.signature = content.match(new RegExp(`(const ${snippet.name} = \()(.*?)(\) =>)`))[1] || '';
@@ -115,7 +116,7 @@ function readFunctionSignature() {
 }
 
 function getParameters() {
-    console.log(chalk.bold('Looking for the Parameters'));
+    console.log(chalk.bold('Looking for the Parameters...'));
     const q = [];
     return new Promise((resolve, reject) => {
         let params = snippet.signature.replace('({', '');
@@ -199,13 +200,4 @@ class ${snippet.name}Doc {
 export default ${snippet.name}Doc;
 `;
     return writeFile({filePath: snippet.docPath, data: content, options: 'utf8', fs});
-}
-
-function readFilePromise(filePath, options = {}) {
-    return new Promise((resolve, reject) => {
-        fs.readFile(filePath, options, (err, fileContent) => {
-            if (err) return reject(err);
-            return resolve(fileContent);
-        });
-    });
 }
