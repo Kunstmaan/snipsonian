@@ -108,7 +108,6 @@ function removePreviousPatchVersion() {
         splitVersion.pop();
         fs.readdir(PREV_VERSION_PATH, (err, folders) => {
             folders.forEach((folder) => {
-                console.log(folder, semver.satisfies(folder, `${splitVersion.join('.')}.x <${NEW_VERSION}`));
                 if (semver.satisfies(folder, `${splitVersion.join('.')}.x <${NEW_VERSION}`)) {
                     del.sync(path.resolve(PREV_VERSION_PATH, folder));
                     del.sync(path.resolve(PAGES_PATH, `${folder}.jsx`));
