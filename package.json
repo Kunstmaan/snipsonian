@@ -1,6 +1,6 @@
 {
   "name": "snipsonian",
-  "version": "0.7.30",
+  "version": "0.7.27",
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
