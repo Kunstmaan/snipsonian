@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const clear = require('clear');
-const os = require('os');
+const gitUserName = require('git-user-name');
 const writeFile = require('../src/node/writeFile');
 
 const snippet = {};
@@ -12,7 +12,8 @@ clear();
 getSnippetPath()
     .then(confirmSnippetName)
     .then(getSnippetDescription)
-    .then(readFunction)
+    .then(readFunctionSignature)
+    .then(getParameters)
     .then(generateDocFile)
     .then(() => console.log(chalk.green.bold('The End. snippet:', JSON.stringify(snippet, null, 2))))
     .catch((e) => console.error(chalk.red.bold(e)));
@@ -95,29 +96,100 @@ function getSnippetDescription() {
     });
 }
 
-function readFunction() {
+function readFunctionSignature() {
     console.log(chalk.bold('Reading the snippet file to get the parameters'));
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         readFilePromise(snippet.path, 'utf8')
             .then((content) => {
                 if (content.includes(`function ${snippet.name}`)) {
                     snippet.signature = content.match(new RegExp(`(function ${snippet.name}\()(.*?)(\))`))[1] || '';
+                    snippet.signature = snippet.signature.replace(`function ${snippet.name}`, '');
                 } else if (content.includes(`const ${snippet.name} = (`)) {
-                    snippet.signature = content.match(new RegExp(`(const ${snippet.name} = \()(.*?)(\) => {)`))[1] || '';
+                    snippet.signature = content.match(new RegExp(`(const ${snippet.name} = \()(.*?)(\) =>)`))[1] || '';
+                    snippet.signature = snippet.signature.replace(`const ${snippet.name} = `, '');
+                    snippet.signature = snippet.signature.replace(' =>', '');
                 }
                 resolve();
             });
     });
 }
 
+function getParameters() {
+    console.log(chalk.bold('Looking for the Parameters'));
+    const q = [];
+    return new Promise((resolve, reject) => {
+        let params = snippet.signature.replace('({', '');
+        params = params.replace('})', '');
+        params = params.split(', ');
+        params.forEach((param) => {
+            const paramNameOnly = param.split(' = ')[0];
+            const paramDefault = param.split(' = ')[1];
+            let paramTypeGuess = 'String';
+            if (paramDefault) {
+                if (paramDefault === 'true' || paramDefault === 'false') {
+                    paramTypeGuess = 'Boolean';
+                } else if (!isNaN(paramDefault)) {
+                    paramTypeGuess = 'Number';
+                } else if (paramDefault.includes('[') && paramDefault.includes(']')) {
+                    paramTypeGuess = 'Array';
+                } else if (paramDefault.includes('{') && paramDefault.includes('}')) {
+                    paramTypeGuess = 'Object';
+                }
+            }
+            q.push({
+                type: 'confirm',
+                name: `${paramNameOnly}-required`,
+                message: `Is ${chalk.bold.underline(paramNameOnly)} a required parameter?`,
+                default: false,
+                when: () => !param.includes('=')
+            }, {
+                type: 'list',
+                name: `${paramNameOnly}-type`,
+                message: `What is the type of ${chalk.bold.underline(paramNameOnly)}?`,
+                choices: ['Array', 'Boolean', 'Class', 'Function', 'Number', 'Object', 'String', 'Promise', 'Any'],
+                default: paramTypeGuess
+            }, {
+                type: 'input',
+                name: `${paramNameOnly}-desc`,
+                message: `Provide a short description for ${chalk.bold.underline(paramNameOnly)}.`,
+                default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+            });
+        });
+
+        inquirer.prompt(q)
+            .then((answers) => {
+                snippet.params = snippet.params || [];
+                params.forEach((param) => {
+                    const paramNameOnly = param.split(' = ')[0];
+                    snippet.params.push({
+                        name: paramNameOnly,
+                        required: answers[`${paramNameOnly}-required`] || false,
+                        type: answers[`${paramNameOnly}-type`],
+                        desc: answers[`${paramNameOnly}-desc`]
+                    });
+                });
+                resolve();
+            })
+            .catch(reject);
+    });
+}
+
 function generateDocFile() {
-    const content = `
-import {${snippet.name}} from './${snippet.name}';
-import {snippet, name, desc, authors, signature, since} from '../_docRef';
+    const paramsArray = snippet.params.map((param) => `@param({
+    name: '${param.name}',
+    type: JS_DOC_TYPE.${param.type.toUpperCase()},
+    desc: '${param.desc}',
+    isOptional: ${!param.required}
+})`);
+    const paramsString = paramsArray.join('\n');
+
+    const content = `import ${snippet.name} from './${snippet.name}';
+import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from '../_docRef';
 
 @name('${snippet.name}')
 @desc('${snippet.description}')
-@authors('${os.userInfo().username}')
+${paramsString}
+@authors('${gitUserName()}')
 @since('<$SINCE$>')
 @signature('${snippet.signature.replace(/'/g, '\\\'')}')
 @snippet(${snippet.name})
