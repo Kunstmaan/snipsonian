@@ -1,4 +1,3 @@
-
 import {dummy} from './dummy';
 import {snippet, name, desc, authors, signature, since} from '../_docRef';
 
