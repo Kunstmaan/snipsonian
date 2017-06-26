@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const del = require('del');
+const semver = require('semver');
 
 const packageJson = require('../package.json');
 const walk = require('./helpers/walk');
@@ -16,6 +17,7 @@ const DEST_DIR = path.resolve(PREV_VERSION_PATH, NEW_VERSION);
 
 walkThroughdir(SOURCE_DIR)
     .then(filterOutSpec)
+    .then(changeSinceValue)
     .then(createFolders)
     .then(copyFilesToNewLocation)
     .then(removePreviousPatchVersion)
@@ -45,11 +47,37 @@ function filterOutSpec(data) {
 }
 
 function changeSinceValue(data) {
+    console.log(' 🔄\tReplacing the <$SINCE$> placeholder with the new version number');
+    return new Promise((resolve, reject) => {
+        const promiseArr = [];
+
+        data.forEach((file) => readFilePromise(file, 'utf8')
+            .then((fileContents) => {
+                if (fileContents.includes('<$SINCE$>')) {
+                    const updatedFileContents = fileContents.replace('<$SINCE$>', NEW_VERSION);
+                    promiseArr.push(writeFile({filePath: file, data: updatedFileContents, fs}));
+                }
+            })
+        );
+
+        Promise.all(promiseArr)
+            .then(() => resolve(data))
+            .catch((e) => reject(e));
+    });
+}
+
+function createFolders(data) {
     return new Promise((resolve) => {
-        const updatedData = data.map((file) => {
-            return file.replace('<$SINCE$>', NEW_VERSION);
+        console.log(' 📁\tCreating the folders in the destination...');
+        const onlyFolders = data.map((pathName) => path.dirname(pathName));
+        const dedupedFolders = dedupeArray(onlyFolders);
+        const newFolderPaths = dedupedFolders.map(convertSrcPathToDestPath);
+        newFolderPaths.forEach((folder) => {
+            if (!fs.existsSync(folder)) {
+                fs.mkdirSync(folder);
+            }
         });
-        resolve(updatedData);
+        return resolve(data);
     });
 }
 
@@ -73,18 +101,21 @@ function copyFilesToNewLocation(data) {
     });
 }
 
-function createFolders(data) {
+function removePreviousPatchVersion() {
+    console.log(' 🗑️\tRemoving previous patch versions ...');
     return new Promise((resolve) => {
-        console.log(' 📁\tCreating the folders in the destination...');
-        const onlyFolders = data.map((pathName) => path.dirname(pathName));
-        const dedupedFolders = dedupeArray(onlyFolders);
-        const newFolderPaths = dedupedFolders.map(convertSrcPathToDestPath);
-        newFolderPaths.forEach((folder) => {
-            if (!fs.existsSync(folder)) {
-                fs.mkdirSync(folder);
-            }
+        const splitVersion = NEW_VERSION.split('.');
+        splitVersion.pop();
+        fs.readdir(PREV_VERSION_PATH, (err, folders) => {
+            folders.forEach((folder) => {
+                console.log(folder, semver.satisfies(folder, `${splitVersion.join('.')}.x <${NEW_VERSION}`));
+                if (semver.satisfies(folder, `${splitVersion.join('.')}.x <${NEW_VERSION}`)) {
+                    del.sync(path.resolve(PREV_VERSION_PATH, folder));
+                    del.sync(path.resolve(PAGES_PATH, `${folder}.jsx`));
+                }
+            });
+            resolve();
         });
-        return resolve(data);
     });
 }
 
@@ -148,24 +179,6 @@ function getPreviousVersionPagePath() {
             if (err) reject(err);
             const theFile = content[content.length - 2];
             resolve({name: path.basename(theFile, '.jsx'), path: path.resolve(PAGES_PATH, theFile)});
-        });
-    });
-}
-
-function removePreviousPatchVersion() {
-    console.log(' 🗑️\tRemoving previous patch versions ...');
-    return new Promise((resolve, reject) => {
-        fs.readdir(PREV_VERSION_PATH, (err, content) => {
-            if (err) reject(err);
-            const splitDirNames = content.map((dir) => dir.split('.'));
-            const previousSplitDirName = splitDirNames[splitDirNames.length - 2];
-            const splitNewVersion = NEW_VERSION.split('.');
-            if (splitNewVersion[0] > previousSplitDirName[0]) resolve();
-            if (splitNewVersion[2] !== 0 && splitNewVersion[1] === previousSplitDirName[1]) {
-                del.sync(path.resolve(PREV_VERSION_PATH, previousSplitDirName.join('.')));
-                del.sync(path.resolve(PAGES_PATH, `${previousSplitDirName.join('.')}.jsx`));
-            }
-            resolve();
         });
     });
 }
