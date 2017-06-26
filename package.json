@@ -1,6 +1,6 @@
 {
   "name": "snipsonian",
-  "version": "0.7.31",
+  "version": "0.7.32",
   "description": "Small re-usable javascript code snippets",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "build": "gatsby build",
     "serve-build": "gatsby serve-build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
-    "preversion": "git pull && yarn test && yarn build",
+    "preversion": "git pull && yarn test && yarn build && git commit . -m '[v%s]'",
     "version": "yarn run copyLatestToVersion && git add -A prev_versions pages/doc",
     "postversion": "git push && git push --tags && yarn run createPrevVersionsList",
     "copyLatestToVersion": "node ./bin/copyLatestToVersion",
