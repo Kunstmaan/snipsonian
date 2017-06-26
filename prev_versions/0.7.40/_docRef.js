@@ -1,5 +1,5 @@
 /* eslint import/no-unresolved: ["off"] */
-export {group, registerGroups, getRegisteredGroups} from '../../docTreeGenerator/documentJs';
+export {group, registerGroups, getRegisteredGroups} from '../docTreeGenerator/documentJs';
 
 export {
     snippet,
@@ -18,8 +18,8 @@ export {
     deprecated,
     signature
 }
-    from '../../docTreeGenerator/snippet/jsSnippetDocDecorators';
+    from '../docTreeGenerator/snippet/jsSnippetDocDecorators';
 
 export {decorate} from './decorator/decorateWith';
 
-export {JS_DOC_TYPE} from '../../docTreeGenerator/snippet/jsDocTypes';
+export {JS_DOC_TYPE} from '../docTreeGenerator/snippet/jsDocTypes';
