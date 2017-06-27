@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const readFile = require('../../.tmp/readFile');
+const readFile = require('../../src/node/readFile');
 const writeFile = require('../../src/node/writeFile');
 const config = require('./config');
 

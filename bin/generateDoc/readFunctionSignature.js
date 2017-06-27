@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const fs = require('fs');
 
-const readFile = require('../../.tmp/readFile');
+const readFile = require('../../src/node/readFile');
 
 module.exports = function readFunctionSignature(snippet) {
     console.log(chalk.bold('Reading the snippet file to get the signature...'));

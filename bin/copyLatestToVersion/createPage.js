@@ -4,7 +4,7 @@ const path = require('path');
 const config = require('./config');
 const getPreviousVersionPagePath = require('./getPreviousVersionPagePath');
 
-const readFile = require('../../.tmp/readFile');
+const readFile = require('../../src/node/readFile');
 const writeFile = require('../../src/node/writeFile');
 
 

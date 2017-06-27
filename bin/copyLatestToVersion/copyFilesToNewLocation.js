@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const convertSrcPathToDestPath = require('./convertSrcPathToDestPath');
-const readFile = require('../../.tmp/readFile');
+const readFile = require('../../src/node/readFile');
 const writeFile = require('../../src/node/writeFile');
 
 module.exports = function copyFilesToNewLocation(data) {
