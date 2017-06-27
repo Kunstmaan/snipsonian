@@ -1,6 +1,7 @@
+const fs = require('fs');
 const path = require('path');
 const convertSrcPathToDestPath = require('./convertSrcPathToDestPath');
-const readFile = require('../../src/node/readFile');
+const readFile = require('../../.tmp/readFile');
 const writeFile = require('../../src/node/writeFile');
 
 module.exports = function copyFilesToNewLocation(data) {
@@ -11,8 +12,8 @@ module.exports = function copyFilesToNewLocation(data) {
             if (path.basename(file) === '.eslintrc') return;
             promiseArr.push(new Promise((res, rej) => {
                 const newFilePath = convertSrcPathToDestPath(file);
-                return readFile({filePath: file, options: 'utf8'})
-                    .then((content) => writeFile({filePath: newFilePath, data: content}))
+                return readFile({filePath: file, options: 'utf8', fs})
+                    .then((content) => writeFile({filePath: newFilePath, data: content, fs}))
                     .then(res)
                     .catch(rej);
             }));

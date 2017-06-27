@@ -2,7 +2,7 @@ const path = require('path');
 
 const packageJson = require('../../package.json');
 
-const DOC_TREE_GENERATOR_SRC = '../../docTreeGenerator';
+const DOC_TREE_GENERATOR_SRC = '../docTreeGenerator';
 const DOC_TREE_GENERATOR_DEST = '../../docTreeGenerator';
 const PAGES_PATH = path.resolve(__dirname, '../../pages/doc');
 const SOURCE_DIR = path.resolve(__dirname, '../../src');

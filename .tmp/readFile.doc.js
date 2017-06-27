@@ -1,5 +1,5 @@
 import readFile from './readFile';
-import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from '../_docRef';
+import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from '../src/_docRef';
 
 @name('readFile')
 @desc('Wraps fs.readFile in a Promise')
@@ -16,7 +16,7 @@ import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from
     isOptional: true
 })
 @authors('Thomas Seberechts')
-@since('0.7.29')
+@since('<$SINCE$>')
 @signature('({filePath, options = {})')
 @snippet(readFile)
 class readFileDoc {

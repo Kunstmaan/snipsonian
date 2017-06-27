@@ -1,12 +1,13 @@
 const chalk = require('chalk');
-const readFile = require('../../src/node/readFile');
+const fs = require('fs');
 
+const readFile = require('../../.tmp/readFile');
 
 module.exports = function readFunctionSignature(snippet) {
     console.log(chalk.bold('Reading the snippet file to get the signature...'));
     const updatedSnippet = snippet;
     return new Promise((resolve) => {
-        readFile({filePath: updatedSnippet.path, options: 'utf8'})
+        readFile({filePath: updatedSnippet.path, options: 'utf8', fs})
             .then((content) => {
                 if (content.includes(`function ${updatedSnippet.name}`)) {
                     updatedSnippet.signature = content.match(new RegExp(`(function ${updatedSnippet.name}\()(.*?)(\) {)`))[1] || '';
