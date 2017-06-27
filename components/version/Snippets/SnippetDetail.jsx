@@ -12,9 +12,7 @@ const SnippetDetail = ({children, snippet}) => (
             {`${snippet.parentName !== undefined ?
                 `${snippet.parentName}.` : ''}${snippet.getName()}`
             }
-            {snippet.type === 'function' &&
-            ` (${paramsToString(snippet.params)}${paramObjectsToString(snippet.paramObjects)})${snippet.returns ? ` => (${snippet.returns.type})` : ''}`
-            }
+            { getSnippetSignature(snippet) }
         </h4>
         {
             snippet.deprecated &&
@@ -125,4 +123,11 @@ function createId(snippet) {
 
 function putBracketsAroundOptionalParams(param) {
     return `${param.isOptional ? '[' : ''}, ${param.name}${param.isOptional ? ']' : ''}`;
+}
+
+function getSnippetSignature(snippet) {
+    return snippet.signature ?
+        ` ${snippet.signature} ${snippet.returns ? ` => (${snippet.returns.type})` : ''}`
+        :
+        ` (${paramsToString(snippet.params)}${paramObjectsToString(snippet.paramObjects)})${snippet.returns ? ` => (${snippet.returns.type})` : ''}`;
 }

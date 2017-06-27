@@ -1,4 +1,4 @@
-const dummy = ({foo = true, bar = 'baz', boo}) => {
+const dummy = ({foo = true, bar = {}, boo}) => {
     if (foo) {
         return bar + boo;
     }

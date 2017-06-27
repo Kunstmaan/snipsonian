@@ -9,7 +9,8 @@ import collapsableDoc from './decorator/collapsable.doc';
 import assertDoc from './generic/assert.doc';
 import isDoc from './generic/is.doc';
 
-import writeFilePromise from './node/writeFile.doc';
+import writeFile from './node/writeFile.doc';
+import readFile from './node/readFile.doc';
 
 import replacePlaceholdersDoc from './string/replacePlaceholders.doc';
 
@@ -31,7 +32,8 @@ export default [
         isDoc
     ),
     group('node').snippets(
-        writeFilePromise
+        writeFile,
+        readFile
     ),
     group('string').snippets(
         replacePlaceholdersDoc

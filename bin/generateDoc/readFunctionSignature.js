@@ -10,12 +10,9 @@ module.exports = function readFunctionSignature(snippet) {
         readFile({filePath: updatedSnippet.path, options: 'utf8', fs})
             .then((content) => {
                 if (content.includes(`function ${updatedSnippet.name}`)) {
-                    updatedSnippet.signature = content.match(new RegExp(`(function ${updatedSnippet.name}\()(.*?)(\) {)`))[1] || '';
-                    updatedSnippet.signature = updatedSnippet.signature.replace(`function ${updatedSnippet.name}`, '');
+                    updatedSnippet.signature = content.match(new RegExp(`function ${updatedSnippet.name}\((.*?)\) {`))[1] || '';
                 } else if (content.includes(`const ${updatedSnippet.name} = (`)) {
-                    updatedSnippet.signature = content.match(new RegExp(`(const ${updatedSnippet.name} = \()(.*?)(\) =>)`))[1] || '';
-                    updatedSnippet.signature = updatedSnippet.signature.replace(`const ${updatedSnippet.name} = `, '');
-                    updatedSnippet.signature = updatedSnippet.signature.replace(' =>', '');
+                    updatedSnippet.signature = content.match(new RegExp(`const ${updatedSnippet.name} = \((.*?)\) =>`))[1] || '';
                 }
                 resolve(updatedSnippet);
             });

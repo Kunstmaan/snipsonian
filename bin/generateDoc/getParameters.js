@@ -6,8 +6,8 @@ module.exports = function getParameters(snippet) {
     return new Promise((resolve, reject) => {
         const updatedSnippet = snippet;
         const paramsArray = getParamsArray(updatedSnippet.signature);
-        const q = paramsArray.map(constructParamQuestion);
-
+        let q = paramsArray.map(constructParamQuestion);
+        q = [].concat(...q);
         inquirer.prompt(q)
             .then((answers) => {
                 updatedSnippet.params = updatedSnippet.params || [];
