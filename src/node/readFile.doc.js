@@ -1,5 +1,5 @@
 import readFile from './readFile';
-import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from '../src/_docRef';
+import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from '../_docRef';
 
 @name('readFile')
 @desc('Wraps fs.readFile in a Promise')
