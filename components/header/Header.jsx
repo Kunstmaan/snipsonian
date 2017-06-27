@@ -36,7 +36,9 @@ class Header extends React.Component {
                 </div>
                 <div className="header-content">
                     <Link className="docs-button" to={prefixLink(`/doc/${this.props.version}/`)}
-                          style={{color: styleConfig.header.title.color}}><span>Go To Docs</span></Link>
+                          style={{color: styleConfig.header.title.color}}><span>Last Viewed Docs</span></Link>
+                    <Link className="docs-button" to={prefixLink('/doc/latest/')}
+                          style={{color: styleConfig.header.title.color}}><span>Latest Docs</span></Link>
                     <div className="powered-by"><span>Powered by Kunstmaan Development</span></div>
                 </div>
             </div>

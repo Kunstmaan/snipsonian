@@ -5,7 +5,7 @@ import {LATEST_VERSION} from '../../config/versions.config';
 import {registerReducer} from '../../src/redux/reducerManager';
 
 const initialState = {
-    version: getVersionIfAnyFromUrl() || LATEST_VERSION
+    version: LATEST_VERSION
 };
 
 const actionHandlers = {
@@ -23,18 +23,3 @@ export default registerReducer({
     initialState,
     actionHandlers
 });
-
-function getVersionIfAnyFromUrl() {
-    if (isClientSide()) {
-        const matches = window.location.pathname.match(/\/doc\/(.*)\//);
-        if (matches !== null) {
-            return matches[1];
-        }
-    }
-
-    return false;
-}
-
-function isClientSide() {
-    return (typeof window !== 'undefined') && window.location;
-}
