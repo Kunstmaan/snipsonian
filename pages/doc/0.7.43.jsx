@@ -1,10 +1,10 @@
 import React from 'react';
 import Version from '../../components/version/Version';
-import docs from '../../prev_versions/0.7.42/_docs';
+import docs from '../../prev_versions/0.7.43/_docs';
 
 const versionConfig = {
     docs,
-    v: '0.7.42'
+    v: '0.7.43'
 };
 
 export default () => (
