@@ -7,7 +7,7 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-links && gh-pages -d public",
     "copyLatestToVersion": "node ./bin/copyLatestToVersion",
-    "createPrevVersionsList": "node ./bin/createPrevVers",
+    "createPrevVersionsList": "node ./bin/createPrevVersionsList",
     "develop": "gatsby develop",
     "generateDoc": "node ./bin/generateDoc",
     "lintJs": "esw --ext .js,.jsx components config loaders pages prev_versions src utils *.js",

@@ -16,7 +16,7 @@ import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from
     isOptional: true
 })
 @authors('Thomas Seberechts')
-@since('<$SINCE$>')
+@since('0.8.1')
 @signature('({filePath, options = {})')
 @snippet(readFile)
 class readFileDoc {
