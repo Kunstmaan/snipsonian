@@ -11,7 +11,7 @@ import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from
 })
 @param({
     name: 'bar',
-    type: JS_DOC_TYPE.STRING,
+    type: JS_DOC_TYPE.OBJECT,
     desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     isOptional: true
 })
@@ -22,8 +22,8 @@ import {snippet, name, desc, authors, signature, since, param, JS_DOC_TYPE} from
     isOptional: true
 })
 @authors('Thomas Seberechts')
-@since('0.7.29')
-@signature('({foo = true, bar = \'baz\', boo})')
+@since('<$SINCE$>')
+@signature('({foo = true, bar = {}, boo})')
 @snippet(dummy)
 class dummyDoc {
 }

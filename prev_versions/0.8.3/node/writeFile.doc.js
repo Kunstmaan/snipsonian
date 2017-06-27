@@ -33,7 +33,7 @@ import {snippet, name, desc, paramObject, returns, paramObjectField, examples, a
 })
 @authors('Thomas')
 @examples(`
-    const thePromise = writeFilePromise({
+    const thePromise = writeFile({
         filePath: '/path/to/somewhere',
         data: 'Lorem Ipsum Dolor Sit Amet',
         fs
