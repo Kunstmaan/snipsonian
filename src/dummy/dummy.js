@@ -6,3 +6,5 @@ const dummy = ({foo = true, bar = {}, boo}) => {
 };
 
 export default dummy;
+
+/* This is a test */
