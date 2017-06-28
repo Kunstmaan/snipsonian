@@ -2,7 +2,6 @@ const chalk = require('chalk');
 const clear = require('clear');
 
 const getSnippetPath = require('./getSnippetPath');
-const confirmSnippetName = require('./confirmSnippetName');
 const getSnippetDescription = require('./getSnippetDescription');
 const readFunctionSignature = require('./readFunctionSignature');
 const getParameters = require('./getParameters');
@@ -12,7 +11,6 @@ const snippet = {};
 
 clear();
 getSnippetPath(snippet)
-    .then(confirmSnippetName)
     .then(getSnippetDescription)
     .then(readFunctionSignature)
     .then(getParameters)
