@@ -1,3 +1,5 @@
+/* global window */
+
 import React from 'react';
 import {Link} from 'react-router';
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
@@ -17,7 +19,7 @@ const page404 = ({version}) => (
             {`You might have got an outdated link there. We probably deleted the exact version you had in your url.
             This happens a lot, soooo... we created a button for that. When you click on it, you'll be taken to the version with the same major and minor version, but a different patch.`}
         </p>
-        <Link to={prefixLink(`/doc/${version}/${window.location.hash}`)}><button>To Correct Version</button></Link>
+        <Link to={prefixLink(`/doc/${version}/${getUrlHashIfNotServerSide()}`)}><button>To Correct Version</button></Link>
     </div>
 );
 
@@ -38,3 +40,11 @@ page404.defaultProps = {
 export default connect(
     mapStateToProps
 )(page404);
+
+function getUrlHashIfNotServerSide() {
+    if (typeof window !== 'undefined') {
+        return window.location.hash;
+    }
+
+    return '';
+}
