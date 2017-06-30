@@ -1,4 +1,4 @@
-import prevVersionList from './prevVersionsList';
+import prevVersionList from './prevVersionsList.json';
 
 export const PREV_VERSIONS = prevVersionList;
 
