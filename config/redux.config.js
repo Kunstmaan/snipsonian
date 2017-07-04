@@ -1,1 +1,1 @@
-export const STORE_STORAGE_KEY = 'SNIPSONIAN';
+export const STATE_STORAGE_KEY = 'SNIPSONIAN';

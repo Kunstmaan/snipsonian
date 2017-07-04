@@ -1,5 +1,3 @@
-/* global window */
-
 import {SWITCH_VERSION} from './userActions';
 import {LATEST_VERSION} from '../../config/versions.config';
 import {registerReducer} from '../../src/redux/reducerManager';

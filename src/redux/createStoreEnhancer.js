@@ -1,31 +1,69 @@
 import {is, assert} from '../index';
 import browserStorageFactory from '../storage/browserStorageFactory';
-import createStoreStorageMiddleWare from './createStoreStorageMiddleWare';
-import {getCombinedInitialState} from './reducerManager';
-import STORE_STORAGE_TYPE from './storeStorageType';
+import getStateStorageMiddlewareFactory from './getStateStorageMiddlewareFactory';
+import getStateStorageByReducerMiddlewareFactory from './getStateStorageByReducerMiddlewareFactory';
+import {
+    getCombinedInitialState,
+    areThereReducersWithoutStorageTypeInherit,
+    areThereReducersThatHaveToBeStoredSpecifically,
+    getMapOfReducersThatHaveToBeStoredSpecifically
+} from './reducerManager';
+import {STATE_STORAGE_TYPE} from './storageType';
 import mergeObjectPropsDeeply from '../generic/mergeObjectPropsDeeply';
 
 export default function createStoreEnhancer({
     middlewares = [],
-    storeStorageType = STORE_STORAGE_TYPE.NO_STORAGE,
-    storeStorageKey
+    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
+    stateStorageKey,
+    customStorageMap = {}
 }) {
-    const preloadedState = {};
+    let preloadedState = {};
 
-    if (storeStorageType !== STORE_STORAGE_TYPE.NO_STORAGE) {
-        assert(
-            storeStorageKey,
-            isValidStorageKey,
-            `The storeStorageKey input {val} should be a valid string when storeStorageType is not ${STORE_STORAGE_TYPE.NO_STORAGE}`
-        );
+    const storageMap = Object.assign({}, customStorageMap);
 
-        const storage = browserStorageFactory.create(storeStorageType);
-        const storeStorageMiddleWare = createStoreStorageMiddleWare({storage, storeStorageKey});
+    let stateStorageMiddlewareFactory;
 
-        middlewares.push(storeStorageMiddleWare.createMiddleware());
+    if (stateStorageType !== STATE_STORAGE_TYPE.NO_STORAGE) {
+        assertStateStorageKey({
+            stateStorageKey,
+            // eslint-disable-next-line prefer-template
+            errorMessage: 'The stateStorageKey input {val} should be a valid string when stateStorageType is not '
+                + STATE_STORAGE_TYPE.NO_STORAGE
+        });
 
-        joinStoredStoreWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(
-            storeStorageMiddleWare.getStore()
+        if (!areThereReducersWithoutStorageTypeInherit()) {
+            const storage = getOrAddStorage({storageMap, storageType: stateStorageType});
+
+            stateStorageMiddlewareFactory = getStateStorageMiddlewareFactory({
+                storage,
+                stateStorageKey
+            });
+        }
+    }
+
+    if ((stateStorageType !== STATE_STORAGE_TYPE.NO_STORAGE && areThereReducersWithoutStorageTypeInherit())
+        || areThereReducersThatHaveToBeStoredSpecifically()) {
+        assertStateStorageKey({
+            stateStorageKey,
+            errorMessage: 'The stateStorageKey input {val} should be a valid string when at least one reducer has ' +
+                'a specific reducerStorageType'
+        });
+
+        const reducerStorageTypeMap = getMapOfReducersThatHaveToBeStoredSpecifically({stateStorageType});
+
+        const storageToReducerKeysConfigs = getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap});
+
+        stateStorageMiddlewareFactory = getStateStorageByReducerMiddlewareFactory({
+            storageToReducerKeysConfigs,
+            stateStorageKey
+        });
+    }
+
+    if (stateStorageMiddlewareFactory) {
+        middlewares.push(stateStorageMiddlewareFactory.createMiddleware());
+
+        preloadedState = joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(
+            stateStorageMiddlewareFactory.getState()
         );
     }
 
@@ -35,13 +73,62 @@ export default function createStoreEnhancer({
     };
 }
 
-function isValidStorageKey(storeStorageKey) {
-    return is.set(storeStorageKey) && is.string(storeStorageKey) && (storeStorageKey.trim().length > 0);
+function assertStateStorageKey({stateStorageKey, errorMessage}) {
+    assert(
+        stateStorageKey,
+        isValidStorageKey,
+        errorMessage
+    );
 }
 
-function joinStoredStoreWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedStore) {
+function isValidStorageKey(stateStorageKey) {
+    return is.set(stateStorageKey) && is.string(stateStorageKey) && (stateStorageKey.trim().length > 0);
+}
+
+function getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap}) {
+    const initialValue = [];
+
+    return Object.keys(reducerStorageTypeMap)
+        .reduce(
+            (accumulator, reducerkey) => {
+                const storageType = reducerStorageTypeMap[reducerkey];
+
+                let storageConfig = accumulator.find((config) => config.storageType === storageType);
+
+                if (!storageConfig) {
+                    storageConfig = {
+                        storageType,
+                        storage: getOrAddStorage({storageMap, storageType}),
+                        reducerKeys: []
+                    };
+
+                    accumulator.push(storageConfig);
+                }
+
+                storageConfig.reducerKeys.push(reducerkey);
+
+                return accumulator;
+            },
+            initialValue
+        );
+}
+
+function getOrAddStorage({storageMap, storageType}) {
+    if (Object.prototype.hasOwnProperty.call(storageMap, storageType)) {
+        return storageMap[storageType];
+    }
+
+    const storage = browserStorageFactory.create(storageType);
+
+    // eslint-disable-next-line no-param-reassign
+    storageMap[storageType] = storage;
+
+    return storage;
+}
+
+function joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedState) {
     // TODO also remove the top reducer props that do not occur anymore in the combined initial state?
 
     // 2nd source takes precedence above the 1st source
-    return mergeObjectPropsDeeply(getCombinedInitialState(), storedStore);
+    return mergeObjectPropsDeeply(getCombinedInitialState(), storedState);
 }
