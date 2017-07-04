@@ -3,19 +3,21 @@
 import createStoreEnhancer from './createStoreEnhancer';
 import {getRegisteredReducers} from './reducerManager';
 
-import STORE_STORAGE_TYPE from './storeStorageType';
+import {STATE_STORAGE_TYPE} from './storageType';
 
 function createReduxStore({
     redux,
     reducers = getRegisteredReducers(),
     middlewares = [],
-    storeStorageType = STORE_STORAGE_TYPE.NO_STORAGE,
-    storeStorageKey
+    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
+    stateStorageKey,
+    customStorageMap = {}
 }) {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
-        storeStorageType,
-        storeStorageKey
+        stateStorageType,
+        stateStorageKey,
+        customStorageMap
     });
 
     /* eslint-disable no-underscore-dangle */

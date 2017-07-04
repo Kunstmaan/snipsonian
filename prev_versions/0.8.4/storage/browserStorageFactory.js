@@ -14,6 +14,14 @@ function create(storageType = STORAGE_TYPE.localStorage) {
     const storage = {
         isSupported: isStorageSupported(storageType),
 
+        exists: ({key}) => {
+            if (!storage.isSupported) {
+                return false;
+            }
+
+            return window[storageType].getItem(key) !== null;
+        },
+
         save: ({key, value}) => {
             if (storage.isSupported) {
                 window[storageType].setItem(key, JSON.stringify(value));
