@@ -16,7 +16,7 @@
     "serve-build": "gatsby serve-build",
     "start": "npm run develop",
     "test": "npm run lintJs && jest",
-    "preversion": "git pull && yarn test && yarn build && git commit . -m '[Automatic] pre-version commit'",
+    "preversion": "yarn test && yarn build",
     "version": "yarn run copyLatestToVersion && git add -A prev_versions pages/doc",
     "postversion": "git push && git push --tags && yarn run createPrevVersionsList"
   },
