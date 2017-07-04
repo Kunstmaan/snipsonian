@@ -5,7 +5,7 @@ import {STATE_STORAGE_TYPE} from '../../src/redux/storageType';
 import {STATE_STORAGE_KEY} from '../redux.config';
 import {isStateStorageEnabled} from '../develop.config';
 
-import '../../components/user/userReducer';
+import './reducers';
 
 export default createReduxStore({
     redux,
