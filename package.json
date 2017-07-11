@@ -18,9 +18,12 @@
     "test": "npm run lintJs && jest",
     "preversion": "yarn test && yarn build",
     "version": "yarn run copyLatestToVersion && git add -A prev_versions pages/doc",
-    "postversion": "git push && git push --tags && yarn run createPrevVersionsList"
+    "postversion": "git push && git push --tags && yarn run createPrevVersionsList",
+    "verifyDocumentation": "node ./bin/verifyDocumentation"
   },
-  "dependencies": {},
+  "dependencies": {
+    "yargs": "^8.0.2"
+  },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-loader": "^6.4.1",
