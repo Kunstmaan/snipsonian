@@ -1,22 +1,23 @@
-module.exports = function checkIfAllSNippetsHaveDocFiles(data, result) {
+const createResultObject = require('./helpers/createResultObject');
+const ERR_MISSING_DOC = require('./helpers/errors').ERR_MISSING_DOC;
+
+module.exports = function checkIfAllSnippetsHaveDocFiles(splitFilePaths) {
     console.log(' 🔦\tChecking if all snippets have a doc file...');
-    return new Promise((resolve) => {
-        const snippetsWithoutDoc = data.snippets.filter((snippet) => {
-            const snippetDocFileName = snippet.replace(/\.js$/, '.doc.js');
+    const finalResults = [];
+    const snippetsWithoutDoc = splitFilePaths.snippetPaths.filter((snippet) => {
+        const snippetDocFileName = snippet.replace(/\.js$/, '.doc.js');
 
-            return data.docs.indexOf(snippetDocFileName) !== -1;
-        });
-
-        if (snippetsWithoutDoc.length > 0) {
-            snippetsWithoutDoc.forEach((snippet) => {
-                result.push({
-                    errorOrWarning: 'error',
-                    type: 'missingDoc',
-                    file: snippet
-                });
-            });
-        }
-
-        resolve({data, result});
+        return splitFilePaths.docPaths.indexOf(snippetDocFileName) !== -1;
     });
+
+    if (snippetsWithoutDoc.length > 0) {
+        snippetsWithoutDoc.forEach((snippet) => {
+            finalResults.push(createResultObject({
+                type: ERR_MISSING_DOC,
+                file: snippet
+            }));
+        });
+    }
+
+    return {splitFilePaths, finalResults};
 };

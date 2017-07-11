@@ -1,19 +1,18 @@
 const path = require('path');
 
-module.exports = function splitFilesInSnippetAndDoc(data) {
-    return new Promise((resolve) => {
-        const result = {
-            snippets: [],
-            docs: []
-        };
-        data.forEach((file) => {
-            if (file.includes('.doc.')) {
-                result.docs.push(file);
-            } else if (path.dirname(file).split(path.sep).pop() !== 'src') {
-                result.snippets.push(file);
-            }
-        });
+module.exports = function splitFilesInSnippetAndDoc(filepaths) {
+    const splitFilePaths = {
+        snippetPaths: [],
+        docPaths: []
+    };
 
-        resolve(result);
+    filepaths.forEach((filePath) => {
+        if (filePath.includes('.doc.')) {
+            splitFilePaths.docPaths.push(filePath);
+        } else if (path.dirname(filePath).split(path.sep).pop() !== 'src') {
+            splitFilePaths.snippetPaths.push(filePath);
+        }
     });
+
+    return splitFilePaths;
 };
