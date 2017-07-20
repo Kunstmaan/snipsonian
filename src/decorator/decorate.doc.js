@@ -2,7 +2,9 @@ import decorate from './decorate';
 import {snippet, name, desc, authors, signature, since, param, returns, examples, JS_DOC_TYPE} from '../_docRef';
 
 @name('decorate')
-@desc('To decorate a target with 1 or more decorators when you can\'t/won\'t use the @decorator syntax.')
+@desc('To decorate a target with 1 or more decorators when you can\'t/won\'t use the @decorator syntax.' +
+    '\nChain the decorate function with a \'with\' function which expects 1 or more decorators that you can pass ' +
+    'using rest parameters.')
 @param({
     name: 'target',
     type: JS_DOC_TYPE.ANY,
@@ -11,12 +13,7 @@ import {snippet, name, desc, authors, signature, since, param, returns, examples
 })
 @authors('Ben Verbist')
 @since('<$SINCE$>')
-@signature('(target)')
-@returns({
-    type: JS_DOC_TYPE.OBJECT,
-    desc: 'An object that exposes a \'with\' function. This with function expects 1 or more decorators that you' +
-    'can pass using rest parameters'
-})
+@signature('(target).with(...decorators)')
 @examples(`
     const someTarget = {};
     
