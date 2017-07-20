@@ -20,6 +20,6 @@ export {
 }
     from '../docTreeGenerator/snippet/jsSnippetDocDecorators';
 
-export {decorate} from './decorator/decorateWith';
+export {decorate} from './decorator/decorate';
 
 export {JS_DOC_TYPE} from '../docTreeGenerator/snippet/jsDocTypes';
