@@ -10,14 +10,14 @@ let onSendVirtualPageview = ({virtualUrl, custom}) => {
     ga('send', 'pageview', custom);
 };
 
-let onSendEvent = ({category, action, label, value, nonInteraction, custom}) => {
+let onSendEvent = ({category, action, label, value, isNonInteraction, custom}) => {
     ga('send', Object.assign({
         hitType: 'event',
         eventCategory: category,
         eventAction: action,
         eventLabel: label,
         eventValue: value,
-        nonInteraction
+        nonInteraction: isNonInteraction
     }, custom));
 };
 
@@ -80,8 +80,8 @@ export function sendVirtualPageview({virtualUrl, custom = {}}) {
     onSendVirtualPageview({virtualUrl, custom});
 }
 
-export function sendEvent({category, action, label, value, nonInteraction = false, custom = {}}) {
-    onSendEvent({category, action, label, value, nonInteraction, custom});
+export function sendEvent({category, action, label, value, isNonInteraction = false, custom = {}}) {
+    onSendEvent({category, action, label, value, isNonInteraction, custom});
 }
 
 export function sendSocial({network, action, target, custom = {}}) {
@@ -95,11 +95,3 @@ export function sendTiming({category, timingVar, value, label, custom = {}}) {
 export function sendException({description, isFatal = false, custom = {}}) {
     onSendException({description, isFatal, custom});
 }
-
-export default {
-    sendVirtualPageview,
-    sendEvent,
-    sendSocial,
-    sendTiming,
-    sendException
-};
