@@ -1,4 +1,4 @@
-import {decorate} from './decorate';
+import decorate from './decorate';
 import addProp from './addProp';
 import collapsable from './collapsable';
 

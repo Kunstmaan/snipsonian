@@ -130,9 +130,9 @@ export const canThrow = ({
         return target;
     };
 
-export const examples = (...exampleFuncs) =>
+export const examples = (...exampleStrings) =>
     function decorate(target) {
-        return target.with('examples', exampleFuncs);
+        return target.with('examples', exampleStrings);
     };
 
 export const parts = (...partSnippetDocs) =>

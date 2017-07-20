@@ -5,6 +5,7 @@ import buildIfBuilderDoc from './builder/buildIfBuilder.doc';
 import addPropDoc from './decorator/addProp.doc';
 import builderDoc from './decorator/builder.doc';
 import collapsableDoc from './decorator/collapsable.doc';
+import decorateDoc from './decorator/decorate.doc';
 
 import assertDoc from './generic/assert.doc';
 import isDoc from './generic/is.doc';
@@ -24,7 +25,8 @@ export default [
     group('decorator').snippets(
         addPropDoc,
         builderDoc,
-        collapsableDoc
+        collapsableDoc,
+        decorateDoc
     ),
     group('generic').snippets(
         assertDoc,
