@@ -1,4 +1,4 @@
-/* global window */
+/* global window navigator */
 
 import isServiceWorkerSupported from './isServiceWorkerSupported';
 
@@ -32,7 +32,7 @@ export default function registerServiceWorker({
                     /* updatefound is fired if service-worker.js changes. */
 
                     // eslint-disable-next-line no-param-reassign
-                    registration.onupdatefound = function() {
+                    registration.onupdatefound = () => {
                         /**
                          * The updatefound event implies that registration.installing is set; see
                          * https://w3c.github.io/ServiceWorker/#service-worker-registration-updatefound-event

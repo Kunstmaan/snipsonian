@@ -5,12 +5,12 @@
  * See https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
  */
 
-let onSendVirtualPageview = function({virtualUrl, custom}) {
+let onSendVirtualPageview = ({virtualUrl, custom}) => {
     ga('set', 'page', virtualUrl);
     ga('send', 'pageview', custom);
 };
 
-let onSendEvent = function({category, action, label, value, nonInteraction, custom}) {
+let onSendEvent = ({category, action, label, value, nonInteraction, custom}) => {
     ga('send', Object.assign({
         hitType: 'event',
         eventCategory: category,
@@ -21,7 +21,7 @@ let onSendEvent = function({category, action, label, value, nonInteraction, cust
     }, custom));
 };
 
-let onSendSocial = function({network, action, target, custom}) {
+let onSendSocial = ({network, action, target, custom}) => {
     ga('send', Object.assign({
         hitType: 'social',
         socialNetwork: network,
@@ -30,7 +30,7 @@ let onSendSocial = function({network, action, target, custom}) {
     }, custom));
 };
 
-let onSendTiming = function({category, timingVar, value, label, custom}) {
+let onSendTiming = ({category, timingVar, value, label, custom}) => {
     ga('send', Object.assign({
         hitType: 'timing',
         timingCategory: category,
@@ -40,7 +40,7 @@ let onSendTiming = function({category, timingVar, value, label, custom}) {
     }, custom));
 };
 
-let onSendException = function({description, isFatal, custom}) {
+let onSendException = ({description, isFatal, custom}) => {
     ga('send', Object.assign({
         hitType: 'exception',
         exDescription: description,
@@ -93,7 +93,7 @@ export function sendTiming({category, timingVar, value, label, custom = {}}) {
 }
 
 export function sendException({description, isFatal = false, custom = {}}) {
-    onSendException({description, isFatal, custom})
+    onSendException({description, isFatal, custom});
 }
 
 export default {
