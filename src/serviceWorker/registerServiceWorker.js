@@ -11,6 +11,7 @@ export default function registerServiceWorker({
     onNewContent = NOOP,
     onContentPrecached = NOOP,
     onRedundant = NOOP,
+    onRegistration = NOOP,
     onRegistrationError = NOOP
 } = {}) {
     if (isServiceWorkerSupported()) {
@@ -65,6 +66,8 @@ export default function registerServiceWorker({
                             }
                         };
                     };
+
+                    onRegistration(registration);
                 })
                 .catch((e) => {
                     onRegistrationError(e);
