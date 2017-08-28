@@ -1,4 +1,4 @@
-import fetcher from './fetcher';
+import fetcher, {DEFAULT_TIMEOUT_IN_MILLIS} from './fetcher';
 
 const jsonFetcher = {
     fetch: ({
@@ -6,6 +6,7 @@ const jsonFetcher = {
         method = 'GET',
         body,
         nameValueHeaderPairs = {},
+        timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS,
         mapResponseJson = (json) => json
     }) => {
         /* eslint no-param-reassign: ["error", {"props": false}] */
@@ -16,7 +17,8 @@ const jsonFetcher = {
             url,
             method,
             body: JSON.stringify(body),
-            nameValueHeaderPairs
+            nameValueHeaderPairs,
+            timeoutInMillis
         })
             .then((response) => response.json())
             .then(mapResponseJson);

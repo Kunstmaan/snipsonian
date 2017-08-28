@@ -6,6 +6,7 @@ import {is} from '../generic/is';
 
 let fetchFn = window.fetch;
 
+export const DEFAULT_TIMEOUT_IN_MILLIS = 3000;
 export const ERROR_CODE_TIMEOUT = 'TIMEOUT';
 
 const fetcher = {
@@ -14,7 +15,7 @@ const fetcher = {
         method = 'GET',
         body,
         nameValueHeaderPairs,
-        timeoutInMillis = 3000
+        timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS
     }) => {
         const fetchRequest = createFetchRequest({
             url,
