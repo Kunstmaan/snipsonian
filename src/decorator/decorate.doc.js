@@ -1,5 +1,5 @@
 import decorate from './decorate';
-import {snippet, name, desc, authors, signature, since, param, returns, examples, JS_DOC_TYPE} from '../_docRef';
+import {snippet, name, desc, authors, signature, since, param, examples, JS_DOC_TYPE} from '../_docRef';
 
 @name('decorate')
 @desc('To decorate a target with 1 or more decorators when you can\'t/won\'t use the @decorator syntax.' +
