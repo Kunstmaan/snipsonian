@@ -12,7 +12,7 @@ import {snippet, name, desc, authors, signature, since, param, examples, JS_DOC_
     isOptional: false
 })
 @authors('Ben Verbist')
-@since('<$SINCE$>')
+@since('0.10.0')
 @signature('(target).with(...decorators)')
 @examples(`
     const someTarget = {};
