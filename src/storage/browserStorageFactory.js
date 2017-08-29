@@ -57,7 +57,14 @@ function create(storageType = STORAGE_TYPE.localStorage) {
 }
 
 function isStorageSupported(storageType) {
-    return (typeof window !== 'undefined') && window[storageType];
+    try {
+        const x = '__storage_test__';
+        window[storageType].setItem(x, x);
+        window[storageType].removeItem(x);
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
 
 function isValidStorageType(storageType) {
