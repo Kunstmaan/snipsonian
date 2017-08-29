@@ -11,13 +11,17 @@ function createReduxStore({
     middlewares = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
     stateStorageKey,
-    customStorageMap = {}
+    customStorageMap = {},
+    shouldCatchStorageErrors = false,
+    onStorageError = () => {}
 }) {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
         stateStorageType,
         stateStorageKey,
-        customStorageMap
+        customStorageMap,
+        shouldCatchStorageErrors,
+        onStorageError
     });
 
     /* eslint-disable no-underscore-dangle */

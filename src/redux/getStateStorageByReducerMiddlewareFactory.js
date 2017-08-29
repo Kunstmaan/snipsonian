@@ -1,8 +1,19 @@
-function getStateStorageByReducerMiddlewareFactory({storageToReducerKeysConfigs, stateStorageKey}) {
+import conditionalCatch from './conditionalCatch';
+
+function getStateStorageByReducerMiddlewareFactory({
+    storageToReducerKeysConfigs,
+    stateStorageKey,
+    shouldCatchErrors = false,
+    onError
+}) {
     const createMiddleware = () =>
         (store) => (next) => (action) => {
             const r = next(action);
-            saveState(store.getState());
+            conditionalCatch({
+                shouldCatchErrors,
+                actionToExecute: () => saveState(store.getState()),
+                onError
+            });
             return r;
         };
 

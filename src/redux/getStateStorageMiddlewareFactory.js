@@ -1,8 +1,14 @@
-function getStateStorageMiddlewareFactory({storage, stateStorageKey}) {
+import conditionalCatch from './conditionalCatch';
+
+function getStateStorageMiddlewareFactory({storage, stateStorageKey, shouldCatchErrors = false, onError}) {
     const createMiddleware = () =>
         (store) => (next) => (action) => {
             const r = next(action);
-            saveState(store.getState());
+            conditionalCatch({
+                shouldCatchErrors,
+                actionToExecute: () => saveState(store.getState()),
+                onError
+            });
             return r;
         };
 

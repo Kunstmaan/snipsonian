@@ -15,7 +15,9 @@ export default function createStoreEnhancer({
     middlewares = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
     stateStorageKey,
-    customStorageMap = {}
+    customStorageMap = {},
+    shouldCatchStorageErrors,
+    onStorageError
 }) {
     let preloadedState = {};
 
@@ -36,7 +38,9 @@ export default function createStoreEnhancer({
 
             stateStorageMiddlewareFactory = getStateStorageMiddlewareFactory({
                 storage,
-                stateStorageKey
+                stateStorageKey,
+                shouldCatchErrors: shouldCatchStorageErrors,
+                onError: onStorageError
             });
         }
     }
@@ -55,7 +59,9 @@ export default function createStoreEnhancer({
 
         stateStorageMiddlewareFactory = getStateStorageByReducerMiddlewareFactory({
             storageToReducerKeysConfigs,
-            stateStorageKey
+            stateStorageKey,
+            shouldCatchErrors: shouldCatchStorageErrors,
+            onError: onStorageError
         });
     }
 
