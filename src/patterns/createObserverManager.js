@@ -28,7 +28,10 @@ export default function createObserverManager() {
     };
 
     manager.unRegisterObserver = (observer) => {
-        manager.observers.splice(manager.observers.indexOf(observer), 1);
+        const observerIndex = manager.observers.indexOf(observer);
+        if (observerIndex > -1) {
+            manager.observers.splice(observerIndex, 1);
+        }
     };
 
     return manager;
