@@ -30,6 +30,25 @@ export function registerReducer({
     return registeredReducers[key];
 }
 
+export function registerProvidedReducer({
+    key,
+    reducer,
+    reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT
+}) {
+    assert(key, is.set, 'Invalid key {val}');
+    assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
+
+    reducerConfigs.push({
+        key,
+        initialState: {},
+        reducerStorageType
+    });
+
+    registeredReducers[key] = reducer;
+
+    return registeredReducers[key];
+}
+
 export function getRegisteredReducers() {
     return registeredReducers;
 }

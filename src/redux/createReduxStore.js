@@ -9,6 +9,7 @@ function createReduxStore({
     redux,
     reducers = getRegisteredReducers(),
     middlewares = [],
+    enhancers = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
     stateStorageKey,
     customStorageMap = {},
@@ -32,7 +33,7 @@ function createReduxStore({
     const store = redux.createStore(
         redux.combineReducers(reducers),
         storeEnhancer.preloadedState,
-        composeEnhancers(redux.applyMiddleware(...storeEnhancer.middlewares))
+        composeEnhancers(...enhancers, redux.applyMiddleware(...storeEnhancer.middlewares))
     );
 
     return store;
