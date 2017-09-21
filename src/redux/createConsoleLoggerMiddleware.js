@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-export default function createConsoleLoggerMiddleware({collapsed = true}) {
+export default function createConsoleLoggerMiddleware({collapsed = true} = {}) {
     const isGroupingSupported = console.group;
 
     return (store) => (next) => (action) => {
