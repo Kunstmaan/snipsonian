@@ -21,7 +21,7 @@ export default function createConsoleLoggerMiddleware({collapsed = true} = {}) {
         console.log('next state', store.getState());
 
         if (isGroupingSupported) {
-            console.groupEnd(groupLabel);
+            console.groupEnd();
         }
 
         return result;
