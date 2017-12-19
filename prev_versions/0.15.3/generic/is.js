@@ -8,7 +8,7 @@ export const is = {
     string: (val) => typeof val === 'string',
     array: (val) => Array.isArray(val),
     object: (val) => typeof val === 'object',
-    objectPure: (val) => is.object(val) && !is.array(val),
+    objectPure: (val) => is.object(val) && !is.array(val) && !is.null(val),
     builder: (val) => is.set(val) && is.function(val.build)
 };
 

@@ -1,6 +1,6 @@
 export default function appendUrlParam({url, paramName, paramValue}) {
     const separator = containsAnyUrlParam({url}) ? '&' : '?';
-    return `${url}${separator}${paramName}=${paramValue}`;
+    return `${url}${separator}${encodeURIComponent(paramName)}=${encodeURIComponent(paramValue)}`;
 }
 
 function containsAnyUrlParam({url}) {
