@@ -93,4 +93,120 @@ describe('mergeObjectPropsDeeply()', () => {
             }
         });
     });
+
+    it('does not overwrite an object prop with a value that is not an object', () => {
+        const actual = mergeObjectPropsDeeply(
+            {
+                a: {
+                    m: {
+                        x: 1,
+                        y: ['yes']
+                    },
+                    n: {},
+                    o: {
+                        z: []
+                    }
+                },
+                b: {
+                    q: 123
+                }
+            }, {
+                a: {
+                    m: 'yyy',
+                    n: null,
+                    // o: undefined,
+                    p: 'taken'
+                },
+                b: 'r'
+            }
+        );
+
+        expect(actual).toEqual({
+            a: {
+                m: {
+                    x: 1,
+                    y: ['yes']
+                },
+                n: {},
+                o: {
+                    z: []
+                },
+                p: 'taken'
+            },
+            b: {
+                q: 123
+            }
+        });
+    });
+
+    it('does not overwrite a non-object prop with a value that is an object', () => {
+        const actual = mergeObjectPropsDeeply(
+            {
+                a: {
+                    m: 'yyy',
+                    n: 123
+                },
+                b: 'r'
+            }, {
+                a: {
+                    m: {
+                        x: 1,
+                        y: ['yes']
+                    },
+                    n: {
+                        z: 'b'
+                    }
+                },
+                b: {
+                    q: 123
+                }
+            }
+        );
+
+        expect(actual).toEqual({
+            a: {
+                m: 'yyy',
+                n: 123
+            },
+            b: 'r'
+        });
+    });
+
+    it('overwrites a null/undefined property with a object prop', () => {
+        const actual = mergeObjectPropsDeeply(
+            {
+                a: {
+                    m: null,
+                    n: undefined
+                    // o: undefined
+                }
+            }, {
+                a: {
+                    m: {
+                        s: 'ok'
+                    },
+                    n: {},
+                    o: {
+                        x: 456,
+                        y: 'qed',
+                        z: ['yes']
+                    }
+                }
+            }
+        );
+
+        expect(actual).toEqual({
+            a: {
+                m: {
+                    s: 'ok'
+                },
+                n: {},
+                o: {
+                    x: 456,
+                    y: 'qed',
+                    z: ['yes']
+                }
+            }
+        });
+    });
 });

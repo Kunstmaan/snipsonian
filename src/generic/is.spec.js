@@ -150,6 +150,7 @@ describe('is:', () => {
             expect(is.object({})).toEqual(true);
 
             expect(is.object([])).toEqual(true); // an array is also an object
+            expect(is.object(null)).toEqual(true); // null is also an object for JS
 
             expect(is.object()).toEqual(false);
             expect(is.object('')).toEqual(false);
@@ -166,6 +167,7 @@ describe('is:', () => {
             expect(is.objectPure({})).toEqual(true);
 
             expect(is.objectPure([])).toEqual(false); // !!!
+            expect(is.objectPure(null)).toEqual(false); // !!!
 
             expect(is.objectPure()).toEqual(false);
             expect(is.objectPure('')).toEqual(false);
