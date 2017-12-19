@@ -21,7 +21,8 @@ class Header extends React.Component {
         return (
             <div className="header-container">
                 <div className="brand">
-                    <Link className="brand-name" to={prefixLink('/')}
+                    <Link className="brand-name"
+                          to={prefixLink('/')}
                           style={{
                               textDecoration: 'none',
                               color: styleConfig.header.title.color
@@ -35,10 +36,16 @@ class Header extends React.Component {
                     </div>
                 </div>
                 <div className="header-content">
-                    <Link className="docs-button" to={prefixLink(`/doc/${this.props.version}/`)}
-                          style={{color: styleConfig.header.title.color}}><span>Last Viewed Docs</span></Link>
-                    <Link className="docs-button" to={prefixLink('/doc/latest/')}
-                          style={{color: styleConfig.header.title.color}}><span>Latest Docs</span></Link>
+                    <Link className="docs-button"
+                          to={prefixLink(`/doc/${this.props.version}/`)}
+                          style={{color: styleConfig.header.title.color}}>
+                        <span>Last Viewed Docs</span>
+                    </Link>
+                    <Link className="docs-button"
+                          to={prefixLink('/doc/latest/')}
+                          style={{color: styleConfig.header.title.color}}>
+                        <span>Latest Docs</span>
+                    </Link>
                     <div className="powered-by"><span>Powered by Kunstmaan Development</span></div>
                 </div>
             </div>

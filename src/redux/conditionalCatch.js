@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 export default function conditionalCatch({shouldCatchErrors = false, actionToExecute, onError}) {
     if (shouldCatchErrors) {
         try {
@@ -6,7 +7,6 @@ export default function conditionalCatch({shouldCatchErrors = false, actionToExe
             if (typeof onError === 'function') {
                 return onError(error);
             }
-            return;
         }
     } else {
         return actionToExecute();
