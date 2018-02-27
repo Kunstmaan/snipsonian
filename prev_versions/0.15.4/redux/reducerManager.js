@@ -53,8 +53,12 @@ export function getCombinedInitialState() {
     return reducerConfigs
         .reduce(
             (accumulator, reducerConfig) => {
+                // redux-first-router needs initial state to be undefined. TBD why.
+                const initialStateCopy = typeof reducerConfig.initialState === 'undefined' ?
+                    undefined : Object.assign({}, reducerConfig.initialState);
                 // eslint-disable-next-line no-param-reassign
-                accumulator[reducerConfig.key] = reducerConfig.initialState;
+                accumulator[reducerConfig.key] = initialStateCopy;
+                
                 return accumulator;
             },
             initialValue
