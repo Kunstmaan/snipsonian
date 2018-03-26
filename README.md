@@ -12,18 +12,9 @@ JS Snippets powered by Kunstmaan Development
 
 WIP
 
-## Dependencies
-
-* yarn
-    * Not really a hard dependency, but it is preferred to npm for this project.
-    * To install:
-          
-          brew update
-          brew install yarn
-
 ## Setup
 
-    yarn run setup
+    npm run setup
 
 If you want to watch jest tests:
 
@@ -33,25 +24,25 @@ If you want to watch jest tests:
 
 runs sequentially the js linter the unit tests:
 
-    yarn run test [-- --watch]
+    npm run test [-- --watch]
     
-runs a localhost server for developping with live reloading:
+runs a localhost server for developing with live reloading:
 
-    yarn run develop
+    npm run start
     
 does the gatsby build:
 
-    yarn build
+    npm run build
     
 runs the builded site in a local server:
     
-    yarn run serve-build
+    npm run serve-build
     
 ## New Versions
 
 When it's time to move to a new version, here's what to do: 
 
-        yarn version --new-version [major|minor|patch]
+        npm version --new-version [major|minor|patch]
 
 Use 'major' if there are any breaking changes!! 
 
