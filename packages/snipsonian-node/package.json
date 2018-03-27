@@ -1,0 +1,14 @@
+{
+  "name": "snipsonian-node",
+  "version": "1.0.0",
+  "description": "NodeJS snippets",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "node",
+    "nodeJs"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

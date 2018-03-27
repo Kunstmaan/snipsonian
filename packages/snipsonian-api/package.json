@@ -1,0 +1,13 @@
+{
+  "name": "snipsonian-api",
+  "version": "1.0.0",
+  "description": "Api snippets",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "fetch"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

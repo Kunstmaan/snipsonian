@@ -1,0 +1,14 @@
+{
+  "name": "snipsonian-dvlp",
+  "version": "1.0.0",
+  "description": "Snippets used for development purposes",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "dvlp",
+    "develop"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

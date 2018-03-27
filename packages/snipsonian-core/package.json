@@ -1,0 +1,18 @@
+{
+  "name": "snipsonian-core",
+  "version": "1.0.0",
+  "description": "Core/base reusable javascript code snippets",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "kunstmaan",
+    "javascript",
+    "code",
+    "snippet",
+    "snippets",
+    "ecmascript"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

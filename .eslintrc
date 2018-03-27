@@ -4,16 +4,13 @@
   "env": {
     "jest": true
   },
-  "globals": {
-    "window": true,
-    "document": true
-  },
-  "parser": "babel-eslint",
+  "globals": {},
   "rules": {
     "arrow-parens": ["error", "always"],
     "comma-dangle": ["error", "never"],
     "default-case": "off",
     "eol-last": ["off"],
+    "function-paren-newline": ["error", "consistent"],
     "indent": ["error", 4, {"SwitchCase": 1}],
     "max-len": ["error", 120, {"ignoreComments": true, "ignoreTemplateLiterals": true}],
     "no-console": "off",
@@ -25,13 +22,6 @@
     "import/extensions": ["error", "never", {"scss": "always", "yaml": "always", "toml": "always", "json": "always"}],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "import/no-unresolved": ["error", {"ignore": ["^react$", "^react-dom$"]}],
-    "import/prefer-default-export": ["off"],
-
-    "react/jsx-closing-bracket-location": ["error", "after-props"],
-    "react/jsx-filename-extension": ["off"],
-    "react/jsx-first-prop-new-line": ["error", "never"],
-    "react/jsx-indent": ["error", 4],
-    "react/jsx-indent-props": ["off"],
-    "react/require-default-props": ["off"]
+    "import/prefer-default-export": ["off"]
   }
 }

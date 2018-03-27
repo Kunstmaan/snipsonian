@@ -1,0 +1,15 @@
+{
+  "name": "snipsonian-analytics",
+  "version": "1.0.0",
+  "description": "Analytics snippets",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "analytics",
+    "ga",
+    "gtm"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

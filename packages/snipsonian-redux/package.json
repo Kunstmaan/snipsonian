@@ -1,0 +1,13 @@
+{
+  "name": "snipsonian-redux",
+  "version": "1.0.0",
+  "description": "Redux snippets",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "redux"
+  ],
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

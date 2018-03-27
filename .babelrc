@@ -1,12 +1,6 @@
 {
   "presets": [
-    "react",
-    "es2015",
-    "stage-1"
+    "env"
   ],
-  "plugins": [
-    "add-module-exports",
-    "transform-object-assign",
-    "transform-decorators-legacy"
-  ]
+  "plugins": []
 }
