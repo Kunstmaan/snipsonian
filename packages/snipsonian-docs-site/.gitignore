@@ -8,6 +8,9 @@
 /dist
 /tmp
 
+# generated
+/versions/latest.json
+
 # misc
 .DS_Store
 .env.local

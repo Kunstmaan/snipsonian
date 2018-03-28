@@ -1,9 +1,9 @@
 const path = require('path');
 const getDirectoriesSync = require('../../../snipsonian-node/src/dir/getDirectoriesSync');
 
-module.exports = getSnippetPackageInfos;
+module.exports = getPackageInfos;
 
-function getSnippetPackageInfos({sourcePath, packageNamesToExclude}) {
+function getPackageInfos({sourcePath, packageNamesToExclude}) {
     return getAllPackageNames({sourcePath})
         .filter((packageName) => shouldPackageNameBeIncluded({packageName, packageNamesToExclude}))
         .sort()

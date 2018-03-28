@@ -1,13 +1,14 @@
+const fs = require('fs');
+
 module.exports = function writeFile({
     filePath,
     data,
-    options = {},
-    fs
+    options = {}
 }) {
     return new Promise((resolve, reject) => {
         fs.writeFile(filePath, data, options, (err) => {
             if (err) return reject(err);
-            return resolve();
+            return resolve(filePath);
         });
     });
 };

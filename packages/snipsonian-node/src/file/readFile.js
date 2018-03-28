@@ -1,7 +1,8 @@
+const fs = require('fs');
+
 function readFile({
     filePath,
-    options = {},
-    fs
+    options = {}
 }) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, options, (err, fileContent) => {
