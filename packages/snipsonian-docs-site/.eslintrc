@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "react/jsx-indent": ["error", 4],
+    "react/prop-types": ["error", {"skipUndeclared": true}]
+  }
+}

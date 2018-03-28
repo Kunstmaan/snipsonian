@@ -1,7 +1,7 @@
 {
   "name": "snipsonian-doc-site",
   "version": "1.0.0",
-  "description": "Documentation site for all snipsonian code snippets",
+  "description": "Documentation site for all snipsonian code snippets (old version)",
   "main": "index.js",
   "scripts": {
     "build": "gatsby build",
