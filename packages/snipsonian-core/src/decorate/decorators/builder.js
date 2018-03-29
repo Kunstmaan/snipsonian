@@ -3,7 +3,7 @@ import isUndefined from '../../is/isUndefined';
 
 /* eslint no-param-reassign: ["error", { "props": false }] */
 
-export default function builder({initialBuildParams = {}, buildStateName = '_builder'} = {}) {
+export default function builder({ initialBuildParams = {}, buildStateName = '_builder' } = {}) {
     return function decorate(target) {
         if (isArray(target)) {
             return target.map((entity) => enrichToBeBuilder(entity, initialBuildParams, buildStateName));

@@ -1,9 +1,9 @@
 /* global window */
 
 import createStoreEnhancer from './createStoreEnhancer';
-import {getRegisteredReducers} from '../reducer/reducerManager';
+import { getRegisteredReducers } from '../reducer/reducerManager';
 
-import {STATE_STORAGE_TYPE} from '../config/storageType';
+import { STATE_STORAGE_TYPE } from '../config/storageType';
 
 export default function createReduxStore({
     redux,
@@ -14,7 +14,7 @@ export default function createReduxStore({
     stateStorageKey,
     customStorageMap = {},
     shouldCatchStorageErrors = false,
-    onStorageError = () => {}
+    onStorageError = () => {},
 }) {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
@@ -22,7 +22,7 @@ export default function createReduxStore({
         stateStorageKey,
         customStorageMap,
         shouldCatchStorageErrors,
-        onStorageError
+        onStorageError,
     });
 
     /* eslint-disable no-underscore-dangle */
@@ -33,7 +33,7 @@ export default function createReduxStore({
     const store = redux.createStore(
         redux.combineReducers(reducers),
         storeEnhancer.preloadedState,
-        composeEnhancers(...enhancers, redux.applyMiddleware(...storeEnhancer.middlewares))
+        composeEnhancers(...enhancers, redux.applyMiddleware(...storeEnhancer.middlewares)),
     );
 
     return store;

@@ -12,7 +12,7 @@ export default function registerServiceWorker({
     onContentPrecached = NOOP,
     onRedundant = NOOP,
     onRegistration = NOOP,
-    onRegistrationError = NOOP
+    onRegistrationError = NOOP,
 } = {}) {
     if (isServiceWorkerSupported()) {
         /**
@@ -45,16 +45,17 @@ export default function registerServiceWorker({
                                 case 'installed':
                                     if (navigator.serviceWorker.controller) {
                                         /**
-                                         * At this point, the old content will have been purged and the fresh content will
-                                         * have been added to the cache.
-                                         * It's the perfect time to display a "New content is available; please refresh."
-                                         * message in the page's interface.
+                                         * At this point, the old content will have been purged and
+                                         * the fresh content will have been added to the cache.
+                                         * It's the perfect time to display a message in the pages's interface:
+                                         * "New content is available; please refresh."
                                          */
                                         onNewContent();
                                     } else {
                                         /**
                                          * At this point, everything has been precached.
-                                         * It's the perfect time to display a "Content is cached for offline use." message.
+                                         * It's the perfect time to display a message:
+                                         * "Content is cached for offline use." message.
                                          */
                                         onContentPrecached();
                                     }
@@ -62,6 +63,9 @@ export default function registerServiceWorker({
 
                                 case 'redundant':
                                     onRedundant();
+                                    break;
+
+                                default:
                                     break;
                             }
                         };

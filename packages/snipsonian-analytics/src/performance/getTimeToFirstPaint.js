@@ -2,7 +2,7 @@
 
 import getNavigationStartTimeInMillis, {
     isPerformanceTimingSupported,
-    getPerformanceTiming
+    getPerformanceTiming,
 } from './getNavigationStartTimeInMillis';
 
 export default function getTimeToFirstPaint() {

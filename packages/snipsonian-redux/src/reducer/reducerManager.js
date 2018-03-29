@@ -1,7 +1,7 @@
 import assert from '../../../snipsonian-core/src/assert';
 import isSet from '../../../snipsonian-core/src/is/isSet';
 import createReducer from './createReducer';
-import {STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE} from '../config/storageType';
+import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
 
 const reducerConfigs = [];
 
@@ -11,7 +11,7 @@ export function registerReducer({
     key,
     initialState = {},
     actionHandlers = {},
-    reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT
+    reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
 }) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -20,12 +20,12 @@ export function registerReducer({
         key,
         initialState,
         actionHandlers,
-        reducerStorageType
+        reducerStorageType,
     });
 
     registeredReducers[key] = createReducer({
         initialState,
-        actionHandlers
+        actionHandlers,
     });
 
     return registeredReducers[key];
@@ -33,14 +33,14 @@ export function registerReducer({
 
 export function registerStorageTypeForProvidedReducer({
     key,
-    reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT
+    reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
 }) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
 
     reducerConfigs.push({
         key,
-        reducerStorageType
+        reducerStorageType,
     });
 }
 
@@ -59,10 +59,10 @@ export function getCombinedInitialState() {
                     undefined : Object.assign({}, reducerConfig.initialState);
                 // eslint-disable-next-line no-param-reassign
                 accumulator[reducerConfig.key] = initialStateCopy;
-                
+
                 return accumulator;
             },
-            initialValue
+            initialValue,
         );
 }
 
@@ -73,12 +73,10 @@ export function areThereReducersWithoutStorageTypeInherit() {
 
 export function areThereReducersThatHaveToBeStoredSpecifically() {
     return reducerConfigs
-        .some(
-            (reducerConfig) => hasNotStorageTypeInherit(reducerConfig) && hasNotStorageTypeNoStorage(reducerConfig)
-        );
+        .some((reducerConfig) => hasNotStorageTypeInherit(reducerConfig) && hasNotStorageTypeNoStorage(reducerConfig));
 }
 
-export function getMapOfReducersThatHaveToBeStoredSpecifically({stateStorageType}) {
+export function getMapOfReducersThatHaveToBeStoredSpecifically({ stateStorageType }) {
     const initialValue = {};
 
     return reducerConfigs
@@ -102,7 +100,7 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({stateStorageType
 
                 return accumulator;
             },
-            initialValue
+            initialValue,
         );
 }
 

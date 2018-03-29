@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-export default function conditionalCatch({shouldCatchErrors = false, actionToExecute, onError}) {
+export default function conditionalCatch({ shouldCatchErrors = false, actionToExecute, onError }) {
     if (shouldCatchErrors) {
         try {
             return actionToExecute();

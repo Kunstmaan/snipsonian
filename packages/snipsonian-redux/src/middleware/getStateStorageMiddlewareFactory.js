@@ -4,7 +4,7 @@ export default function getStateStorageMiddlewareFactory({
     storage,
     stateStorageKey,
     shouldCatchErrors = false,
-    onError
+    onError,
 }) {
     const createMiddleware = () =>
         (store) => (next) => (action) => {
@@ -12,7 +12,7 @@ export default function getStateStorageMiddlewareFactory({
             conditionalCatch({
                 shouldCatchErrors,
                 actionToExecute: () => saveState(store.getState()),
-                onError
+                onError,
             });
             return r;
         };
@@ -27,26 +27,26 @@ export default function getStateStorageMiddlewareFactory({
     return {
         createMiddleware,
         getState,
-        destroyState
+        destroyState,
     };
 
     function saveState(state) {
         storage.save({
             key: stateStorageKey,
-            value: state
+            value: state,
         });
     }
 
     function readState() {
         return storage.read({
             key: stateStorageKey,
-            defaultValue: {}
+            defaultValue: {},
         });
     }
 
     function removeState() {
         storage.remove({
-            key: stateStorageKey
+            key: stateStorageKey,
         });
     }
 }

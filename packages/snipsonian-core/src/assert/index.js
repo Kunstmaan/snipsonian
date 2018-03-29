@@ -5,9 +5,7 @@ export default function assert(val, validator, errorMessage = 'Assertion error f
     assertValidValidator(validator);
 
     if (!validator(val)) {
-        throw new Error(
-            replacePlaceholders({msg: errorMessage, placeholders: {val}})
-        );
+        throw new Error(replacePlaceholders({ msg: errorMessage, placeholders: { val } }));
     }
 }
 

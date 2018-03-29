@@ -1,8 +1,12 @@
 import createReducer from './src/reducer/createReducer';
 import createReduxStore from './src/store/createReduxStore';
+import { registerReducer } from './src/reducer/reducerManager';
+import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from './src/config/storageType';
 
-export {createReducer};
-export {createReduxStore};
-
-export {STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE} from './src/config/storageType';
-export {registerReducer} from './src/reducer/reducerManager';
+export {
+    createReducer,
+    createReduxStore,
+    registerReducer,
+    STATE_STORAGE_TYPE,
+    REDUCER_STORAGE_TYPE,
+};

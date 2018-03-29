@@ -1,5 +1,7 @@
 import is from './src/is';
 import assert from './src/assert';
 
-export {assert};
-export {is};
+export {
+    assert,
+    is,
+};

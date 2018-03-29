@@ -1,4 +1,4 @@
-export default function createReducer({initialState = {}, actionHandlers = {}}) {
+export default function createReducer({ initialState = {}, actionHandlers = {} }) {
     return function reducer(state = initialState, action) {
         if (!action.type || !action.payload) {
             return state;
@@ -6,6 +6,6 @@ export default function createReducer({initialState = {}, actionHandlers = {}}) 
 
         const actionHandler = actionHandlers[action.type];
 
-        return actionHandler ? actionHandler({state, action}) : state;
+        return actionHandler ? actionHandler({ state, action }) : state;
     };
 }

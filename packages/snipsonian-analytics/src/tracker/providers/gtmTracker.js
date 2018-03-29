@@ -8,18 +8,18 @@ export default {
     setVirtualUrlPrefix,
     sendVirtualPageview,
     sendEvent,
-    sendTiming
+    sendTiming,
 };
 
 function setVirtualUrlPrefix(newPrefix) {
     virtualUrlPrefix = newPrefix;
 }
 
-function sendVirtualPageview({virtualUrl, custom = {}}) {
+function sendVirtualPageview({ virtualUrl, custom = {} }) {
     dataLayer.push({
         event: 'virtualPageView',
         virtualUrl: prefixVirtualUrl(virtualUrl),
-        ...custom
+        ...custom,
     });
 }
 
@@ -33,7 +33,7 @@ function sendEvent({
     label,
     value,
     isNonInteraction = false,
-    custom = {}
+    custom = {},
 }) {
     dataLayer.push({
         event: 'event',
@@ -42,9 +42,9 @@ function sendEvent({
             eventCategory: category,
             eventAction: action,
             eventLabel: label,
-            eventValue: value
+            eventValue: value,
         }),
-        ...custom
+        ...custom,
     });
 }
 
@@ -53,7 +53,7 @@ function sendTiming({
     timingVar,
     value,
     label,
-    custom = {}
+    custom = {},
 }) {
     dataLayer.push({
         event: 'timing',
@@ -61,8 +61,8 @@ function sendTiming({
             timingCategory: category,
             timingVar,
             timingValue: value,
-            timingLabel: label
+            timingLabel: label,
         }),
-        ...custom
+        ...custom,
     });
 }

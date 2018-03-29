@@ -1,6 +1,6 @@
 import isArray from '../../is/isArray';
 
-export default function collapsable({initialIsCollapsed = false} = {}) {
+export default function collapsable({ initialIsCollapsed = false } = {}) {
     return function decorate(target) {
         if (isArray(target)) {
             return target.map((entity) => enrichToBeCollapsable(entity, initialIsCollapsed));

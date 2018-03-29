@@ -4,7 +4,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
     storageToReducerKeysConfigs,
     stateStorageKey,
     shouldCatchErrors = false,
-    onError
+    onError,
 }) {
     const createMiddleware = () =>
         (store) => (next) => (action) => {
@@ -12,7 +12,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             conditionalCatch({
                 shouldCatchErrors,
                 actionToExecute: () => saveState(store.getState()),
-                onError
+                onError,
             });
             return r;
         };
@@ -27,7 +27,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
     return {
         createMiddleware,
         getState,
-        destroyState
+        destroyState,
     };
 
     function saveState(state) {
@@ -45,17 +45,17 @@ export default function getStateStorageByReducerMiddlewareFactory({
         return reducerKeysToStore.reduce(
             (accumulator, reducerKey) =>
                 Object.assign(accumulator, {
-                    [reducerKey]: state[reducerKey]
+                    [reducerKey]: state[reducerKey],
                 })
             ,
-            initialValue
+            initialValue,
         );
     }
 
     function saveStatePart(storage, statePart) {
         storage.save({
             key: stateStorageKey,
-            value: statePart
+            value: statePart,
         });
     }
 
@@ -68,14 +68,14 @@ export default function getStateStorageByReducerMiddlewareFactory({
                 (accumulator, storage) =>
                     Object.assign(accumulator, readStatePart(storage))
                 ,
-                initialValue
+                initialValue,
             );
     }
 
     function readStatePart(storage) {
         return storage.read({
             key: stateStorageKey,
-            defaultValue: {}
+            defaultValue: {},
         });
     }
 
@@ -87,7 +87,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
 
     function removeStatePart(storage) {
         storage.remove({
-            key: stateStorageKey
+            key: stateStorageKey,
         });
     }
 }

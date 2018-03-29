@@ -2,16 +2,16 @@ export default function createObserverManager() {
     let counter = 0;
 
     const manager = {
-        observers: []
+        observers: [],
     };
 
-    manager.registerObserver = ({onNotify, onError}) => {
+    manager.registerObserver = ({ onNotify, onError }) => {
         counter += 1;
 
         const observer = {
             notify: onNotify,
             notifyError: onError,
-            id: counter
+            id: counter,
         };
 
         manager.observers.push(observer);

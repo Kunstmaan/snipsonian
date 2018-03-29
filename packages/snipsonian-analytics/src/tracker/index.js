@@ -17,11 +17,11 @@ export function initTracker(newTracker) {
 
 export function sendVirtualPageview({
     virtualUrl,
-    custom = {}
+    custom = {},
 }) {
     getTracker().sendVirtualPageview({
         virtualUrl,
-        custom
+        custom,
     });
 }
 
@@ -31,7 +31,7 @@ export function sendEvent({
     label,
     value,
     isNonInteraction = false,
-    custom = {}
+    custom = {},
 }) {
     getTracker().sendEvent({
         category,
@@ -39,7 +39,7 @@ export function sendEvent({
         label,
         value,
         isNonInteraction,
-        custom
+        custom,
     });
 }
 
@@ -47,13 +47,13 @@ export function sendSocial({
     network,
     action,
     target,
-    custom = {}
+    custom = {},
 }) {
     getTracker().sendSocial({
         network,
         action,
         target,
-        custom
+        custom,
     });
 }
 
@@ -62,25 +62,25 @@ export function sendTiming({
     timingVar,
     value,
     label,
-    custom = {}
+    custom = {},
 }) {
     getTracker().sendTiming({
         category,
         timingVar,
         value,
         label,
-        custom
+        custom,
     });
 }
 
 export function sendException({
     description,
     isFatal = false,
-    custom = {}
+    custom = {},
 }) {
     getTracker().sendException({
         description,
         isFatal,
-        custom
+        custom,
     });
 }

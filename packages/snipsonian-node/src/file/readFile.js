@@ -2,7 +2,7 @@ const fs = require('fs');
 
 function readFile({
     filePath,
-    options = {}
+    options = {},
 }) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, options, (err, fileContent) => {

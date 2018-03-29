@@ -7,7 +7,7 @@ class ReducerTest {
         this.state = this.initialState;
     }
 
-    handleAction({action, previousState = this.state}) {
+    handleAction({ action, previousState = this.state }) {
         this.state = this.reducer(previousState, action);
         return this.state;
     }

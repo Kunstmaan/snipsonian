@@ -19,7 +19,7 @@ describe('buildIfBuilder()', () => {
 
     it('just returns the input if the input is not a builder', () => {
         const noBuilder = {
-            someProp: 'x_y_z'
+            someProp: 'x_y_z',
         };
 
         expect(buildIfBuilder(noBuilder)).toEqual(noBuilder);
@@ -29,19 +29,19 @@ describe('buildIfBuilder()', () => {
         const builder = new SomeBuilder();
         const noBuilder = 'Will just be returned AS IS';
         const otherBuilder = {
-            build: () => 'builded!'
+            build: () => 'builded!',
         };
 
         const actual = buildIfBuilder([
             builder,
             noBuilder,
-            otherBuilder
+            otherBuilder,
         ]);
 
         expect(actual).toEqual([
             'a_b_c',
             'Will just be returned AS IS',
-            'builded!'
+            'builded!',
         ]);
     });
 });

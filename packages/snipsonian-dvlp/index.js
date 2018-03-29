@@ -1,3 +1,3 @@
 import getLocalDvlpConfig from './src/storedConfig/getLocalDvlpConfig';
 
-export {getLocalDvlpConfig};
+export { getLocalDvlpConfig };
