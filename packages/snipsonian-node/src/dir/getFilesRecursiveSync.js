@@ -5,15 +5,18 @@ const isDirectorySync = require('./isDirectorySync');
 function getFilesRecursiveSync({sourcePath}) {
     return fs.readdirSync(sourcePath)
         .reduce(
-            (filesAccumulator, item) => {
-                const itemPath = path.resolve(sourcePath, item);
+            (filesAccumulator, itemName) => {
+                const itemPath = path.resolve(sourcePath, itemName);
 
                 if (isDirectorySync({inputPath: itemPath})) {
                     filesAccumulator.push(
                         ...getFilesRecursiveSync({sourcePath: itemPath})
                     );
                 } else {
-                    filesAccumulator.push(itemPath);
+                    filesAccumulator.push({
+                        name: itemName,
+                        path: itemPath
+                    });
                 }
 
                 return filesAccumulator;

@@ -1,5 +1,5 @@
 const path = require('path');
-const getDirectoriesSync = require('../../../snipsonian-node/src/dir/getDirectoriesSync');
+const getDirectoryNamesSync = require('../../../snipsonian-node/src/dir/getDirectoryNamesSync');
 
 module.exports = getPackageInfos;
 
@@ -11,7 +11,7 @@ function getPackageInfos({sourcePath, packageNamesToExclude}) {
 }
 
 function getAllPackageNames({sourcePath}) {
-    return getDirectoriesSync({
+    return getDirectoryNamesSync({
         sourcePath
     });
 }
