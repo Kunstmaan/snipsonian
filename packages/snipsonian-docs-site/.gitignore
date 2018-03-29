@@ -9,7 +9,7 @@
 /tmp
 
 # generated
-/versions/latest.json
+/docMeta/latest.json
 
 # misc
 .DS_Store

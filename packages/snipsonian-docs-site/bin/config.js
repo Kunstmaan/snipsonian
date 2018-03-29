@@ -11,12 +11,12 @@ const PACKAGE_NAMES_TO_EXCLUDE = [
 
 const SNIPPETS_SUB_DIR = 'src';
 
-const VERSIONS_DIR = path.resolve(__dirname, '../versions');
+const DOC_META_DIR = path.resolve(__dirname, '../docMeta');
 
 module.exports = {
     VERSION,
     PACKAGES_DIR,
     PACKAGE_NAMES_TO_EXCLUDE,
     SNIPPETS_SUB_DIR,
-    VERSIONS_DIR
+    DOC_META_DIR
 };

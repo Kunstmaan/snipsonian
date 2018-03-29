@@ -20,7 +20,7 @@ const packageDocMetas = packageInfos
 // TODO don't include full paths in the json so that they do not get committed as they can be different per machine
 
 writeDocMetaJsonOfVersion({
-    targetDir: config.VERSIONS_DIR,
+    targetDir: config.DOC_META_DIR,
     version: 'latest', // TODO
     packageDocMetas
 })
