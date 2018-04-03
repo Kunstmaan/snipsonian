@@ -1,7 +1,9 @@
+import getPartBetween from '../string/getPartBetween';
+
 export default function getUrlPartBetween({firstPart, secondPart = '/', url}) {
-    try {
-        return url.split(firstPart)[1].split(secondPart)[0];
-    } catch (e) {
-        return undefined;
-    }
+    return getPartBetween({
+        firstPart,
+        secondPart,
+        input: url
+    });
 }
