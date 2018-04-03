@@ -12,5 +12,5 @@ function toAddPropDecorators(nameValueObj) {
 }
 
 function addPropIfValueSet(propName, propValue) {
-    return addProp(propName, propValue, {addIfValueUnset: false});
+    return addProp(propName, propValue, { addIfValueUnset: false });
 }

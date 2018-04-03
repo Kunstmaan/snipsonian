@@ -3,7 +3,7 @@ const fs = require('fs');
 module.exports = function writeFile({
     filePath,
     data,
-    options = {}
+    options = {},
 }) {
     return new Promise((resolve, reject) => {
         fs.writeFile(filePath, data, options, (err) => {

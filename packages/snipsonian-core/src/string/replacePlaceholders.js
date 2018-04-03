@@ -1,4 +1,4 @@
-export default function replacePlaceholders({msg, placeholders = {}}) {
+export default function replacePlaceholders({ msg, placeholders = {} }) {
     const placeholderNames = Object.getOwnPropertyNames(placeholders);
 
     return placeholderNames.reduce((prevMsgResult, placeholderName) => {

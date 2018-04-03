@@ -10,13 +10,13 @@ describe('gtmTracker:', () => {
     describe('sendVirtualPageview()', () => {
         it('sends a virtualPageView event', () => {
             gtmTracker.sendVirtualPageview({
-                virtualUrl: 'dashboard'
+                virtualUrl: 'dashboard',
             });
 
             expect(window.dataLayer.length).toEqual(1);
             expect(window.dataLayer[0]).toEqual({
                 event: 'virtualPageView',
-                virtualUrl: 'dashboard'
+                virtualUrl: 'dashboard',
             });
         });
 
@@ -24,13 +24,13 @@ describe('gtmTracker:', () => {
             gtmTracker.setVirtualUrlPrefix('/some-url-prefix/');
 
             gtmTracker.sendVirtualPageview({
-                virtualUrl: 'contact'
+                virtualUrl: 'contact',
             });
 
             expect(window.dataLayer.length).toEqual(1);
             expect(window.dataLayer[0]).toEqual({
                 event: 'virtualPageView',
-                virtualUrl: '/some-url-prefix/contact'
+                virtualUrl: '/some-url-prefix/contact',
             });
 
             gtmTracker.setVirtualUrlPrefix('');
@@ -40,27 +40,27 @@ describe('gtmTracker:', () => {
             gtmTracker.sendVirtualPageview({
                 virtualUrl: 'page1',
                 custom: {
-                    someField: 'some value'
-                }
+                    someField: 'some value',
+                },
             });
 
             gtmTracker.sendVirtualPageview({
                 virtualUrl: 'page2',
                 custom: {
-                    otherField: 24
-                }
+                    otherField: 24,
+                },
             });
 
             expect(window.dataLayer.length).toEqual(2);
             expect(window.dataLayer[0]).toEqual({
                 event: 'virtualPageView',
                 virtualUrl: 'page1',
-                someField: 'some value'
+                someField: 'some value',
             });
             expect(window.dataLayer[1]).toEqual({
                 event: 'virtualPageView',
                 virtualUrl: 'page2',
-                otherField: 24
+                otherField: 24,
             });
         });
     });
@@ -69,7 +69,7 @@ describe('gtmTracker:', () => {
         it('sends a standard event', () => {
             gtmTracker.sendEvent({
                 category: 'contact-form',
-                action: 'submit'
+                action: 'submit',
             });
 
             expect(window.dataLayer.length).toEqual(1);
@@ -77,7 +77,7 @@ describe('gtmTracker:', () => {
                 event: 'event',
                 eventCategory: 'contact-form',
                 eventAction: 'submit',
-                nonInteraction: false
+                nonInteraction: false,
             });
         });
 
@@ -89,8 +89,8 @@ describe('gtmTracker:', () => {
                 value: 777,
                 isNonInteraction: true,
                 custom: {
-                    someCustomField: 'qwerty'
-                }
+                    someCustomField: 'qwerty',
+                },
             });
 
             expect(window.dataLayer.length).toEqual(1);
@@ -101,7 +101,7 @@ describe('gtmTracker:', () => {
                 eventLabel: 'some label',
                 eventValue: 777,
                 nonInteraction: true,
-                someCustomField: 'qwerty'
+                someCustomField: 'qwerty',
             });
         });
     });
@@ -111,7 +111,7 @@ describe('gtmTracker:', () => {
             gtmTracker.sendTiming({
                 category: 'performance',
                 timingVar: 'timeToFirstPaint',
-                value: 748
+                value: 748,
             });
 
             expect(window.dataLayer.length).toEqual(1);
@@ -119,7 +119,7 @@ describe('gtmTracker:', () => {
                 event: 'timing',
                 timingCategory: 'performance',
                 timingVar: 'timeToFirstPaint',
-                timingValue: 748
+                timingValue: 748,
             });
         });
 
@@ -131,8 +131,8 @@ describe('gtmTracker:', () => {
                 label: 'some label',
                 custom: {
                     otherField: 123,
-                    anotherField: 'QED'
-                }
+                    anotherField: 'QED',
+                },
             });
 
             expect(window.dataLayer.length).toEqual(1);
@@ -143,7 +143,7 @@ describe('gtmTracker:', () => {
                 timingValue: 748,
                 timingLabel: 'some label',
                 otherField: 123,
-                anotherField: 'QED'
+                anotherField: 'QED',
             });
         });
     });

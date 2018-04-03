@@ -5,12 +5,12 @@ import collapsable from './decorators/collapsable';
 describe('decorate(target).with(...decorators)', () => {
     it('executes each decorator by passing the target as input and returns the target', () => {
         const target = {
-            someVar: 'some val'
+            someVar: 'some val',
         };
 
         const actual = decorate(target).with(
             addProp('otherVar', 12098),
-            collapsable({initialIsCollapsed: true})
+            collapsable({ initialIsCollapsed: true }),
         );
 
         expect(actual.someVar).toEqual('some val');

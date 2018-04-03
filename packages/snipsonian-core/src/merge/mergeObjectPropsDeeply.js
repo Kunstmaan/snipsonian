@@ -28,13 +28,13 @@ export default function mergeObjectPropsDeeply(...sources) {
     return sources.reduce(
         (accumulator, source) => mergeObjectPropsDeeplyFromSourceToTarget({
             target: accumulator,
-            source
+            source,
         }),
-        initialValue
+        initialValue,
     );
 }
 
-export function mergeObjectPropsDeeplyFromSourceToTarget({target, source}) {
+export function mergeObjectPropsDeeplyFromSourceToTarget({ target, source }) {
     if (isUndefined(target) || isNull(target)) {
         return source;
     }
@@ -43,16 +43,16 @@ export function mergeObjectPropsDeeplyFromSourceToTarget({target, source}) {
         Object.keys(source).forEach((key) => {
             if (isObjectPure(source[key])) {
                 if (!(key in target)) {
-                    Object.assign(target, {[key]: source[key]});
+                    Object.assign(target, { [key]: source[key] });
                 } else {
                     // eslint-disable-next-line no-param-reassign
                     target[key] = mergeObjectPropsDeeplyFromSourceToTarget({
                         target: target[key],
-                        source: source[key]
+                        source: source[key],
                     });
                 }
             } else if (!isObjectPure(target[key])) {
-                Object.assign(target, {[key]: source[key]});
+                Object.assign(target, { [key]: source[key] });
             }
             // else (only the target is an object): target remains untouched
         });

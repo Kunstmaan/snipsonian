@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lintJs": "eslint packages",
-    "test": "npm run lintJs && jest"
+    "test": "npm run lintJs && jest",
+    "jest": "jest --watch"
   },
   "dependencies": {},
   "devDependencies": {

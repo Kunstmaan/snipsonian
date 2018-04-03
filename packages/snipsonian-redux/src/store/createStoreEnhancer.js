@@ -9,9 +9,9 @@ import {
     getCombinedInitialState,
     areThereReducersWithoutStorageTypeInherit,
     areThereReducersThatHaveToBeStoredSpecifically,
-    getMapOfReducersThatHaveToBeStoredSpecifically
+    getMapOfReducersThatHaveToBeStoredSpecifically,
 } from '../reducer/reducerManager';
-import {STATE_STORAGE_TYPE} from '../config/storageType';
+import { STATE_STORAGE_TYPE } from '../config/storageType';
 
 export default function createStoreEnhancer({
     middlewares = [],
@@ -19,7 +19,7 @@ export default function createStoreEnhancer({
     stateStorageKey,
     customStorageMap = {},
     shouldCatchStorageErrors,
-    onStorageError
+    onStorageError,
 }) {
     let preloadedState = {};
 
@@ -32,17 +32,17 @@ export default function createStoreEnhancer({
             stateStorageKey,
             // eslint-disable-next-line prefer-template
             errorMessage: 'The stateStorageKey input {val} should be a valid string when stateStorageType is not '
-                + STATE_STORAGE_TYPE.NO_STORAGE
+                + STATE_STORAGE_TYPE.NO_STORAGE,
         });
 
         if (!areThereReducersWithoutStorageTypeInherit()) {
-            const storage = getOrAddStorage({storageMap, storageType: stateStorageType});
+            const storage = getOrAddStorage({ storageMap, storageType: stateStorageType });
 
             stateStorageMiddlewareFactory = getStateStorageMiddlewareFactory({
                 storage,
                 stateStorageKey,
                 shouldCatchErrors: shouldCatchStorageErrors,
-                onError: onStorageError
+                onError: onStorageError,
             });
         }
     }
@@ -52,40 +52,41 @@ export default function createStoreEnhancer({
         assertStateStorageKey({
             stateStorageKey,
             errorMessage: 'The stateStorageKey input {val} should be a valid string when at least one reducer has ' +
-                'a specific reducerStorageType'
+                'a specific reducerStorageType',
         });
 
-        const reducerStorageTypeMap = getMapOfReducersThatHaveToBeStoredSpecifically({stateStorageType});
+        const reducerStorageTypeMap = getMapOfReducersThatHaveToBeStoredSpecifically({ stateStorageType });
 
-        const storageToReducerKeysConfigs = getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap});
+        const storageToReducerKeysConfigs = getStorageToReducerKeysConfigs({ reducerStorageTypeMap, storageMap });
 
         stateStorageMiddlewareFactory = getStateStorageByReducerMiddlewareFactory({
             storageToReducerKeysConfigs,
             stateStorageKey,
             shouldCatchErrors: shouldCatchStorageErrors,
-            onError: onStorageError
+            onError: onStorageError,
         });
     }
 
     if (stateStorageMiddlewareFactory) {
         middlewares.push(stateStorageMiddlewareFactory.createMiddleware());
-
+        /* eslint-disable function-paren-newline */
         preloadedState = joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(
-            stateStorageMiddlewareFactory.getState()
+            stateStorageMiddlewareFactory.getState(),
         );
+        /* eslint-enable function-paren-newline */
     }
 
     return {
         preloadedState,
-        middlewares
+        middlewares,
     };
 }
 
-function assertStateStorageKey({stateStorageKey, errorMessage}) {
+function assertStateStorageKey({ stateStorageKey, errorMessage }) {
     assert(
         stateStorageKey,
         isValidStorageKey,
-        errorMessage
+        errorMessage,
     );
 }
 
@@ -93,7 +94,7 @@ function isValidStorageKey(stateStorageKey) {
     return isSet(stateStorageKey) && isString(stateStorageKey) && (stateStorageKey.trim().length > 0);
 }
 
-function getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap}) {
+function getStorageToReducerKeysConfigs({ reducerStorageTypeMap, storageMap }) {
     const initialValue = [];
 
     return Object.keys(reducerStorageTypeMap)
@@ -106,8 +107,8 @@ function getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap}) {
                 if (!storageConfig) {
                     storageConfig = {
                         storageType,
-                        storage: getOrAddStorage({storageMap, storageType}),
-                        reducerKeys: []
+                        storage: getOrAddStorage({ storageMap, storageType }),
+                        reducerKeys: [],
                     };
 
                     accumulator.push(storageConfig);
@@ -117,11 +118,11 @@ function getStorageToReducerKeysConfigs({reducerStorageTypeMap, storageMap}) {
 
                 return accumulator;
             },
-            initialValue
+            initialValue,
         );
 }
 
-function getOrAddStorage({storageMap, storageType}) {
+function getOrAddStorage({ storageMap, storageType }) {
     if (Object.prototype.hasOwnProperty.call(storageMap, storageType)) {
         return storageMap[storageType];
     }

@@ -9,7 +9,7 @@ describe('gaTracker:', () => {
 
     describe('sendVirtualPageview()', () => {
         it('sets the ga page with the input virtual url + sends a pageview to ga', () => {
-            gaTracker.sendVirtualPageview({virtualUrl: '/some/virtual/page'});
+            gaTracker.sendVirtualPageview({ virtualUrl: '/some/virtual/page' });
 
             expect(getNrOfGaCalls()).toEqual(2);
 
@@ -26,13 +26,13 @@ describe('gaTracker:', () => {
                 virtualUrl: '/some/virtual/page',
                 custom: {
                     dimension15: 'My Custom Dimension',
-                    metric8: 24.75
-                }
+                    metric8: 24.75,
+                },
             });
 
             expect(getGaCallParams(1)[2]).toEqual({
                 dimension15: 'My Custom Dimension',
-                metric8: 24.75
+                metric8: 24.75,
             });
         });
     });
@@ -43,7 +43,7 @@ describe('gaTracker:', () => {
                 category: 'some cat',
                 action: 'some act',
                 label: 'some lab',
-                value: 'some val'
+                value: 'some val',
             });
 
             expect(getNrOfGaCalls()).toEqual(1);
@@ -55,7 +55,7 @@ describe('gaTracker:', () => {
                 eventAction: 'some act',
                 eventLabel: 'some lab',
                 eventValue: 'some val',
-                nonInteraction: false
+                nonInteraction: false,
             });
         });
 
@@ -67,8 +67,8 @@ describe('gaTracker:', () => {
                 value: 'some val',
                 isNonInteraction: true,
                 custom: {
-                    dimension4: 'My Custom Dimension'
-                }
+                    dimension4: 'My Custom Dimension',
+                },
             });
 
             expect(getGaCallParams()[1]).toEqual({
@@ -78,7 +78,7 @@ describe('gaTracker:', () => {
                 eventLabel: 'some lab',
                 eventValue: 'some val',
                 nonInteraction: true,
-                dimension4: 'My Custom Dimension'
+                dimension4: 'My Custom Dimension',
             });
         });
     });
@@ -88,7 +88,7 @@ describe('gaTracker:', () => {
             gaTracker.sendSocial({
                 network: 'soc netw +',
                 action: 'like',
-                target: 'http://some.url'
+                target: 'http://some.url',
             });
 
             expect(getNrOfGaCalls()).toEqual(1);
@@ -98,7 +98,7 @@ describe('gaTracker:', () => {
                 hitType: 'social',
                 socialNetwork: 'soc netw +',
                 socialAction: 'like',
-                socialTarget: 'http://some.url'
+                socialTarget: 'http://some.url',
             });
         });
     });
@@ -109,7 +109,7 @@ describe('gaTracker:', () => {
                 category: 'some timing cat',
                 timingVar: 'custom time final paint',
                 value: 742,
-                label: 'some optional label'
+                label: 'some optional label',
             });
 
             expect(getNrOfGaCalls()).toEqual(1);
@@ -120,7 +120,7 @@ describe('gaTracker:', () => {
                 timingCategory: 'some timing cat',
                 timingVar: 'custom time final paint',
                 timingValue: 742,
-                timingLabel: 'some optional label'
+                timingLabel: 'some optional label',
             });
         });
     });
@@ -128,7 +128,7 @@ describe('gaTracker:', () => {
     describe('sendException()', () => {
         it('sends a hit of type exception to ga (exFatal default = false)', () => {
             gaTracker.sendException({
-                description: 'some error desc'
+                description: 'some error desc',
             });
 
             expect(getNrOfGaCalls()).toEqual(1);
@@ -137,7 +137,7 @@ describe('gaTracker:', () => {
             expect(getGaCallParams()[1]).toEqual({
                 hitType: 'exception',
                 exDescription: 'some error desc',
-                exFatal: false
+                exFatal: false,
             });
         });
     });

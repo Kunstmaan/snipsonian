@@ -11,7 +11,7 @@ describe('collapsable()', () => {
     it('enriches the input entity (= target) to be collapsible', () => {
         const someBlock = {
             title: 'Block that will be collapsable',
-            parts: []
+            parts: [],
         };
         expect(someBlock.isCollapsed).not.toBeDefined();
         expect(someBlock.toggleCollapse).not.toBeDefined();
@@ -27,13 +27,13 @@ describe('collapsable()', () => {
     });
 
     it('initial isCollapsed value can be set', () => {
-        expect(collapsable({initialIsCollapsed: true})({}).isCollapsed).toEqual(true);
-        expect(collapsable({initialIsCollapsed: false})({}).isCollapsed).toEqual(false);
+        expect(collapsable({ initialIsCollapsed: true })({}).isCollapsed).toEqual(true);
+        expect(collapsable({ initialIsCollapsed: false })({}).isCollapsed).toEqual(false);
     });
 
     it('the enriched toggleCollapse() function toggles the isCollapsed value', () => {
-        const actual = collapsable({initialIsCollapsed: false})({
-            someVar: 'some value'
+        const actual = collapsable({ initialIsCollapsed: false })({
+            someVar: 'some value',
         });
 
         expect(actual.isCollapsed).toEqual(false);
@@ -51,7 +51,7 @@ describe('collapsable()', () => {
         const firstEntity = {};
         const secondEntity = {};
 
-        const actual = collapsable({initialIsCollapsed: true})([firstEntity, secondEntity]);
+        const actual = collapsable({ initialIsCollapsed: true })([firstEntity, secondEntity]);
 
         expect(actual.length).toEqual(2);
 

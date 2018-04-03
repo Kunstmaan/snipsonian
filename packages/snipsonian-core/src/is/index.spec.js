@@ -46,7 +46,7 @@ describe('is:', () => {
             expect(is.set({})).toEqual(true);
 
             const obj = {
-                dummyVar: 'dummyVal'
+                dummyVar: 'dummyVal',
             };
             expect(is.set(obj.dummyVar)).toEqual(true);
         });
@@ -144,7 +144,7 @@ describe('is:', () => {
 
     describe('is.object()', () => {
         it('returns only true if input is an object', () => {
-            const dummyObj = {someVar: 'some value'};
+            const dummyObj = { someVar: 'some value' };
 
             expect(is.object(dummyObj)).toEqual(true);
             expect(is.object({})).toEqual(true);
@@ -161,7 +161,7 @@ describe('is:', () => {
 
     describe('is.objectPure()', () => {
         it('returns only true if input is an object but not an array', () => {
-            const dummyObj = {someVar: 'some value'};
+            const dummyObj = { someVar: 'some value' };
 
             expect(is.objectPure(dummyObj)).toEqual(true);
             expect(is.objectPure({})).toEqual(true);
@@ -179,7 +179,7 @@ describe('is:', () => {
     describe('is.builder()', () => {
         it('returns only true if input is a builder (has a build method)', () => {
             const dummyBuilderObj = {
-                build: () => {}
+                build: () => {},
             };
             expect(is.builder(dummyBuilderObj)).toEqual(true);
 

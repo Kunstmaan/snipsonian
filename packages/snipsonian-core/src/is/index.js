@@ -21,5 +21,5 @@ export default {
     array: isArray,
     object: isObject,
     objectPure: isObjectPure,
-    builder: isBuilder
+    builder: isBuilder,
 };

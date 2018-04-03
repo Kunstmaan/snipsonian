@@ -30,44 +30,44 @@ describe('builder()', () => {
     it('the initialBuildParams and the buildStateName can be specified', () => {
         const initialBuildParams = {
             someParam: 'some val',
-            otherParam: [1, 2, 3]
+            otherParam: [1, 2, 3],
         };
         const buildStateName = 'customState';
 
-        const actual = builder({initialBuildParams, buildStateName})({});
+        const actual = builder({ initialBuildParams, buildStateName })({});
 
         expect(actual.customState).toEqual({
             someParam: 'some val',
-            otherParam: [1, 2, 3]
+            otherParam: [1, 2, 3],
         });
     });
 
     it('the enriched with() function sets a property, with the input key as name and val as its value, on the ' +
         'buildState object and returns the builder (so allowing a fluent api)', () => {
-        const dummyBuilder = builder({initialBuildParams: {}, buildStateName: 'myBuilderState'})({});
+        const dummyBuilder = builder({ initialBuildParams: {}, buildStateName: 'myBuilderState' })({});
         expect(dummyBuilder.build).toBeDefined();
 
         const actual = dummyBuilder.with('type', 4);
 
         expect(actual.build).toBeDefined();
         expect(actual.myBuilderState).toEqual({
-            type: 4
+            type: 4,
         });
 
         const actual2 = dummyBuilder.with('subType', '27');
 
         expect(actual2.myBuilderState).toEqual({
             type: 4,
-            subType: '27'
+            subType: '27',
         });
     });
 
     it('the enriched build() function returns the (modified) buildState object', () => {
         const initialBuildParams = {
-            message: 'some message'
+            message: 'some message',
         };
-        const dummyBuilder = builder({initialBuildParams})({
-            someVar: 'this var is not returned by the build method'
+        const dummyBuilder = builder({ initialBuildParams })({
+            someVar: 'this var is not returned by the build method',
         })
             .with('uniqueId', 123704)
             .with('title', 'Some title');
@@ -77,7 +77,7 @@ describe('builder()', () => {
         expect(actual).toEqual({
             uniqueId: 123704,
             title: 'Some title',
-            message: 'some message'
+            message: 'some message',
         });
     });
 

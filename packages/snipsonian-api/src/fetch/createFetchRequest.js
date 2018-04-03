@@ -4,10 +4,10 @@ export default function createFetchRequest({
     url,
     method = 'GET',
     body,
-    nameValueHeaderPairs = {}
+    nameValueHeaderPairs = {},
 }) {
     const config = {
-        method
+        method,
     };
 
     if (body) {

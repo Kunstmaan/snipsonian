@@ -10,7 +10,7 @@ describe('addProp()', () => {
 
     it('enriches the input entity (= target) by adding a property using the input propName and propValue', () => {
         const someTarget = {
-            existingProp: 'existing value'
+            existingProp: 'existing value',
         };
         expect(someTarget.extraProp).not.toBeDefined();
 
@@ -31,7 +31,7 @@ describe('addProp()', () => {
         const actual = addProp('propWithoutValue')({});
 
         expect(actual).toEqual({
-            propWithoutValue: undefined
+            propWithoutValue: undefined,
         });
     });
 
@@ -50,11 +50,11 @@ describe('addProp()', () => {
     it('does not add the prop if the value is not set (e.g. undefined)' +
        'AND if the addIfValueUnset setting is false (default true)', () => {
         const someTarget = {
-            existingProp: 'existing value'
+            existingProp: 'existing value',
         };
 
-        addProp('shouldBeAdded', null, {addIfValueUnset: true})(someTarget);
-        addProp('shouldNotBeAdded', null, {addIfValueUnset: false})(someTarget);
+        addProp('shouldBeAdded', null, { addIfValueUnset: true })(someTarget);
+        addProp('shouldNotBeAdded', null, { addIfValueUnset: false })(someTarget);
 
         expect(someTarget.shouldBeAdded).toBeDefined();
         expect(someTarget.shouldBeAdded).toBeNull();

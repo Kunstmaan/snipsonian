@@ -6,8 +6,8 @@ describe('replacePlaceholders()', () => {
             msg: 'Hello {callTitle} {firstName}!',
             placeholders: {
                 firstName: 'John',
-                callTitle: 'Mr.'
-            }
+                callTitle: 'Mr.',
+            },
         });
 
         expect(actual).toEqual('Hello Mr. John!');
@@ -17,8 +17,8 @@ describe('replacePlaceholders()', () => {
         const actual = replacePlaceholders({
             msg: '{someKey} bla bla {someKey} bla bla {someKey}',
             placeholders: {
-                someKey: 123
-            }
+                someKey: 123,
+            },
         });
 
         expect(actual).toEqual('123 bla bla 123 bla bla 123');
@@ -29,8 +29,8 @@ describe('replacePlaceholders()', () => {
             msg: 'Does not contain placeholders.',
             placeholders: {
                 not: 'oeps',
-                contain: 'should not be used'
-            }
+                contain: 'should not be used',
+            },
         });
 
         expect(actual).toEqual('Does not contain placeholders.');
@@ -39,7 +39,7 @@ describe('replacePlaceholders()', () => {
     it('leaves placeholders unchanged if not provided as input', () => {
         const actual = replacePlaceholders({
             msg: 'This {missing} will not be replaced',
-            placeholders: {}
+            placeholders: {},
         });
 
         expect(actual).toEqual('This {missing} will not be replaced');
@@ -47,7 +47,7 @@ describe('replacePlaceholders()', () => {
 
     it('no problem if placeholders object not passes as input', () => {
         const actual = replacePlaceholders({
-            msg: 'This {missing} will not be replaced'
+            msg: 'This {missing} will not be replaced',
         });
 
         expect(actual).toEqual('This {missing} will not be replaced');

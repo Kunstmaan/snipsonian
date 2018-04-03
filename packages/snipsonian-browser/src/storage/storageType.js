@@ -2,7 +2,7 @@ import isSet from '../../../snipsonian-core/src/is/isSet';
 
 const STORAGE_TYPE = {
     localStorage: 'localStorage',
-    sessionStorage: 'sessionStorage'
+    sessionStorage: 'sessionStorage',
 };
 
 export default STORAGE_TYPE;

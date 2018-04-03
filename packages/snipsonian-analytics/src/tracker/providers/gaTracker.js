@@ -10,10 +10,10 @@ export default {
     sendEvent,
     sendSocial,
     sendTiming,
-    sendException
+    sendException,
 };
 
-function sendVirtualPageview({virtualUrl, custom = {}}) {
+function sendVirtualPageview({ virtualUrl, custom = {} }) {
     ga('set', 'page', virtualUrl);
     ga('send', 'pageview', custom);
 }
@@ -24,7 +24,7 @@ function sendEvent({
     label,
     value,
     isNonInteraction = false,
-    custom = {}
+    custom = {},
 }) {
     ga('send', {
         hitType: 'event',
@@ -33,7 +33,7 @@ function sendEvent({
         eventLabel: label,
         eventValue: value,
         nonInteraction: isNonInteraction,
-        ...custom
+        ...custom,
     });
 }
 
@@ -41,14 +41,14 @@ function sendSocial({
     network,
     action,
     target,
-    custom = {}
+    custom = {},
 }) {
     ga('send', {
         hitType: 'social',
         socialNetwork: network,
         socialAction: action,
         socialTarget: target,
-        ...custom
+        ...custom,
     });
 }
 
@@ -57,7 +57,7 @@ function sendTiming({
     timingVar,
     value,
     label,
-    custom = {}
+    custom = {},
 }) {
     ga('send', {
         hitType: 'timing',
@@ -65,19 +65,19 @@ function sendTiming({
         timingVar,
         timingValue: value,
         timingLabel: label,
-        ...custom
+        ...custom,
     });
 }
 
 function sendException({
     description,
     isFatal = false,
-    custom = {}
+    custom = {},
 }) {
     ga('send', {
         hitType: 'exception',
         exDescription: description,
         exFatal: isFatal,
-        ...custom
+        ...custom,
     });
 }

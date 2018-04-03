@@ -16,13 +16,13 @@ const fetcher = {
         method = 'GET',
         body,
         nameValueHeaderPairs,
-        timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS
+        timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS,
     }) => {
         const fetchRequest = createFetchRequest({
             url,
             method,
             body,
-            nameValueHeaderPairs
+            nameValueHeaderPairs,
         });
 
         return new Promise((resolve, reject) => {
@@ -31,7 +31,7 @@ const fetcher = {
             if (isValidTimeoutInMillis(timeoutInMillis)) {
                 timer = window.setTimeout(
                     onTimeout,
-                    timeoutInMillis
+                    timeoutInMillis,
                 );
             }
 
@@ -50,7 +50,7 @@ const fetcher = {
                 // eslint-disable-next-line prefer-promise-reject-errors
                 reject({
                     status: 0,
-                    errorCode: ERROR_CODE_TIMEOUT
+                    errorCode: ERROR_CODE_TIMEOUT,
                 });
             }
         });
@@ -61,7 +61,7 @@ const fetcher = {
      */
     setFetch: (fetch) => {
         fetchFn = fetch;
-    }
+    },
 };
 
 export default fetcher;

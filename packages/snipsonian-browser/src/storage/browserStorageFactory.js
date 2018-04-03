@@ -1,12 +1,12 @@
 /* global window */
 
 import assert from '../../../snipsonian-core/src/assert';
-import STORAGE_TYPE, {isValidStorageType} from './storageType';
+import STORAGE_TYPE, { isValidStorageType } from './storageType';
 import isStorageSupported from './isStorageSupported';
 
 export default {
     create,
-    STORAGE_TYPE
+    STORAGE_TYPE,
 };
 
 function create(storageType = STORAGE_TYPE.localStorage) {
@@ -15,7 +15,7 @@ function create(storageType = STORAGE_TYPE.localStorage) {
     const storage = {
         isSupported: isStorageSupported(storageType),
 
-        exists: ({key}) => {
+        exists: ({ key }) => {
             if (!storage.isSupported) {
                 return false;
             }
@@ -23,35 +23,35 @@ function create(storageType = STORAGE_TYPE.localStorage) {
             return window[storageType].getItem(key) !== null;
         },
 
-        save: ({key, value}) => {
+        save: ({ key, value }) => {
             if (storage.isSupported) {
                 window[storageType].setItem(key, JSON.stringify(value));
             }
         },
 
-        read: ({key, defaultValue = false}) => {
+        read: ({ key, defaultValue = false }) => {
             if (!storage.isSupported) {
                 return undefined;
             }
             return JSON.parse(window[storageType].getItem(key)) || defaultValue;
         },
 
-        remove: ({key}) => {
+        remove: ({ key }) => {
             if (storage.isSupported) {
                 window[storageType].removeItem(key);
             }
         },
 
-        readOrSave: ({key, valueToSaveIfNotThere}) => {
-            const value = storage.read({key, defaultValue: null});
+        readOrSave: ({ key, valueToSaveIfNotThere }) => {
+            const value = storage.read({ key, defaultValue: null });
 
             if (value === null) {
-                storage.save({key, value: valueToSaveIfNotThere});
+                storage.save({ key, value: valueToSaveIfNotThere });
                 return valueToSaveIfNotThere;
             }
 
             return value;
-        }
+        },
     };
 
     return storage;

@@ -1,4 +1,4 @@
-import fetcher, {DEFAULT_TIMEOUT_IN_MILLIS} from './fetcher';
+import fetcher, { DEFAULT_TIMEOUT_IN_MILLIS } from './fetcher';
 
 const jsonFetcher = {
     fetch: ({
@@ -7,22 +7,23 @@ const jsonFetcher = {
         body,
         nameValueHeaderPairs = {},
         timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS,
-        mapResponseJson = (json) => json
+        mapResponseJson = (json) => json,
     }) => {
-        /* eslint no-param-reassign: ["error", {"props": false}] */
-
-        nameValueHeaderPairs['Content-Type'] = 'application/json';
+        const adjustedHeaders = {
+            ...nameValueHeaderPairs,
+            'Content-Type': 'application/json',
+        };
 
         return fetcher.fetch({
             url,
             method,
             body: JSON.stringify(body),
-            nameValueHeaderPairs,
-            timeoutInMillis
+            nameValueHeaderPairs: adjustedHeaders,
+            timeoutInMillis,
         })
             .then((response) => response.json())
             .then(mapResponseJson);
-    }
+    },
 };
 
 export default jsonFetcher;
