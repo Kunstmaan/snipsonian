@@ -2,12 +2,12 @@
 
 import isStorageSupported from './isStorageSupported';
 import STORAGE_TYPE from './storageType';
-import MockStorage from './MockStorage';
+import createMockStorage from './createMockStorage';
 
 describe('isStorageSupported()', () => {
     it('should pass the test if storage is supported', () => {
         Object.keys(STORAGE_TYPE).forEach((storageType) => {
-            window[storageType] = new MockStorage(storageType);
+            window[storageType] = createMockStorage();
             expect(isStorageSupported(storageType)).toBeTruthy();
         });
     });
