@@ -30,9 +30,9 @@ const getFilesRecursiveSync = require('../../../snipsonian-node/src/dir/getFiles
 
 module.exports = getDocMetaOfPackage;
 
-function getDocMetaOfPackage({packageInfo, snippetsSubDir}) {
+function getDocMetaOfPackage({ packageInfo, snippetsSubDir }) {
     const fileInfos = getFilesRecursiveSync({
-        sourcePath: path.resolve(packageInfo.path, snippetsSubDir)
+        sourcePath: path.resolve(packageInfo.path, snippetsSubDir),
     })
         .filter(isNotSpecFile);
 
@@ -40,7 +40,7 @@ function getDocMetaOfPackage({packageInfo, snippetsSubDir}) {
 
     return {
         name: packageInfo.name,
-        dirs: getDirectoriesAndTheirSnippets({fileInfos})
+        dirs: getDirectoriesAndTheirSnippets({ fileInfos }),
     };
 }
 
@@ -48,35 +48,35 @@ function isNotSpecFile(fileInfo) {
     return !fileInfo.name.endsWith('.spec.js');
 }
 
-function getDirectoriesAndTheirSnippets({fileInfos}) {
-    return groupFilesPerDirAndName({fileInfos});
+function getDirectoriesAndTheirSnippets({ fileInfos }) {
+    return groupFilesPerDirAndName({ fileInfos });
 }
 
-function groupFilesPerDirAndName({fileInfos}) {
+function groupFilesPerDirAndName({ fileInfos }) {
     return fileInfos
         .reduce(
             (dirsAccumulator, fileInfo) => {
-                if (!isExampleFile({fileInfo})) {
-                    const dirPath = getDirPath({fileInfo});
-                    const snippetDir = getOrAddSnippetDir({dirsAccumulator, dirPath});
+                if (!isExampleFile({ fileInfo })) {
+                    const dirPath = getDirPath({ fileInfo });
+                    const snippetDir = getOrAddSnippetDir({ dirsAccumulator, dirPath });
 
                     snippetDir.snippets.push({
-                        name: removeFileExtension({fileName: fileInfo.name})
+                        name: removeFileExtension({ fileName: fileInfo.name }),
                     });
                 }
 
                 return dirsAccumulator;
             },
-            []
+            [],
         );
 
-    function getOrAddSnippetDir({dirsAccumulator, dirPath}) {
+    function getOrAddSnippetDir({ dirsAccumulator, dirPath }) {
         let snippetDir = dirsAccumulator.find((dir) => dir.path === dirPath);
         if (!snippetDir) {
             snippetDir = {
-                name: getLastPart({separator: '/', input: dirPath}),
+                name: getLastPart({ separator: '/', input: dirPath }),
                 path: dirPath,
-                snippets: []
+                snippets: [],
             };
 
             dirsAccumulator.push(snippetDir);
@@ -86,34 +86,34 @@ function groupFilesPerDirAndName({fileInfos}) {
     }
 }
 
-function isExampleFile({fileInfo}) {
+function isExampleFile({ fileInfo }) {
     return fileInfo.name.endsWith('.example.js');
 }
 
-function getDirPath({fileInfo}) {
+function getDirPath({ fileInfo }) {
     return getPartBetween({
         firstPart: '/src/',
         secondPart: `/${fileInfo.name}`,
-        input: fileInfo.path
+        input: fileInfo.path,
     });
 }
 
-function removeFileExtension({fileName}) {
+function removeFileExtension({ fileName }) {
     return fileName.split('.')[0];
 }
 
-function getPartBetween({firstPart, secondPart, input}) {
+function getPartBetween({ firstPart, secondPart, input }) {
     try {
-        return getPartAfter({separator: firstPart, input}).split(secondPart)[0];
+        return getPartAfter({ separator: firstPart, input }).split(secondPart)[0];
     } catch (e) {
         return undefined;
     }
 }
 
-function getPartAfter({separator, input}) {
+function getPartAfter({ separator, input }) {
     return input.substr(input.indexOf(separator) + separator.length);
 }
 
-function getLastPart({separator, input}) {
+function getLastPart({ separator, input }) {
     return input.split(separator).pop();
 }

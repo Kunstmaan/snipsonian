@@ -3,26 +3,26 @@ const getDirectoryNamesSync = require('../../../snipsonian-node/src/dir/getDirec
 
 module.exports = getPackageInfos;
 
-function getPackageInfos({sourcePath, packageNamesToExclude}) {
-    return getAllPackageNames({sourcePath})
-        .filter((packageName) => shouldPackageNameBeIncluded({packageName, packageNamesToExclude}))
+function getPackageInfos({ sourcePath, packageNamesToExclude }) {
+    return getAllPackageNames({ sourcePath })
+        .filter((packageName) => shouldPackageNameBeIncluded({ packageName, packageNamesToExclude }))
         .sort()
-        .map((packageName) => toPackageInfo({packageName, sourcePath}));
+        .map((packageName) => toPackageInfo({ packageName, sourcePath }));
 }
 
-function getAllPackageNames({sourcePath}) {
+function getAllPackageNames({ sourcePath }) {
     return getDirectoryNamesSync({
-        sourcePath
+        sourcePath,
     });
 }
 
-function shouldPackageNameBeIncluded({packageName, packageNamesToExclude}) {
+function shouldPackageNameBeIncluded({ packageName, packageNamesToExclude }) {
     return !packageNamesToExclude.includes(packageName);
 }
 
-function toPackageInfo({packageName, sourcePath}) {
+function toPackageInfo({ packageName, sourcePath }) {
     return {
         name: packageName,
-        path: path.resolve(sourcePath, packageName)
+        path: path.resolve(sourcePath, packageName),
     };
 }

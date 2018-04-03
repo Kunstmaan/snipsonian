@@ -1,5 +1,5 @@
 const initialState = {
-    count: 0
+    count: 0,
 };
 
 export default (state = initialState, action = {}) => {
@@ -7,12 +7,12 @@ export default (state = initialState, action = {}) => {
         case 'INCREMENT':
             return {
                 ...state,
-                count: state.count + 1
+                count: state.count + 1,
             };
         case 'RESET':
             return {
                 ...state,
-                count: 0
+                count: 0,
             };
         default:
             return state;

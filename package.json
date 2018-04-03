@@ -4,7 +4,7 @@
   "description": "Small re-usable javascript code snippets (parent module)",
   "main": "src/index.js",
   "scripts": {
-    "lintJs": "eslint packages",
+    "lintJs": "eslint packages *.js",
     "test": "npm run lintJs && jest",
     "jest": "jest --watch"
   },

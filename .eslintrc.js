@@ -10,7 +10,14 @@ module.exports = {
       'jest': true
     },
     rules: {
-        // Javascript Rules
+        ...jsRules(),
+        ...reactRules(),
+        ...importRules(),
+    }
+};
+
+function jsRules() {
+    return {
         'indent': [
             WARNING,
             INDENTATION_SIZE,
@@ -32,8 +39,11 @@ module.exports = {
             ERROR,
             'always'
         ],
+    };
+}
 
-        // React Rules
+function reactRules() {
+    return {
         'react/jsx-indent': [
             ERROR,
             INDENTATION_SIZE
@@ -43,12 +53,15 @@ module.exports = {
             INDENTATION_SIZE
         ],
         'react/prop-types': OFF,
+    };
+}
 
-        // Import Rules
+function importRules() {
+    return {
         'import/extensions': [
             ERROR,
             'never'
         ],
-        'import/prefer-default-export': OFF
-    }
+        'import/prefer-default-export': OFF,
+    };
 }

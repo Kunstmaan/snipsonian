@@ -2,4 +2,4 @@
 
 /packages/snipsonian-doc-site/**/*.js
 
-/packages/snipsonian-docs-site/**/*.js
+/packages/snipsonian-docs-site/tmp/**/*.js

@@ -6,7 +6,7 @@ const VERSION = packageJson.version;
 const PACKAGES_DIR = path.resolve(__dirname, '../../');
 const PACKAGE_NAMES_TO_EXCLUDE = [
     'snipsonian-doc-site',
-    'snipsonian-docs-site'
+    'snipsonian-docs-site',
 ];
 
 const SNIPPETS_SUB_DIR = 'src';
@@ -18,5 +18,5 @@ module.exports = {
     PACKAGES_DIR,
     PACKAGE_NAMES_TO_EXCLUDE,
     SNIPPETS_SUB_DIR,
-    DOC_META_DIR
+    DOC_META_DIR,
 };

@@ -8,13 +8,13 @@ console.log(chalk.green('===== Generating document meta ====='));
 
 const packageInfos = getPackageInfos({
     sourcePath: config.PACKAGES_DIR,
-    packageNamesToExclude: config.PACKAGE_NAMES_TO_EXCLUDE
+    packageNamesToExclude: config.PACKAGE_NAMES_TO_EXCLUDE,
 });
 
 const packageDocMetas = packageInfos
     .map((packageInfo) => getDocMetaOfPackage({
         packageInfo,
-        snippetsSubDir: config.SNIPPETS_SUB_DIR
+        snippetsSubDir: config.SNIPPETS_SUB_DIR,
     }));
 
 // TODO don't include full paths in the json so that they do not get committed as they can be different per machine
@@ -22,7 +22,7 @@ const packageDocMetas = packageInfos
 writeDocMetaJsonOfVersion({
     targetDir: config.DOC_META_DIR,
     version: 'latest', // TODO
-    packageDocMetas
+    packageDocMetas,
 })
     .then((writtenFilePath) => {
         console.log(chalk.green(`Created documentation meta file: ${writtenFilePath}`));
