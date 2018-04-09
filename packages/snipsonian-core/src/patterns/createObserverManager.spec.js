@@ -12,25 +12,25 @@ describe('createObserverManager()', () => {
 
         const observer = manager.registerObserver({
             onNotify: handleNotify,
-            onError: handleError
+            onError: handleError,
         });
 
         expect(manager.observers).toContain(observer);
-    })
+    });
 
     it('can unregister an observer', () => {
         const manager = createObserverManager();
 
         const observer = manager.registerObserver({
             onNotify: handleNotify,
-            onError: handleError
+            onError: handleError,
         });
 
         manager.unRegisterObserver(observer);
 
         expect(findObserverInManager({
             manager,
-            observerToFind: observer
+            observerToFind: observer,
         })).toBeUndefined();
     });
 
@@ -39,9 +39,9 @@ describe('createObserverManager()', () => {
 
         let hasBeenNotified = false;
 
-        const observer = manager.registerObserver({
-            onNotify: () => { hasBeenNotified = handleNotify() },
-            onError: handleError
+        manager.registerObserver({
+            onNotify: () => { hasBeenNotified = handleNotify(); },
+            onError: handleError,
         });
 
         manager.notifyObservers();
@@ -54,18 +54,18 @@ describe('createObserverManager()', () => {
 
         let hasBeenNotifiedOfErrors = false;
 
-        const observer = manager.registerObserver({
+        manager.registerObserver({
             onNotify: handleNotify,
-            onError: () => { hasBeenNotifiedOfErrors = handleError() }
+            onError: () => { hasBeenNotifiedOfErrors = handleError(); },
         });
 
         manager.notifyObserversOfError();
 
-        expect(hasBeenNotifiedOfErrors).toBeTruthy()
+        expect(hasBeenNotifiedOfErrors).toBeTruthy();
     });
 });
 
-function findObserverInManager({manager, observerToFind}) {
+function findObserverInManager({ manager, observerToFind }) {
     return manager.observers.find((observer) => observer === observerToFind);
 }
 
