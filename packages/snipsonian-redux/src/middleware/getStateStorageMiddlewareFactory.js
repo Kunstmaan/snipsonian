@@ -62,9 +62,9 @@ export default function getStateStorageMiddlewareFactory({
 
                     return Object.assign(stateAccumulator, {
                         [reducerKey]: transformReducerStateForStorage(state[reducerKey]),
-                    })
+                    });
                 },
-                {}
-            )
+                {},
+            );
     }
 }

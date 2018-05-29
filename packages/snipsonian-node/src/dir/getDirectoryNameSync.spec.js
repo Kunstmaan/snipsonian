@@ -6,7 +6,7 @@ describe('getDirectoryNameSync()', () => {
             sourcePath: __dirname,
         });
 
-        expect(directoryNames).toEqual(['emptyTestDir', 'testDir']);
+        expect(directoryNames).toEqual(['testDir']);
     });
 
     // Will throw when running on a new machine, because there is no empty folder.

@@ -49,7 +49,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
 
                 return Object.assign(accumulator, {
                     [reducerKey]: transformReducerStateForStorage(state[reducerKey]),
-                })
+                });
             },
             initialValue,
         );

@@ -6,7 +6,7 @@ import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType'
 const reducerConfigs = [];
 const registeredReducers = {};
 
-const KEEP_REDUCER_STATE_AS_IS = (reducerState) => reducerState
+const KEEP_REDUCER_STATE_AS_IS = (reducerState) => reducerState;
 
 export function registerReducer({
     key,
@@ -113,10 +113,11 @@ export function getReducerKeyToTransformReducerStateMap() {
     return reducerConfigs
         .reduce(
             (mapAccumulator, reducerConfig) => {
-                mapAccumulator[reducerConfig.key] = reducerConfig.transformReducerStateForStorage
+                // eslint-disable-next-line no-param-reassign
+                mapAccumulator[reducerConfig.key] = reducerConfig.transformReducerStateForStorage;
                 return mapAccumulator;
             },
-            {}
+            {},
         );
 }
 
