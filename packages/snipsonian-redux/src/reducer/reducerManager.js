@@ -4,14 +4,16 @@ import createReducer from './createReducer';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
 
 const reducerConfigs = [];
-
 const registeredReducers = {};
+
+const KEEP_REDUCER_STATE_AS_IS = (reducerState) => reducerState
 
 export function registerReducer({
     key,
     initialState = {},
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
+    transformReducerStateForStorage = KEEP_REDUCER_STATE_AS_IS,
 }) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -21,6 +23,7 @@ export function registerReducer({
         initialState,
         actionHandlers,
         reducerStorageType,
+        transformReducerStateForStorage,
     });
 
     registeredReducers[key] = createReducer({
@@ -34,6 +37,7 @@ export function registerReducer({
 export function registerStorageTypeForProvidedReducer({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
+    transformReducerStateForStorage = KEEP_REDUCER_STATE_AS_IS,
 }) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -41,6 +45,7 @@ export function registerStorageTypeForProvidedReducer({
     reducerConfigs.push({
         key,
         reducerStorageType,
+        transformReducerStateForStorage,
     });
 }
 
@@ -101,6 +106,17 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({ stateStorageTyp
                 return accumulator;
             },
             initialValue,
+        );
+}
+
+export function getReducerKeyToTransformReducerStateMap() {
+    return reducerConfigs
+        .reduce(
+            (mapAccumulator, reducerConfig) => {
+                mapAccumulator[reducerConfig.key] = reducerConfig.transformReducerStateForStorage
+                return mapAccumulator;
+            },
+            {}
         );
 }
 

@@ -5,6 +5,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
     stateStorageKey,
     shouldCatchErrors = false,
     onError,
+    reducerKeyToTransformReducerStateMap,
 }) {
     const createMiddleware = () =>
         (store) => (next) => (action) => {
@@ -43,11 +44,13 @@ export default function getStateStorageByReducerMiddlewareFactory({
         const initialValue = {};
 
         return reducerKeysToStore.reduce(
-            (accumulator, reducerKey) =>
-                Object.assign(accumulator, {
-                    [reducerKey]: state[reducerKey],
+            (accumulator, reducerKey) => {
+                const transformReducerStateForStorage = reducerKeyToTransformReducerStateMap[reducerKey];
+
+                return Object.assign(accumulator, {
+                    [reducerKey]: transformReducerStateForStorage(state[reducerKey]),
                 })
-            ,
+            },
             initialValue,
         );
     }

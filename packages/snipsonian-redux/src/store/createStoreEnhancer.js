@@ -10,6 +10,7 @@ import {
     areThereReducersWithoutStorageTypeInherit,
     areThereReducersThatHaveToBeStoredSpecifically,
     getMapOfReducersThatHaveToBeStoredSpecifically,
+    getReducerKeyToTransformReducerStateMap,
 } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
 
@@ -43,6 +44,7 @@ export default function createStoreEnhancer({
                 stateStorageKey,
                 shouldCatchErrors: shouldCatchStorageErrors,
                 onError: onStorageError,
+                reducerKeyToTransformReducerStateMap: getReducerKeyToTransformReducerStateMap(),
             });
         }
     }
@@ -64,6 +66,7 @@ export default function createStoreEnhancer({
             stateStorageKey,
             shouldCatchErrors: shouldCatchStorageErrors,
             onError: onStorageError,
+            reducerKeyToTransformReducerStateMap: getReducerKeyToTransformReducerStateMap(),
         });
     }
 
