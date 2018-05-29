@@ -6,7 +6,9 @@
   "scripts": {
     "lintJs": "eslint packages *.js",
     "test": "npm run lintJs && jest",
-    "jest": "jest --watch --verbose"
+    "jest": "jest --watch --verbose",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {},
   "devDependencies": {

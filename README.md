@@ -42,12 +42,11 @@ runs the builded site in a local server:
 
 When it's time to move to a new version, here's what to do: 
 
-        npm version --new-version [major|minor|patch]
+        npm version [major|minor|patch]
 
 Use 'major' if there are any breaking changes!! 
 
 That's it! The script will make sure that:
-* all files are copied from 'src' to 'prev_versions'
 * everything is set up correctly and pushed under a new tag to git
 
 ## Gatsby
