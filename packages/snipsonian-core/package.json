@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-core",
+  "name": "@kunstmaan/snipsonian-core",
   "version": "1.0.0",
   "description": "Core/base reusable javascript code snippets",
   "main": "index.js",

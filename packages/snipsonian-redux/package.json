@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-redux",
+  "name": "@kunstmaan/snipsonian-redux",
   "version": "1.0.0",
   "description": "Redux snippets",
   "main": "index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-doc-site",
+  "name": "@kunstmaan/snipsonian-doc-site",
   "version": "1.0.0",
   "description": "Documentation site for all snipsonian code snippets (old version)",
   "main": "index.js",

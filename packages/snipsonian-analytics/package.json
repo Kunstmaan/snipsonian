@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-analytics",
+  "name": "@kunstmaan/snipsonian-analytics",
   "version": "1.0.0",
   "description": "Analytics snippets",
   "main": "index.js",

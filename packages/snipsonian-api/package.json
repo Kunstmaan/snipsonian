@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-api",
+  "name": "@kunstmaan/snipsonian-api",
   "version": "1.0.0",
   "description": "Api snippets",
   "main": "index.js",

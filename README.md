@@ -14,15 +14,13 @@ WIP
 
 ## Setup
 
-    npm run setup
-
 If you want to watch jest tests:
 
     brew install watchman
 
 ## Development
 
-runs sequentially the js linter the unit tests:
+runs sequentially the js linter and the unit tests:
 
     npm run test [-- --watch]
     
@@ -30,7 +28,7 @@ runs a localhost server for developing with live reloading:
 
     npm run start
     
-does the gatsby build:
+runs the gatsby build:
 
     npm run build
     

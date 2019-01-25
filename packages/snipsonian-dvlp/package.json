@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian-dvlp",
+  "name": "@kunstmaan/snipsonian-dvlp",
   "version": "1.0.0",
   "description": "Snippets used for development purposes",
   "main": "index.js",

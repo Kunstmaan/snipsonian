@@ -1,5 +1,5 @@
 {
-  "name": "snipsonian",
+  "name": "@kunstmaan/snipsonian",
   "version": "1.1.0",
   "description": "Small re-usable javascript code snippets (parent module)",
   "main": "src/index.js",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.kunstmaan.be:9999/kunstmaan/snipsonian.git"
+    "url": "git@github.com:Kunstmaan/snipsonian.git"
   },
   "keywords": [
     "kunstmaan",
