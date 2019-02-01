@@ -1,13 +1,9 @@
-/* global window */
-
-import createMockStorage from './createMockStorage';
 import browserStorageFactory from './browserStorageFactory';
 import STORAGE_TYPE from './storageType';
 
 describe('browserStorageFactory.create()', () => {
     Object.keys(STORAGE_TYPE).forEach((storageType) => {
         it(`should create a working storage object for ${storageType}`, () => {
-            window[storageType] = createMockStorage();
             const storage = browserStorageFactory.create(storageType);
             const test = {
                 key: 'key',
