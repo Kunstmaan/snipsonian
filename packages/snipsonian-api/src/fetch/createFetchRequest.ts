@@ -8,7 +8,7 @@ export enum RequestMethod {
 }
 
 export interface IFetchRequestConfig {
-    method: RequestMethod,
+    method: RequestMethod;
     body?: object | string;
     headers?: Headers;
 }

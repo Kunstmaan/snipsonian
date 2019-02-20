@@ -65,7 +65,7 @@ const fetcher = {
                 const rejectProps: IFetchRequestTimeOutRejectProps = {
                     status: 0,
                     errorCode: ERROR_CODE_TIMEOUT,
-                }
+                };
                 reject(rejectProps);
             }
         });

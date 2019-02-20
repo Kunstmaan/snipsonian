@@ -1,4 +1,4 @@
-import { IFetchRequestError } from "./fetcher";
+import { IFetchRequestError } from './fetcher';
 
 /**
  * https://github.com/github/fetch
