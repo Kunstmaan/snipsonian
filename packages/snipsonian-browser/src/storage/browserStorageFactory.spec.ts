@@ -2,9 +2,9 @@ import browserStorageFactory from './browserStorageFactory';
 import STORAGE_TYPE from './storageType';
 
 describe('browserStorageFactory.create()', () => {
-    Object.keys(STORAGE_TYPE).forEach((storageType) => {
+    Object.values(STORAGE_TYPE).forEach((storageType) => {
         it(`should create a working storage object for ${storageType}`, () => {
-            const storage = browserStorageFactory.create(storageType);
+            const storage = browserStorageFactory.create(storageType as STORAGE_TYPE);
             const test = {
                 key: 'key',
                 value: { prop: 'value' },

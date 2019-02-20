@@ -1,5 +1,3 @@
-/* global window */
-
-export default function getUrlPath() {
+export default function getUrlPath(): string {
     return window.location.pathname;
 }

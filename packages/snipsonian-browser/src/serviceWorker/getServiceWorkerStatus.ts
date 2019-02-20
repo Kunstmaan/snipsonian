@@ -1,12 +1,12 @@
-/* global navigator */
-
 import isServiceWorkerSupported from './isServiceWorkerSupported';
-import SW_STATUS from './serviceWorkerStatus';
+import SERVICE_WORKER_STATUS from './serviceWorkerStatus';
 
-export default function getServiceWorkerStatus() {
+export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS {
     if (isServiceWorkerSupported()) {
-        return navigator.serviceWorker.controller ? SW_STATUS.CONTROLLED : SW_STATUS.SUPPORTED;
+        return navigator.serviceWorker.controller
+            ? SERVICE_WORKER_STATUS.CONTROLLED
+            : SERVICE_WORKER_STATUS.SUPPORTED;
     }
 
-    return SW_STATUS.UNSUPPORTED;
+    return SERVICE_WORKER_STATUS.UNSUPPORTED;
 }

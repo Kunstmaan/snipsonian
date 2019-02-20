@@ -1,10 +1,17 @@
-/* global window navigator */
-
 import isServiceWorkerSupported from './isServiceWorkerSupported';
 
 export const DEFAULT_SERVICE_WORKER_FILENAME = 'service-worker.js';
 
 const NOOP = () => {};
+
+export interface IServiceWorkerConfig {
+    swFileName?: string;
+    onNewContent?: () => void;
+    onContentPrecached?: () => void;
+    onRedundant?: () => void;
+    onRegistration?: (registration: ServiceWorkerRegistration) => void;
+    onRegistrationError?: (error: any) => void;
+}
 
 export default function registerServiceWorker({
     swFileName = DEFAULT_SERVICE_WORKER_FILENAME,
@@ -13,7 +20,7 @@ export default function registerServiceWorker({
     onRedundant = NOOP,
     onRegistration = NOOP,
     onRegistrationError = NOOP,
-} = {}) {
+}: IServiceWorkerConfig = {}) {
     if (isServiceWorkerSupported()) {
         /**
          * Delay registration until after the page has loaded, to ensure that our

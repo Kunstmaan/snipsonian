@@ -1,12 +1,10 @@
-import isSet from '../../../snipsonian-core/src/is/isSet';
-
-const STORAGE_TYPE = {
-    localStorage: 'localStorage',
-    sessionStorage: 'sessionStorage',
-};
+enum STORAGE_TYPE {
+    localStorage = 'localStorage',
+    sessionStorage = 'sessionStorage',
+}
 
 export default STORAGE_TYPE;
 
-export function isValidStorageType(storageType) {
-    return isSet(STORAGE_TYPE[storageType]);
+export function isValidStorageType(storageType: string) {
+    return Object.values(STORAGE_TYPE).includes(storageType);
 }

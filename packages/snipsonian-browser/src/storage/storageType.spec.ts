@@ -4,8 +4,7 @@ describe('isValidStorageType() - in storageType.js', () => {
     it('should return false when given a value that isn"t a valid storage type', () => {
         expect(isValidStorageType(undefined)).toBeFalsy();
         expect(isValidStorageType(null)).toBeFalsy();
-        expect(isValidStorageType(1234)).toBeFalsy();
-        expect(isValidStorageType({ prop: 'value' })).toBeFalsy();
+        expect(isValidStorageType('1234')).toBeFalsy();
         expect(isValidStorageType('locaStorage')).toBeFalsy();
     });
 

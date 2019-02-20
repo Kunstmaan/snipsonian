@@ -1,5 +1,3 @@
-/* global navigator */
-
 import isServiceWorkerSupported from './isServiceWorkerSupported';
 
 describe('isServiceWorkerSupported()', () => {
