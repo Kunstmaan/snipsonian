@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function readFile({
+export default function readFile({
     filePath,
     options = {},
 }: {
@@ -14,5 +14,3 @@ function readFile({
         });
     });
 }
-
-module.exports = readFile;

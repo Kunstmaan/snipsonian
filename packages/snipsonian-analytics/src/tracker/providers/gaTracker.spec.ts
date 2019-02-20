@@ -1,4 +1,5 @@
 import gaTracker from './gaTracker';
+import Mock = jest.Mock;
 
 describe('gaTracker:', () => {
     beforeEach(() => {
@@ -141,10 +142,10 @@ describe('gaTracker:', () => {
     });
 
     function getNrOfGaCalls() {
-        return window.ga.mock.calls.length;
+        return (window.ga as Mock).mock.calls.length;
     }
 
     function getGaCallParams(callNr = 0) {
-        return window.ga.mock.calls[callNr];
+        return (window.ga as Mock).mock.calls[callNr];
     }
 });

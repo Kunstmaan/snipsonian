@@ -46,6 +46,7 @@ describe('writeFile()', () => {
     it('catches the error when given a wrong path', async () => {
         const fileStream = writeFile({
             filePath: `${__dirname}/testFiles2/write.txt`,
+            data: 'dummy',
             options: {
                 encoding: 'UTF-8',
             },

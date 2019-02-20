@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-const isDirectorySync = require('./isDirectorySync');
+import isDirectorySync from './isDirectorySync';
 
 export interface IFile {
     name: string;
     path: string;
 }
 
-function getFilesRecursiveSync({ sourcePath } : { sourcePath: string }): IFile[] {
+export default function getFilesRecursiveSync({ sourcePath } : { sourcePath: string }): IFile[] {
     return fs.readdirSync(sourcePath)
         .reduce(
             (filesAccumulator: IFile[], itemName: string) => {
@@ -27,5 +27,3 @@ function getFilesRecursiveSync({ sourcePath } : { sourcePath: string }): IFile[]
             [],
         );
 }
-
-module.exports = getFilesRecursiveSync;

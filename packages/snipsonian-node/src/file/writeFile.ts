@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = function writeFile({
+export default function writeFile({
     filePath,
     data,
     options = {},
@@ -15,4 +15,4 @@ module.exports = function writeFile({
             return resolve(filePath);
         });
     });
-};
+}
