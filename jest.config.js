@@ -21,5 +21,8 @@ module.exports = {
     //     'jsx',
     //     'json',
     // ],
+    setupFilesAfterEnv: [
+        '<rootDir>/bin/jest/commonSetup.js',
+    ],
     testURL: 'http://test.site.be/some/path',
 };
