@@ -3,7 +3,13 @@ import isSet from '../../../snipsonian-core/src/is/isSet';
 import isObjectPure from '../../../snipsonian-core/src/is/isObjectPure';
 import localStorage from '../../../snipsonian-browser/src/storage/localStorage';
 
-export default function getLocalDvlpConfig({ storageKey, defaultDevConfig = {} }) {
+export default function getLocalDvlpConfig({
+    storageKey,
+    defaultDevConfig = {},
+}: {
+    storageKey: string,
+    defaultDevConfig?: object,
+}) {
     assert(storageKey, isSet, 'Invalid storageKey {val}');
     assert(defaultDevConfig, isObjectPure, 'Invalid defaultDevConfig input. Should be an object.');
 
