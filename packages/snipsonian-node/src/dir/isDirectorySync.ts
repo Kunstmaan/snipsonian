@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function isDirectorySync({ inputPath }) {
+function isDirectorySync({ inputPath }: { inputPath: string }): boolean {
     return fs.lstatSync(inputPath).isDirectory();
 }
 
