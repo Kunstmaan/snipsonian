@@ -1,5 +1,3 @@
-/* global window */
-
 import gtmTracker from './gtmTracker';
 
 describe('gtmTracker:', () => {

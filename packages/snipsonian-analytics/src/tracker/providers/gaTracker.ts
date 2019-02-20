@@ -6,6 +6,7 @@ import {
     ISocialInteraction,
     ITiming,
     IException,
+    ITracker,
 } from '../index';
 
 /**
@@ -13,13 +14,15 @@ import {
  * See https://developers.google.com/analytics/devguides/collection/analyticsjs/custom-dims-mets
  */
 
-export default {
+const gaTracker: ITracker = {
     sendVirtualPageview,
     sendEvent,
     sendSocial,
     sendTiming,
     sendException,
 };
+
+export default gaTracker;
 
 function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview) {
     ga('set', 'page', virtualUrl);

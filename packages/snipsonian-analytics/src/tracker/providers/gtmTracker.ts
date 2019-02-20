@@ -1,30 +1,42 @@
-/* global dataLayer */
+declare let dataLayer: any[];
 
+import {
+    IVirtualPageview,
+    IEvent,
+    ISocialInteraction,
+    ITiming,
+    IException,
+    ITracker,
+} from '../index';
 import initOptionalFields from './initOptionalFields';
 
-let virtualUrlPrefix = '';
+let virtualUrlPrefix: string = '';
 
-export default {
+export interface IGtmTracker extends ITracker {
+    setVirtualUrlPrefix: (newPrefix: string) => void;
+}
+
+const gtmTracker: IGtmTracker = {
     setVirtualUrlPrefix,
     sendVirtualPageview,
     sendEvent,
+    sendSocial,
     sendTiming,
+    sendException,
 };
 
-function setVirtualUrlPrefix(newPrefix) {
+export default gtmTracker;
+
+function setVirtualUrlPrefix(newPrefix: string) {
     virtualUrlPrefix = newPrefix;
 }
 
-function sendVirtualPageview({ virtualUrl, custom = {} }) {
+function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview) {
     dataLayer.push({
         event: 'virtualPageView',
         virtualUrl: prefixVirtualUrl(virtualUrl),
         ...custom,
     });
-}
-
-function prefixVirtualUrl(virtualUrl) {
-    return `${virtualUrlPrefix}${virtualUrl}`;
 }
 
 function sendEvent({
@@ -34,18 +46,27 @@ function sendEvent({
     value,
     isNonInteraction = false,
     custom = {},
-}) {
+}: IEvent) {
     dataLayer.push({
         event: 'event',
+        eventCategory: category,
+        eventAction: action,
         nonInteraction: isNonInteraction,
         ...initOptionalFields({
-            eventCategory: category,
-            eventAction: action,
             eventLabel: label,
             eventValue: value,
         }),
         ...custom,
     });
+}
+
+function sendSocial({
+    // network,
+    // action,
+    // target,
+    // custom = {},
+}: ISocialInteraction) {
+    console.log('GTM sendSocial not implemented yet!');
 }
 
 function sendTiming({
@@ -54,15 +75,27 @@ function sendTiming({
     value,
     label,
     custom = {},
-}) {
+}: ITiming) {
     dataLayer.push({
         event: 'timing',
+        timingCategory: category,
+        timingVar,
+        timingValue: value,
         ...initOptionalFields({
-            timingCategory: category,
-            timingVar,
-            timingValue: value,
             timingLabel: label,
         }),
         ...custom,
     });
+}
+
+function sendException({
+    // description,
+    // isFatal = false,
+    // custom = {},
+}: IException) {
+    console.log('GTM sendException not implemented yet!');
+}
+
+function prefixVirtualUrl(virtualUrl) {
+    return `${virtualUrlPrefix}${virtualUrl}`;
 }

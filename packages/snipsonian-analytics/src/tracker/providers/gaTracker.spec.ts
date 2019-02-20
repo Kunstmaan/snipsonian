@@ -1,5 +1,3 @@
-/* global window */
-
 import gaTracker from './gaTracker';
 
 describe('gaTracker:', () => {
@@ -43,7 +41,7 @@ describe('gaTracker:', () => {
                 category: 'some cat',
                 action: 'some act',
                 label: 'some lab',
-                value: 'some val',
+                value: 123,
             });
 
             expect(getNrOfGaCalls()).toEqual(1);
@@ -54,7 +52,7 @@ describe('gaTracker:', () => {
                 eventCategory: 'some cat',
                 eventAction: 'some act',
                 eventLabel: 'some lab',
-                eventValue: 'some val',
+                eventValue: 123,
                 nonInteraction: false,
             });
         });
@@ -64,7 +62,7 @@ describe('gaTracker:', () => {
                 category: 'some cat',
                 action: 'some act',
                 label: 'some lab',
-                value: 'some val',
+                value: 789,
                 isNonInteraction: true,
                 custom: {
                     dimension4: 'My Custom Dimension',
@@ -76,7 +74,7 @@ describe('gaTracker:', () => {
                 eventCategory: 'some cat',
                 eventAction: 'some act',
                 eventLabel: 'some lab',
-                eventValue: 'some val',
+                eventValue: 789,
                 nonInteraction: true,
                 dimension4: 'My Custom Dimension',
             });

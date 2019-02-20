@@ -1,15 +1,19 @@
-/* global window */
-
 import getServiceWorkerStatus from '../../../snipsonian-browser/src/serviceWorker/getServiceWorkerStatus';
 import { sendTiming } from '../tracker';
 import getTimeToFirstPaintInMillis from './getTimeToFirstPaintInMillis';
 import getNavigationStartTimeInMillis from './getNavigationStartTimeInMillis';
 
+interface ISendPerformanceEventsOnPageLoadOptions {
+    timingEventCategory?: string;
+    timeToFirstPaintVarName?: string;
+    timeToLoadVarName?: string;
+}
+
 export default function sendPerformanceEventsOnPageLoad({
     timingEventCategory = 'performance',
     timeToFirstPaintVarName = 'timeToFirstPaint',
     timeToLoadVarName = 'timeToLoad',
-} = {}) {
+}: ISendPerformanceEventsOnPageLoadOptions = {}) {
     window.addEventListener('load', () => {
         const nowInMillis = getCurrentTimeInMillis();
 

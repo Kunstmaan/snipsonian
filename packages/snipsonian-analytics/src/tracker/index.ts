@@ -41,20 +41,20 @@ export interface ITracker {
     sendException: (exception: IException) => void;
 }
 
-let tracker = null;
+let tracker: ITracker = null;
 
-function isTrackerInitialized() {
+function isTrackerInitialized(): boolean {
     return tracker !== null;
 }
 
-function getTracker() {
+function getTracker(): ITracker {
     if (!isTrackerInitialized()) {
         throw new Error('Tracker was not initialized.');
     }
     return tracker;
 }
 
-export function initTracker(newTracker) {
+export function initTracker(newTracker: ITracker) {
     tracker = newTracker;
 }
 

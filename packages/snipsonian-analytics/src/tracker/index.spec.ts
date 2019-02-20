@@ -1,4 +1,4 @@
-import { sendVirtualPageview, initTracker } from './index';
+import { sendVirtualPageview, initTracker, ITracker } from './index';
 
 describe('tracker:', () => {
     let tracked;
@@ -10,7 +10,7 @@ describe('tracker:', () => {
                 virtualUrl,
             });
         },
-    };
+    } as ITracker;
 
     beforeEach(() => {
         tracked = [];
