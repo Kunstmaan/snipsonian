@@ -17,12 +17,12 @@ describe('writeFile()', () => {
             () => {
                 // Handle correct write
             },
-            (err) => {
+            (err: Error) => {
                 console.log(err);
             },
         );
 
-        let fileContent;
+        let fileContent: string;
 
         const readStream = readFile({
             filePath: `${__dirname}/testFiles/write.txt`,
@@ -32,10 +32,10 @@ describe('writeFile()', () => {
         });
 
         await readStream.then(
-            (data) => {
+            (data: string) => {
                 fileContent = data;
             },
-            (err) => {
+            (err: Error) => {
                 console.log(err);
             },
         );
@@ -51,13 +51,13 @@ describe('writeFile()', () => {
             },
         });
 
-        let error;
+        let error: Error;
 
         await fileStream.then(
-            (data) => {
+            (data: string) => {
                 console.log(data);
             },
-            (err) => {
+            (err: Error) => {
                 error = err;
             },
         );

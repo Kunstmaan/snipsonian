@@ -17,7 +17,7 @@ describe('rejectPromiseOnHttpErrorStatus()', () => {
 
         errorResponses.forEach((response) => {
             expect(() => {
-                rejectPromiseOnHttpErrorStatus(response);
+                rejectPromiseOnHttpErrorStatus(response as Response);
             }).toThrow();
         });
     });
@@ -32,7 +32,7 @@ describe('rejectPromiseOnHttpErrorStatus()', () => {
         ];
 
         successResponses.forEach((response) => {
-            expect(rejectPromiseOnHttpErrorStatus(response)).toBe(response);
+            expect(rejectPromiseOnHttpErrorStatus(response as Response)).toBe(response);
         });
     });
 });

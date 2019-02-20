@@ -1,3 +1,5 @@
+import { IFetchRequestError } from "./fetcher";
+
 /**
  * https://github.com/github/fetch
  *
@@ -7,12 +9,12 @@
  *
  * But we want our saga's to go in the catch block on all api errors. This method ensures this.
  */
-export default function rejectPromiseOnHttpErrorStatus(response) {
+export default function rejectPromiseOnHttpErrorStatus(response: Response) {
     if (response.status >= 200 && response.status < 300) {
         return response;
     }
 
-    const error = new Error(response.statusText);
+    const error: IFetchRequestError = new TypeError(response.statusText) as IFetchRequestError;
     error.response = response;
     throw error;
 }

@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const isDirectorySync = require('./isDirectorySync');
 
-function getDirectoryNamesSync({ sourcePath }) {
+function getDirectoryNamesSync({ sourcePath } : { sourcePath: string}): string[] {
     return fs.readdirSync(sourcePath)
-        .filter((name) => isDirectorySync({
+        .filter((name: string) => isDirectorySync({
             inputPath: path.resolve(sourcePath, name),
         }));
 }

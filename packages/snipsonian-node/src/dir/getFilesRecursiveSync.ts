@@ -2,10 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const isDirectorySync = require('./isDirectorySync');
 
-function getFilesRecursiveSync({ sourcePath }) {
+export interface IFile {
+    name: string;
+    path: string;
+}
+
+function getFilesRecursiveSync({ sourcePath } : { sourcePath: string }): IFile[] {
     return fs.readdirSync(sourcePath)
         .reduce(
-            (filesAccumulator, itemName) => {
+            (filesAccumulator: IFile[], itemName: string) => {
                 const itemPath = path.resolve(sourcePath, itemName);
 
                 if (isDirectorySync({ inputPath: itemPath })) {

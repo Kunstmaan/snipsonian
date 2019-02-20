@@ -18,6 +18,7 @@
     "@kunstmaan/eslint-config": "^1.1.0",
     "@kunstmaan/tslint-config": "^1.0.0",
     "@types/jest": "^23.3.13",
+    "@types/node": "^11.9.4",
     "babel-jest": "^24.0.0",
     "eslint": "^4.19.0",
     "eslint-plugin-import": "^2.16.0",

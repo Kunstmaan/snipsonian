@@ -1,29 +1,46 @@
 /* global Request Headers */
 
+export enum RequestMethod {
+    Get = 'GET',
+    Post = 'POST',
+    Put = 'PUT',
+    Delete = 'DELETE',
+}
+
+export interface IFetchRequestConfig {
+    method: RequestMethod,
+    body?: object | string;
+    headers?: Headers;
+}
+
 export default function createFetchRequest({
     url,
-    method = 'GET',
+    method = RequestMethod.Get,
     body,
     nameValueHeaderPairs = {},
+}: {
+    url: string,
+    method: RequestMethod,
+    body?: object | string,
+    nameValueHeaderPairs?: object,
 }) {
-    const config = {
+    const config: IFetchRequestConfig = {
         method,
     };
 
     if (body) {
-        config.body = body;
+        config.body = {};
     }
 
     appendHeadersToConfig(config, nameValueHeaderPairs);
 
-    return new Request(url, config);
+    return new Request(url, config as RequestInit);
 }
 
-function appendHeadersToConfig(config, nameValueHeaderPairs) {
+function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs: object) {
     const headerNames = Object.getOwnPropertyNames(nameValueHeaderPairs);
 
     if (headerNames && headerNames.length > 0) {
-        /* eslint no-param-reassign: ["error", {"props": false}] */
         config.headers = new Headers();
 
         headerNames.forEach((headerName) => {
