@@ -3,28 +3,56 @@ import isSet from '../../../snipsonian-core/src/is/isSet';
 import isString from '../../../snipsonian-core/src/is/isString';
 import mergeObjectPropsDeeply from '../../../snipsonian-core/src/merge/mergeObjectPropsDeeply';
 import browserStorageFactory from '../../../snipsonian-browser/src/storage/browserStorageFactory';
-import getStateStorageMiddlewareFactory from '../middleware/getStateStorageMiddlewareFactory';
-import getStateStorageByReducerMiddlewareFactory from '../middleware/getStateStorageByReducerMiddlewareFactory';
+import getStateStorageMiddlewareFactory, {
+    IStateStorage,
+    TOnMiddlewareError,
+} from '../middleware/getStateStorageMiddlewareFactory';
+import getStateStorageByReducerMiddlewareFactory, {
+    IStorageToReducerKeysConfig,
+} from '../middleware/getStateStorageByReducerMiddlewareFactory';
 import {
     getCombinedInitialState,
     areThereReducersWithoutStorageTypeInherit,
     areThereReducersThatHaveToBeStoredSpecifically,
     getMapOfReducersThatHaveToBeStoredSpecifically,
     getReducerKeyToTransformReducerStateMap,
+    IMapOfReducersThatHaveToBeStoredSpecifically,
 } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
+import STORAGE_TYPE from '../../../snipsonian-browser/src/storage/storageType';
+
+interface IStorageMap {
+    [storageType: string]: IStateStorage;
+}
+
+export interface IStoreEnhancerConfig {
+    middlewares?: any[]; // TODO better middleware typing?
+    stateStorageType?: STATE_STORAGE_TYPE;
+    stateStorageKey?: string;
+    customStorage?: IStateStorage;
+    shouldCatchStorageErrors?: boolean;
+    onStorageError?: TOnMiddlewareError;
+}
 
 export default function createStoreEnhancer({
     middlewares = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
     stateStorageKey,
-    customStorageMap = {},
-    shouldCatchStorageErrors,
+    customStorage,
+    shouldCatchStorageErrors = false,
     onStorageError,
-}) {
+}: IStoreEnhancerConfig) {
+    if (shouldCatchStorageErrors) {
+        assert(onStorageError, isSet, 'Missing onError. Needed because shouldCatchStorageErrors is true.');
+    }
+
     let preloadedState = {};
 
-    const storageMap = Object.assign({}, customStorageMap);
+    const storageMap: IStorageMap = {};
+
+    if (customStorage) {
+        storageMap[STATE_STORAGE_TYPE.CUSTOM] = customStorage;
+    }
 
     let stateStorageMiddlewareFactory;
 
@@ -96,7 +124,13 @@ function isValidStorageKey(stateStorageKey) {
     return isSet(stateStorageKey) && isString(stateStorageKey) && (stateStorageKey.trim().length > 0);
 }
 
-function getStorageToReducerKeysConfigs({ reducerStorageTypeMap, storageMap }) {
+function getStorageToReducerKeysConfigs({
+    reducerStorageTypeMap,
+    storageMap,
+}: {
+    reducerStorageTypeMap: IMapOfReducersThatHaveToBeStoredSpecifically;
+    storageMap;
+}): IStorageToReducerKeysConfig[] {
     const initialValue = [];
 
     return Object.keys(reducerStorageTypeMap)
@@ -124,12 +158,19 @@ function getStorageToReducerKeysConfigs({ reducerStorageTypeMap, storageMap }) {
         );
 }
 
-function getOrAddStorage({ storageMap, storageType }) {
+function getOrAddStorage({
+    storageMap,
+    storageType,
+}: {
+    storageMap: IStorageMap;
+    storageType: STATE_STORAGE_TYPE;
+}): IStateStorage {
     if (Object.prototype.hasOwnProperty.call(storageMap, storageType)) {
         return storageMap[storageType];
     }
 
-    const storage = browserStorageFactory.create(storageType);
+    const browserStorageType: unknown = storageType;
+    const storage = browserStorageFactory.create(browserStorageType as STORAGE_TYPE);
 
     // eslint-disable-next-line no-param-reassign
     storageMap[storageType] = storage;

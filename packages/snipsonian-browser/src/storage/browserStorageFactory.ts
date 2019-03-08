@@ -4,15 +4,24 @@ import isStorageSupported from './isStorageSupported';
 
 type TStorageValue = string | boolean | object;
 
+export interface IBrowserStorage {
+    isSupported: boolean;
+    exists: (props: { key: string }) => boolean;
+    save: (props: { key: string, value: TStorageValue }) => void;
+    read: (props: { key: string, defaultValue?: TStorageValue }) => TStorageValue;
+    remove: (props: { key: string }) => void;
+    readOrSave: (props: { key: string, valueToSaveIfNotThere: TStorageValue }) => TStorageValue;
+}
+
 export default {
     create,
     STORAGE_TYPE,
 };
 
-function create(storageType: STORAGE_TYPE = STORAGE_TYPE.localStorage) {
+function create(storageType: STORAGE_TYPE = STORAGE_TYPE.localStorage): IBrowserStorage {
     assert(storageType, isValidStorageType, 'Input storageType `{val}` has an unexpected value.');
 
-    const storage = {
+    const storage: IBrowserStorage = {
         isSupported: isStorageSupported(storageType),
 
         exists: ({ key }: { key: string }) => {

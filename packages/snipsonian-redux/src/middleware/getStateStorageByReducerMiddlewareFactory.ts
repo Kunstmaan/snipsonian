@@ -1,4 +1,25 @@
 import conditionalCatch from '../../../snipsonian-core/src/error/conditionalCatch';
+import {
+    IStateStorage,
+    IStateStorageMiddlewareFactory,
+    IStateStorageMiddlewareFactoryConfig,
+} from './getStateStorageMiddlewareFactory';
+import assert from '../../../snipsonian-core/src/assert';
+import isSet from '../../../snipsonian-core/src/is/isSet';
+import { STATE_STORAGE_TYPE } from '../config/storageType';
+
+export interface IStorageToReducerKeysConfig {
+    storageType: STATE_STORAGE_TYPE;
+    storage: IStateStorage;
+    reducerKeys: string[];
+}
+
+export interface IStateStorageByReducerMiddlewareFactoryConfig extends Pick<
+    IStateStorageMiddlewareFactoryConfig,
+    'stateStorageKey' | 'shouldCatchErrors' | 'onError' | 'reducerKeyToTransformReducerStateMap'
+> {
+    storageToReducerKeysConfigs: IStorageToReducerKeysConfig[];
+}
 
 export default function getStateStorageByReducerMiddlewareFactory({
     storageToReducerKeysConfigs,
@@ -6,7 +27,11 @@ export default function getStateStorageByReducerMiddlewareFactory({
     shouldCatchErrors = false,
     onError,
     reducerKeyToTransformReducerStateMap,
-}) {
+}: IStateStorageByReducerMiddlewareFactoryConfig): IStateStorageMiddlewareFactory {
+    if (shouldCatchErrors) {
+        assert(onError, isSet, 'Missing onError. Needed because shouldCatchErrors is true.');
+    }
+
     const createMiddleware = () =>
         (store) => (next) => (action) => {
             const r = next(action);

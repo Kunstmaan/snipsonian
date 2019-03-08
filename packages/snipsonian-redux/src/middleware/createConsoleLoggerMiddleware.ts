@@ -1,4 +1,8 @@
-export default function createConsoleLoggerMiddleware({ collapsed = true } = {}) {
+export default function createConsoleLoggerMiddleware({
+    collapsed = true,
+}: {
+    collapsed?: boolean;
+} = {}) {
     const isGroupingSupported = console.group;
 
     return (store) => (next) => (action) => {

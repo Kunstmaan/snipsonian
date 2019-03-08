@@ -1,20 +1,39 @@
 import assert from '../../../snipsonian-core/src/assert';
 import isSet from '../../../snipsonian-core/src/is/isSet';
-import createReducer from './createReducer';
+import createReducer, { ICreateReducerConfig, TReducer } from './createReducer';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
 
-const reducerConfigs = [];
-const registeredReducers = {};
+export type TTransformReducerStateForStorage<ReducerState> = (reducerState: ReducerState) => ReducerState;
 
-const KEEP_REDUCER_STATE_AS_IS = (reducerState) => reducerState;
+export interface IProvidedReducerConfig<ReducerState> {
+    key: string;
+    reducerStorageType?: REDUCER_STORAGE_TYPE;
+    transformReducerStateForStorage?: TTransformReducerStateForStorage<ReducerState>;
+}
 
-export function registerReducer({
+export interface IReducerConfig<ReducerState> extends
+    IProvidedReducerConfig<ReducerState>,
+    Pick<
+        ICreateReducerConfig<ReducerState>,
+        'initialState' | 'actionHandlers'
+    > {}
+
+export interface IReducers {
+    [reducerKey: string]: TReducer<{}>;
+}
+
+const reducerConfigs: IReducerConfig<{}>[] = [];
+const registeredReducers: IReducers = {};
+
+const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerState) => reducerState;
+
+export function registerReducer<ReducerState = {}>({
     key,
-    initialState = {},
+    initialState = ({} as ReducerState),
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage = KEEP_REDUCER_STATE_AS_IS,
-}) {
+    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as TTransformReducerStateForStorage<ReducerState>),
+}: IReducerConfig<ReducerState>): TReducer<ReducerState> {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
 
@@ -31,14 +50,14 @@ export function registerReducer({
         actionHandlers,
     });
 
-    return registeredReducers[key];
+    return registeredReducers[key] as TReducer<ReducerState>;
 }
 
-export function registerStorageTypeForProvidedReducer({
+export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage = KEEP_REDUCER_STATE_AS_IS,
-}) {
+    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as TTransformReducerStateForStorage<ReducerState>),
+}: IProvidedReducerConfig<ReducerState>) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
 
@@ -81,7 +100,15 @@ export function areThereReducersThatHaveToBeStoredSpecifically() {
         .some((reducerConfig) => hasNotStorageTypeInherit(reducerConfig) && hasNotStorageTypeNoStorage(reducerConfig));
 }
 
-export function getMapOfReducersThatHaveToBeStoredSpecifically({ stateStorageType }) {
+export interface IMapOfReducersThatHaveToBeStoredSpecifically {
+    [reducerKey: string]: STATE_STORAGE_TYPE;
+}
+
+export function getMapOfReducersThatHaveToBeStoredSpecifically({
+    stateStorageType,
+}: {
+    stateStorageType: STATE_STORAGE_TYPE;
+}): IMapOfReducersThatHaveToBeStoredSpecifically {
     const initialValue = {};
 
     return reducerConfigs
@@ -109,7 +136,11 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({ stateStorageTyp
         );
 }
 
-export function getReducerKeyToTransformReducerStateMap() {
+export interface IReducerKeyToTransformReducerStateMap {
+    [reducerKey: string]: TTransformReducerStateForStorage<any>;
+}
+
+export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransformReducerStateMap {
     return reducerConfigs
         .reduce(
             (mapAccumulator, reducerConfig) => {

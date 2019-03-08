@@ -1,9 +1,16 @@
-/* global window */
-
-import createStoreEnhancer from './createStoreEnhancer';
-import { getRegisteredReducers } from '../reducer/reducerManager';
-
+import createStoreEnhancer, { IStoreEnhancerConfig } from './createStoreEnhancer';
+import { getRegisteredReducers, IReducers } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
+
+interface IReduxStoreConfig extends Pick<
+    IStoreEnhancerConfig,
+    'middlewares' | 'stateStorageType' | 'stateStorageKey' | 'customStorage' |
+    'shouldCatchStorageErrors' | 'onStorageError'
+> {
+    redux: any; // TODO better typing?
+    reducers?: IReducers;
+    enhancers?: any[]; // TODO better enhancer typing?
+}
 
 export default function createReduxStore({
     redux,
@@ -12,23 +19,21 @@ export default function createReduxStore({
     enhancers = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
     stateStorageKey,
-    customStorageMap = {},
+    customStorage,
     shouldCatchStorageErrors = false,
-    onStorageError = () => {},
-}) {
+    onStorageError,
+}: IReduxStoreConfig) {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
         stateStorageType,
         stateStorageKey,
-        customStorageMap,
+        customStorage,
         shouldCatchStorageErrors,
         onStorageError,
     });
 
-    /* eslint-disable no-underscore-dangle */
-    const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__)
+    const composeEnhancers = (typeof window !== 'undefined' && window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'])
         || redux.compose;
-    /* eslint-enable */
 
     const store = redux.createStore(
         redux.combineReducers(reducers),
