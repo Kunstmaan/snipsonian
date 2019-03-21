@@ -1,6 +1,7 @@
 {
   "name": "@kunstmaan/snipsonian-docs-site",
-  "version": "1.0.0",
+  "private": true,
+  "version": "1.2.0",
   "description": "Documentation site for all snipsonian code snippets (old version)",
   "main": "index.js",
   "scripts": {
