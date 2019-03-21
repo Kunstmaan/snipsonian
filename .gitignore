@@ -1,8 +1,8 @@
 node_modules
 
-/packages/snipsonian-doc-site/config/prevVersionsList.json
-/packages/snipsonian-doc-site/public
-/packages/snipsonian-doc-site/assets/css
+/doc/snipsonian-doc-site/config/prevVersionsList.json
+/doc/snipsonian-doc-site/public
+/doc/snipsonian-doc-site/assets/css
 
 .idea
 .DS_Store
