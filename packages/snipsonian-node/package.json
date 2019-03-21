@@ -1,10 +1,8 @@
 {
   "name": "@snipsonian/node",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "NodeJS snippets",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "keywords": [
     "node",
     "nodeJs"

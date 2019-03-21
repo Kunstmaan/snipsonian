@@ -1,13 +1,12 @@
 {
   "name": "@snipsonian/analytics",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Analytics snippets",
   "main": "index.js",
   "dependencies": {
-    "@snipsonian/core": "^1.2.0",
-    "@snipsonian/browser": "^1.2.0"
+    "@snipsonian/browser": "^1.2.1",
+    "@snipsonian/core": "^1.2.1"
   },
-  "devDependencies": {},
   "keywords": [
     "analytics",
     "ga",
