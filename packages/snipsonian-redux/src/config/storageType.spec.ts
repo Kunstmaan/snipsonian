@@ -1,4 +1,4 @@
-import STORAGE_TYPE from '../../../snipsonian-browser/src/storage/storageType';
+import STORAGE_TYPE from '@snipsonian/browser/src/storage/storageType';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from './storageType';
 
 describe('storageType:', () => {

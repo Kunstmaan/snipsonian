@@ -1,8 +1,17 @@
-.babelrc
+.editorconfig
 .eslint*
 .gitignore
 .npmignore
 .nvmrc
+babel.config.js
+jest.config.js
+lerna.json
+tslint.json
+
+node_modules
+package-lock.json
+
+tsconfig*.json
 
 .idea
 .DS_Store

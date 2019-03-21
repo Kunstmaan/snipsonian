@@ -1,8 +1,8 @@
-import conditionalCatch from '../../../snipsonian-core/src/error/conditionalCatch';
-import { IBrowserStorage } from '../../../snipsonian-browser/src/storage/browserStorageFactory';
+import conditionalCatch from '@snipsonian/core/src/error/conditionalCatch';
+import { IBrowserStorage } from '@snipsonian/browser/src/storage/browserStorageFactory';
+import assert from '@snipsonian/core/src/assert';
+import isSet from '@snipsonian/core/src/is/isSet';
 import { IReducerKeyToTransformReducerStateMap } from '../reducer/reducerManager';
-import assert from '../../../snipsonian-core/src/assert';
-import isSet from '../../../snipsonian-core/src/is/isSet';
 
 export interface IStateStorage extends IBrowserStorage {}
 

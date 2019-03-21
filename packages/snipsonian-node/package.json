@@ -1,5 +1,5 @@
 {
-  "name": "@kunstmaan/snipsonian-node",
+  "name": "@snipsonian/node",
   "version": "1.2.0",
   "description": "NodeJS snippets",
   "main": "index.js",

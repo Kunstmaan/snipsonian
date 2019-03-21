@@ -1,9 +1,12 @@
 {
-  "name": "@kunstmaan/snipsonian-dvlp",
+  "name": "@snipsonian/dvlp",
   "version": "1.2.0",
   "description": "Snippets used for development purposes",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@snipsonian/core": "^1.2.0",
+    "@snipsonian/browser": "^1.2.0"
+  },
   "devDependencies": {},
   "keywords": [
     "dvlp",

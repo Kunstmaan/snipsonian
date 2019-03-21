@@ -1,4 +1,5 @@
-/node_modules
+node_modules
+
 /packages/snipsonian-doc-site/config/prevVersionsList.json
 /packages/snipsonian-doc-site/public
 /packages/snipsonian-doc-site/assets/css

@@ -1,11 +1,11 @@
-import conditionalCatch from '../../../snipsonian-core/src/error/conditionalCatch';
+import assert from '@snipsonian/core/src/assert';
+import isSet from '@snipsonian/core/src/is/isSet';
+import conditionalCatch from '@snipsonian/core/src/error/conditionalCatch';
 import {
     IStateStorage,
     IStateStorageMiddlewareFactory,
     IStateStorageMiddlewareFactoryConfig,
 } from './getStateStorageMiddlewareFactory';
-import assert from '../../../snipsonian-core/src/assert';
-import isSet from '../../../snipsonian-core/src/is/isSet';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
 
 export interface IStorageToReducerKeysConfig {

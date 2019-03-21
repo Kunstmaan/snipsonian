@@ -1,7 +1,7 @@
-import assert from '../../../snipsonian-core/src/assert';
-import isSet from '../../../snipsonian-core/src/is/isSet';
-import isObjectPure from '../../../snipsonian-core/src/is/isObjectPure';
-import localStorage from '../../../snipsonian-browser/src/storage/localStorage';
+import assert from '@snipsonian/core/src/assert';
+import isSet from '@snipsonian/core/src/is/isSet';
+import isObjectPure from '@snipsonian/core/src/is/isObjectPure';
+import localStorage from '@snipsonian/browser/src/storage/localStorage';
 
 export default function getLocalDvlpConfig({
     storageKey,
@@ -20,7 +20,7 @@ export default function getLocalDvlpConfig({
 
     const mergedDevConfig = {
         ...defaultDevConfig,
-        ...storedDevConfig,
+        ...(storedDevConfig as object),
     };
 
     localStorage.save({

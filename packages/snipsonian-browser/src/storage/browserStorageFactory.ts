@@ -1,4 +1,4 @@
-import assert from '../../../snipsonian-core/src/assert';
+import assert from '@snipsonian/core/src/assert';
 import STORAGE_TYPE, { isValidStorageType } from './storageType';
 import isStorageSupported from './isStorageSupported';
 

@@ -1,9 +1,12 @@
 {
-  "name": "@kunstmaan/snipsonian-redux",
+  "name": "@snipsonian/redux",
   "version": "1.2.0",
   "description": "Redux snippets",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@snipsonian/core": "^1.2.0",
+    "@snipsonian/browser": "^1.2.0"
+  },
   "devDependencies": {},
   "keywords": [
     "redux"

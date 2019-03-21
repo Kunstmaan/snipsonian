@@ -1,9 +1,11 @@
 {
-  "name": "@kunstmaan/snipsonian-api",
+  "name": "@snipsonian/api",
   "version": "1.2.0",
   "description": "Api snippets",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@snipsonian/core": "^1.2.0"
+  },
   "devDependencies": {},
   "keywords": [
     "fetch"

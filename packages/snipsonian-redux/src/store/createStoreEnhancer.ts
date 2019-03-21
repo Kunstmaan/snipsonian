@@ -1,8 +1,9 @@
-import assert from '../../../snipsonian-core/src/assert';
-import isSet from '../../../snipsonian-core/src/is/isSet';
-import isString from '../../../snipsonian-core/src/is/isString';
-import mergeObjectPropsDeeply from '../../../snipsonian-core/src/merge/mergeObjectPropsDeeply';
-import browserStorageFactory from '../../../snipsonian-browser/src/storage/browserStorageFactory';
+import assert from '@snipsonian/core/src/assert';
+import isSet from '@snipsonian/core/src/is/isSet';
+import isString from '@snipsonian/core/src/is/isString';
+import mergeObjectPropsDeeply from '@snipsonian/core/src/merge/mergeObjectPropsDeeply';
+import browserStorageFactory from '@snipsonian/browser/src/storage/browserStorageFactory';
+import STORAGE_TYPE from '@snipsonian/browser/src/storage/storageType';
 import getStateStorageMiddlewareFactory, {
     IStateStorage,
     TOnMiddlewareError,
@@ -19,7 +20,6 @@ import {
     IMapOfReducersThatHaveToBeStoredSpecifically,
 } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
-import STORAGE_TYPE from '../../../snipsonian-browser/src/storage/storageType';
 
 interface IStorageMap {
     [storageType: string]: IStateStorage;

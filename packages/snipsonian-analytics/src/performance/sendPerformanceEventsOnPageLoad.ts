@@ -1,4 +1,4 @@
-import getServiceWorkerStatus from '../../../snipsonian-browser/src/serviceWorker/getServiceWorkerStatus';
+import getServiceWorkerStatus from '@snipsonian/browser/src/serviceWorker/getServiceWorkerStatus';
 import { sendTiming } from '../tracker';
 import getTimeToFirstPaintInMillis from './getTimeToFirstPaintInMillis';
 import getNavigationStartTimeInMillis from './getNavigationStartTimeInMillis';

@@ -1,9 +1,12 @@
 {
-  "name": "@kunstmaan/snipsonian-analytics",
+  "name": "@snipsonian/analytics",
   "version": "1.2.0",
   "description": "Analytics snippets",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@snipsonian/core": "^1.2.0",
+    "@snipsonian/browser": "^1.2.0"
+  },
   "devDependencies": {},
   "keywords": [
     "analytics",

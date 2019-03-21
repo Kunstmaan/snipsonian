@@ -1,5 +1,5 @@
 {
-  "name": "@kunstmaan/snipsonian-docs-site",
+  "name": "@snipsonian/docs-site",
   "private": true,
   "version": "1.2.0",
   "description": "Documentation site for all snipsonian code snippets (old version)",

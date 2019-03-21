@@ -1,5 +1,5 @@
-import assert from '../../../snipsonian-core/src/assert';
-import isSet from '../../../snipsonian-core/src/is/isSet';
+import assert from '@snipsonian/core/src/assert';
+import isSet from '@snipsonian/core/src/is/isSet';
 import createReducer, { ICreateReducerConfig, TReducer } from './createReducer';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
 
