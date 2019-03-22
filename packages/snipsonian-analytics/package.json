@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/analytics",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Analytics snippets",
   "main": "index.js",
   "dependencies": {

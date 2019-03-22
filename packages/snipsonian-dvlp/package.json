@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/dvlp",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Snippets used for development purposes",
   "main": "index.js",
   "dependencies": {
