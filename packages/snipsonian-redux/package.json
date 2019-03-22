@@ -10,6 +10,9 @@
   "keywords": [
     "redux"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Kunstmaan Development",
   "license": "ISC"
 }

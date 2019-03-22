@@ -11,6 +11,9 @@
     "service worker",
     "storage"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Kunstmaan Development",
   "license": "ISC"
 }
