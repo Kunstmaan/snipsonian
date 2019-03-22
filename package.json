@@ -1,29 +1,38 @@
 {
-  "name": "@kunstmaan/snipsonian",
-  "version": "1.1.0",
-  "description": "Small re-usable javascript code snippets (parent module)",
+  "name": "@snipsonian/parent",
+  "version": "1.3.0",
+  "description": "Small re-usable typescript code snippets (parent module)",
   "main": "src/index.js",
   "scripts": {
     "lintJs": "eslint packages *.js",
-    "test": "npm run lintJs && jest",
+    "lintTs": "tslint -p tsconfig.base.json",
+    "test": "npm run lintJs && npm run lintTs && jest",
     "jest": "jest --watch --verbose",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@kunstmaan/eslint-config": "^1.1.0",
+    "@kunstmaan/tslint-config": "^1.0.0",
+    "@types/jest": "^23.3.13",
+    "@types/node": "^11.9.4",
+    "babel-jest": "^24.0.0",
     "eslint": "^4.19.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3"
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.0.0",
+    "lerna": "^3.13.1",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Kunstmaan/snipsonian.git"
+    "url": "git+ssh://git@github.com/Kunstmaan/snipsonian.git"
   },
   "keywords": [
     "kunstmaan",
@@ -36,5 +45,12 @@
     "es2015"
   ],
   "author": "Kunstmaan Development",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kunstmaan/snipsonian/issues"
+  },
+  "homepage": "https://github.com/Kunstmaan/snipsonian#readme",
+  "directories": {
+    "doc": "doc"
+  }
 }

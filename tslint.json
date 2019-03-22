@@ -1,0 +1,4 @@
+{
+  "extends": ["./node_modules/@kunstmaan/tslint-config/tslint.json"],
+  "rules": {}
+}

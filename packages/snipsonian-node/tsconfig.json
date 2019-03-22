@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base",
+  "compilerOptions": {
+    "outDir": "./cjs",
+    "lib": [
+      "node"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.spec.*"
+  ]
+}
