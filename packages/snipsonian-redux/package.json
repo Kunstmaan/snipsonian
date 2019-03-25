@@ -2,7 +2,8 @@
   "name": "@snipsonian/redux",
   "version": "1.3.1",
   "description": "Redux snippets",
-  "main": "index.js",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
   "peerDependencies": {
     "redux": "4.x"
   },

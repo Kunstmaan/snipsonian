@@ -2,7 +2,8 @@
   "name": "@snipsonian/analytics",
   "version": "1.3.1",
   "description": "Analytics snippets",
-  "main": "index.js",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
   "dependencies": {
     "@snipsonian/browser": "^1.3.1",
     "@snipsonian/core": "^1.3.1"

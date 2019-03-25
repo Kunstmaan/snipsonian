@@ -2,7 +2,8 @@
   "name": "@snipsonian/api",
   "version": "1.3.1",
   "description": "Api snippets",
-  "main": "index.js",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
   "dependencies": {
     "@snipsonian/core": "^1.3.1"
   },
