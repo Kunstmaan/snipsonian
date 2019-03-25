@@ -22,7 +22,7 @@ import isObjectPure from '../is/isObjectPure';
  *   null                   {b: 'zzz'}              {b: 'zzz'}
  *   undefined              {b: 'zzz'}              {b: 'zzz'}
  */
-export default function mergeObjectPropsDeeply(...sources: object[]) {
+export default function mergeObjectPropsDeeply(...sources: object[]): object {
     const initialValue = {};
 
     return sources.reduce(
@@ -34,7 +34,7 @@ export default function mergeObjectPropsDeeply(...sources: object[]) {
     );
 }
 
-export function mergeObjectPropsDeeplyFromSourceToTarget({ target, source }: { target: object, source: object }) {
+export function mergeObjectPropsDeeplyFromSourceToTarget({ target, source }: { target: object; source: object }): object {
     if (isUndefined(target) || isNull(target)) {
         return source;
     }

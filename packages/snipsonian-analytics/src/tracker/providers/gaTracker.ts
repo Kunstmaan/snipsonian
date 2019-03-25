@@ -1,4 +1,5 @@
-declare const ga: (action: string, ...params: any[]) => void;
+type TGaParam = string | number | object;
+declare const ga: (action: string, ...params: TGaParam[]) => void;
 
 import {
     IVirtualPageview,
@@ -24,7 +25,7 @@ const gaTracker: ITracker = {
 
 export default gaTracker;
 
-function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview) {
+function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview): void {
     ga('set', 'page', virtualUrl);
     ga('send', 'pageview', custom);
 }
@@ -36,7 +37,7 @@ function sendEvent({
     value,
     isNonInteraction = false,
     custom = {},
-}: IEvent) {
+}: IEvent): void {
     ga('send', {
         hitType: 'event',
         eventCategory: category,
@@ -53,7 +54,7 @@ function sendSocial({
     action,
     target,
     custom = {},
-}: ISocialInteraction) {
+}: ISocialInteraction): void {
     ga('send', {
         hitType: 'social',
         socialNetwork: network,
@@ -69,7 +70,7 @@ function sendTiming({
     value,
     label,
     custom = {},
-}: ITiming) {
+}: ITiming): void {
     ga('send', {
         hitType: 'timing',
         timingCategory: category,
@@ -84,7 +85,7 @@ function sendException({
     description,
     isFatal = false,
     custom = {},
-}: IException) {
+}: IException): void {
     ga('send', {
         hitType: 'exception',
         exDescription: description,

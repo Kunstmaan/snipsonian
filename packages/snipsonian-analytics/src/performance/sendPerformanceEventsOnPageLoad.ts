@@ -13,7 +13,7 @@ export default function sendPerformanceEventsOnPageLoad({
     timingEventCategory = 'performance',
     timeToFirstPaintVarName = 'timeToFirstPaint',
     timeToLoadVarName = 'timeToLoad',
-}: ISendPerformanceEventsOnPageLoadOptions = {}) {
+}: ISendPerformanceEventsOnPageLoadOptions = {}): void {
     window.addEventListener('load', () => {
         const nowInMillis = getCurrentTimeInMillis();
 
@@ -32,10 +32,10 @@ export default function sendPerformanceEventsOnPageLoad({
     });
 }
 
-function getCurrentTimeInMillis() {
+function getCurrentTimeInMillis(): number {
     return new Date().getTime();
 }
 
-function toTimingValue(input: number) {
+function toTimingValue(input: number): number {
     return Math.round(input);
 }

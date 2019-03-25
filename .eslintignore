@@ -4,3 +4,6 @@
 
 /packages/snipsonian-docs-site/tmp/**/*.js
 /packages/snipsonian-docs-site/bin/**/*.js
+
+/packages/*/es
+/packages/*/cjs

@@ -1,7 +1,0 @@
-{
-  "extends": ["./node_modules/@kunstmaan/eslint-config/index.js"],
-  "env": {
-    "jest": true
-  },
-  "rules": {}
-}

@@ -12,19 +12,19 @@ export default function appendUrlParam({
     url,
     paramName,
     paramValue,
-}: IAppendUrlParamInput) {
+}: IAppendUrlParamInput): string {
     const separator = containsAnyUrlParam({ url }) ? '&' : '?';
     return `${url}${separator}${encodeParamName(paramName)}=${encodeParamValue(paramValue)}`;
 }
 
-function containsAnyUrlParam({ url }: { url: string }) {
+function containsAnyUrlParam({ url }: { url: string }): boolean {
     return url.indexOf('?') > -1;
 }
 
-export function encodeParamName(paramName: string) {
+export function encodeParamName(paramName: string): string {
     return encodeURIComponent(paramName);
 }
 
-function encodeParamValue(paramValue: TUrlParam) {
+function encodeParamValue(paramValue: TUrlParam): TUrlParam {
     return isString(paramValue) ? encodeURIComponent(paramValue as string) : paramValue;
 }

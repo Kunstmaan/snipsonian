@@ -5,10 +5,11 @@ import localStorage from '@snipsonian/browser/src/storage/localStorage';
 
 export default function getLocalDvlpConfig<DvlpConfig extends object = {}>({
     storageKey,
+    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     defaultDevConfig = ({} as DvlpConfig),
 }: {
-    storageKey: string,
-    defaultDevConfig?: DvlpConfig,
+    storageKey: string;
+    defaultDevConfig?: DvlpConfig;
 }): DvlpConfig {
     assert(storageKey, isSet, 'Invalid storageKey {val}');
     assert(defaultDevConfig, isObjectPure, 'Invalid defaultDevConfig input. Should be an object.');

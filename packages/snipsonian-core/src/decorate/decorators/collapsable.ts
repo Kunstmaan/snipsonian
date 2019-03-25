@@ -11,8 +11,10 @@ export interface ICollapsable {
 }
 
 export default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}): TDecorator {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return function decorate(target: any) {
         if (isArray(target)) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return target.map((entity: any) => enrichToBeCollapsable(entity, initialIsCollapsed));
         }
 

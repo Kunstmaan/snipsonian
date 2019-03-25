@@ -1,4 +1,4 @@
-declare let dataLayer: any[];
+declare let dataLayer: object[];
 
 import {
     IVirtualPageview,
@@ -10,7 +10,7 @@ import {
 } from '../index';
 import initOptionalFields from './initOptionalFields';
 
-let virtualUrlPrefix: string = '';
+let virtualUrlPrefix = '';
 
 export interface IGtmTracker extends ITracker {
     setVirtualUrlPrefix: (newPrefix: string) => void;
@@ -27,11 +27,11 @@ const gtmTracker: IGtmTracker = {
 
 export default gtmTracker;
 
-function setVirtualUrlPrefix(newPrefix: string) {
+function setVirtualUrlPrefix(newPrefix: string): void {
     virtualUrlPrefix = newPrefix;
 }
 
-function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview) {
+function sendVirtualPageview({ virtualUrl, custom = {} }: IVirtualPageview): void {
     dataLayer.push({
         event: 'virtualPageView',
         virtualUrl: prefixVirtualUrl(virtualUrl),
@@ -46,7 +46,7 @@ function sendEvent({
     value,
     isNonInteraction = false,
     custom = {},
-}: IEvent) {
+}: IEvent): void {
     dataLayer.push({
         event: 'event',
         eventCategory: category,
@@ -65,7 +65,7 @@ function sendSocial({
     // action,
     // target,
     // custom = {},
-}: ISocialInteraction) {
+}: ISocialInteraction): void {
     console.log('GTM sendSocial not implemented yet!');
 }
 
@@ -75,7 +75,7 @@ function sendTiming({
     value,
     label,
     custom = {},
-}: ITiming) {
+}: ITiming): void {
     dataLayer.push({
         event: 'timing',
         timingCategory: category,
@@ -92,10 +92,10 @@ function sendException({
     // description,
     // isFatal = false,
     // custom = {},
-}: IException) {
+}: IException): void {
     console.log('GTM sendException not implemented yet!');
 }
 
-function prefixVirtualUrl(virtualUrl: string) {
+function prefixVirtualUrl(virtualUrl: string): string {
     return `${virtualUrlPrefix}${virtualUrl}`;
 }

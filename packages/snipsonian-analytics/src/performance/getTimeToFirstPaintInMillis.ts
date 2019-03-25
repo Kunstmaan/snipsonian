@@ -16,7 +16,7 @@ export default function getTimeToFirstPaintInMillis(): number {
     return undefined;
 }
 
-function getFirstPaintTimeInMillis() {
+function getFirstPaintTimeInMillis(): number {
     // Chrome
 
     // @ts-ignore

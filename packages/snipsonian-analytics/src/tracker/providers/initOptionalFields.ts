@@ -1,16 +1,18 @@
 import decorate from '@snipsonian/core/src/decorate';
 import addProp from '@snipsonian/core/src/decorate/decorators/addProp';
+import { TDecorator } from '../../../../snipsonian-core/src/decorate';
 
-export default function initOptionalFields(nameValueObj: object) {
+export default function initOptionalFields(nameValueObj: object): object {
     return decorate({})
         .with(...toAddPropDecorators(nameValueObj));
 }
 
-function toAddPropDecorators(nameValueObj: object) {
+function toAddPropDecorators(nameValueObj: object): TDecorator[] {
     return Object.keys(nameValueObj)
         .map((name) => addPropIfValueSet(name, nameValueObj[name]));
 }
 
-function addPropIfValueSet(propName: string, propValue: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function addPropIfValueSet(propName: string, propValue: any): TDecorator {
     return addProp(propName, propValue, { addIfValueUnset: false });
 }

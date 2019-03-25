@@ -7,7 +7,7 @@ export interface IFile {
     path: string;
 }
 
-export default function getFilesRecursiveSync({ sourcePath } : { sourcePath: string }): IFile[] {
+export default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[] {
     return fs.readdirSync(sourcePath)
         .reduce(
             (filesAccumulator: IFile[], itemName: string) => {

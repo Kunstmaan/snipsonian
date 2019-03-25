@@ -2,7 +2,7 @@ import isServiceWorkerSupported from './isServiceWorkerSupported';
 
 export const DEFAULT_SERVICE_WORKER_FILENAME = 'service-worker.js';
 
-const NOOP = () => {};
+const NOOP = (): void => {};
 
 export interface IServiceWorkerConfig {
     swFileName?: string;
@@ -10,6 +10,7 @@ export interface IServiceWorkerConfig {
     onContentPrecached?: () => void;
     onRedundant?: () => void;
     onRegistration?: (registration: ServiceWorkerRegistration) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onRegistrationError?: (error: any) => void;
 }
 
@@ -20,7 +21,7 @@ export default function registerServiceWorker({
     onRedundant = NOOP,
     onRegistration = NOOP,
     onRegistrationError = NOOP,
-}: IServiceWorkerConfig = {}) {
+}: IServiceWorkerConfig = {}): void {
     if (isServiceWorkerSupported()) {
         /**
          * Delay registration until after the page has loaded, to ensure that our
@@ -87,7 +88,7 @@ export default function registerServiceWorker({
     }
 }
 
-export function unregister() {
+export function unregister(): void {
     if (isServiceWorkerSupported()) {
         navigator.serviceWorker.ready.then((registration) => {
             registration.unregister();

@@ -6,10 +6,10 @@ export default function getNavigationStartTimeInMillis(): number {
     return undefined;
 }
 
-export function isPerformanceTimingSupported() {
-    return window.performance && window.performance.timing;
+export function isPerformanceTimingSupported(): boolean {
+    return !!window.performance && !!window.performance.timing;
 }
 
-export function getPerformanceTiming() {
+export function getPerformanceTiming(): PerformanceTiming {
     return window.performance.timing;
 }

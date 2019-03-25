@@ -32,16 +32,16 @@ describe('conditionalCatch()', () => {
     });
 });
 
-function onError(error) {
+function onError(error: string): Error {
     return new Error(error);
 }
 
-function action() {
+function action(): boolean {
     return true;
 }
 
 // This will throw a TypeError
-function actionWithError() {
+function actionWithError(): string {
     const object = {};
     // @ts-ignore
     return object.undefinedProp.undefinedChildProp;

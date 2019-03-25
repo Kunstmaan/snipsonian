@@ -7,10 +7,10 @@ type TStorageValue = string | boolean | object;
 export interface IBrowserStorage {
     isSupported: boolean;
     exists: (props: { key: string }) => boolean;
-    save: (props: { key: string, value: TStorageValue }) => void;
-    read: (props: { key: string, defaultValue?: TStorageValue }) => TStorageValue;
+    save: (props: { key: string; value: TStorageValue }) => void;
+    read: (props: { key: string; defaultValue?: TStorageValue }) => TStorageValue;
     remove: (props: { key: string }) => void;
-    readOrSave: (props: { key: string, valueToSaveIfNotThere: TStorageValue }) => TStorageValue;
+    readOrSave: (props: { key: string; valueToSaveIfNotThere: TStorageValue }) => TStorageValue;
 }
 
 export default {
@@ -32,13 +32,13 @@ function create(storageType: STORAGE_TYPE = STORAGE_TYPE.localStorage): IBrowser
             return window[storageType].getItem(key) !== null;
         },
 
-        save: ({ key, value }: { key: string, value: TStorageValue }) => {
+        save: ({ key, value }: { key: string; value: TStorageValue }) => {
             if (storage.isSupported) {
                 window[storageType].setItem(key, JSON.stringify(value));
             }
         },
 
-        read: ({ key, defaultValue = false }: { key: string, defaultValue?: TStorageValue }) => {
+        read: ({ key, defaultValue = false }: { key: string; defaultValue?: TStorageValue }) => {
             if (!storage.isSupported) {
                 return undefined;
             }
@@ -51,7 +51,7 @@ function create(storageType: STORAGE_TYPE = STORAGE_TYPE.localStorage): IBrowser
             }
         },
 
-        readOrSave: ({ key, valueToSaveIfNotThere }: { key: string, valueToSaveIfNotThere: TStorageValue }) => {
+        readOrSave: ({ key, valueToSaveIfNotThere }: { key: string; valueToSaveIfNotThere: TStorageValue }) => {
             const value = storage.read({ key, defaultValue: null });
 
             if (value === null) {

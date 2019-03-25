@@ -25,15 +25,15 @@ export interface IReducers {
 const reducerConfigs: IReducerConfig<{}>[] = [];
 const registeredReducers: IReducers = {};
 
-const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerState) => reducerState;
+const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerState: object): object => reducerState;
 
 export function registerReducer<ReducerState = {}>({
     key,
+    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     initialState = ({} as ReducerState),
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage =
-        (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
+    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
 }: IReducerConfig<ReducerState>): TReducer<ReducerState> {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -60,9 +60,8 @@ export function registerReducer<ReducerState = {}>({
 export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage =
-        (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
-}: IProvidedReducerConfig<ReducerState>) {
+    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
+}: IProvidedReducerConfig<ReducerState>): void {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
 
@@ -74,11 +73,11 @@ export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     });
 }
 
-export function getRegisteredReducers() {
+export function getRegisteredReducers(): IReducers {
     return registeredReducers;
 }
 
-export function getCombinedInitialState() {
+export function getCombinedInitialState(): object {
     const initialValue = {};
 
     return reducerConfigs
@@ -96,12 +95,12 @@ export function getCombinedInitialState() {
         );
 }
 
-export function areThereReducersWithoutStorageTypeInherit() {
+export function areThereReducersWithoutStorageTypeInherit(): boolean {
     return reducerConfigs
         .some(hasNotStorageTypeInherit);
 }
 
-export function areThereReducersThatHaveToBeStoredSpecifically() {
+export function areThereReducersThatHaveToBeStoredSpecifically(): boolean {
     return reducerConfigs
         .some((reducerConfig) => hasNotStorageTypeInherit(reducerConfig) && hasNotStorageTypeNoStorage(reducerConfig));
 }
@@ -131,7 +130,7 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({
                     addReducerToMap(reducerConfig.reducerStorageType);
                 }
 
-                function addReducerToMap(storageType: string) {
+                function addReducerToMap(storageType: string): void {
                     // eslint-disable-next-line no-param-reassign
                     accumulator[reducerConfig.key] = storageType;
                 }
@@ -143,7 +142,7 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({
 }
 
 export interface IReducerKeyToTransformReducerStateMap {
-    [reducerKey: string]: TTransformReducerStateForStorage<any>;
+    [reducerKey: string]: TTransformReducerStateForStorage<{}>;
 }
 
 export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransformReducerStateMap {
@@ -158,23 +157,23 @@ export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransfor
         );
 }
 
-function findReducerConfig(key: string) {
+function findReducerConfig(key: string): IReducerConfig<{}> {
     return reducerConfigs
         .find((reducerConfig) => reducerConfig.key === key);
 }
 
-function isReducerKeyUnique(key: string) {
+function isReducerKeyUnique(key: string): boolean {
     return typeof findReducerConfig(key) === 'undefined';
 }
 
-function hasStorageTypeInherit(reducerConfig: IReducerConfig<{}>) {
+function hasStorageTypeInherit(reducerConfig: IReducerConfig<{}>): boolean {
     return reducerConfig.reducerStorageType === REDUCER_STORAGE_TYPE.INHERIT;
 }
 
-function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<{}>) {
+function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<{}>): boolean {
     return !hasStorageTypeInherit(reducerConfig);
 }
 
-function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<{}>) {
+function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<{}>): boolean {
     return reducerConfig.reducerStorageType !== REDUCER_STORAGE_TYPE.NO_STORAGE;
 }

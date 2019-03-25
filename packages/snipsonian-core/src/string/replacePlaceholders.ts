@@ -1,4 +1,9 @@
-export default function replacePlaceholders({ msg, placeholders = {} }: { msg: string, placeholders?: object }) {
+interface IReplacePlaceholdersInput {
+    msg: string;
+    placeholders?: object;
+}
+
+export default function replacePlaceholders({ msg, placeholders = {} }: IReplacePlaceholdersInput): string {
     const placeholderNames = Object.getOwnPropertyNames(placeholders);
 
     return placeholderNames.reduce(

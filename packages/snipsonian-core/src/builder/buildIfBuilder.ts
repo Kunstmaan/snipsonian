@@ -1,7 +1,8 @@
 import isArray from '../is/isArray';
 import isBuilder from '../is/isBuilder';
 
-export default function buildIfBuilder(entity: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function buildIfBuilder(entity: any): any {
     if (isArray(entity)) {
         return entity.map(buildSingleEntityIfBuilder);
     }
@@ -9,7 +10,8 @@ export default function buildIfBuilder(entity: any) {
     return buildSingleEntityIfBuilder(entity);
 }
 
-function buildSingleEntityIfBuilder(entity: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function buildSingleEntityIfBuilder(entity: any): any {
     if (isBuilder(entity)) {
         return entity.build();
     }

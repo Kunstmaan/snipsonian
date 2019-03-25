@@ -1,5 +1,7 @@
 export interface IConditionalCatchInput {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     actionToExecute: () => any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError?: (error: any) => any;
     shouldCatchErrors?: boolean;
 }
@@ -8,7 +10,7 @@ export default function conditionalCatch({
     actionToExecute,
     onError,
     shouldCatchErrors = false,
-}: IConditionalCatchInput) {
+}: IConditionalCatchInput): any { // eslint-disable-line @typescript-eslint/no-explicit-any
     if (shouldCatchErrors) {
         try {
             return actionToExecute();

@@ -5,8 +5,10 @@ import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
 import { IReducerKeyToTransformReducerStateMap } from '../reducer/reducerManager';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IStateStorage extends IBrowserStorage {}
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TOnMiddlewareError = (error: any) => any;
 
 export interface IStateStorageMiddlewareFactoryConfig {
@@ -19,7 +21,7 @@ export interface IStateStorageMiddlewareFactoryConfig {
 
 export interface IStateStorageMiddlewareFactory {
     createMiddleware: () => Middleware;
-    getState: () => any;
+    getState: () => object;
     destroyState: () => void;
 }
 
@@ -34,7 +36,7 @@ export default function getStateStorageMiddlewareFactory({
         assert(onError, isSet, 'Missing onError. Needed because shouldCatchErrors is true.');
     }
 
-    const createMiddleware = () =>
+    const createMiddleware = (): Middleware =>
         (store: MiddlewareAPI<Dispatch<Action>, {}>) => (next: Dispatch<Action>) => (action: Action) => {
             const r = next(action);
             conditionalCatch({
@@ -45,10 +47,10 @@ export default function getStateStorageMiddlewareFactory({
             return r;
         };
 
-    const getState = () =>
+    const getState = (): object =>
         readState();
 
-    const destroyState = () => {
+    const destroyState = (): void => {
         removeState();
     };
 
@@ -58,27 +60,27 @@ export default function getStateStorageMiddlewareFactory({
         destroyState,
     };
 
-    function saveState(state: object) {
+    function saveState(state: object): void {
         storage.save({
             key: stateStorageKey,
             value: getStateToStore(state),
         });
     }
 
-    function readState() {
+    function readState(): object {
         return storage.read({
             key: stateStorageKey,
             defaultValue: {},
-        });
+        }) as object;
     }
 
-    function removeState() {
+    function removeState(): void {
         storage.remove({
             key: stateStorageKey,
         });
     }
 
-    function getStateToStore(state: object) {
+    function getStateToStore(state: object): object {
         return Object.keys(state)
             .reduce(
                 (stateAccumulator, reducerKey) => {

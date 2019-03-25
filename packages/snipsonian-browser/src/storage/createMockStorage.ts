@@ -1,4 +1,10 @@
-export default function createMockStorage() {
+interface IMockStorage {
+    getItem: (key: string) => string;
+    setItem: (key: string, data: string) => void;
+    removeItem: (key: string) => void;
+}
+
+export default function createMockStorage(): IMockStorage {
     const mockStorage = {
         store: {},
         getItem(key: string) {

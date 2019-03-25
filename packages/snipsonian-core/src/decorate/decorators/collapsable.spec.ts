@@ -11,7 +11,6 @@ describe('collapsable()', () => {
     it('enriches the input entity (= target) to be collapsible', () => {
         const someBlock = {
             title: 'Block that will be collapsable',
-            parts: [],
         };
         expect(someBlock['isCollapsed']).not.toBeDefined();
         expect(someBlock['toggleCollapse']).not.toBeDefined();

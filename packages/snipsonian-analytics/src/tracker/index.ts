@@ -54,14 +54,14 @@ function getTracker(): ITracker {
     return tracker;
 }
 
-export function initTracker(newTracker: ITracker) {
+export function initTracker(newTracker: ITracker): void {
     tracker = newTracker;
 }
 
 export function sendVirtualPageview({
     virtualUrl,
     custom = {},
-}: IVirtualPageview) {
+}: IVirtualPageview): void {
     getTracker().sendVirtualPageview({
         virtualUrl,
         custom,
@@ -75,7 +75,7 @@ export function sendEvent({
     value,
     isNonInteraction = false,
     custom = {},
-}: IEvent) {
+}: IEvent): void {
     getTracker().sendEvent({
         category,
         action,
@@ -91,7 +91,7 @@ export function sendSocial({
     action,
     target,
     custom = {},
-}: ISocialInteraction) {
+}: ISocialInteraction): void {
     getTracker().sendSocial({
         network,
         action,
@@ -106,7 +106,7 @@ export function sendTiming({
     value,
     label,
     custom = {},
-}: ITiming) {
+}: ITiming): void {
     getTracker().sendTiming({
         category,
         timingVar,
@@ -120,7 +120,7 @@ export function sendException({
     description,
     isFatal = false,
     custom = {},
-}: IException) {
+}: IException): void {
     getTracker().sendException({
         description,
         isFatal,

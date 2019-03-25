@@ -10,12 +10,12 @@ const jsonFetcher = {
         timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS,
         mapResponseJson = (json) => json,
     }: {
-        url: string,
-        method: RequestMethod,
-        body?: object,
-        nameValueHeaderPairs?: object,
-        timeoutInMillis?: number,
-        mapResponseJson?: (json: JSON) => object,
+        url: string;
+        method: RequestMethod;
+        body?: object;
+        nameValueHeaderPairs?: object;
+        timeoutInMillis?: number;
+        mapResponseJson?: (json: JSON) => object;
     }) => {
         const adjustedHeaders = {
             ...nameValueHeaderPairs,

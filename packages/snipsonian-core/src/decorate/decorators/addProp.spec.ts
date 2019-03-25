@@ -1,5 +1,6 @@
 import addProp from './addProp';
 import isFunction from '../../is/isFunction';
+import { TDecorator } from '../index';
 
 describe('addProp()', () => {
     it('follows the decorator pattern : returns a decorate function that in turn expects the target as input', () => {
@@ -22,7 +23,7 @@ describe('addProp()', () => {
     });
 
     it('throws an error if the propName is not provided as input', () => {
-        const shouldThrowError = () =>
+        const shouldThrowError = (): TDecorator =>
             addProp(undefined, undefined)({});
 
         expect(shouldThrowError).toThrowError('Required input argument \'propName\' is missing.');

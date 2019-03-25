@@ -4,10 +4,10 @@ export default function createConsoleLoggerMiddleware({
     collapsed = true,
 }: {
     collapsed?: boolean;
-} = {}) {
+} = {}): Middleware {
     const isGroupingSupported = console.group;
 
-    const middleware = (store: MiddlewareAPI<Dispatch<Action>, {}>) =>
+    return (store: MiddlewareAPI<Dispatch<Action>, {}>) =>
         (next: Dispatch<Action>) =>
             (action: Action) => {
                 const groupLabel = action.type;
@@ -32,6 +32,4 @@ export default function createConsoleLoggerMiddleware({
 
                 return result;
             };
-
-    return middleware as Middleware;
 }

@@ -4,6 +4,7 @@ import {
     combineReducers,
     applyMiddleware,
     StoreEnhancer,
+    Store,
 } from 'redux';
 import createStoreEnhancer, { IStoreEnhancerConfig } from './createStoreEnhancer';
 import { getRegisteredReducers, IReducers } from '../reducer/reducerManager';
@@ -27,7 +28,7 @@ export default function createReduxStore({
     customStorage,
     shouldCatchStorageErrors = false,
     onStorageError,
-}: IReduxStoreConfig) {
+}: IReduxStoreConfig): Store {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
         stateStorageType,

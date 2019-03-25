@@ -1,4 +1,4 @@
-import { Action, Dispatch, MiddlewareAPI } from 'redux';
+import { Action, Dispatch, Middleware, MiddlewareAPI } from 'redux';
 import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
 import conditionalCatch from '@snipsonian/core/src/error/conditionalCatch';
@@ -33,7 +33,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
         assert(onError, isSet, 'Missing onError. Needed because shouldCatchErrors is true.');
     }
 
-    const createMiddleware = () =>
+    const createMiddleware = (): Middleware =>
         (store: MiddlewareAPI<Dispatch<Action>, {}>) => (next: Dispatch<Action>) => (action: Action) => {
             const r = next(action);
             conditionalCatch({
@@ -44,10 +44,10 @@ export default function getStateStorageByReducerMiddlewareFactory({
             return r;
         };
 
-    const getState = () =>
+    const getState = (): object =>
         readState();
 
-    const destroyState = () => {
+    const destroyState = (): void => {
         removeState();
     };
 
@@ -57,7 +57,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
         destroyState,
     };
 
-    function saveState(state: object) {
+    function saveState(state: object): void {
         storageToReducerKeysConfigs
             .forEach((config) => {
                 const reducerKeysToStore = config.reducerKeys;
@@ -66,7 +66,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             });
     }
 
-    function extractReducerStateParts(state: object, reducerKeysToStore: string[]) {
+    function extractReducerStateParts(state: object, reducerKeysToStore: string[]): object {
         const initialValue = {};
 
         return reducerKeysToStore.reduce(
@@ -81,14 +81,14 @@ export default function getStateStorageByReducerMiddlewareFactory({
         );
     }
 
-    function saveStatePart(storage: IStateStorage, statePart: object) {
+    function saveStatePart(storage: IStateStorage, statePart: object): void {
         storage.save({
             key: stateStorageKey,
             value: statePart,
         });
     }
 
-    function readState() {
+    function readState(): object {
         const initialValue = {};
 
         return storageToReducerKeysConfigs
@@ -101,20 +101,20 @@ export default function getStateStorageByReducerMiddlewareFactory({
             );
     }
 
-    function readStatePart(storage: IStateStorage) {
+    function readStatePart(storage: IStateStorage): object {
         return storage.read({
             key: stateStorageKey,
             defaultValue: {},
-        });
+        }) as object;
     }
 
-    function removeState() {
+    function removeState(): void {
         storageToReducerKeysConfigs
             .map((config) => config.storage)
             .forEach(removeStatePart);
     }
 
-    function removeStatePart(storage: IStateStorage) {
+    function removeStatePart(storage: IStateStorage): void {
         storage.remove({
             key: stateStorageKey,
         });

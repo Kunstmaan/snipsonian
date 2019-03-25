@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type TNotify = (notification: any) => void;
 
 export interface IObserver {
@@ -6,7 +7,7 @@ export interface IObserver {
     notifyError: TNotify;
 }
 
-type TRegisterObserver = (props: { onNotify: TNotify, onError: TNotify }) => IObserver;
+type TRegisterObserver = (props: { onNotify: TNotify; onError: TNotify }) => IObserver;
 
 export interface IObserverManager {
     registerObserver: TRegisterObserver;

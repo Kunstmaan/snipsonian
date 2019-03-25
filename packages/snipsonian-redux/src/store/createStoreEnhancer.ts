@@ -35,6 +35,11 @@ export interface IStoreEnhancerConfig {
     onStorageError?: TOnMiddlewareError;
 }
 
+interface IStoreEnhancer {
+    preloadedState: object;
+    middlewares: Middleware[];
+}
+
 export default function createStoreEnhancer({
     middlewares = [],
     stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,
@@ -42,7 +47,7 @@ export default function createStoreEnhancer({
     customStorage,
     shouldCatchStorageErrors = false,
     onStorageError,
-}: IStoreEnhancerConfig) {
+}: IStoreEnhancerConfig): IStoreEnhancer {
     if (shouldCatchStorageErrors) {
         assert(onStorageError, isSet, 'Missing onError. Needed because shouldCatchStorageErrors is true.');
     }
@@ -116,7 +121,7 @@ export default function createStoreEnhancer({
 function assertStateStorageKey({ stateStorageKey, errorMessage }: {
     stateStorageKey: string;
     errorMessage: string;
-}) {
+}): void {
     assert(
         stateStorageKey,
         isValidStorageKey,
@@ -124,7 +129,7 @@ function assertStateStorageKey({ stateStorageKey, errorMessage }: {
     );
 }
 
-function isValidStorageKey(stateStorageKey: string) {
+function isValidStorageKey(stateStorageKey: string): boolean {
     return isSet(stateStorageKey) && isString(stateStorageKey) && (stateStorageKey.trim().length > 0);
 }
 
@@ -182,7 +187,7 @@ function getOrAddStorage({
     return storage;
 }
 
-function joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedState: object) {
+function joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedState: object): object {
     // TODO also remove the top reducer props that do not occur anymore in the combined initial state?
 
     // 2nd source takes precedence above the 1st source

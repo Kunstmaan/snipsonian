@@ -1,5 +1,3 @@
-/* global Request Headers */
-
 export enum RequestMethod {
     Get = 'GET',
     Post = 'POST',
@@ -14,7 +12,7 @@ export interface IFetchRequestConfig {
 }
 
 interface INameValueHeaderPairs {
-    [index: string]: any;
+    [index: string]: string;
 }
 
 export default function createFetchRequest({
@@ -23,11 +21,11 @@ export default function createFetchRequest({
     body,
     nameValueHeaderPairs = {},
 }: {
-    url: string,
-    method: RequestMethod,
-    body?: object | string,
-    nameValueHeaderPairs?: INameValueHeaderPairs,
-}) {
+    url: string;
+    method: RequestMethod;
+    body?: object | string;
+    nameValueHeaderPairs?: INameValueHeaderPairs;
+}): Request {
     const config: IFetchRequestConfig = {
         method,
     };
@@ -41,7 +39,7 @@ export default function createFetchRequest({
     return new Request(url, config as RequestInit);
 }
 
-function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs: INameValueHeaderPairs) {
+function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs: INameValueHeaderPairs): void {
     const headerNames = Object.getOwnPropertyNames(nameValueHeaderPairs);
 
     if (headerNames && headerNames.length > 0) {

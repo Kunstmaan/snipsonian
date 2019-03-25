@@ -2,12 +2,12 @@ import buildIfBuilder from './buildIfBuilder';
 
 describe('buildIfBuilder()', () => {
     class SomeBuilder {
-        someProp;
-        constructor() {
+        private someProp: string;
+        public constructor() {
             this.someProp = 'a_b_c';
         }
 
-        build() {
+        public build(): string {
             return this.someProp;
         }
     }

@@ -14,8 +14,8 @@ describe('decorate(target).with(...decorators)', () => {
         );
 
         expect(actual.someVar).toEqual('some val');
-        expect(actual.otherVar).toEqual(12098);
-        expect(actual.isCollapsed).toEqual(true);
+        expect(actual['otherVar']).toEqual(12098);
+        expect(actual['isCollapsed']).toEqual(true);
 
         expect(actual).toBe(target);
     });

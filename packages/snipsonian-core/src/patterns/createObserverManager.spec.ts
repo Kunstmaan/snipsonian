@@ -1,4 +1,4 @@
-import createObserverManager from './createObserverManager';
+import createObserverManager, { IObserver, IObserverManager } from './createObserverManager';
 
 describe('createObserverManager()', () => {
     it('can create an observer manager object', () => {
@@ -65,10 +65,14 @@ describe('createObserverManager()', () => {
     });
 });
 
-function findObserverInManager({ manager, observerToFind }) {
-    return manager.observers.find((observer) => observer === observerToFind);
+function findObserverInManager({ manager, observerToFind }: {
+    manager: IObserverManager;
+    observerToFind: IObserver;
+}): IObserver {
+    return (manager['observers'] as IObserver[]).find((observer) => observer === observerToFind);
 }
 
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 function handleNotify() {
     return true;
 }
@@ -76,3 +80,4 @@ function handleNotify() {
 function handleError() {
     return true;
 }
+/* eslint-enable @typescript-eslint/explicit-function-return-type */

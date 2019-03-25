@@ -1,13 +1,14 @@
 import isServiceWorkerSupported from './isServiceWorkerSupported';
 
 describe('isServiceWorkerSupported()', () => {
-    let origServiceWorker;
+    let origServiceWorker: ServiceWorkerContainer;
 
     beforeEach(() => {
         origServiceWorker = navigator.serviceWorker;
     });
 
     afterEach(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigator['serviceWorker' as any] = origServiceWorker;
     });
 
@@ -16,6 +17,7 @@ describe('isServiceWorkerSupported()', () => {
     });
 
     it('should return true if serviceworkers are supported', () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         navigator['serviceWorker' as any] = true;
 
         expect(isServiceWorkerSupported()).toBeTruthy();

@@ -25,11 +25,11 @@ const fetcher = {
         nameValueHeaderPairs,
         timeoutInMillis = DEFAULT_TIMEOUT_IN_MILLIS,
     }: {
-        url: string,
-        method: RequestMethod,
-        body?: object | string,
-        nameValueHeaderPairs?: object,
-        timeoutInMillis?: number,
+        url: string;
+        method: RequestMethod;
+        body?: object | string;
+        nameValueHeaderPairs?: object;
+        timeoutInMillis?: number;
     }) => {
         const fetchRequest = createFetchRequest({
             url,
@@ -59,7 +59,7 @@ const fetcher = {
                     reject(error);
                 });
 
-            function onTimeout() {
+            function onTimeout(): void {
                 const rejectProps: IFetchRequestTimeOutRejectProps = {
                     status: 0,
                     errorCode: ERROR_CODE_TIMEOUT,
@@ -79,6 +79,6 @@ const fetcher = {
 
 export default fetcher;
 
-function isValidTimeoutInMillis(timeoutInMillis: number) {
+function isValidTimeoutInMillis(timeoutInMillis: number): boolean {
     return isSet(timeoutInMillis) && isNumber(timeoutInMillis) && (timeoutInMillis > 0);
 }

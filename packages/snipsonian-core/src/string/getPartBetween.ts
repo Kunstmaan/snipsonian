@@ -3,10 +3,10 @@ export default function getPartBetween({
     secondPart,
     input,
 }: {
-    firstPart: string,
-    secondPart: string,
-    input: string,
-}) {
+    firstPart: string;
+    secondPart: string;
+    input: string;
+}): string {
     try {
         return getPartAfter({ separator: firstPart, input }).split(secondPart)[0];
     } catch (e) {
@@ -14,6 +14,6 @@ export default function getPartBetween({
     }
 }
 
-function getPartAfter({ separator, input }: { separator: string, input: string }) {
+function getPartAfter({ separator, input }: { separator: string; input: string }): string {
     return input.substr(input.indexOf(separator) + separator.length);
 }

@@ -5,10 +5,10 @@ export default function getUrlPartBetween({
     firstPart,
     secondPart = '/',
 }: {
-    url: string,
-    firstPart: string,
-    secondPart?: string,
-}) {
+    url: string;
+    firstPart: string;
+    secondPart?: string;
+}): string {
     return getPartBetween({
         input: url,
         firstPart,

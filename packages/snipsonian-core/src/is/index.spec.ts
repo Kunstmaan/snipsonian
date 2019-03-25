@@ -25,7 +25,7 @@ describe('is:', () => {
         it('returns true if input null', () => {
             expect(is.null(null)).toEqual(true);
 
-            const nullVar = null;
+            const nullVar: string = null;
             expect(is.null(nullVar)).toEqual(true);
         });
 
@@ -73,7 +73,7 @@ describe('is:', () => {
             expect(is.function({})).toEqual(false);
         });
 
-        function sum(a, b) {
+        function sum(a: number, b: number): number {
             return a + b;
         }
     });
@@ -185,7 +185,8 @@ describe('is:', () => {
             expect(is.builder(dummyBuilderObj)).toEqual(true);
 
             class DummyBuilderClass {
-                build() {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                public build(): any {
                     return this['prop'];
                 }
             }

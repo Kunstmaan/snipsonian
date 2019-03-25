@@ -141,11 +141,12 @@ describe('gaTracker:', () => {
         });
     });
 
-    function getNrOfGaCalls() {
+    function getNrOfGaCalls(): number {
         return (window.ga as Mock).mock.calls.length;
     }
 
-    function getGaCallParams(callNr = 0) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    function getGaCallParams(callNr = 0): any[] {
         return (window.ga as Mock).mock.calls[callNr];
     }
 });
