@@ -1,3 +1,5 @@
+import { Action, Dispatch, Middleware, MiddlewareAPI } from 'redux';
+
 export default function createConsoleLoggerMiddleware({
     collapsed = true,
 }: {
@@ -5,27 +7,31 @@ export default function createConsoleLoggerMiddleware({
 } = {}) {
     const isGroupingSupported = console.group;
 
-    return (store) => (next) => (action) => {
-        const groupLabel = action.type;
+    const middleware = (store: MiddlewareAPI<Dispatch<Action>, {}>) =>
+        (next: Dispatch<Action>) =>
+            (action: Action) => {
+                const groupLabel = action.type;
 
-        if (isGroupingSupported) {
-            if (collapsed) {
-                console.groupCollapsed(groupLabel);
-            } else {
-                console.group(groupLabel);
-            }
-        }
+                if (isGroupingSupported) {
+                    if (collapsed) {
+                        console.groupCollapsed(groupLabel);
+                    } else {
+                        console.group(groupLabel);
+                    }
+                }
 
-        console.log('dispatching', action);
+                console.log('dispatching', action);
 
-        const result = next(action);
+                const result = next(action);
 
-        console.log('next state', store.getState());
+                console.log('next state', store.getState());
 
-        if (isGroupingSupported) {
-            console.groupEnd();
-        }
+                if (isGroupingSupported) {
+                    console.groupEnd();
+                }
 
-        return result;
-    };
+                return result;
+            };
+
+    return middleware as Middleware;
 }

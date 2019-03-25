@@ -1,4 +1,6 @@
 {
+  /* --------------- BASE TSCONFIG FILE --------------- */
+  /* -------------------------------------------------- */
   "compilerOptions": {
     "module": "esnext",                   /* Specify module code generation: "None", "CommonJS", "AMD", "System", "UMD", "ES6", "ES2015" or "ESNext". */
     "lib": [                              /* Specify library files to be included in the compilation:  */
@@ -17,6 +19,7 @@
     "strict": false,                      /* Enable all strict type checking options. */
                                           /* enables: noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes, strictPropertyInitialization */
     "noImplicitAny": true,                /* Raise error on expressions and declarations with an implied 'any' type. */
+    "suppressImplicitAnyIndexErrors": true,/* Suppress --noImplicitAny errors for indexing objects lacking index signatures. See issue #1232 for more details. */
     "noImplicitThis": true,               /* Raise error on 'this' expressions with an implied 'any' type. */
     "alwaysStrict": true,                 /* Parse in strict mode and emit "use strict" for each source file. */
     "strictBindCallApply": true,          /* Enable stricter checking of of the 'bind', 'call', and 'apply' methods on functions. */
@@ -24,6 +27,9 @@
                                           /* (the one exception being that 'undefined' is also assignable to 'void'). */
     "strictFunctionTypes": true,          /* Disable bivariant parameter checking for function types. */
     "strictPropertyInitialization": false,/* Ensure non-undefined class properties are initialized in the constructor. This option requires 'strictNullChecks' be enabled in order to take effect. */
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",           /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
 
     /* Additional Checks */
     "noUnusedLocals": true,               /* Report errors on unused locals. */

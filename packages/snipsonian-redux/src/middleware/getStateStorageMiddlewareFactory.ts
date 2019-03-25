@@ -1,3 +1,4 @@
+import { Action, Dispatch, Middleware, MiddlewareAPI } from 'redux';
 import conditionalCatch from '@snipsonian/core/src/error/conditionalCatch';
 import { IBrowserStorage } from '@snipsonian/browser/src/storage/browserStorageFactory';
 import assert from '@snipsonian/core/src/assert';
@@ -17,7 +18,7 @@ export interface IStateStorageMiddlewareFactoryConfig {
 }
 
 export interface IStateStorageMiddlewareFactory {
-    createMiddleware: () => void; // TODO improve typing?
+    createMiddleware: () => Middleware;
     getState: () => any;
     destroyState: () => void;
 }
@@ -34,7 +35,7 @@ export default function getStateStorageMiddlewareFactory({
     }
 
     const createMiddleware = () =>
-        (store) => (next) => (action) => {
+        (store: MiddlewareAPI<Dispatch<Action>, {}>) => (next: Dispatch<Action>) => (action: Action) => {
             const r = next(action);
             conditionalCatch({
                 shouldCatchErrors,
@@ -57,7 +58,7 @@ export default function getStateStorageMiddlewareFactory({
         destroyState,
     };
 
-    function saveState(state) {
+    function saveState(state: object) {
         storage.save({
             key: stateStorageKey,
             value: getStateToStore(state),
@@ -77,7 +78,7 @@ export default function getStateStorageMiddlewareFactory({
         });
     }
 
-    function getStateToStore(state) {
+    function getStateToStore(state: object) {
         return Object.keys(state)
             .reduce(
                 (stateAccumulator, reducerKey) => {

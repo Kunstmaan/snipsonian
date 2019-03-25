@@ -1,4 +1,4 @@
-export default function isStorageSupported(storageType): boolean {
+export default function isStorageSupported(storageType: string): boolean {
     try {
         const x = '__storage_test__';
         window[storageType].setItem(x, x);

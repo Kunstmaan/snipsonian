@@ -9,7 +9,7 @@ import { IFetchRequestError } from './fetcher';
  *
  * But we want our saga's to go in the catch block on all api errors. This method ensures this.
  */
-export default function rejectPromiseOnHttpErrorStatus(response: Response) {
+export default function rejectPromiseOnHttpErrorStatus(response: Response): Response {
     if (response.status >= 200 && response.status < 300) {
         return response;
     }

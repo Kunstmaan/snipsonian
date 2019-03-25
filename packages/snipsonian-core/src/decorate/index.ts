@@ -1,6 +1,8 @@
-export default function decorate(target) {
+export type TDecorator = (target: any) => any;
+
+export default function decorate(target: any) {
     return {
-        with: (...decorators) => {
+        with: (...decorators: TDecorator[]) => {
             decorators.forEach((decorator) => decorator(target));
             return target;
         },

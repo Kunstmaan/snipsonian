@@ -1,3 +1,4 @@
+import { Action, Dispatch, MiddlewareAPI } from 'redux';
 import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
 import conditionalCatch from '@snipsonian/core/src/error/conditionalCatch';
@@ -33,7 +34,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
     }
 
     const createMiddleware = () =>
-        (store) => (next) => (action) => {
+        (store: MiddlewareAPI<Dispatch<Action>, {}>) => (next: Dispatch<Action>) => (action: Action) => {
             const r = next(action);
             conditionalCatch({
                 shouldCatchErrors,
@@ -56,7 +57,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
         destroyState,
     };
 
-    function saveState(state) {
+    function saveState(state: object) {
         storageToReducerKeysConfigs
             .forEach((config) => {
                 const reducerKeysToStore = config.reducerKeys;
@@ -65,7 +66,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             });
     }
 
-    function extractReducerStateParts(state, reducerKeysToStore) {
+    function extractReducerStateParts(state: object, reducerKeysToStore: string[]) {
         const initialValue = {};
 
         return reducerKeysToStore.reduce(
@@ -80,7 +81,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
         );
     }
 
-    function saveStatePart(storage, statePart) {
+    function saveStatePart(storage: IStateStorage, statePart: object) {
         storage.save({
             key: stateStorageKey,
             value: statePart,
@@ -100,7 +101,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             );
     }
 
-    function readStatePart(storage) {
+    function readStatePart(storage: IStateStorage) {
         return storage.read({
             key: stateStorageKey,
             defaultValue: {},
@@ -113,7 +114,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             .forEach(removeStatePart);
     }
 
-    function removeStatePart(storage) {
+    function removeStatePart(storage: IStateStorage) {
         storage.remove({
             key: stateStorageKey,
         });

@@ -17,7 +17,7 @@ export default function appendUrlParam({
     return `${url}${separator}${encodeParamName(paramName)}=${encodeParamValue(paramValue)}`;
 }
 
-function containsAnyUrlParam({ url }) {
+function containsAnyUrlParam({ url }: { url: string }) {
     return url.indexOf('?') > -1;
 }
 

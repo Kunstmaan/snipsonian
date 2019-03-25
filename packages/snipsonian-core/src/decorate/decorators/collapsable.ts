@@ -1,4 +1,5 @@
 import isArray from '../../is/isArray';
+import { TDecorator } from '../index';
 
 export interface ICollapsableOptions {
     initialIsCollapsed?: boolean;
@@ -9,17 +10,17 @@ export interface ICollapsable {
     toggleCollapse: () => void;
 }
 
-export default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}) {
-    return function decorate(target) {
+export default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}): TDecorator {
+    return function decorate(target: any) {
         if (isArray(target)) {
-            return target.map((entity) => enrichToBeCollapsable(entity, initialIsCollapsed));
+            return target.map((entity: any) => enrichToBeCollapsable(entity, initialIsCollapsed));
         }
 
         return enrichToBeCollapsable(target, initialIsCollapsed);
     };
 }
 
-function enrichToBeCollapsable(target: object, initialIsCollapsed): ICollapsable {
+function enrichToBeCollapsable(target: object, initialIsCollapsed: boolean): ICollapsable {
     const collapsable = target as ICollapsable;
     collapsable.isCollapsed = initialIsCollapsed;
 

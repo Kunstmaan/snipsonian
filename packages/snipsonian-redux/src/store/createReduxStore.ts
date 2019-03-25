@@ -1,3 +1,10 @@
+import {
+    createStore,
+    compose,
+    combineReducers,
+    applyMiddleware,
+    StoreEnhancer,
+} from 'redux';
 import createStoreEnhancer, { IStoreEnhancerConfig } from './createStoreEnhancer';
 import { getRegisteredReducers, IReducers } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
@@ -7,13 +14,11 @@ interface IReduxStoreConfig extends Pick<
     'middlewares' | 'stateStorageType' | 'stateStorageKey' | 'customStorage' |
     'shouldCatchStorageErrors' | 'onStorageError'
 > {
-    redux: any; // TODO better typing?
     reducers?: IReducers;
-    enhancers?: any[]; // TODO better enhancer typing?
+    enhancers?: StoreEnhancer[];
 }
 
 export default function createReduxStore({
-    redux,
     reducers = getRegisteredReducers(),
     middlewares = [],
     enhancers = [],
@@ -33,12 +38,12 @@ export default function createReduxStore({
     });
 
     const composeEnhancers = (typeof window !== 'undefined' && window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'])
-        || redux.compose;
+        || compose;
 
-    const store = redux.createStore(
-        redux.combineReducers(reducers),
+    const store = createStore(
+        combineReducers(reducers),
         storeEnhancer.preloadedState,
-        composeEnhancers(...enhancers, redux.applyMiddleware(...storeEnhancer.middlewares)),
+        composeEnhancers(...enhancers, applyMiddleware(...storeEnhancer.middlewares)),
     );
 
     return store;

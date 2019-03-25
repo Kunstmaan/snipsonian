@@ -9,7 +9,7 @@ export default function buildIfBuilder(entity: any) {
     return buildSingleEntityIfBuilder(entity);
 }
 
-function buildSingleEntityIfBuilder(entity) {
+function buildSingleEntityIfBuilder(entity: any) {
     if (isBuilder(entity)) {
         return entity.build();
     }

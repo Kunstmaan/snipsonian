@@ -96,6 +96,6 @@ function sendException({
     console.log('GTM sendException not implemented yet!');
 }
 
-function prefixVirtualUrl(virtualUrl) {
+function prefixVirtualUrl(virtualUrl: string) {
     return `${virtualUrlPrefix}${virtualUrl}`;
 }

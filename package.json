@@ -8,8 +8,8 @@
     "lintTs": "tslint -p tsconfig.base.json",
     "test": "npm run lintJs && npm run lintTs && jest",
     "jest": "jest --watch --verbose",
-    "to-es": "lerna exec -- tsc --project tsconfig.json",
     "del-generated": "del packages/*/es/** packages/*/cjs/**",
+    "to-es": "npm run del-generated && lerna exec -- tsc --project tsconfig.json",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },

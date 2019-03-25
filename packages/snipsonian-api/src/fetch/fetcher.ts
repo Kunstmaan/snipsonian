@@ -38,7 +38,7 @@ const fetcher = {
             nameValueHeaderPairs,
         });
 
-        return new Promise((resolve, reject) => {
+        return new Promise<Response>((resolve, reject) => {
             let timer: number;
 
             if (isValidTimeoutInMillis(timeoutInMillis)) {

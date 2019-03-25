@@ -1,6 +1,6 @@
 import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
-import createReducer, { ICreateReducerConfig, TReducer } from './createReducer';
+import createReducer, { IActionHandlers, ICreateReducerConfig, TReducer } from './createReducer';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
 
 export type TTransformReducerStateForStorage<ReducerState> = (reducerState: ReducerState) => ReducerState;
@@ -32,7 +32,8 @@ export function registerReducer<ReducerState = {}>({
     initialState = ({} as ReducerState),
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as TTransformReducerStateForStorage<ReducerState>),
+    transformReducerStateForStorage =
+        (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
 }: IReducerConfig<ReducerState>): TReducer<ReducerState> {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -40,23 +41,27 @@ export function registerReducer<ReducerState = {}>({
     reducerConfigs.push({
         key,
         initialState,
-        actionHandlers,
+        actionHandlers: actionHandlers as unknown as IActionHandlers<{}>,
         reducerStorageType,
-        transformReducerStateForStorage,
+        transformReducerStateForStorage:
+            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<{}>,
     });
 
-    registeredReducers[key] = createReducer({
+    const reducer = createReducer({
         initialState,
         actionHandlers,
     });
 
-    return registeredReducers[key] as TReducer<ReducerState>;
+    registeredReducers[key] = reducer as unknown as TReducer<{}>;
+
+    return reducer;
 }
 
 export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
-    transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as TTransformReducerStateForStorage<ReducerState>),
+    transformReducerStateForStorage =
+        (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
 }: IProvidedReducerConfig<ReducerState>) {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -64,7 +69,8 @@ export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     reducerConfigs.push({
         key,
         reducerStorageType,
-        transformReducerStateForStorage,
+        transformReducerStateForStorage:
+            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<{}>,
     });
 }
 
@@ -125,7 +131,7 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({
                     addReducerToMap(reducerConfig.reducerStorageType);
                 }
 
-                function addReducerToMap(storageType) {
+                function addReducerToMap(storageType: string) {
                     // eslint-disable-next-line no-param-reassign
                     accumulator[reducerConfig.key] = storageType;
                 }
@@ -152,23 +158,23 @@ export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransfor
         );
 }
 
-function findReducerConfig(key) {
+function findReducerConfig(key: string) {
     return reducerConfigs
         .find((reducerConfig) => reducerConfig.key === key);
 }
 
-function isReducerKeyUnique(key) {
+function isReducerKeyUnique(key: string) {
     return typeof findReducerConfig(key) === 'undefined';
 }
 
-function hasStorageTypeInherit(reducerConfig) {
+function hasStorageTypeInherit(reducerConfig: IReducerConfig<{}>) {
     return reducerConfig.reducerStorageType === REDUCER_STORAGE_TYPE.INHERIT;
 }
 
-function hasNotStorageTypeInherit(reducerConfig) {
+function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<{}>) {
     return !hasStorageTypeInherit(reducerConfig);
 }
 
-function hasNotStorageTypeNoStorage(reducerConfig) {
+function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<{}>) {
     return reducerConfig.reducerStorageType !== REDUCER_STORAGE_TYPE.NO_STORAGE;
 }

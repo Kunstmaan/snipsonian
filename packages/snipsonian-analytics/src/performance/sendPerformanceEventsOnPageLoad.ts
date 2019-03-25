@@ -36,6 +36,6 @@ function getCurrentTimeInMillis() {
     return new Date().getTime();
 }
 
-function toTimingValue(input) {
+function toTimingValue(input: number) {
     return Math.round(input);
 }

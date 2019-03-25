@@ -1,7 +1,6 @@
 import isArray from '../../is/isArray';
 import isUndefined from '../../is/isUndefined';
-
-/* eslint no-param-reassign: ["error", { "props": false }] */
+import { TDecorator } from '../index';
 
 export interface IBuilderOptions {
     initialBuildParams?: object;
@@ -17,10 +16,10 @@ export interface IBuilder<Result = {}> {
 export default function builder({
     initialBuildParams = {},
     buildStateName = '_builder',
-}: IBuilderOptions = {}) {
-    return function decorate(target) {
+}: IBuilderOptions = {}): TDecorator {
+    return function decorate(target: any) {
         if (isArray(target)) {
-            return target.map((entity) => enrichToBeBuilder(entity, { initialBuildParams, buildStateName }));
+            return target.map((entity: any) => enrichToBeBuilder(entity, { initialBuildParams, buildStateName }));
         }
 
         return enrichToBeBuilder(target, { initialBuildParams, buildStateName });

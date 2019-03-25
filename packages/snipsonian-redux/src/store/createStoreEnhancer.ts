@@ -1,3 +1,4 @@
+import { Middleware } from 'redux';
 import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
 import isString from '@snipsonian/core/src/is/isString';
@@ -5,7 +6,7 @@ import mergeObjectPropsDeeply from '@snipsonian/core/src/merge/mergeObjectPropsD
 import browserStorageFactory from '@snipsonian/browser/src/storage/browserStorageFactory';
 import STORAGE_TYPE from '@snipsonian/browser/src/storage/storageType';
 import getStateStorageMiddlewareFactory, {
-    IStateStorage,
+    IStateStorage, IStateStorageMiddlewareFactory,
     TOnMiddlewareError,
 } from '../middleware/getStateStorageMiddlewareFactory';
 import getStateStorageByReducerMiddlewareFactory, {
@@ -26,7 +27,7 @@ interface IStorageMap {
 }
 
 export interface IStoreEnhancerConfig {
-    middlewares?: any[]; // TODO better middleware typing?
+    middlewares?: Middleware[];
     stateStorageType?: STATE_STORAGE_TYPE;
     stateStorageKey?: string;
     customStorage?: IStateStorage;
@@ -54,7 +55,7 @@ export default function createStoreEnhancer({
         storageMap[STATE_STORAGE_TYPE.CUSTOM] = customStorage;
     }
 
-    let stateStorageMiddlewareFactory;
+    let stateStorageMiddlewareFactory: IStateStorageMiddlewareFactory;
 
     if (stateStorageType !== STATE_STORAGE_TYPE.NO_STORAGE) {
         assertStateStorageKey({
@@ -112,7 +113,10 @@ export default function createStoreEnhancer({
     };
 }
 
-function assertStateStorageKey({ stateStorageKey, errorMessage }) {
+function assertStateStorageKey({ stateStorageKey, errorMessage }: {
+    stateStorageKey: string;
+    errorMessage: string;
+}) {
     assert(
         stateStorageKey,
         isValidStorageKey,
@@ -120,7 +124,7 @@ function assertStateStorageKey({ stateStorageKey, errorMessage }) {
     );
 }
 
-function isValidStorageKey(stateStorageKey) {
+function isValidStorageKey(stateStorageKey: string) {
     return isSet(stateStorageKey) && isString(stateStorageKey) && (stateStorageKey.trim().length > 0);
 }
 
@@ -129,9 +133,9 @@ function getStorageToReducerKeysConfigs({
     storageMap,
 }: {
     reducerStorageTypeMap: IMapOfReducersThatHaveToBeStoredSpecifically;
-    storageMap;
+    storageMap: IStorageMap;
 }): IStorageToReducerKeysConfig[] {
-    const initialValue = [];
+    const initialValue: IStorageToReducerKeysConfig[] = [];
 
     return Object.keys(reducerStorageTypeMap)
         .reduce(
@@ -178,7 +182,7 @@ function getOrAddStorage({
     return storage;
 }
 
-function joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedState) {
+function joinStoredStateWithMissingPropsThatPossiblyWereNewlyAddedInTheReducers(storedState: object) {
     // TODO also remove the top reducer props that do not occur anymore in the combined initial state?
 
     // 2nd source takes precedence above the 1st source

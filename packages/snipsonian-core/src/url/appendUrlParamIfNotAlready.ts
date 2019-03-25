@@ -12,7 +12,7 @@ export default function appendUrlParamIfNotAlready({
     return appendUrlParam({ url, paramName, paramValue });
 }
 
-function doesUrlContainParam({ url, paramName }) {
+function doesUrlContainParam({ url, paramName }: { url: string, paramName: string }) {
     const encodedParamName = encodeParamName(paramName);
     return url.search(new RegExp(`[\\?&]${encodedParamName}=`)) > -1;
 }
