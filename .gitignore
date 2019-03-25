@@ -4,6 +4,9 @@ node_modules
 /doc/snipsonian-doc-site/public
 /doc/snipsonian-doc-site/assets/css
 
+/packages/*/es
+/packages/*/cjs
+
 .idea
 .DS_Store
 *.log

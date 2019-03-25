@@ -1,18 +1,14 @@
 {
-  "extends": "../tsconfig.base",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./cjs",
-    "lib": [
-      "node"
-    ],
     "module": "commonjs",
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
   "include": [
-    "./index.ts",
     "./src/**/*"
   ],
   "exclude": [
-    "src/**/*.spec.*"
+    "./src/**/*.spec.*"
   ]
 }

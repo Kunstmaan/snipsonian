@@ -1,9 +1,11 @@
 import isFunction from '../is/isFunction';
 import replacePlaceholders from '../string/replacePlaceholders';
 
+export type TValidator = (val: any) => boolean;
+
 export default function assert(
     val: any,
-    validator: (val: any) => boolean,
+    validator: TValidator,
     errorMessage: string = 'Assertion error for value \'{val}\'.',
 ) {
     assertValidValidator(validator);
@@ -13,7 +15,7 @@ export default function assert(
     }
 }
 
-function assertValidValidator(validator) {
+function assertValidValidator(validator: TValidator) {
     if (!isFunction(validator)) {
         throw new Error('Please provide a validator function.');
     }

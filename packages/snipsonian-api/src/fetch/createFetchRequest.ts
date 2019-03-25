@@ -13,6 +13,10 @@ export interface IFetchRequestConfig {
     headers?: Headers;
 }
 
+interface INameValueHeaderPairs {
+    [index: string]: any;
+}
+
 export default function createFetchRequest({
     url,
     method = RequestMethod.Get,
@@ -22,7 +26,7 @@ export default function createFetchRequest({
     url: string,
     method: RequestMethod,
     body?: object | string,
-    nameValueHeaderPairs?: object,
+    nameValueHeaderPairs?: INameValueHeaderPairs,
 }) {
     const config: IFetchRequestConfig = {
         method,
@@ -37,7 +41,7 @@ export default function createFetchRequest({
     return new Request(url, config as RequestInit);
 }
 
-function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs: object) {
+function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs: INameValueHeaderPairs) {
     const headerNames = Object.getOwnPropertyNames(nameValueHeaderPairs);
 
     if (headerNames && headerNames.length > 0) {

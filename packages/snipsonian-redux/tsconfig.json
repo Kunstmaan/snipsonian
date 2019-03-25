@@ -1,13 +1,12 @@
 {
-  "extends": "../tsconfig.base",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./es"
   },
   "include": [
-    "./index.ts",
     "./src/**/*"
   ],
   "exclude": [
-    "src/**/*.spec.*"
+    "./src/**/*.spec.*"
   ]
 }

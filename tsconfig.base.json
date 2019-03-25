@@ -10,7 +10,7 @@
     ],
     "target": "es2017",                   /* Specify ECMAScript target version: "ES3" (default), "ES5", "ES6"/"ES2015", "ES2016", "ES2017" or "ESNext". */
                                           /* Note: "ESNext" targets latest supported ES proposed features. */
-    "allowJs": false,                      /* Allow javascript files to be compiled. */
+    "allowJs": false,                     /* Allow javascript files to be compiled. */
     "checkJs": false,                     /* Report errors in .js files. */
 
     /* Strict Type-Checking Options */
@@ -30,6 +30,10 @@
     "noUnusedParameters": true,           /* Report errors on unused parameters. */
     "noImplicitReturns": true,            /* Report error when not all code paths in function return a value. */
     "noFallthroughCasesInSwitch": true,   /* Report errors for fallthrough cases in switch statement. */
+
+    /* js generation (by tsc) */
+    "declaration": true,                  /* Generates corresponding .d.ts file */
+    "removeComments": true,               /* Remove all comments except copy-right header comments beginning with /*! */
 
     /* Prevent errors from duplicate typings (nested dependencies) */
     "typeRoots": [

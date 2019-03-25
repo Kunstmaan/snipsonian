@@ -1,5 +1,3 @@
-/* global window */
-
 import isSet from '@snipsonian/core/src/is/isSet';
 import isNumber from '@snipsonian/core/src/is/isNumber';
 import createFetchRequest, { RequestMethod } from './createFetchRequest';

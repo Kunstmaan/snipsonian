@@ -8,6 +8,8 @@
     "lintTs": "tslint -p tsconfig.base.json",
     "test": "npm run lintJs && npm run lintTs && jest",
     "jest": "jest --watch --verbose",
+    "to-es": "lerna exec -- tsc --project tsconfig.json",
+    "del-generated": "del packages/*/es/** packages/*/cjs/**",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
@@ -20,6 +22,7 @@
     "@types/jest": "^23.3.13",
     "@types/node": "^11.9.4",
     "babel-jest": "^24.0.0",
+    "del-cli": "^1.1.0",
     "eslint": "^4.19.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.0",
