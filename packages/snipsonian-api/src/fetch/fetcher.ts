@@ -1,6 +1,6 @@
 import isSet from '@snipsonian/core/src/is/isSet';
 import isNumber from '@snipsonian/core/src/is/isNumber';
-import createFetchRequest, { RequestMethod } from './createFetchRequest';
+import createFetchRequest, { RequestMethod, INameValueHeaderPairs } from './createFetchRequest';
 import rejectPromiseOnHttpErrorStatus from './rejectPromiseOnHttpErrorStatus';
 
 export interface IFetchRequestError extends TypeError {
@@ -28,7 +28,7 @@ const fetcher = {
         url: string;
         method: RequestMethod;
         body?: object | string;
-        nameValueHeaderPairs?: object;
+        nameValueHeaderPairs?: INameValueHeaderPairs;
         timeoutInMillis?: number;
     }) => {
         const fetchRequest = createFetchRequest({

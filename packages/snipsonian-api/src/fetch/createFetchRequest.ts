@@ -11,7 +11,7 @@ export interface IFetchRequestConfig {
     headers?: Headers;
 }
 
-interface INameValueHeaderPairs {
+export interface INameValueHeaderPairs {
     [index: string]: string;
 }
 
