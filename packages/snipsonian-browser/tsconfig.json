@@ -4,6 +4,7 @@
     "outDir": "./es"
   },
   "include": [
+    "./index.ts",
     "./src/**/*"
   ],
   "exclude": [
