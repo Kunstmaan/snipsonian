@@ -19,7 +19,7 @@ interface IReduxStoreConfig extends Pick<
     enhancers?: StoreEnhancer[];
 }
 
-export default function createReduxStore({
+export default function createReduxStore<State>({
     reducers = getRegisteredReducers(),
     middlewares = [],
     enhancers = [],
@@ -28,7 +28,7 @@ export default function createReduxStore({
     customStorage,
     shouldCatchStorageErrors = false,
     onStorageError,
-}: IReduxStoreConfig): Store {
+}: IReduxStoreConfig): Store<State> {
     const storeEnhancer = createStoreEnhancer({
         middlewares,
         stateStorageType,
@@ -47,5 +47,5 @@ export default function createReduxStore({
         composeEnhancers(...enhancers, applyMiddleware(...storeEnhancer.middlewares)),
     );
 
-    return store;
+    return store as unknown as Store<State>;
 }
