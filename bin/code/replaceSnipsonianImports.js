@@ -6,7 +6,10 @@ async function replaceSnipsonianSrcImportsToEsImports() {
     console.error('Replacing snipsonian-src-imports with es-imports ...');
 
     const replaceOptions = {
-        files: 'packages/*/es/**/*.js',
+        files: [
+            'packages/*/es/**/*.js',
+            'packages/*/cjs/**/*.js'
+        ],
         from: /'@snipsonian\/[a-zA-Z\-]*\/src\//g,
         to: (match) => match.replace('/src/', '/es/'),
     };
