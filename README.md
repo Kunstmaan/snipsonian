@@ -3,7 +3,8 @@
 # Snipsonian
 
 Typescript Snippets powered by Kunstmaan Development.
-For now only typescript snippets offered, but we'll add transpiled javascript files in the future + some documentation on how to use the different snippets.
+Besides typescript source code, also transpiled javascript files are published.
+We'll add some documentation on how to use the different snippets in the future.
 
 
 ## Goal
@@ -29,8 +30,11 @@ Runs sequentially the linters and the unit tests.
 
 ## Publish new version
 
-1. switch to the appropriate npm user
-2. execute `npx lerna publish` or `npx lerna publish from-package`. (see https://github.com/lerna/lerna/tree/master/commands/bootstrap#readme)
+1. `nvm use`
+2. execute `npm run to-es` to transpile the typescript code to .js and .d.ts files under the /es folders (per package)
+3. manually check the generated folders (snipsonian-analytics !)
+4. switch to the appropriate npm user
+5. execute `npx lerna publish` or `npx lerna publish from-package`. (see https://github.com/lerna/lerna/tree/master/commands/bootstrap#readme)
 
 
 ## License
