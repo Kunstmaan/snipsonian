@@ -8,7 +8,9 @@ async function replaceSnipsonianSrcImportsToEsImports() {
     const replaceOptions = {
         files: [
             'packages/*/es/**/*.js',
-            'packages/*/cjs/**/*.js'
+            'packages/*/es/**/*.d.ts',
+            'packages/*/cjs/**/*.js',
+            'packages/*/cjs/**/*.d.ts'
         ],
         from: /'@snipsonian\/[a-zA-Z\-]*\/src\//g,
         to: (match) => match.replace('/src/', '/es/'),
