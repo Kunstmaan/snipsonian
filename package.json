@@ -9,7 +9,8 @@
     "test": "npm run lintJs && npm run lintTs && jest",
     "jest": "jest --watch --verbose",
     "del-generated": "del packages/*/es/** packages/*/cjs/**",
-    "to-es": "npm run del-generated && lerna exec -- tsc --project tsconfig.json",
+    "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
+    "to-es": "npm run del-generated && lerna exec -- tsc --project tsconfig.json && npm run replace-snipsonian-imports",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
@@ -27,6 +28,7 @@
     "eslint": "^5.15.3",
     "jest": "^24.0.0",
     "lerna": "^3.13.1",
+    "replace-in-file": "^3.4.4",
     "ts-jest": "^23.10.5",
     "typescript": "^3.3.1"
   },
