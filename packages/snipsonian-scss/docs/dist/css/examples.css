@@ -1,0 +1,66 @@
+/* import start */
+.ss-absolute {
+  background-color: #002834;
+  color: white;
+  padding: 0.3em 0.5em; }
+
+/* ==========================================================================
+   Layout - Coordinates
+   ========================================================================== */
+/* ==========================================================================
+   Layout - Position Absolute
+
+   Depends on `coordinates`.
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.ss-absolute-container {
+  border: 5px solid #002834;
+  height: 10em;
+  width: 15em; }
+
+/* end hidden rules */
+/* example start */
+.ss-absolute-container {
+  position: relative; }
+
+.ss-absolute-1 {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.ss-absolute-2 {
+  position: absolute;
+  right: 0.5em;
+  bottom: 1em; }
+
+/* example end */
+
+/* import start */
+.ss-fixed {
+  background-color: #002834;
+  color: white;
+  padding: 0.3em 0.5em; }
+
+/* ==========================================================================
+   Layout - Coordinates
+   ========================================================================== */
+/* ==========================================================================
+   Layout - Position Fixed
+
+   Depends on `coordinates`.
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.ss-fixed a {
+  color: white;
+  text-decoration: none; }
+
+/* end hidden rules */
+/* example start */
+.ss-fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 10px; }
+
+/* example end */

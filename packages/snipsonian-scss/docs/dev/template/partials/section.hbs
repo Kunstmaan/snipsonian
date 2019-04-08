@@ -1,0 +1,38 @@
+<div class="livingcss__section-description">{{{description}}}</div>
+{{#if cssExample}}
+  <h3>Example</h3>
+  {{#if example}}
+    <h4>HTML</h4>
+    {{#if code}}
+    <div class="livingcss__section-markup">
+      <pre class="livingcss__section-code"><code class="language-{{code.type}}">{{code.description}}</code></pre>
+    </div>
+    {{/if}}
+  {{/if}}
+
+  <h4>SCSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">{{cssExample.scss}}</code></pre>
+  </div>
+
+  <h4>Compiled CSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">{{cssExample.css}}</code></pre>
+  </div>
+
+  {{#if example}}
+    <h4>Result</h4>
+    {{!-- <livingcss-example>{{{example.description}}}</livingcss-example> --}}
+    <div>{{{example.description}}}</div>
+  {{/if}}
+{{else}}
+  {{#if example}}
+  <livingcss-example>{{{example.description}}}</livingcss-example>
+  {{/if}}
+
+  {{#if code}}
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-{{code.type}}">{{code.description}}</code></pre>
+  </div>
+  {{/if}}
+{{/if}}

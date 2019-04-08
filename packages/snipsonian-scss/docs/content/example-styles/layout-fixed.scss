@@ -1,0 +1,22 @@
+/* import start */
+@import "example-variables";
+@import "../../../src/layout/coordinates";
+@import "../../../src/layout/position-fixed";
+/* import end */
+
+/* hidden rules */
+.ss-fixed {
+    @extend %ss-dark-btn;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+}
+/* end hidden rules */
+
+/* example start */
+.ss-fixed {
+    @include snip-fixed(n 20px 10px n);
+}
+/* example end */

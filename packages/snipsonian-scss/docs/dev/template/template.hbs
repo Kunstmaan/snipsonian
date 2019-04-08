@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="livingcss">
+<head>
+  <title>{{title}}</title>
+
+  <!-- critical path css -->
+  {{> mainStylesheet}}
+  <!-- /critical path css -->
+
+  <!-- user styles -->
+  {{#each globalStylesheets}}
+  <link rel="stylesheet" href="{{this}}">
+  {{/each}}
+  <!-- /user styles -->
+</head>
+<body class="livingcss">
+  <div class="livingcss__wrapper">
+
+    <header class="livingcss__header">
+      <div class="livingcss__header-title-container livingcss__inverse-text">
+        <h1 class="livingcss__container livingcss__header-title"><a href="{{navbar.0.url}}">{{title}}</a></h1>
+      </div>
+    </header>
+
+    <div class="livingcss__container livingcss__content">
+
+      <main class="livingcss__main" role="main">
+        {{#each sections}}
+        <article class="livingcss__article" id="{{id}}">
+          <h1 class="livingcss__article-title">{{name}}</h1>
+          {{~> section}}
+
+          {{#children}}
+          {{~> childSection}}
+          {{/children}}
+        </article>
+        {{/each}}
+
+      </main>
+
+      <nav class="livingcss__nav">
+        <div class="livingcss__nav-container">
+        {{#each pages}}
+        {{#xif name '!=' 'index'}}
+          {{../name}}
+        {{/xif}}
+        {{#each sections}}
+          <a class="livingcss__nav-link" href="{{../id}}.html#{{id}}">{{name}}</a>
+        {{/each}}
+        {{/each}}
+        </div>
+      </nav>
+
+    </div>
+
+  </div>
+
+  <!-- prism -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.6.0/themes/prism.css">
+  <script src="https://cdn.jsdelivr.net/prism/1.6.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/prism/1.6.0/components/prism-markup.min.js"></script>
+  <!-- /prism -->
+
+  <!-- user scripts -->
+  {{#each scripts}}
+  <script src="{{this}}"></script>
+  {{/each}}
+  <!-- /user scripts -->
+
+  {{> mainScript}}
+
+</body>
+</html>
