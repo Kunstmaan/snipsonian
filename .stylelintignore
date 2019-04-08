@@ -1,0 +1,6 @@
+**/node_modules
+
+/doc/snipsonian-doc-site
+/doc/snipsonian-docs-site
+
+/packages/snipsonian-scss/docs/content/example-styles
