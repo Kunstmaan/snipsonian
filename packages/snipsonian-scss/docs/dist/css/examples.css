@@ -1,0 +1,30 @@
+/* import start */
+/* ==========================================================================
+   Layout - Flex grid
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.ss-flex-grid {
+  border: 5px solid #002834;
+  height: 10em; }
+  .ss-flex-grid > * {
+    box-sizing: border-box;
+    padding: 5px;
+    background: #CCCCCC; }
+
+/* end hidden rules */
+/* example start */
+.ss-flex-grid {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: -7px;
+  margin-right: -7px; }
+  .ss-flex-grid > * {
+    display: block;
+    flex-basis: calc(50% - 14px);
+    flex-grow: 0;
+    margin: 7px;
+    flex-shrink: 1; }
+
+/* example end */
