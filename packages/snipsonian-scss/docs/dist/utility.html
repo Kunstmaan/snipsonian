@@ -430,32 +430,297 @@
     <div class="livingcss__container livingcss__content">
 
       <main class="livingcss__main" role="main">
-        <article class="livingcss__article" id="about">
-          <h1 class="livingcss__article-title">About</h1><div class="livingcss__section-description"><p>Snipsonian-scss is a collection of Sass utilities to ease and improve our implementations of common style-code patterns.</p>
-<h2 id="why-">Why?</h2>
-<h3 id="avoid-repetition">Avoid repetition</h3>
-<p>Snipsonian&#39;s primary goal is to save people like you and me from repeating the same few lines of styling code, over and over again, to achieve the same effect in different places.</p>
-<h3 id="do-difficult-hacky-things-easily">Do difficult hacky things easily</h3>
-<p>Like vertically centering, or creating fluid-width boxes with a consistent aspect ratio.</p></div>
+        <article class="livingcss__article" id="object-fit">
+          <h1 class="livingcss__article-title">Object fit</h1><div class="livingcss__section-description"><p>Object-fit mixin with fallbacks for unsuported browsers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>use-name:</strong></td>
+<td><code>snip-object-fit</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>type:</strong></td>
+<td>mixin</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>arguments:</strong></td>
+<td><code>$fit</code><br>can be set with one of the following: fill, contain, cover, none, scale-down <br><br><code>$x-position</code><br>default: center <br><br><code>$y-position</code><br>default: center.</td>
+</tr>
+</tbody>
+</table></div>
+  <h3>Example</h3>
+    <h4>HTML</h4>
+    <div class="livingcss__section-markup">
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;original-image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;original image&lt;/p&gt;
+    &lt;img src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt; 
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: fill&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-fill&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: contain&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-contain&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: cover&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-cover&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: none&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-none&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: scale-down&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-scaledown&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+ &lt;/div&gt;</code></pre>
+    </div>
 
 
-        </article>
-        <article class="livingcss__article" id="installation">
-          <h1 class="livingcss__article-title">Installation</h1><div class="livingcss__section-description"><ol>
-<li>Install with <code>npm install @snipsonian/scss</code></li>
-<li>Import:<ul>
-<li>Import necessary file in your own Sass/SCSS files. Like so: <code>@import &quot;~snipsonian-scss/src/mixins/...;</code>
-<br>or</li>
-<li>Import all, like so: <code>@import &quot;~snipsonian-scss/src/all;</code>;</li>
-</ul>
-</li>
-</ol></div>
+  <h4>SCSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.snip-object-fit-fill {
+    @include snip-object-fit($fit: fill, $x: center, $y: center);
+}
 
+.snip-object-fit-contain {
+    @include snip-object-fit($fit: contain, $x: center, $y: center);
+}
 
-        </article>
-        <article class="livingcss__article" id="usage">
-          <h1 class="livingcss__article-title">Usage</h1><div class="livingcss__section-description"><p>Lorem ipsum.</p></div>
+.snip-object-fit-cover {
+    @include snip-object-fit($fit: cover, $x: center, $y: center);
+}
 
+.snip-object-fit-none {
+    @include snip-object-fit($fit: none, $x: center, $y: center);
+}
+
+.snip-object-fit-scale-down {
+    @include snip-object-fit($fit: scale-down, $x: center, $y: center);
+}</code></pre>
+  </div>
+
+  <h4>Compiled CSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.snip-object-fit-fill {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@supports (object-fit: fill) {
+  .snip-object-fit-fill {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    object-fit: fill;
+    transform: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-fill {
+    object-position: center center;
+  }
+}
+
+.snip-object-fit-contain {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@supports (object-fit: contain) {
+  .snip-object-fit-contain {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    object-fit: contain;
+    transform: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-contain {
+    object-position: center center;
+  }
+}
+
+.snip-object-fit-cover {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@supports (object-fit: cover) {
+  .snip-object-fit-cover {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    object-fit: cover;
+    transform: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-cover {
+    object-position: center center;
+  }
+}
+
+.snip-object-fit-none {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@supports (object-fit: none) {
+  .snip-object-fit-none {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    object-fit: none;
+    transform: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-none {
+    object-position: center center;
+  }
+}
+
+.snip-object-fit-scale-down {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@supports (object-fit: scale-down) {
+  .snip-object-fit-scale-down {
+    position: static;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    object-fit: scale-down;
+    transform: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-scale-down {
+    object-position: center center;
+  }
+}
+</code></pre>
+  </div>
+
+    <h4>Result</h4>
+    <div><div class="original-image snip-object-fit-wrapper">
+    <p>original image</p>
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png"> 
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: fill</p>
+    <img class="snip-object-fit-fill" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: contain</p>
+    <img class="snip-object-fit-contain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: cover</p>
+    <img class="snip-object-fit-cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: none</p>
+    <img class="snip-object-fit-none" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: scale-down</p>
+    <img class="snip-object-fit-scaledown" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+ </div></div>
 
         </article>
 
