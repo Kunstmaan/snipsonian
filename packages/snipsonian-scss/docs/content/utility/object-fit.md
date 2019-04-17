@@ -43,3 +43,31 @@ Object-fit mixin, fallbacks for unsuported browsers are <strong>not</strong> pro
     </div>
 </div>
 ```
+
+```html
+@code
+<div class="image snip-object-fit-item">
+    <p>object-fit: fill</p>
+    <img class="snip-object-fit-fill" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-item">
+    <p>object-fit: contain</p>
+    <img class="snip-object-fit-contain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-item">
+    <p>object-fit: cover</p>
+    <img class="snip-object-fit-cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-item">
+    <p>object-fit: none</p>
+    <img class="snip-object-fit-none" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-item">
+    <p>object-fit: scale-down</p>
+    <img class="snip-object-fit-scaledown" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+```

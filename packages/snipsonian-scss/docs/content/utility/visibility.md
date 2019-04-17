@@ -24,3 +24,13 @@ Mixins to hide and show elements from certain breakpoints, note: overrides displ
     <p>Visible as of breakpoint: 768px, hidden before breakpoint.</p>
 </div>
 ```
+
+```html
+@code
+<div class="ss-hide-mobile">
+    <p>Hidden as of breakpoint: 768px, visible before breakpoint.</p>
+</div>
+<div class="ss-show-mobile">
+    <p>Visible as of breakpoint: 768px, hidden before breakpoint.</p>
+</div>
+```

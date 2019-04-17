@@ -457,36 +457,29 @@
   <h3>Example</h3>
     <h4>HTML</h4>
     <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;snip-object-fit-wrapper&quot;&gt;
-    &lt;div class&#x3D;&quot;original-image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;original image&lt;/p&gt;
-        &lt;img src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt; 
-    &lt;/div&gt;
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
+    &lt;p&gt;object-fit: fill&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-fill&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;object-fit: fill&lt;/p&gt;
-        &lt;img class&#x3D;&quot;snip-object-fit-fill&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
-    &lt;/div&gt;
+&lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
+    &lt;p&gt;object-fit: contain&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-contain&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;object-fit: contain&lt;/p&gt;
-        &lt;img class&#x3D;&quot;snip-object-fit-contain&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
-    &lt;/div&gt;
+&lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
+    &lt;p&gt;object-fit: cover&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-cover&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;object-fit: cover&lt;/p&gt;
-        &lt;img class&#x3D;&quot;snip-object-fit-cover&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
-    &lt;/div&gt;
+&lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
+    &lt;p&gt;object-fit: none&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-none&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;object-fit: none&lt;/p&gt;
-        &lt;img class&#x3D;&quot;snip-object-fit-none&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
-    &lt;/div&gt;
-
-    &lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
-        &lt;p&gt;object-fit: scale-down&lt;/p&gt;
-        &lt;img class&#x3D;&quot;snip-object-fit-scaledown&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
-    &lt;/div&gt;
+&lt;div class&#x3D;&quot;image snip-object-fit-item&quot;&gt;
+    &lt;p&gt;object-fit: scale-down&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-scaledown&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
 &lt;/div&gt;</code></pre>
     </div>
 
@@ -755,14 +748,8 @@
   <h3>Example</h3>
     <h4>HTML</h4>
     <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-hide-mobile-reverse&quot;&gt;
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-hide-mobile&quot;&gt;
     &lt;p&gt;Hidden as of breakpoint: 768px, visible before breakpoint.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class&#x3D;&quot;ss-hide-mobile&quot;&gt;
-    &lt;p&gt;Hidden as of breakpoint: 768px, visible before breakpoint.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class&#x3D;&quot;ss-show-mobile-reverse&quot;&gt;
-    &lt;p&gt;Visible as of breakpoint: 768px, hidden before breakpoint.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class&#x3D;&quot;ss-show-mobile&quot;&gt;
     &lt;p&gt;Visible as of breakpoint: 768px, hidden before breakpoint.&lt;/p&gt;
