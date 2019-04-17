@@ -2,6 +2,13 @@ $ss-dark:       #002834;
 $ss-light:      #9AE9FF;
 $ss-muted:      #CCCCCC;
 
+$ss-break-xs: 480px;
+$ss-break-sm: 768px;
+$ss-break-md: 992px;
+$ss-break-lg: 1200px;
+$ss-break-xl: 1400px;
+$ss-break-xxl: 2000px;
+
 %ss-light-btn {
   border: 1px solid $ss-dark;
   color: $ss-dark;

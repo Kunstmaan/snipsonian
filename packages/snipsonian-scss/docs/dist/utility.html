@@ -728,6 +728,98 @@
 </div></div>
 
         </article>
+        <article class="livingcss__article" id="visibility">
+          <h1 class="livingcss__article-title">Visibility</h1><div class="livingcss__section-description"><p>Mixins to hide and show elements from certain breakpoints, note: overrides display property with the important flag.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>use-name:</strong></td>
+<td><code>snip-hide-from</code> &amp;&amp; <code>snip-show-from</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>type:</strong></td>
+<td>mixin</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>arguments:</strong></td>
+<td><code>$breakpoint</code></td>
+</tr>
+</tbody>
+</table></div>
+  <h3>Example</h3>
+    <h4>HTML</h4>
+    <div class="livingcss__section-markup">
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-hide-mobile-reverse&quot;&gt;
+    &lt;p&gt;Hidden as of breakpoint: 768px, visible before breakpoint.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;ss-hide-mobile&quot;&gt;
+    &lt;p&gt;Hidden as of breakpoint: 768px, visible before breakpoint.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;ss-show-mobile-reverse&quot;&gt;
+    &lt;p&gt;Visible as of breakpoint: 768px, hidden before breakpoint.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;ss-show-mobile&quot;&gt;
+    &lt;p&gt;Visible as of breakpoint: 768px, hidden before breakpoint.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+  <h4>SCSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.ss-show-mobile {
+    @include snip-show-from($ss-break-sm);
+}
+
+.ss-hide-mobile {
+    @include snip-hide-from($ss-break-sm);
+}</code></pre>
+  </div>
+
+  <h4>Compiled CSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.ss-show-mobile {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .ss-show-mobile {
+    display: inherit !important;
+  }
+}
+
+.ss-hide-mobile {
+  display: inherit !important;
+}
+
+@media (min-width: 768px) {
+  .ss-hide-mobile {
+    display: none !important;
+  }
+}
+</code></pre>
+  </div>
+
+    <h4>Result</h4>
+    <div><div class="ss-hide-mobile-reverse">
+    <p>Hidden as of breakpoint: 768px, visible before breakpoint.</p>
+</div>
+<div class="ss-hide-mobile">
+    <p>Hidden as of breakpoint: 768px, visible before breakpoint.</p>
+</div>
+<div class="ss-show-mobile-reverse">
+    <p>Visible as of breakpoint: 768px, hidden before breakpoint.</p>
+</div>
+<div class="ss-show-mobile">
+    <p>Visible as of breakpoint: 768px, hidden before breakpoint.</p>
+</div></div>
+
+        </article>
 
       </main>
 
@@ -741,6 +833,7 @@
           Utility
           <a class="livingcss__nav-link" href="utility.html#object-fit">Object fit</a>
           <a class="livingcss__nav-link" href="utility.html#pseudo">Pseudo</a>
+          <a class="livingcss__nav-link" href="utility.html#visibility">Visibility</a>
         </div>
       </nav>
 

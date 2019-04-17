@@ -172,3 +172,60 @@
   right: 0; }
 
 /* example end */
+
+/* import start */
+/* ==========================================================================
+   Helper classes responsive visibility
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.ss-hide-mobile,
+.ss-show-mobile {
+  padding: 20px;
+  margin: 10px;
+  background: #b7e4c9;
+  border: 1px solid #539770; }
+  .ss-hide-mobile p,
+  .ss-show-mobile p {
+    text-align: center;
+    color: #539770; }
+
+.ss-hide-mobile-reverse,
+.ss-show-mobile-reverse {
+  padding: 20px;
+  margin: 10px;
+  background: #eee;
+  border: 1px solid #888;
+  opacity: .4; }
+  .ss-hide-mobile-reverse p,
+  .ss-show-mobile-reverse p {
+    text-align: center;
+    color: #888; }
+
+.ss-hide-mobile-reverse {
+  display: none !important; }
+  @media (min-width: 768px) {
+    .ss-hide-mobile-reverse {
+      display: inherit !important; } }
+
+.ss-show-mobile-reverse {
+  display: inherit !important; }
+  @media (min-width: 768px) {
+    .ss-show-mobile-reverse {
+      display: none !important; } }
+
+/* end hidden rules */
+/* example start */
+.ss-show-mobile {
+  display: none !important; }
+  @media (min-width: 768px) {
+    .ss-show-mobile {
+      display: inherit !important; } }
+
+.ss-hide-mobile {
+  display: inherit !important; }
+  @media (min-width: 768px) {
+    .ss-hide-mobile {
+      display: none !important; } }
+
+/* example end */
