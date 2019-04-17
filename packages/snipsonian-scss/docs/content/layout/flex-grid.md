@@ -4,11 +4,9 @@ Generate a flexbox grid with one line, the selector on which it's called is the 
 
 |  |  |
 | ---: | --- |
-| **use-name:** | `snip-flex-grid` |
+| **use-name:** | `snip-grid` |
 | **type:** | mixin |
-| **arguments:** | `$gutter`<br>default: `0` (int, pixel value) <br>`$cols`<br>default: null.  |
-
-You'll save years of your life, and probably lose weight.
+| **arguments:** | `$gutter`<br>default: `0` (int, pixel value) <br>`$cols`<br>default: 4.  |
 
 ```html
 @example

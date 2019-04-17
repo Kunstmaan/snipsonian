@@ -2,32 +2,17 @@
    Grid mixin
    ========================================================================== */
 
-@mixin grid($show_layout: null, $col-gap: 15px) {
+@mixin snip-grid($col-gap: 15px, $row-gap: 15px, $cols: 4) {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat($cols, 1fr);
     grid-auto-rows: 1fr;
     column-gap: $col-gap;
+    row-gap: $row-gap;
 
     align-items: stretch; // edge doesn't support the shorthand place-items for justify-items and align-items;
     justify-items: stretch;
-
-    @media (min-width: $break-sm) {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    @media (min-width: $break-md) {
-        grid-template-columns: repeat(12, 1fr);
-    }
-
-    @if $show_layout {
-        > * {
-            background: rgba($color-greyscale-black, .2);
-
-            border: 1px solid rgba($color-greyscale-black, .4);
-        }
-    }
 }
 
-@mixin col($span: null, $offset: auto) {
+@mixin snip-col($span: null, $offset: auto) {
     grid-column: $offset / span $span;
 }

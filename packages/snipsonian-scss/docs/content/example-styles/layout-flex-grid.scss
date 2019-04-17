@@ -6,14 +6,17 @@
 
 /* hidden rules */
 .ss-flex-grid {
-    border: 5px solid $ss-dark;
-    height: 10em;
-
     > * {
+        padding: 20px;
         box-sizing: border-box;
-        padding: 5px;
-
-        background: $ss-muted;
+    
+        background: #b7e4c9;
+    
+        border: 1px solid #539770;
+    
+        text-align: center;
+        color: #539770;
+    
     }
 }
 /* end hidden rules */

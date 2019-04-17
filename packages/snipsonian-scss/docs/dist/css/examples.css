@@ -4,13 +4,13 @@
    ========================================================================== */
 /* import end */
 /* hidden rules */
-.ss-flex-grid {
-  border: 5px solid #002834;
-  height: 10em; }
-  .ss-flex-grid > * {
-    box-sizing: border-box;
-    padding: 5px;
-    background: #CCCCCC; }
+.ss-flex-grid > * {
+  padding: 20px;
+  box-sizing: border-box;
+  background: #b7e4c9;
+  border: 1px solid #539770;
+  text-align: center;
+  color: #539770; }
 
 /* end hidden rules */
 /* example start */
@@ -26,6 +26,32 @@
     flex-grow: 0;
     margin: 7px;
     flex-shrink: 1; }
+
+/* example end */
+
+/* import start */
+/* ==========================================================================
+   Grid mixin
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.ss-grid-item {
+  padding: 20px;
+  background: #b7e4c9;
+  border: 1px solid #539770;
+  text-align: center;
+  color: #539770; }
+
+/* end hidden rules */
+/* example start */
+.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+  align-items: stretch;
+  justify-items: stretch; }
 
 /* example end */
 

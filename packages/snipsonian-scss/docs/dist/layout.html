@@ -442,7 +442,7 @@
 <tbody>
 <tr>
 <td style="text-align:right"><strong>use-name:</strong></td>
-<td><code>snip-flex-grid</code></td>
+<td><code>snip-grid</code></td>
 </tr>
 <tr>
 <td style="text-align:right"><strong>type:</strong></td>
@@ -450,11 +450,10 @@
 </tr>
 <tr>
 <td style="text-align:right"><strong>arguments:</strong></td>
-<td><code>$gutter</code><br>default: <code>0</code> (int, pixel value) <br><code>$cols</code><br>default: null.</td>
+<td><code>$gutter</code><br>default: <code>0</code> (int, pixel value) <br><code>$cols</code><br>default: 4.</td>
 </tr>
 </tbody>
-</table>
-<p>You&#39;ll save years of your life, and probably lose weight.</p></div>
+</table></div>
   <h3>Example</h3>
     <h4>HTML</h4>
     <div class="livingcss__section-markup">
@@ -500,6 +499,88 @@
 </div></div>
 
         </article>
+        <article class="livingcss__article" id="grid">
+          <h1 class="livingcss__article-title">Grid</h1><div class="livingcss__section-description"><p>Generate a css-grid with one line.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right"><strong>use-name:</strong></td>
+<td><code>snip-grid</code></td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>type:</strong></td>
+<td>mixin</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>arguments:</strong></td>
+<td><code>$col-gap</code><br>default: <code>15</code> (int, pixel value) <br><br><code>$row-gap</code><br>default: <code>15</code> (int, pixel value) <br><br><code>$cols</code><br>default: null.</td>
+</tr>
+</tbody>
+</table></div>
+  <h3>Example</h3>
+    <h4>HTML</h4>
+    <div class="livingcss__section-markup">
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-grid&quot;&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;1&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;2&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;3&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;4&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;5&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;6&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;7&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;8&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;9&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;10&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;11&lt;/div&gt;
+    &lt;div class&#x3D;&quot;ss-grid-item&quot;&gt;12&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+
+  <h4>SCSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.ss-grid {
+    @include snip-grid();
+}</code></pre>
+  </div>
+
+  <h4>Compiled CSS</h4>
+  <div class="livingcss__section-markup">
+    <pre class="livingcss__section-code"><code class="language-css">.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  column-gap: 15px;
+  row-gap: 15px;
+  align-items: stretch;
+  justify-items: stretch;
+}
+</code></pre>
+  </div>
+
+    <h4>Result</h4>
+    <div><div class="ss-grid">
+    <div class="ss-grid-item">1</div>
+    <div class="ss-grid-item">2</div>
+    <div class="ss-grid-item">3</div>
+    <div class="ss-grid-item">4</div>
+    <div class="ss-grid-item">5</div>
+    <div class="ss-grid-item">6</div>
+    <div class="ss-grid-item">7</div>
+    <div class="ss-grid-item">8</div>
+    <div class="ss-grid-item">9</div>
+    <div class="ss-grid-item">10</div>
+    <div class="ss-grid-item">11</div>
+    <div class="ss-grid-item">12</div>
+</div></div>
+
+        </article>
 
       </main>
 
@@ -510,6 +591,7 @@
           <a class="livingcss__nav-link" href="index.html#usage">Usage</a>
           Layout
           <a class="livingcss__nav-link" href="layout.html#flex-grid">Flex Grid</a>
+          <a class="livingcss__nav-link" href="layout.html#grid">Grid</a>
           Utility
           <a class="livingcss__nav-link" href="utility.html#object-fit">Object fit</a>
           <a class="livingcss__nav-link" href="utility.html#pseudo">Pseudo</a>
