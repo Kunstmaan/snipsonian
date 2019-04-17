@@ -56,144 +56,74 @@
 
 /* end hidden rules */
 /* example start */
-.snip-object-fit-fill {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate3d(-50%, -50%, 0); }
-  @supports (object-fit: fill) {
-    .snip-object-fit-fill {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      width: 100%;
-      height: 100%;
-      min-height: auto;
-      min-width: auto;
-      object-fit: fill;
-      transform: none; } }
-  @supports (object-position: center center) {
-    .snip-object-fit-fill {
-      object-position: center center; } }
+@supports (object-fit: fill) {
+  .snip-object-fit-fill {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: fill; } }
 
-.snip-object-fit-contain {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate3d(-50%, -50%, 0); }
-  @supports (object-fit: contain) {
-    .snip-object-fit-contain {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      width: 100%;
-      height: 100%;
-      min-height: auto;
-      min-width: auto;
-      object-fit: contain;
-      transform: none; } }
-  @supports (object-position: center center) {
-    .snip-object-fit-contain {
-      object-position: center center; } }
+@supports (object-position: center center) {
+  .snip-object-fit-fill {
+    object-position: center center; } }
 
-.snip-object-fit-cover {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate3d(-50%, -50%, 0); }
-  @supports (object-fit: cover) {
-    .snip-object-fit-cover {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      width: 100%;
-      height: 100%;
-      min-height: auto;
-      min-width: auto;
-      object-fit: cover;
-      transform: none; } }
-  @supports (object-position: center center) {
-    .snip-object-fit-cover {
-      object-position: center center; } }
+@supports (object-fit: contain) {
+  .snip-object-fit-contain {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain; } }
 
-.snip-object-fit-none {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate3d(-50%, -50%, 0); }
-  @supports (object-fit: none) {
-    .snip-object-fit-none {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      width: 100%;
-      height: 100%;
-      min-height: auto;
-      min-width: auto;
-      object-fit: none;
-      transform: none; } }
-  @supports (object-position: center center) {
-    .snip-object-fit-none {
-      object-position: center center; } }
+@supports (object-position: center center) {
+  .snip-object-fit-contain {
+    object-position: center center; } }
 
-.snip-object-fit-scale-down {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  max-height: none;
-  min-height: 100%;
-  min-width: 100%;
-  transform: translate3d(-50%, -50%, 0); }
-  @supports (object-fit: scale-down) {
-    .snip-object-fit-scale-down {
-      position: static;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      left: auto;
-      width: 100%;
-      height: 100%;
-      min-height: auto;
-      min-width: auto;
-      object-fit: scale-down;
-      transform: none; } }
-  @supports (object-position: center center) {
-    .snip-object-fit-scale-down {
-      object-position: center center; } }
+@supports (object-fit: cover) {
+  .snip-object-fit-cover {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover; } }
+
+@supports (object-position: center center) {
+  .snip-object-fit-cover {
+    object-position: center center; } }
+
+@supports (object-fit: none) {
+  .snip-object-fit-none {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: none; } }
+
+@supports (object-position: center center) {
+  .snip-object-fit-none {
+    object-position: center center; } }
+
+@supports (object-fit: scale-down) {
+  .snip-object-fit-scale-down {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: scale-down; } }
+
+@supports (object-position: center center) {
+  .snip-object-fit-scale-down {
+    object-position: center center; } }
 
 /* example end */
