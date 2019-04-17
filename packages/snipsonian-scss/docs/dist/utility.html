@@ -430,8 +430,8 @@
     <div class="livingcss__container livingcss__content">
 
       <main class="livingcss__main" role="main">
-        <article class="livingcss__article" id="absolute">
-          <h1 class="livingcss__article-title">Absolute</h1><div class="livingcss__section-description"><p>Absolutely position an element and assign its coordinates, all in one line of SCSS.</p>
+        <article class="livingcss__article" id="object-fit">
+          <h1 class="livingcss__article-title">Object fit</h1><div class="livingcss__section-description"><p>Object-fit mixin, fallbacks for unsuported browsers are <strong>not</strong> provided.</p>
 <table>
 <thead>
 <tr>
@@ -442,175 +442,7 @@
 <tbody>
 <tr>
 <td style="text-align:right"><strong>use-name:</strong></td>
-<td><code>snip-absolute</code></td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>type:</strong></td>
-<td>mixin, with default-values placeholder</td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>arguments:</strong></td>
-<td><code>$coordinates</code><br>default: <code>0 n n 0</code><br>See information about <a href="#coordinates">snip-coords</a>.</td>
-</tr>
-</tbody>
-</table>
-<p>You&#39;ll save years of your life, and probably lose weight.</p>
-<h2 id="example">Example</h2>
-<h3 id="html">HTML</h3></div>
-  <h3>Example</h3>
-    <h4>HTML</h4>
-    <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-absolute-container&quot;&gt;
-    &lt;div class&#x3D;&quot;ss-absolute ss-absolute-1&quot;&gt;Top left&lt;/div&gt;
-    &lt;div class&#x3D;&quot;ss-absolute ss-absolute-2&quot;&gt;Bottom right&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-
-
-  <h4>SCSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-absolute-container {
-    position: relative;
-}
-.ss-absolute-1 {
-    @include snip-absolute;
-    // or @extend %snip-absolute;
-}
-.ss-absolute-2 {
-    @include snip-absolute(n 0.5em 1em n);
-}</code></pre>
-  </div>
-
-  <h4>Compiled CSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-absolute-container {
-  position: relative;
-}
-
-.ss-absolute-1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.ss-absolute-2 {
-  position: absolute;
-  right: 0.5em;
-  bottom: 1em;
-}
-</code></pre>
-  </div>
-
-    <h4>Result</h4>
-    <div><div class="ss-absolute-container">
-    <div class="ss-absolute ss-absolute-1">Top left</div>
-    <div class="ss-absolute ss-absolute-2">Bottom right</div>
-</div></div>
-
-        </article>
-        <article class="livingcss__article" id="coordinates">
-          <h1 class="livingcss__article-title">Coordinates</h1><div class="livingcss__section-description"><p>A shorthand for assigning coordinates to an element.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><strong>use-name:</strong></td>
-<td><code>snip-coordinates</code></td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>type:</strong></td>
-<td>mixin only</td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>arguments:</strong></td>
-<td><code>$coordinates</code><br>   default: <code>n n n n</code><br>   A list: <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> coordinates. <code>n</code> abbreviates <code>null</code>. <code>a</code> is interchangeable with <code>auto</code>. See below.</td>
-</tr>
-</tbody>
-</table>
-<p>You <em>may</em> want to use this mixin on its own &mdash; but <strong>this mixin&#39;s primary purpose is to facilitate the positioning mixins: <a href="#absolute"><code>snip-absolute</code></a>, <a href="#relative"><code>snip-relative</code></a>, and <a href="#fixed"><code>snip-fixed</code></a></strong>, which pair your coordinates with a <code>position</code> value.</p>
-<p>Some guidlines for this mixin and its followers:</p>
-<ul>
-<li><strong><code>n</code> (the default value) signifies <code>null</code> or &quot;nothing&quot; or &quot;no&quot;</strong> &mdash; so any coordinate assigned <code>n</code> is simply ignored, creating no rule in your compiled CSS.</li>
-<li><strong><code>a</code> can abbreviate <code>auto</code></strong> (both will work).</li>
-<li><strong>All four values must be passed</strong>, so use <code>n</code> as needed.</li>
-</ul></div>
-
-
-        </article>
-        <article class="livingcss__article" id="fixed">
-          <h1 class="livingcss__article-title">Fixed</h1><div class="livingcss__section-description"><p>Fix an element&#39;s position and assign its coordinates, all in one line of SCSS.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><strong>use-name:</strong></td>
-<td><code>snip-fixed</code></td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>type:</strong></td>
-<td>mixin, with default-values placeholder</td>
-</tr>
-<tr>
-<td style="text-align:right"><strong>arguments:</strong></td>
-<td><code>$coordinates</code><br>default: <code>0 n n 0</code><br>See information about <a href="#coordinates">snip-coords</a>.</td>
-</tr>
-</tbody>
-</table>
-<p>Notice the example in the bottom right.</p>
-<h2 id="example">Example</h2>
-<h3 id="html">HTML</h3></div>
-  <h3>Example</h3>
-    <h4>HTML</h4>
-    <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-markup">&lt;div class&#x3D;&quot;ss-fixed&quot;&gt;Here&#x27;s your fixed example.&lt;/div&gt;</code></pre>
-    </div>
-
-
-  <h4>SCSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-fixed {
-    @include snip-fixed(n 20px 10px n);
-}</code></pre>
-  </div>
-
-  <h4>Compiled CSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-fixed {
-  position: fixed;
-  right: 20px;
-  bottom: 10px;
-}
-</code></pre>
-  </div>
-
-    <h4>Result</h4>
-    <div><div>See the bottom right</div>
-<div class="ss-fixed"><a href="#fixed">Here's your fixed example.</a></div></div>
-
-        </article>
-        <article class="livingcss__article" id="flex-grid">
-          <h1 class="livingcss__article-title">Flex Grid</h1><div class="livingcss__section-description"><p>Generate a flexbox grid with one line, the selector on which it&#39;s called is the flex wrapper, it&#39;s direct children serve as cols.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right"><strong>use-name:</strong></td>
-<td><code>snip-flex-grid</code></td>
+<td><code>snip-object-fit</code></td>
 </tr>
 <tr>
 <td style="text-align:right"><strong>type:</strong></td>
@@ -618,54 +450,192 @@
 </tr>
 <tr>
 <td style="text-align:right"><strong>arguments:</strong></td>
-<td><code>$gutter</code><br>default: <code>0</code> (int, pixel value) <br><code>$cols</code><br>default: null.</td>
+<td><code>$fit</code><br>can be set with one of the following: fill, contain, cover, none, scale-down <br><br><code>$x-position</code><br>default: center <br><br><code>$y-position</code><br>default: center.</td>
 </tr>
 </tbody>
-</table>
-<p>You&#39;ll save years of your life, and probably lose weight.</p></div>
+</table></div>
   <h3>Example</h3>
     <h4>HTML</h4>
     <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;ss-flex-grid&quot;&gt;
-    &lt;div&gt;Col 1&lt;/div&gt;
-    &lt;div&gt;Col 2&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+      <pre class="livingcss__section-code"><code class="language-html">&lt;div class&#x3D;&quot;original-image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;original image&lt;/p&gt;
+    &lt;img src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt; 
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: fill&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-fill&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: contain&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-contain&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: cover&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-cover&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: none&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-none&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;image snip-object-fit-wrapper&quot;&gt;
+    &lt;p&gt;object-fit: scale-down&lt;/p&gt;
+    &lt;img class&#x3D;&quot;snip-object-fit-scaledown&quot; src&#x3D;&quot;https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png&quot;&gt;
+ &lt;/div&gt;</code></pre>
     </div>
 
 
   <h4>SCSS</h4>
   <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-flex-grid {
-    @include snip-flex-grid(14px, 2);
+    <pre class="livingcss__section-code"><code class="language-css">.snip-object-fit-fill {
+    @include snip-object-fit($fit: fill, $x: center, $y: center);
 }
-</code></pre>
+
+.snip-object-fit-contain {
+    @include snip-object-fit($fit: contain, $x: center, $y: center);
+}
+
+.snip-object-fit-cover {
+    @include snip-object-fit($fit: cover, $x: center, $y: center);
+}
+
+.snip-object-fit-none {
+    @include snip-object-fit($fit: none, $x: center, $y: center);
+}
+
+.snip-object-fit-scale-down {
+    @include snip-object-fit($fit: scale-down, $x: center, $y: center);
+}</code></pre>
   </div>
 
   <h4>Compiled CSS</h4>
   <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">.ss-flex-grid {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin-left: -7px;
-  margin-right: -7px;
+    <pre class="livingcss__section-code"><code class="language-css">@supports (object-fit: fill) {
+  .snip-object-fit-fill {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: fill;
+  }
 }
 
-.ss-flex-grid &gt; * {
-  display: block;
-  flex-basis: calc(50% - 14px);
-  flex-grow: 0;
-  margin: 7px;
-  flex-shrink: 1;
+@supports (object-position: center center) {
+  .snip-object-fit-fill {
+    object-position: center center;
+  }
+}
+
+@supports (object-fit: contain) {
+  .snip-object-fit-contain {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-contain {
+    object-position: center center;
+  }
+}
+
+@supports (object-fit: cover) {
+  .snip-object-fit-cover {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-cover {
+    object-position: center center;
+  }
+}
+
+@supports (object-fit: none) {
+  .snip-object-fit-none {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: none;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-none {
+    object-position: center center;
+  }
+}
+
+@supports (object-fit: scale-down) {
+  .snip-object-fit-scale-down {
+    width: 100%;
+    height: 100%;
+    min-height: auto;
+    min-width: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: scale-down;
+  }
+}
+
+@supports (object-position: center center) {
+  .snip-object-fit-scale-down {
+    object-position: center center;
+  }
 }
 </code></pre>
   </div>
 
     <h4>Result</h4>
-    <div><div class="ss-flex-grid">
-    <div>Col 1</div>
-    <div>Col 2</div>
-</div></div>
+    <div><div class="original-image snip-object-fit-wrapper">
+    <p>original image</p>
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png"> 
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: fill</p>
+    <img class="snip-object-fit-fill" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: contain</p>
+    <img class="snip-object-fit-contain" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: cover</p>
+    <img class="snip-object-fit-cover" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: none</p>
+    <img class="snip-object-fit-none" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+</div>
+
+<div class="image snip-object-fit-wrapper">
+    <p>object-fit: scale-down</p>
+    <img class="snip-object-fit-scaledown" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14179/image.png">
+ </div></div>
 
         </article>
 

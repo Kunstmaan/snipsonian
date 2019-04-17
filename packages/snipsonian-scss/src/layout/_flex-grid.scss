@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Layout - Flex grid
+   ========================================================================== */
+
+@mixin snip-flex-grid($gutter: 0, $cols: 0) {
+    display: flex;
+    justify-content: flex-start;
+    @if $cols {
+        flex-wrap: wrap;
+
+        @if $gutter {
+            margin-left: -#{$gutter / 2};
+            margin-right: -#{$gutter / 2};
+        }
+    }
+
+    > * {
+        display: block;
+        @if $cols {
+            flex-basis: calc(#{(100% / $cols)} - #{$gutter});
+            flex-grow: 0;
+            margin: #{$gutter / 2};
+        } @else {
+            flex-basis: 1px;
+            flex-grow: 1;
+        }
+        flex-shrink: 1;
+    }
+}
+
+%snip-flex-grid {
+    @include snip-flex-grid();
+}
