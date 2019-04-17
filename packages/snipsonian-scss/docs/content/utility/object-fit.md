@@ -1,6 +1,6 @@
 # Object fit
 
-Object-fit mixin with fallbacks for unsuported browsers.
+Object-fit mixin, fallbacks for unsuported browsers are <strong>not</strong> provided.
 
 |  |  |
 | ---: | --- |
