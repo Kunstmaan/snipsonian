@@ -35,23 +35,28 @@
    ========================================================================== */
 /* import end */
 /* hidden rules */
-.snip-object-fit-wrapper img {
+.snip-object-fit-wrapper::after {
+  display: block;
+  content: "";
+  clear: both; }
+
+.snip-object-fit-item img {
   height: 120px;
   background-color: #444; }
 
-.snip-object-fit-wrapper img[class] {
+.snip-object-fit-item img[class] {
   width: 100%; }
 
-.snip-object-fit-wrapper.original-image {
+.snip-object-fit-item.original-image {
   margin-bottom: 50px; }
 
-.snip-object-fit-wrapper.image {
+.snip-object-fit-item.image {
   float: left;
   width: 40%;
   margin: 0 30px 20px 0; }
-  .snip-object-fit-wrapper.image:nth-child(2n) {
+  .snip-object-fit-item.image:nth-child(2n) {
     clear: left; }
-  .snip-object-fit-wrapper.image:nth-child(2n+1) {
+  .snip-object-fit-item.image:nth-child(2n+1) {
     margin-right: 0; }
 
 /* end hidden rules */
@@ -125,5 +130,45 @@
 @supports (object-position: center center) {
   .snip-object-fit-scale-down {
     object-position: center center; } }
+
+/* example end */
+
+/* import start */
+/* ==========================================================================
+   Pseudo element positioning
+   ========================================================================== */
+/* import end */
+/* hidden rules */
+.snip-pseudo-wrapper {
+  position: relative;
+  padding: 20px;
+  background: #eee; }
+  .snip-pseudo-wrapper + .snip-pseudo-wrapper {
+    margin-top: 20px; }
+  .snip-pseudo-wrapper:after {
+    width: 50px;
+    height: 50px;
+    background: #FF3333;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    transform: translate3d(50%, -50%, 0); }
+
+/* end hidden rules */
+/* example start */
+.snip-pseudo-wrapper-1:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0; }
+
+.snip-pseudo-wrapper-2:after {
+  content: "+1";
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0; }
 
 /* example end */
