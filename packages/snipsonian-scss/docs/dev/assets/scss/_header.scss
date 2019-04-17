@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.#{$className-prefix}-header {
+    padding: 10px 0;
+
+    background: $color-primary;
+}
+
+.#{$className-prefix}-header-title-container {
+    max-width: $container-width;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.#{$className-prefix}-header-title {
+    color: $white;
+
+    a {
+        color: currentColor;
+        text-decoration: none;
+    }
+}

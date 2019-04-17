@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/* Box model
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/* Html & body
+   ========================================================================== */
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+
+    background-color: $white;
+}
+
+
+.ss-docs__wrapper {
+    position: relative;
+
+    min-height: 100%;
+}
+
+.ss-docs__container {
+    display: flex;
+    max-width: $container-width;
+    margin: 0 auto;
+
+    > .ss-docs-nav {
+        width: 250px;
+        padding: 0 15px;
+        flex: 0 0 auto;
+    }
+
+    > .ss-docs-main {
+        width: 100%;
+        padding: 0 15px;
+        flex: 1 1 auto;
+    }
+}

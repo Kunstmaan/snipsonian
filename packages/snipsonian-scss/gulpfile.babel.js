@@ -7,11 +7,14 @@ import concat from 'gulp-concat';
 import notifier from 'node-notifier';
 import livingcss from 'gulp-livingcss';
 import browserSync from 'browser-sync';
+import webpack from 'webpack';
 
 import stylelintPlugin from '../../node_modules/stylelint';
 import reporter from 'postcss-reporter';
 import postcss from 'gulp-postcss';
 import scssSyntax from 'postcss-scss';
+
+import webpackConfig from './docs/config/webpack.config';
 
 const examplesScssSrc = './docs/content/example-styles/*.scss';
 const regexExampleOnly = /(?:[\s\S]*\/\* example start \*\/\n)([\s\S]*)(?:[.$]*\n\/\* example end \*\/[\s\S]*)/g;
@@ -138,6 +141,14 @@ function generateDocs() {
         .pipe(gulp.dest('./docs/dist'));
 }
 
+function scssDocs() {
+    return gulp.src('./docs/dev/assets/scss/*.scss')
+        .pipe(sass({
+            'outputStyle': 'compressed'
+        }).on('error', sassErrorHandler))
+        .pipe(gulp.dest('./docs/dist/css'));
+}
+
 function devServer(cb) {
     browserSync
         .create('server')
@@ -147,6 +158,7 @@ function devServer(cb) {
             files: [
                 './docs/dist/*.html',
                 './docs/dist/css/*.css',
+                './docs/dist/js/*.js',
             ],
             open: false,
             reloadOnRestart: true,
@@ -159,6 +171,8 @@ function devServer(cb) {
 
 function buildOnChange(cb) {
     gulp.watch(['./src/**/*.scss', examplesScssSrc], processExamples);
+    gulp.watch('./docs/dev/assets/scss/**/*.scss', scssDocs);
+    gulp.watch('./docs/dev/assets/js/**/!(*.spec).js', bundleLocal);
     gulp.watch([
         './docs/content/**/*.{css,md}',
         '!./docs/content/example-styles/processed/**',
@@ -169,8 +183,60 @@ function buildOnChange(cb) {
 
 function testOnChange(cb) {
     gulp.watch('./src/**/*.scss', stylelint);
+    gulp.watch('./docs/dev/assets/scss/**/*.scss', stylelint);
     cb();
 }
+
+function createBundleTask({
+    config = undefined,
+    watch = false,
+    logStats = false,
+}) {
+    const compiler = webpack(config);
+
+    return function bundle(done) {
+        if (watch) {
+            compiler.watch({}, handleWebpackResult);
+        } else {
+            compiler.run(handleWebpackResult);
+        }
+
+        function handleWebpackResult(err, stats) {
+            if (err) {
+                console.error(err.stack || err);
+                if (err.details) {
+                    console.error(err.details);
+                }
+                return;
+            }
+
+            const info = stats.toJson();
+
+            if (stats.hasErrors()) {
+                console.error(info.errors);
+            }
+
+            if (stats.hasWarnings()) {
+                console.warn(info.warnings);
+            }
+
+            if (logStats) {
+                console.log(stats.toString());
+            }
+            done();
+        }
+    };
+}
+
+const bundleLocal = createBundleTask({
+    config: webpackConfig(true),
+});
+
+const bundleOptimized = createBundleTask({
+    config: webpackConfig(false, true),
+    logStats: true,
+});
+
 
 const processExamples = gulp.series(
     processScssExamples,
@@ -180,11 +246,16 @@ const processExamples = gulp.series(
 
 const build = gulp.series(
     processExamples,
+    scssDocs,
     generateDocs,
+    bundleOptimized,
 );
 
 const dev = gulp.series(
-    build,
+    processExamples,
+    scssDocs,
+    generateDocs,
+    bundleLocal,
     devServer,
     stylelint,
     buildOnChange,

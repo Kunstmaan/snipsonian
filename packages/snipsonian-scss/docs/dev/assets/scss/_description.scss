@@ -1,0 +1,48 @@
+/* ==========================================================================
+   Description examples
+   ========================================================================== */
+
+.#{$className-prefix}-description {
+    code {
+        padding-left: .3em;
+        padding-right: .3em;
+
+        background-color: rgba($black, .02);
+
+        border: 1px solid rgba($black, .15);
+        border-radius: 3px;
+
+        color: $color-text;
+        font-style: normal;
+        font-size: .877em;
+        white-space: nowrap;
+
+        &,
+        * {
+            -webkit-font-smoothing: auto;
+        }
+    }
+
+    a {
+        text-decoration: none;
+
+        > code {
+            color: $color-primary;
+        }
+    }
+
+    table {
+        margin-bottom: 1.5em;
+
+        border-collapse: collapse;
+        border-spacing: 0;
+
+        td {
+            padding: 6px 13px;
+
+            border: none;
+
+            vertical-align: top;
+        }
+    }
+}

@@ -10,10 +10,6 @@ Fix an element's position and assign its coordinates, all in one line of SCSS.
 
 Notice the example in the bottom right.
 
-## Example
-
-
-### HTML
 ```html
 @example
 <div>See the bottom right</div>

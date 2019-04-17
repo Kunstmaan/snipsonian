@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+.#{$className-prefix}-nav {
+}
+
+.#{$className-prefix}-nav__container {
+    margin-top: 20px;
+}
+
+.#{$className-prefix}-nav__link {
+    display: block;
+    padding: 5px 0;
+
+    font-size: 16px;
+    text-decoration: none;
+}

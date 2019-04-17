@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Code examples
+   ========================================================================== */
+
+.#{$className-prefix}-code {
+    font-size: 13px;
+
+    pre {
+        background: #F5F5F5;
+
+        border-radius: 3px;
+
+        * {
+            -webkit-font-smoothing: auto;
+        }
+    }
+}
+
+.#{$className-prefix}-compiled-css {
+    &.visible {
+        .#{$className-prefix}-compiled-css__content {
+            display: block;
+        }
+
+        .#{$className-prefix}-compiled-css__toggle-button {
+            > .show {
+                display: none;
+            }
+
+            > .hide {
+                display: block;
+            }
+        }
+    }
+}
+
+.#{$className-prefix}-compiled-css__content {
+    display: none;
+}
+
+.#{$className-prefix}-compiled-css__toggle-button {
+    > .hide {
+        display: none;
+    }
+}

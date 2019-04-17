@@ -1,47 +1,50 @@
-<div class="livingcss__section-description">{{{description}}}</div>
+<div class="ss-docs-description">{{{description}}}</div>
 {{#if cssExample}}
-  <h3>Example</h3>
-  {{#if example}}
-    <h4>HTML</h4>
-    {{#if code}}
-    <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code"><code class="language-{{code.type}}">{{code.description}}</code></pre>
-    </div>
+    <h3>Example</h3>
+
+    {{#if example}}
+        <h4>HTML</h4>
+        {{#if code}}
+            <div class="ss-docs-code">
+                <pre><code class="language-{{code.type}}">{{code.description}}</code></pre>
+            </div>
+        {{/if}}
     {{/if}}
-  {{/if}}
 
-  {{#if mixin}}
-  <h4>Mixin</h4>
-  <div class="livingcss__section-markup">
-      <pre class="livingcss__section-code">
-          <code class="language-css">{{cssExample.mixin}}</code>
-      </pre>
-  </div>
-  {{/if}}
+    <h4>SCSS</h4>
+    <div class="ss-docs-code">
+        <pre><code class="language-scss">{{cssExample.scss}}</code></pre>
+    </div>
 
-  <h4>SCSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">{{cssExample.scss}}</code></pre>
-  </div>
+    <div class="js-toggle ss-docs-compiled-css" data-toggle-class="visible">
+        <div class="ss-docs-compiled-css__content">
+            <h4>Compiled CSS</h4>
+            <div class="ss-docs-code">
+                <pre><code class="language-css">{{cssExample.css}}</code></pre>
+            </div>
+        </div>
+        <button class="js-toggle-trigger ss-docs-compiled-css__toggle-button">
+            <span class="show">Show compiled CSS</span>
+            <span class="hide">Hide compiled CSS</span>
+        </button>
+    </div>
 
-  <h4>Compiled CSS</h4>
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-css">{{cssExample.css}}</code></pre>
-  </div>
-
-  {{#if example}}
-    <h4>Result</h4>
-    {{!-- <livingcss-example>{{{example.description}}}</livingcss-example> --}}
-    <div>{{{example.description}}}</div>
-  {{/if}}
+    {{#if example}}
+        <h4>Result</h4>
+        {{!-- <livingcss-example>{{{example.description}}}</livingcss-example> --}}
+        <div>{{{example.description}}}</div>
+    {{/if}}
 {{else}}
-  {{#if example}}
-  <livingcss-example>{{{example.description}}}</livingcss-example>
-  {{/if}}
+    {{#if example}}
+        <h4>HTML</h4>
+        <div class="ss-docs-code">
+            <pre><code class="language-{{example.type}}">{{example.description}}</code></pre>
+        </div>
+    {{/if}}
 
-  {{#if code}}
-  <div class="livingcss__section-markup">
-    <pre class="livingcss__section-code"><code class="language-{{code.type}}">{{code.description}}</code></pre>
-  </div>
-  {{/if}}
+    {{#if code}}
+        <div class="ss-docs-code">
+            <pre><code class="language-{{code.type}}">{{code.description}}</code></pre>
+        </div>
+    {{/if}}
 {{/if}}

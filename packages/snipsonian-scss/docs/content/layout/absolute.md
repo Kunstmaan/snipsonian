@@ -10,9 +10,6 @@ Absolutely position an element and assign its coordinates, all in one line of SC
 
 You'll save years of your life, and probably lose weight.
 
-## Example
-
-### HTML
 ```html
 @example
 <div class="ss-absolute-container">
