@@ -7,8 +7,9 @@
 @mixin snip-absolute(
     $coordinates: 0 n n 0
 ) {
-    position: absolute;
     @include snip-coordinates($coordinates: $coordinates);
+
+    position: absolute;
 }
 
 %snip-absolute {

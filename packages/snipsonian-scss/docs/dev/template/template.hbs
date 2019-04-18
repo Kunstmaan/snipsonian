@@ -30,7 +30,7 @@
                 <div class="ss-docs-nav__container">
                     {{#each pages}}
                         {{#xif name '!=' 'index'}}
-                            {{../name}}
+                            <a class="ss-docs-nav__link ss-docs-nav__link--section" href="{{../id}}.html">{{../name}}</a>
                         {{/xif}}
                         {{#each sections}}
                             <a class="ss-docs-nav__link" href="{{../id}}.html#{{id}}">{{name}}</a>
@@ -51,6 +51,9 @@
                 {{/each}}
             </main>
         </div>
+        <button type="button" class="ss-docs-to-top js-scroll-to" data-scroll-to="top">
+            ^ Back to top
+        </button>
     </div>
 </body>
 </html>

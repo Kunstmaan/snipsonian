@@ -7,8 +7,9 @@
 @mixin snip-fixed(
     $coordinates: 0 n n 0
 ) {
-    position: fixed;
     @include snip-coordinates($coordinates: $coordinates);
+
+    position: fixed;
 }
 
 %snip-fixed {

@@ -6,12 +6,15 @@
 
 /* hidden rules */
 .ss-absolute-container {
-    border: 5px solid $ss-dark;
+    border: 1px solid $ss-dark;
+    background: $ss-light;
     height: 10em;
     width: 15em;
 }
 .ss-absolute {
     @extend %ss-dark-btn;
+
+    background: white;
 }
 /* end hidden rules */
 

@@ -1,5 +1,5 @@
-$ss-dark:       #002834;
-$ss-light:      #9AE9FF;
+$ss-dark:       #539770;
+$ss-light:      #B7E4C9;
 $ss-muted:      #CCCCCC;
 
 $ss-break-xs: 480px;
@@ -16,7 +16,8 @@ $ss-break-xxl: 2000px;
 }
 
 %ss-dark-btn {
-  background-color: $ss-dark;
-  color: white;
+  background-color: $ss-light;
+  border: 1px solid $ss-dark;
+  color: $ss-dark;
   padding: 0.3em 0.5em;
 }
