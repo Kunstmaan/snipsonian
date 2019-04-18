@@ -100,3 +100,17 @@ a {
 
     transition: color .3s ease;
 }
+
+button {
+    padding: .5em 1em;
+
+    background: $color-primary;
+
+    border: darken($color-primary, .1);
+    border-radius: 3px;
+
+    color: $white;
+    line-height: 1;
+
+    cursor: pointer;
+}

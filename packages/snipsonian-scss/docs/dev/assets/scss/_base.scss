@@ -26,7 +26,7 @@ body {
     height: 100%;
     min-height: 100%;
 
-    background-color: $white;
+    background-color: rgba(0, 0, 0, .05); // $white;
 }
 
 
@@ -41,15 +41,19 @@ body {
     max-width: $container-width;
     margin: 0 auto;
 
+    background: $white;
+
     > .ss-docs-nav {
         width: 250px;
         padding: 0 15px;
         flex: 0 0 auto;
+
+        background: rgba($color-primary, .05);
     }
 
     > .ss-docs-main {
         width: 100%;
-        padding: 0 15px;
+        padding: 0 30px;
         flex: 1 1 auto;
 
         > article {
