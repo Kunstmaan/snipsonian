@@ -5,19 +5,26 @@
 /* import end */
 
 /* hidden rules */
-.snip-object-fit-wrapper img {
+.snip-object-fit-wrapper {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+.snip-object-fit-item img {
     height: 120px; background-color: #444;
 }
 
-.snip-object-fit-wrapper img[class] { 
+.snip-object-fit-item img[class] { 
     width: 100%;
 }
 
-.snip-object-fit-wrapper.original-image {
+.snip-object-fit-item.original-image {
     margin-bottom: 50px;
 }
 
-.snip-object-fit-wrapper.image {
+.snip-object-fit-item.image {
     float: left;
     width: 40%;
     margin: 0 30px 20px 0;
