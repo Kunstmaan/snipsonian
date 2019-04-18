@@ -6,7 +6,7 @@ Object-fit mixin, fallbacks for unsuported browsers are <strong>not</strong> pro
 | ---: | --- |
 | **use-name:** | `snip-object-fit` |
 | **type:** | mixin |
-| **arguments:** | `$fit`<br>can be set with one of the following: fill, contain, cover, none, scale-down <br><br>`$x-position`<br>default: center <br><br>`$y-position`<br>default: center.  |
+| **arguments:** | `$fit`<br>can be set with one of the following: `fill`, `contain`, `cover`, `none`, `scale-down` <br><br>`$x-position`<br>default: `center` <br><br>`$y-position`<br>default: `center`  |
 
 
 ```html
