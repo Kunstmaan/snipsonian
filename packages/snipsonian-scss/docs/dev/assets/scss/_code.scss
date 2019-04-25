@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Code examples
+   ========================================================================== */
+
+.#{$className-prefix}-code {
+    position: relative;
+
+    font-size: 13px;
+
+    pre {
+        padding: 20px;
+
+        border-radius: 3px;
+
+        * {
+            -webkit-font-smoothing: auto;
+        }
+
+        code {
+            // color: $white;
+            color: rgb(176, 190, 209);
+
+            .token.property,
+            .token.function {
+                color: $purple-muted;
+            }
+        }
+    }
+
+    + .#{$className-prefix}-code {
+        margin-top: 20px;
+    }
+}
+
+.#{$className-prefix}-code__title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+
+    margin: 0;
+    padding: 10px;
+
+    color: $color-primary;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.#{$className-prefix}-compiled-css {
+    position: relative;
+
+    margin-top: 20px;
+
+    &.visible {
+        .#{$className-prefix}-compiled-css__content {
+            display: block;
+        }
+
+        .#{$className-prefix}-compiled-css__toggle-button {
+            > .show {
+                display: none;
+            }
+
+            > .hide {
+                display: block;
+            }
+        }
+    }
+}
+
+.#{$className-prefix}-compiled-css__content {
+    display: none;
+}
+
+.#{$className-prefix}-compiled-css__toggle-button {
+    > .hide {
+        display: none;
+    }
+}

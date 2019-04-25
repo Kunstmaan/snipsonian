@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Grid mixin
+   ========================================================================== */
+
+@mixin snip-grid($col-gap: 15px, $row-gap: 15px, $cols: 4) {
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+    grid-auto-rows: 1fr;
+    column-gap: $col-gap;
+    row-gap: $row-gap;
+
+    align-items: stretch; // edge doesn't support the shorthand place-items for justify-items and align-items;
+    justify-items: stretch;
+}
+
+@mixin snip-col($span: null, $offset: auto) {
+    grid-column: $offset / span $span;
+}

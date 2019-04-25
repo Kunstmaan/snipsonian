@@ -10,3 +10,4 @@ node_modules
 .idea
 .DS_Store
 *.log
+.history

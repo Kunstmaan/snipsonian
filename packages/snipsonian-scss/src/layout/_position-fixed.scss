@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Layout - Position Fixed
+
+   Depends on `coordinates`.
+   ========================================================================== */
+
+@mixin snip-fixed(
+    $coordinates: 0 n n 0
+) {
+    @include snip-coordinates($coordinates: $coordinates);
+
+    position: fixed;
+}
+
+%snip-fixed {
+    @include snip-fixed();
+}

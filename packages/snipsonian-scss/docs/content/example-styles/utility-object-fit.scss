@@ -1,0 +1,62 @@
+
+/* import start */
+@import "example-variables";
+@import "../../../src/utility/object-fit";
+/* import end */
+
+/* hidden rules */
+.snip-object-fit-wrapper {
+    &::after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+.snip-object-fit-item img {
+    height: 120px; background-color: #444;
+}
+
+.snip-object-fit-item img[class] { 
+    width: 100%;
+}
+
+.snip-object-fit-item.original-image {
+    margin-bottom: 50px;
+}
+
+.snip-object-fit-item.image {
+    float: left;
+    width: 40%;
+    margin: 0 30px 20px 0;
+
+    &:nth-child(2n) {
+        clear: left;
+    }
+
+    &:nth-child(2n+1){
+        margin-right: 0;
+    }
+}
+/* end hidden rules */
+
+/* example start */
+.snip-object-fit-fill {
+    @include snip-object-fit($fit: fill, $x: center, $y: center);
+}
+
+.snip-object-fit-contain {
+    @include snip-object-fit($fit: contain, $x: center, $y: center);
+}
+
+.snip-object-fit-cover {
+    @include snip-object-fit($fit: cover, $x: center, $y: center);
+}
+
+.snip-object-fit-none {
+    @include snip-object-fit($fit: none, $x: center, $y: center);
+}
+
+.snip-object-fit-scale-down {
+    @include snip-object-fit($fit: scale-down, $x: center, $y: center);
+}
+/* example end */

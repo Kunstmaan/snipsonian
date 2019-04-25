@@ -1,0 +1,32 @@
+/* import start */
+@import "example-variables";
+@import "../../../src/layout/coordinates";
+@import "../../../src/layout/position-absolute";
+/* import end */
+
+/* hidden rules */
+.ss-absolute-container {
+    border: 1px solid $ss-dark;
+    background: $ss-light;
+    height: 10em;
+    width: 15em;
+}
+.ss-absolute {
+    @extend %ss-dark-btn;
+
+    background: white;
+}
+/* end hidden rules */
+
+/* example start */
+.ss-absolute-container {
+    position: relative;
+}
+.ss-absolute-1 {
+    @include snip-absolute;
+    // or @extend %snip-absolute;
+}
+.ss-absolute-2 {
+    @include snip-absolute(n 0.5em 1em n);
+}
+/* example end */

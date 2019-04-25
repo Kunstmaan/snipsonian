@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Config
+
+   Never add styles directly to this file - set up vars
+   ========================================================================== */
+
+$className-prefix:          'ss-docs';
+
+/* Colors
+   ========================================================================== */
+$black:                     #000000;
+$grey-dark:                 #323232;
+$grey-light:                #F1F1F1;
+$white:                     #FFFFFF;
+
+$teal-bright:               #50E3C2;
+$teal-muted:                #ABEDDE;
+$purple-bright:             #9730CF;
+$purple-muted:              #D99BFB;
+
+$color-primary:             $teal-bright;
+$color-primary-muted:       $teal-muted;
+$color-secondary:           $purple-bright;
+$color-secondary-muted:     $purple-muted;
+
+$color-text:                $grey-dark;
+
+
+/* Fonts
+   ========================================================================== */
+$roboto:                    'Roboto';
+$roboto-mono:               'Roboto Mono';
+$font-family--base:          $roboto, Helvetica, Arial, sans-serif;
+$font-family--mono:          $roboto-mono, Georgia, serif;
+
+/* Sizes
+   ========================================================================== */
+$container-width:           1170px;
+
+/* Media queries breakpoints
+   ========================================================================== */
+$screen-xs-min:             480px;
+$screen-sm-min:             768px;
+$screen-md-min:             992px;
+$screen-lg-min:             1200px;
+$screen-xl-min:             1400px;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:             ($screen-sm-min - 1);
+$screen-sm-max:             ($screen-md-min - 1);
+$screen-md-max:             ($screen-lg-min - 1);
+$screen-lg-max:             ($screen-xl-min - 1);

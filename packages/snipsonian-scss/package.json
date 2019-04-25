@@ -1,0 +1,29 @@
+{
+  "name": "@snipsonian/scss",
+  "description": "Scss snippets",
+  "main": "scss/_all.scss",
+  "devDependencies": {
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livingcss": "^3.0.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-sass": "^4.0.2",
+    "livingcss": "^5.0.2",
+    "node-notifier": "^5.4.0",
+    "normalize.css": "^8.0.1",
+    "postcss-reporter": "^6.0.1",
+    "postcss-scss": "^2.0.0",
+    "prismjs": "^1.16.0",
+    "webpack": "^4.30.0"
+  },
+  "scripts": {
+    "build": "npm run clean && gulp build",
+    "clean": "rm -rf docs/dist && rm -rf docs/content/example-styles/processed",
+    "start": "npm run clean && gulp dev"
+  }
+}

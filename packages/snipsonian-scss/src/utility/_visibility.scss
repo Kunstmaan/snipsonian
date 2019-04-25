@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Helper classes responsive visibility
+   ========================================================================== */
+
+
+@mixin snip-hide-from($breakpoint: null) {
+    display: inherit !important;
+
+    @if $breakpoint != null {
+        @media (min-width: $breakpoint) {
+            display: none !important;
+        }
+    }
+}
+
+@mixin snip-show-from($breakpoint: null) {
+    display: none !important;
+
+    @if $breakpoint != null {
+        @media (min-width: $breakpoint) {
+            display: inherit !important;
+        }
+    }
+}
