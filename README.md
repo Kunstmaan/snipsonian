@@ -13,7 +13,17 @@ We'll add some documentation on how to use the different snippets in the future.
 * Idea is that you just import (es6 syntax) the code snippet(s) you need and bundle it yourself with the rest of your project code (vs. having to include a 'large' concatenated/minified bundle of which you may only need a small part of)
 
 
-## Installation
+## Usage
+
+1. Add each snipsonian-package that you need by running `npm install --save @snipsonian/<packageName>`
+    * e.g. `npm install --save @snipsonian/core` for the `core` package
+2. Import the snippet you need by importing it's `/es/` version
+    * e.g. `import isSet from '@snipsonian/core/es/is/isSet';`
+    * each such `.js` snippet will have a related `.d.ts` file for the typescript types
+
+## Development
+
+### Installation
 
 1. install nvm (https://github.com/creationix/nvm) if not installed yet
 2. git clone <this repo>
@@ -21,14 +31,14 @@ We'll add some documentation on how to use the different snippets in the future.
 4. Link local packages together and install remaining package dependencies: `npx lerna bootstrap`
 
 
-## Dev commands
+### Dev commands
 
-### `npm test`
+#### `npm test`
 
 Runs sequentially the linters and the unit tests.
 
 
-## Publish new version
+### Publish new version
 
 1. `nvm use`
 2. execute `npm run to-es` to transpile the typescript code to .js and .d.ts files under the /es folders (per package)
