@@ -47,7 +47,6 @@ body {
     > .ss-docs-nav {
         max-width: 70px;
         width: 100%;
-
         flex: 0 0 auto;
         display: flex;
         height: 100%;
@@ -95,7 +94,6 @@ body {
 .ss-docs-nav__container {
     padding: 15px;
     flex: 1 1 auto;
-
     overflow: auto;
 }
 
@@ -133,7 +131,6 @@ body {
     left: 50%;
 
     width: 100px;
-
     transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -90deg);
 
     text-align: center;

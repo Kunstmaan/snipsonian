@@ -2,7 +2,7 @@
   "name": "@snipsonian/scss",
   "version": "1.4.3",
   "description": "Scss snippets",
-  "main": "scss/_all.scss",
+  "main": "src/_snipsonian-scss.scss",
   "devDependencies": {
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",

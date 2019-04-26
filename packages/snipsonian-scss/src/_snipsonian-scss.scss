@@ -7,11 +7,13 @@
 /* Layout
    ========================================================================== */
 @import 'layout/coordinates';
+@import 'layout/flex-grid';
+@import 'layout/grid';
 @import 'layout/position-absolute';
 @import 'layout/position-fixed';
-@import 'layout/flex-grid';
 
 /* Utility
    ========================================================================== */
 @import 'utility/object-fit';
 @import 'utility/pseudo';
+@import 'utility/visibility';

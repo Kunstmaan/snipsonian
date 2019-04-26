@@ -7,7 +7,7 @@
     "lintScss": "stylelint **/*.scss",
     "lintJs": "eslint *.js",
     "lintTs": "eslint --ext .ts packages *.ts",
-    "test": "npm run lintJs && npm run lintTs && jest",
+    "test": "npm run lintJs && npm run lintTs && jest && npm run lintScss",
     "jest": "jest --watch --verbose",
     "del-generated": "del packages/*/es/** packages/*/cjs/**",
     "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
