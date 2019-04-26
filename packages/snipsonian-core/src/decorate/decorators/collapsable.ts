@@ -23,12 +23,12 @@ export default function collapsable({ initialIsCollapsed = false }: ICollapsable
 }
 
 function enrichToBeCollapsable(target: object, initialIsCollapsed: boolean): ICollapsable {
-    const collapsable = target as ICollapsable;
-    collapsable.isCollapsed = initialIsCollapsed;
+    const enrichedTarget = target as ICollapsable;
+    enrichedTarget.isCollapsed = initialIsCollapsed;
 
-    collapsable.toggleCollapse = () => {
-        collapsable.isCollapsed = !collapsable.isCollapsed;
+    enrichedTarget.toggleCollapse = () => {
+        enrichedTarget.isCollapsed = !enrichedTarget.isCollapsed;
     };
 
-    return collapsable;
+    return enrichedTarget;
 }

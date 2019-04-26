@@ -57,7 +57,7 @@ describe('is:', () => {
             expect(is.set(null)).toEqual(false);
 
             const obj = {};
-            expect(is.set(obj['dummyVar'])).toEqual(false);
+            expect(is.set(obj['dummyVar'])).toEqual(false); // eslint-disable-line dot-notation
         });
     });
 
@@ -187,7 +187,7 @@ describe('is:', () => {
             class DummyBuilderClass {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 public build(): any {
-                    return this['prop'];
+                    return this['prop']; // eslint-disable-line dot-notation
                 }
             }
             expect(is.builder(DummyBuilderClass)).toEqual(false);

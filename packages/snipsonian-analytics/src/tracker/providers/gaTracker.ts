@@ -1,6 +1,3 @@
-type TGaParam = string | number | object;
-declare const ga: (action: string, ...params: TGaParam[]) => void;
-
 import {
     IVirtualPageview,
     IEvent,
@@ -9,6 +6,9 @@ import {
     IException,
     ITracker,
 } from '../index';
+
+type TGaParam = string | number | object;
+declare const ga: (action: string, ...params: TGaParam[]) => void;
 
 /**
  * The optional custom object param can be used for custom dimensions and metrics

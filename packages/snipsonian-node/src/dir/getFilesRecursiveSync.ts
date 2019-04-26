@@ -1,6 +1,7 @@
+import isDirectorySync from './isDirectorySync';
+
 const fs = require('fs');
 const path = require('path');
-import isDirectorySync from './isDirectorySync';
 
 export interface IFile {
     name: string;

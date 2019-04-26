@@ -15,7 +15,7 @@ describe('createObserverManager()', () => {
             onError: handleError,
         });
 
-        expect(manager['observers']).toContain(observer);
+        expect(manager['observers']).toContain(observer); // eslint-disable-line dot-notation
     });
 
     it('can unregister an observer', () => {
@@ -69,6 +69,7 @@ function findObserverInManager({ manager, observerToFind }: {
     manager: IObserverManager;
     observerToFind: IObserver;
 }): IObserver {
+    // eslint-disable-next-line dot-notation
     return (manager['observers'] as IObserver[]).find((observer) => observer === observerToFind);
 }
 

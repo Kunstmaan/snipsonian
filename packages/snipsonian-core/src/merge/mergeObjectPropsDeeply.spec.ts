@@ -21,8 +21,8 @@ describe('mergeObjectPropsDeeply()', () => {
                 c: '2',
             },
         });
-        expect(source1['b']).toBeUndefined();
-        expect(source2['a']).toBeUndefined();
+        expect(source1['b']).toBeUndefined(); // eslint-disable-line dot-notation
+        expect(source2['a']).toBeUndefined(); // eslint-disable-line dot-notation
     });
 
     it('the last source takes precedence for properties occurring in multiple sources', () => {

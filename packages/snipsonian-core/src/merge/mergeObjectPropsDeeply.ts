@@ -34,7 +34,13 @@ export default function mergeObjectPropsDeeply(...sources: object[]): object {
     );
 }
 
-export function mergeObjectPropsDeeplyFromSourceToTarget({ target, source }: { target: object; source: object }): object {
+export function mergeObjectPropsDeeplyFromSourceToTarget({
+    target,
+    source,
+}: {
+    target: object;
+    source: object;
+}): object {
     if (isUndefined(target) || isNull(target)) {
         return source;
     }

@@ -12,13 +12,13 @@ describe('collapsable()', () => {
         const someBlock = {
             title: 'Block that will be collapsable',
         };
-        expect(someBlock['isCollapsed']).not.toBeDefined();
-        expect(someBlock['toggleCollapse']).not.toBeDefined();
+        expect(someBlock['isCollapsed']).not.toBeDefined(); // eslint-disable-line dot-notation
+        expect(someBlock['toggleCollapse']).not.toBeDefined(); // eslint-disable-line dot-notation
 
         collapsable()(someBlock);
 
-        expect(someBlock['isCollapsed']).toBeDefined();
-        expect(someBlock['toggleCollapse']).toBeDefined();
+        expect(someBlock['isCollapsed']).toBeDefined(); // eslint-disable-line dot-notation
+        expect(someBlock['toggleCollapse']).toBeDefined(); // eslint-disable-line dot-notation
     });
 
     it('sets the enriched isCollapsed boolean by default to false', () => {

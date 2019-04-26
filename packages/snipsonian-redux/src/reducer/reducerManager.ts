@@ -18,7 +18,9 @@ export interface IReducerConfig<ReducerState> extends
         ICreateReducerConfig<ReducerState>,
         'initialState' | 'actionHandlers'
     > {
-    actionTypeToResetState?: string; // if provided, an action handler will be added automatically that will reset the reducer state to the initialState on receiving this action
+    /* If 'actionTypeToResetState' provided, an action handler will be added automatically that will reset
+       the reducer state to the initialState on receiving this action */
+    actionTypeToResetState?: string;
 }
 
 export interface IReducers {
@@ -36,6 +38,7 @@ export function registerReducer<ReducerState = {}>({
     initialState = ({} as ReducerState),
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
+    // eslint-disable-next-line max-len
     transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
     actionTypeToResetState,
 }: IReducerConfig<ReducerState>): TReducer<ReducerState> {
@@ -68,6 +71,7 @@ export function registerReducer<ReducerState = {}>({
 export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
+    // eslint-disable-next-line max-len
     transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
 }: IProvidedReducerConfig<ReducerState>): void {
     assert(key, isSet, 'Invalid key {val}');
@@ -199,18 +203,20 @@ function conditionallyAddActionHandlerToResetState<ReducerState>({
     initialState,
 }: { actionTypeToResetState?: string } & ICreateReducerConfig<ReducerState>): IActionHandlers<{}> {
     if (actionTypeToResetState && noActionHandlerForType(actionTypeToResetState, actionHandlers)) {
-        const initialStateActionHandler = createActionHandler(() => {
-            return {
-                ...initialState,
-            };
-        });
+        const initialStateActionHandler = createActionHandler(() => ({
+            ...initialState,
+        }));
 
+        // eslint-disable-next-line no-param-reassign
         actionHandlers[actionTypeToResetState] = initialStateActionHandler;
     }
 
     return actionHandlers as unknown as IActionHandlers<{}>;
 }
 
-export function noActionHandlerForType<ReducerState>(actionType: string, actionHandlers: IActionHandlers<ReducerState>): boolean {
+export function noActionHandlerForType<ReducerState>(
+    actionType: string,
+    actionHandlers: IActionHandlers<ReducerState>,
+): boolean {
     return !actionHandlers[actionType];
 }

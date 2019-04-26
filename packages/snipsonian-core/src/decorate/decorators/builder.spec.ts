@@ -10,13 +10,13 @@ describe('builder()', () => {
 
     it('enriches the input entity (= target) to become a builder (has a build method etc.)', () => {
         class SomeClass {}
-        expect(SomeClass['build']).not.toBeDefined();
-        expect(SomeClass['with']).not.toBeDefined();
+        expect(SomeClass['build']).not.toBeDefined(); // eslint-disable-line dot-notation
+        expect(SomeClass['with']).not.toBeDefined(); // eslint-disable-line dot-notation
 
         builder()(SomeClass);
 
-        expect(SomeClass['build']).toBeDefined();
-        expect(SomeClass['with']).toBeDefined();
+        expect(SomeClass['build']).toBeDefined(); // eslint-disable-line dot-notation
+        expect(SomeClass['with']).toBeDefined(); // eslint-disable-line dot-notation
     });
 
     it(

@@ -1,11 +1,7 @@
 import isSet from '@snipsonian/core/src/is/isSet';
 import isNumber from '@snipsonian/core/src/is/isNumber';
 import createFetchRequest, { RequestMethod, INameValueHeaderPairs } from './createFetchRequest';
-import rejectPromiseOnHttpErrorStatus from './rejectPromiseOnHttpErrorStatus';
-
-export interface IFetchRequestError extends TypeError {
-    response: Response;
-}
+import rejectPromiseOnHttpErrorStatus, { IFetchRequestError } from './rejectPromiseOnHttpErrorStatus';
 
 export interface IFetchRequestTimeOutRejectProps {
     status: number;
@@ -27,7 +23,7 @@ const fetcher = {
     }: {
         url: string;
         method: RequestMethod;
-        body?: object | string;
+        body?: object | string;
         nameValueHeaderPairs?: INameValueHeaderPairs;
         timeoutInMillis?: number;
     }) => {

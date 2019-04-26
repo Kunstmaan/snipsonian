@@ -38,6 +38,7 @@ export default function createReduxStore<State>({
         onStorageError,
     });
 
+    // eslint-disable-next-line dot-notation
     const composeEnhancers = (typeof window !== 'undefined' && window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'])
         || compose;
 

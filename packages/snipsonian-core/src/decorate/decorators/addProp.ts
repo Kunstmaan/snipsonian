@@ -50,6 +50,7 @@ function enrichWithProp({
     options?: IAddPropOptions;
 }): any { // eslint-disable-line @typescript-eslint/no-explicit-any
     if (options.addIfValueUnset || isSet(propValue)) {
+        // eslint-disable-next-line no-param-reassign
         target[propName] = propValue;
     }
 

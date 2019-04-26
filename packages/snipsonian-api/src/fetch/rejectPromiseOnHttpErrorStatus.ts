@@ -1,4 +1,6 @@
-import { IFetchRequestError } from './fetcher';
+export interface IFetchRequestError extends TypeError {
+    response: Response;
+}
 
 /**
  * https://github.com/github/fetch

@@ -65,7 +65,7 @@ export default function createStoreEnhancer({
     if (stateStorageType !== STATE_STORAGE_TYPE.NO_STORAGE) {
         assertStateStorageKey({
             stateStorageKey,
-            // tslint:disable-next-line:max-line-length
+            // eslint-disable-next-line max-len
             errorMessage: `The stateStorageKey input {val} should be a valid string when stateStorageType is not ${STATE_STORAGE_TYPE.NO_STORAGE}`,
         });
 

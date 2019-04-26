@@ -1,5 +1,3 @@
-declare let dataLayer: object[];
-
 import {
     IVirtualPageview,
     IEvent,
@@ -9,6 +7,8 @@ import {
     ITracker,
 } from '../index';
 import initOptionalFields from './initOptionalFields';
+
+declare let dataLayer: object[];
 
 let virtualUrlPrefix = '';
 
@@ -60,6 +60,7 @@ function sendEvent({
     });
 }
 
+// eslint-disable-next-line no-empty-pattern
 function sendSocial({
     // network,
     // action,
@@ -88,6 +89,7 @@ function sendTiming({
     });
 }
 
+// eslint-disable-next-line no-empty-pattern
 function sendException({
     // description,
     // isFatal = false,

@@ -1,4 +1,5 @@
 import gaTracker from './gaTracker';
+
 import Mock = jest.Mock;
 
 describe('gaTracker:', () => {

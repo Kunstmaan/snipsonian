@@ -6,6 +6,7 @@ export interface IConditionalCatchInput {
     shouldCatchErrors?: boolean;
 }
 
+// eslint-disable-next-line consistent-return
 export default function conditionalCatch({
     actionToExecute,
     onError,

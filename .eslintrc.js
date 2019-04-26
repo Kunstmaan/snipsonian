@@ -17,6 +17,9 @@ module.exports = {
         navigator: 'readonly'
     },
     rules: {
+        'implicit-arrow-linebreak': ['off'],
+        'function-paren-newline': ['error', 'consistent'],
+
         '@typescript-eslint/no-use-before-define': ['error', { functions: false, classes: true }],
         '@typescript-eslint/explicit-function-return-type': ['error', { allowExpressions: true }],
         '@typescript-eslint/interface-name-prefix': ['error', 'always'],

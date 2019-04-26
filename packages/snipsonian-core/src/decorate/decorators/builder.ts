@@ -31,22 +31,22 @@ export default function builder({
 }
 
 function enrichToBeBuilder(target: object, { initialBuildParams, buildStateName }: IBuilderOptions): IBuilder {
-    const builder = target as IBuilder;
+    const enrichedTarget = target as IBuilder;
 
-    if (isUndefined(builder[buildStateName])) {
-        builder[buildStateName] = initialBuildParams;
+    if (isUndefined(enrichedTarget[buildStateName])) {
+        enrichedTarget[buildStateName] = initialBuildParams;
     } else {
-        Object.assign(builder[buildStateName], initialBuildParams);
+        Object.assign(enrichedTarget[buildStateName], initialBuildParams);
     }
 
-    builder.with = (key, val) => {
-        builder[buildStateName][key] = val;
-        return builder;
+    enrichedTarget.with = (key, val) => {
+        enrichedTarget[buildStateName][key] = val;
+        return enrichedTarget;
     };
 
-    builder.getBuildParam = (key) => builder[buildStateName][key];
+    enrichedTarget.getBuildParam = (key) => enrichedTarget[buildStateName][key];
 
-    builder.build = () => builder[buildStateName];
+    enrichedTarget.build = () => enrichedTarget[buildStateName];
 
-    return builder;
+    return enrichedTarget;
 }

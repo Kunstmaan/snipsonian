@@ -1,3 +1,5 @@
+/* global Request, Headers */
+
 export enum RequestMethod {
     Get = 'GET',
     Post = 'POST',
@@ -7,7 +9,7 @@ export enum RequestMethod {
 
 export interface IFetchRequestConfig {
     method: RequestMethod;
-    body?: object | string;
+    body?: object | string;
     headers?: Headers;
 }
 
@@ -43,6 +45,7 @@ function appendHeadersToConfig(config: IFetchRequestConfig, nameValueHeaderPairs
     const headerNames = Object.getOwnPropertyNames(nameValueHeaderPairs);
 
     if (headerNames && headerNames.length > 0) {
+        // eslint-disable-next-line no-param-reassign
         config.headers = new Headers();
 
         headerNames.forEach((headerName) => {
