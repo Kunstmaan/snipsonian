@@ -1,0 +1,25 @@
+
+/* import start */
+@import "example-variables";
+@import "../../../src/layout/grid";
+/* import end */
+
+/* hidden rules */
+.ss-grid-item {
+    padding: 20px;
+
+    background: $ss-light;
+
+    border: 1px solid $ss-dark;
+
+    text-align: center;
+    color: $ss-dark;
+
+}
+/* end hidden rules */
+
+/* example start */
+.ss-grid {
+    @include snip-grid();
+}
+/* example end */

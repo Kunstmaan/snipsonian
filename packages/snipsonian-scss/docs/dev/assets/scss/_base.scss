@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/* Box model
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/* Html & body
+   ========================================================================== */
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+
+    background-color: rgba(0, 0, 0, .05); // $white;
+}
+
+
+.ss-docs__wrapper {
+    position: relative;
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ss-docs__container {
+    display: flex;
+    flex: 1 1 auto;
+
+    background: $white;
+
+    > .ss-docs-nav {
+        max-width: 70px;
+        width: 100%;
+
+        flex: 0 0 auto;
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+
+        background: $color-primary-muted;
+
+        transition: .3s ease-in-out max-width;
+
+        &.nav-open {
+            max-width: 60%;
+        }
+
+        @media (min-width: $screen-md-min) {
+            max-width: 30% !important;
+            overflow: auto;
+        }
+    }
+
+    > .ss-docs-main {
+        width: 40%;
+        padding: 0;
+        flex: 1 1 auto;
+        height: 100%;
+        overflow: auto;
+
+        > article {
+            padding: 50px 15px;
+
+            h2 {
+                margin-top: 0;
+            }
+
+            + article {
+                border-top: 1px solid $grey-light;
+            }
+        }
+
+        @media (min-width: $screen-md-min) {
+            width: 70%;
+        }
+    }
+}
+
+.ss-docs-nav__container {
+    padding: 15px;
+    flex: 1 1 auto;
+
+    overflow: auto;
+}
+
+.ss-docs-to-top {
+    width: 100%;
+
+    background: $black;
+
+    border-radius: 0;
+
+    color: $color-primary;
+
+    &:hover {
+        background: $black;
+
+        color: $color-primary-muted;
+    }
+}
+
+.ss-docs-nav__toggle {
+    position: relative;
+
+    padding: 5px;
+    width: 70px;
+    flex: 0 0 auto;
+
+    @media (min-width: $screen-md-min) {
+        display: none;
+    }
+}
+
+.ss-docs-nav__toggle__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100px;
+
+    transform: translate3d(-50%, -50%, 0) rotate3d(0, 0, 1, -90deg);
+
+    text-align: center;
+
+    .hide {
+        display: none;
+
+        .nav-open & {
+            display: inline-block;
+        }
+    }
+
+    .show {
+        display: inline-block;
+
+        .nav-open & {
+            display: none;
+        }
+    }
+}

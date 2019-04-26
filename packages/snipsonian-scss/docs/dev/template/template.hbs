@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="livingcss">
+<head>
+    <title>{{title}} {{ suffix }}</title>
+
+    <link href="//fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,500,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    <!-- examples styles -->
+    {{#each globalStylesheets}}
+    <link rel="stylesheet" href="{{this}}">
+    {{/each}}
+    <!-- /examples styles -->
+
+    <script defer src="/js/docs.js"></script>
+</head>
+<body class="ss-docs">
+    <div class="ss-docs__wrapper">
+
+        <header class="ss-docs-header">
+            <div class="ss-docs-header-title-container">
+                <h1 class="ss-docs-header-title">
+                    <a href="{{navbar.0.url}}">{{title}} <small>{{ suffix }}</small></a>
+                </h1>
+            </div>
+        </header>
+
+        <div class="ss-docs__container">
+            <nav class="ss-docs-nav js-toggle" data-toggle-class="nav-open">
+                <button class="ss-docs-nav__toggle js-toggle-trigger">
+                    <span class="ss-docs-nav__toggle__content">
+                        <span class="show">Open NAV</span>
+                        <span class="hide">Close NAV</span>
+                    </span>
+                </button>
+                <div class="ss-docs-nav__container">
+                    {{#each pages}}
+                        {{#xif name '!=' 'index'}}
+                            <a class="ss-docs-nav__link ss-docs-nav__link--section" href="{{../id}}.html">{{../name}}</a>
+                        {{/xif}}
+                        {{#each sections}}
+                            <a class="ss-docs-nav__link" href="{{../id}}.html#{{id}}">{{name}}</a>
+                        {{/each}}
+                    {{/each}}
+                </div>
+            </nav>
+            <main class="ss-docs-main" role="main">
+                {{#each sections}}
+                    <article id="{{id}}">
+                        <h2>{{name}}</h2>
+                        {{~> section}}
+
+                        {{#children}}
+                            {{~> childSection}}
+                        {{/children}}
+                    </article>
+                {{/each}}
+                <button type="button" class="ss-docs-to-top js-scroll-to" data-scroll-to="top">
+                    Back to top
+                </button>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

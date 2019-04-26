@@ -1,0 +1,17 @@
+/* ==========================================================================
+   Layout - Position Absolute
+
+   Depends on `coordinates`.
+   ========================================================================== */
+
+@mixin snip-absolute(
+    $coordinates: 0 n n 0
+) {
+    @include snip-coordinates($coordinates: $coordinates);
+
+    position: absolute;
+}
+
+%snip-absolute {
+    @include snip-absolute();
+}
