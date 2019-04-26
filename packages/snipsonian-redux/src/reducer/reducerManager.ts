@@ -2,8 +2,9 @@ import assert from '@snipsonian/core/src/assert';
 import isSet from '@snipsonian/core/src/is/isSet';
 import createReducer, { IActionHandlers, ICreateReducerConfig, TReducer } from './createReducer';
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from '../config/storageType';
+import { createActionHandler } from './createActionHandler';
 
-export type TTransformReducerStateForStorage<ReducerState> = (reducerState: ReducerState) => ReducerState;
+export type TTransformReducerStateForStorage<ReducerState> = (reducerState: ReducerState) => Partial<ReducerState>;
 
 export interface IProvidedReducerConfig<ReducerState> {
     key: string;
@@ -16,14 +17,16 @@ export interface IReducerConfig<ReducerState> extends
     Pick<
         ICreateReducerConfig<ReducerState>,
         'initialState' | 'actionHandlers'
-    > {}
+    > {
+    actionTypeToResetState?: string; // if provided, an action handler will be added automatically that will reset the reducer state to the initialState on receiving this action
+}
 
 export interface IReducers {
     [reducerKey: string]: TReducer<{}>;
 }
 
 const reducerConfigs: IReducerConfig<{}>[] = [];
-const registeredReducers: IReducers = {};
+let registeredReducers: IReducers = {};
 
 const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerState: object): object => reducerState;
 
@@ -34,6 +37,7 @@ export function registerReducer<ReducerState = {}>({
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
     transformReducerStateForStorage = (KEEP_REDUCER_STATE_AS_IS as unknown as TTransformReducerStateForStorage<ReducerState>),
+    actionTypeToResetState,
 }: IReducerConfig<ReducerState>): TReducer<ReducerState> {
     assert(key, isSet, 'Invalid key {val}');
     assert(key, isReducerKeyUnique, 'There is already another reducer registered with the key {val}');
@@ -41,7 +45,11 @@ export function registerReducer<ReducerState = {}>({
     reducerConfigs.push({
         key,
         initialState,
-        actionHandlers: actionHandlers as unknown as IActionHandlers<{}>,
+        actionHandlers: conditionallyAddActionHandlerToResetState({
+            actionTypeToResetState,
+            actionHandlers,
+            initialState,
+        }),
         reducerStorageType,
         transformReducerStateForStorage:
             transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<{}>,
@@ -75,6 +83,13 @@ export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
 
 export function getRegisteredReducers(): IReducers {
     return registeredReducers;
+}
+
+/**
+ * Can be useful for test purposes.
+ */
+export function clearRegisteredReducers(): void {
+    registeredReducers = {};
 }
 
 export function getCombinedInitialState(): object {
@@ -176,4 +191,26 @@ function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<{}>): boolean {
 
 function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<{}>): boolean {
     return reducerConfig.reducerStorageType !== REDUCER_STORAGE_TYPE.NO_STORAGE;
+}
+
+function conditionallyAddActionHandlerToResetState<ReducerState>({
+    actionTypeToResetState,
+    actionHandlers,
+    initialState,
+}: { actionTypeToResetState?: string } & ICreateReducerConfig<ReducerState>): IActionHandlers<{}> {
+    if (actionTypeToResetState && noActionHandlerForType(actionTypeToResetState, actionHandlers)) {
+        const initialStateActionHandler = createActionHandler(() => {
+            return {
+                ...initialState,
+            };
+        });
+
+        actionHandlers[actionTypeToResetState] = initialStateActionHandler;
+    }
+
+    return actionHandlers as unknown as IActionHandlers<{}>;
+}
+
+export function noActionHandlerForType<ReducerState>(actionType: string, actionHandlers: IActionHandlers<ReducerState>) {
+    return !actionHandlers[actionType];
 }

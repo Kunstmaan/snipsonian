@@ -1,7 +1,4 @@
-export interface IAction<P, Type = string> {
-    type: Type;
-    payload: P;
-}
+import { IAction } from '../action/types';
 
 export type TReducer<ReducerState> = (state: ReducerState, action: IAction<{}>) => ReducerState;
 

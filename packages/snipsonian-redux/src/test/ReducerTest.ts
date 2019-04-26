@@ -1,4 +1,5 @@
-import { IAction, TReducer } from '../reducer/createReducer';
+import { TReducer } from '../reducer/createReducer';
+import { IAction } from '../action/types';
 
 class ReducerTest<ReducerState> {
     public reducer: TReducer<ReducerState>;
