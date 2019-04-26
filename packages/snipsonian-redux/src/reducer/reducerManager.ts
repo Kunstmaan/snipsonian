@@ -211,6 +211,6 @@ function conditionallyAddActionHandlerToResetState<ReducerState>({
     return actionHandlers as unknown as IActionHandlers<{}>;
 }
 
-export function noActionHandlerForType<ReducerState>(actionType: string, actionHandlers: IActionHandlers<ReducerState>) {
+export function noActionHandlerForType<ReducerState>(actionType: string, actionHandlers: IActionHandlers<ReducerState>): boolean {
     return !actionHandlers[actionType];
 }
