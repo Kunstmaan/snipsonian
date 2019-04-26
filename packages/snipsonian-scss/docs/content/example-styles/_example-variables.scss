@@ -1,0 +1,23 @@
+$ss-dark:       #9730CF;
+$ss-light:      #D99BFB;
+$ss-muted:      #CCCCCC;
+
+$ss-break-xs: 480px;
+$ss-break-sm: 768px;
+$ss-break-md: 992px;
+$ss-break-lg: 1200px;
+$ss-break-xl: 1400px;
+$ss-break-xxl: 2000px;
+
+%ss-light-btn {
+  border: 1px solid $ss-dark;
+  color: $ss-dark;
+  padding: 0.3em 0.5em;
+}
+
+%ss-dark-btn {
+  background-color: $ss-light;
+  border: 1px solid $ss-dark;
+  color: $ss-dark;
+  padding: 0.3em 0.5em;
+}

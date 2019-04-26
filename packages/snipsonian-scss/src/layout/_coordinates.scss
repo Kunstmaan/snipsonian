@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Layout - Coordinates
+   ========================================================================== */
+
+@function snip-auto-or-value($val) {
+    @if $val == a or $val == auto {
+        @return auto;
+    } @else {
+        @return $val;
+    }
+}
+
+@mixin snip-coordinates(
+    $coordinates: n n n n
+) {
+    $top: nth($coordinates, 1);
+    $right: nth($coordinates, 2);
+    $bottom: nth($coordinates, 3);
+    $left: nth($coordinates, 4);
+
+    @if $top != n {
+        top: snip-auto-or-value($top);
+    }
+
+    @if $right != n {
+        right: snip-auto-or-value($right);
+    }
+
+    @if $bottom != n {
+        bottom: snip-auto-or-value($bottom);
+    }
+
+    @if $left != n {
+        left: snip-auto-or-value($left);
+    }
+}

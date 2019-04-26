@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Nav
+   ========================================================================== */
+.#{$className-prefix}-nav {
+}
+
+.#{$className-prefix}-nav__container {
+}
+
+.#{$className-prefix}-nav__link {
+    display: block;
+    padding: 5px;
+
+    text-decoration: none;
+    color: $color-text;
+    font-weight: 500;
+
+    &:hover {
+        background: $color-text;
+
+        color: $color-primary-muted;
+    }
+
+    + .#{$className-prefix}-nav__link {
+        border-top: 1px solid rgba($color-text, .2);
+    }
+
+    &.#{$className-prefix}-nav__link--section {
+        margin-top: 20px;
+        padding: 0;
+
+        border-top: none;
+
+        font-size: 18px;
+        font-weight: 800;
+
+        &:hover {
+            background: none;
+
+            color: $white;
+        }
+
+        + .#{$className-prefix}-nav__link {
+            border-top: none;
+        }
+    }
+}
