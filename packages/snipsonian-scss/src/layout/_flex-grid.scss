@@ -2,22 +2,26 @@
    Layout - Flex grid
    ========================================================================== */
 
-@mixin snip-flex-grid($gutter: 0, $cols: 0) {
+@mixin snip-flex-grid($gutter: 0, $cols: null) {
     display: flex;
     justify-content: flex-start;
     @if $cols {
         flex-wrap: wrap;
-
-        @if $gutter {
-            margin-left: -#{$gutter / 2};
-            margin-right: -#{$gutter / 2};
-        }
     }
+
+    margin-left: -#{$gutter / 2};
+    margin-right: -#{$gutter / 2};
 
     > * {
         display: block;
         @if $cols {
-            flex-basis: calc(#{(100% / $cols)} - #{$gutter});
+            @if $cols == 0 {
+                @warn "0 is an invalid value for $cols";
+            } @else {
+                width: calc(#{(100% / $cols)} - #{$gutter});
+                flex-basis: auto;
+                flex-grow: 0;
+            }
             flex-grow: 0;
             margin: #{$gutter / 2};
         } @else {
@@ -25,6 +29,7 @@
             flex-grow: 1;
         }
         flex-shrink: 1;
+        margin: #{$gutter / 2};
     }
 }
 

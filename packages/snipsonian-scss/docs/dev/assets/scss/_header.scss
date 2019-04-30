@@ -14,10 +14,6 @@
 
 .#{$className-prefix}-header-title-container {
     padding: 0 15px;
-
-    @media (min-width: $screen-sm-max) {
-        padding: 0 50px;
-    }
 }
 
 .#{$className-prefix}-header-title {

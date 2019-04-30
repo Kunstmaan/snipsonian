@@ -172,9 +172,5 @@ pre > code.highlight {
 * http://prismjs.com/plugins/line-highlight/
 */
 .line-highlight {
-    background: rgba(10, 163, 112, .2);
-    // stylelint-disable-next-line declaration-block-no-duplicate-properties
-    background: -webkit-linear-gradient(left, rgba(10, 163, 112, .2) 70%, rgba(10, 163, 112, 0));
-    // stylelint-disable-next-line declaration-block-no-duplicate-properties
-    background: linear-gradient(to right, rgba(10, 163, 112, .2) 70%, rgba(10, 163, 112, 0));
+    background: rgba(10, 163, 112, .2) linear-gradient(to right, rgba(10, 163, 112, .2) 70%, rgba(10, 163, 112, 0));
 }

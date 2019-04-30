@@ -6,9 +6,9 @@ A shorthand for assigning coordinates to an element.
 | ---: | --- |
 | **use-name:** | `snip-coordinates` |
 | **type:** | mixin only |
-| **arguments:** | `$coordinates`<br>   default: `n n n n`<br>   A list: `top`, `right`, `bottom`, and `left` coordinates. `n` abbreviates `null`. `a` is interchangeable with `auto`. See below.  |
+| **arguments:** | <ol><li>`$coordinates`<br/>default: `n n n n`<br/>A list: `top`, `right`, `bottom`, and `left` coordinates. `n` abbreviates `null`. `a` is interchangeable with `auto`. See below.</li></ol> |
 
-You *may* want to use this mixin on its own &mdash; but **this mixin's primary purpose is to facilitate the positioning mixins: [`snip-absolute`](#absolute), [`snip-relative`](#relative), and [`snip-fixed`](#fixed)**, which pair your coordinates with a `position` value.
+You *may* want to use this mixin on its own &mdash; but **this mixin's primary purpose is to facilitate the positioning mixins: [`snip-absolute`](#absolute), and [`snip-fixed`](#fixed)**, which pair your coordinates with a `position` value.
 
 Some guidlines for this mixin and its followers:
 

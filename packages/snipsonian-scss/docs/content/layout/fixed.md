@@ -6,7 +6,7 @@ Fix an element's position and assign its coordinates, all in one line of SCSS.
 | ---: | --- |
 | **use-name:** | `snip-fixed` |
 | **type:** | mixin, with default-values placeholder |
-| **arguments:** | `$coordinates`<br>default: `0 n n 0`<br>See information about [snip-coords](#coordinates).  |
+| **arguments:** | <ol><li>`$coordinates`<br/>default: `0 n n 0`<br/><br/>See information about [snip-coords](#coordinates).</li></ol> |
 
 Notice the example in the bottom right.
 

@@ -16,7 +16,7 @@
     height: 120px; background-color: #444;
 }
 
-.snip-object-fit-item img[class] { 
+.snip-object-fit-item img[class] {
     width: 100%;
 }
 
@@ -41,22 +41,26 @@
 
 /* example start */
 .snip-object-fit-fill {
-    @include snip-object-fit($fit: fill, $x: center, $y: center);
+    @include snip-object-fit($fit: fill);
 }
 
 .snip-object-fit-contain {
-    @include snip-object-fit($fit: contain, $x: center, $y: center);
+    @include snip-object-fit($fit: contain);
+}
+
+.snip-object-fit-contain-bottom-right {
+    @include snip-object-fit($fit: contain, $x: right, $y: bottom);
 }
 
 .snip-object-fit-cover {
-    @include snip-object-fit($fit: cover, $x: center, $y: center);
+    @include snip-object-fit($fit: cover);
 }
 
 .snip-object-fit-none {
-    @include snip-object-fit($fit: none, $x: center, $y: center);
+    @include snip-object-fit($fit: none);
 }
 
 .snip-object-fit-scale-down {
-    @include snip-object-fit($fit: scale-down, $x: center, $y: center);
+    @include snip-object-fit($fit: scale-down);
 }
 /* example end */

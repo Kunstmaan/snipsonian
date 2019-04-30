@@ -5,25 +5,35 @@
 /* import end */
 
 /* hidden rules */
-.ss-flex-grid {
+.ss-flex-grid-container {
+    padding: 1em;
+    margin: 1em 0;
+    background: $ss-light;
+}
+
+.ss-flex-grid-1,
+.ss-flex-grid-2 {
     > * {
         padding: 20px;
         box-sizing: border-box;
-    
-        background: $ss-light;;
-    
+
+        background: white;
+
         border: 1px solid $ss-dark;
-    
+
         text-align: center;
         color: $ss-dark;
-    
+
     }
 }
 /* end hidden rules */
 
 /* example start */
-.ss-flex-grid {
-    @include snip-flex-grid(14px, 2);
+.ss-flex-grid-1 {
+    @include snip-flex-grid($gutter: 14px);
 }
 
+.ss-flex-grid-2 {
+    @include snip-flex-grid($gutter: 14px, $cols: 3);
+}
 /* example end */

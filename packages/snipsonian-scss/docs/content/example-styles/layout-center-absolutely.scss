@@ -1,0 +1,41 @@
+/* import start */
+@import "example-variables";
+@import "../../../src/layout/center-absolutely";
+/* import end */
+
+/* hidden rules */
+.ss-center-absolutely-container {
+    border: 1px solid $ss-dark;
+    background: $ss-light;
+    height: 10em;
+    width: 100%;
+    margin: 1em 0;
+}
+.ss-center-absolutely {
+    @extend %ss-dark-btn;
+
+    background: white;
+    white-space: nowrap;
+}
+/* end hidden rules */
+
+/* example start */
+.ss-center-absolutely-container {
+    position: relative;
+}
+
+.ss-center-absolutely-1 {
+    @include snip-center-absolutely;
+    // or @extend %snip-center-absolutely;
+}
+
+.ss-center-absolutely-2 {
+    @include snip-center-absolutely($axis: x);
+    // or @extend %snip-center-absolutely-x;
+}
+
+.ss-center-absolutely-3 {
+    @include snip-center-absolutely($axis: y);
+    // or @extend %snip-center-absolutely-y;
+}
+/* example end */

@@ -2,6 +2,14 @@ const CLASS_NAME = 'js-scroll-to';
 
 export default function init() {
     const elements = document.querySelectorAll(`.${CLASS_NAME}`);
+    const hash = location.hash;
+
+    if (hash) {
+        setTimeout(() => {
+            location.hash = '';
+            location.hash = hash;
+        }, 50)
+    }
 
     elements.forEach((element) => {
         element.addEventListener('click', handleClick);

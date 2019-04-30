@@ -61,7 +61,8 @@ body {
         }
 
         @media (min-width: $screen-md-min) {
-            max-width: 30% !important;
+            max-width: 270px;
+            width: 30%;
             overflow: auto;
         }
     }
@@ -87,6 +88,10 @@ body {
 
         @media (min-width: $screen-md-min) {
             width: 70%;
+
+            > article {
+                padding-left: 50px;
+            }
         }
     }
 }

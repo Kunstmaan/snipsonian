@@ -6,7 +6,7 @@ Absolutely position an element and assign its coordinates, all in one line of SC
 | ---: | --- |
 | **use-name:** | `snip-absolute` |
 | **type:** | mixin, with default-values placeholder |
-| **arguments:** | `$coordinates`<br>default: `0 n n 0`<br>See information about [snip-coords](#coordinates).  |
+| **arguments:** | <ol><li>`$coordinates`<br/>default: `0 n n 0`<br/><br/>See information about [snip-coords](#coordinates).</li></ol> |
 
 You'll save years of your life, and probably lose weight.
 

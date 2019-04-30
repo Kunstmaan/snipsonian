@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Layout - Center Absolutely
+   ========================================================================== */
+
+@mixin snip-center-absolutely(
+    $axis: false // or x or y
+) {
+    $translate-val: null;
+
+    position: absolute;
+
+    @if $axis != x {
+        top: 50%;
+
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    @if $axis != y {
+        left: 50%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @if not($axis) {
+        $translate-val: translate3d(-50%, -50%, 0);
+    } @else if $axis != x {
+        $translate-val: translate3d(0, -50%, 0);
+    } @else if $axis != y {
+        $translate-val: translate3d(-50%, 0, 0); // stylelint-disable-line scss/no-duplicate-dollar-variables
+    }
+
+    transform: $translate-val;
+}
+
+%snip-center-absolutely {
+    @include snip-center-absolutely();
+}
+
+%snip-center-absolutely-x {
+    @include snip-center-absolutely($axis: x);
+}
+
+%snip-center-absolutely-y {
+    @include snip-center-absolutely($axis: y);
+}

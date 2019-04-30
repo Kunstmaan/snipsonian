@@ -51,6 +51,11 @@
             border: none;
 
             vertical-align: top;
+
+            ol {
+                margin: 0;
+                padding-inline-start: 20px;
+            }
         }
     }
 }

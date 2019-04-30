@@ -6,7 +6,7 @@ Mixins to hide and show elements from certain breakpoints, note: overrides displ
 | ---: | --- |
 | **use-name:** | `snip-hide-from` && `snip-show-from` |
 | **type:** | mixin |
-| **arguments:** | `$breakpoint`|
+| **arguments:** | <ol><li>`$breakpoint`<br/>default: `null`</li></ol> |
 
 
 ```html
@@ -30,6 +30,7 @@ Mixins to hide and show elements from certain breakpoints, note: overrides displ
 <div class="ss-hide-mobile">
     <p>Hidden as of breakpoint: 768px, visible before breakpoint.</p>
 </div>
+
 <div class="ss-show-mobile">
     <p>Visible as of breakpoint: 768px, hidden before breakpoint.</p>
 </div>

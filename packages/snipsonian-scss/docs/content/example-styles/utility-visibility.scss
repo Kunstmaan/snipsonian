@@ -47,6 +47,8 @@
 /* end hidden rules */
 
 /* example start */
+$ss-break-sm: 768px;
+
 .ss-show-mobile {
     @include snip-show-from($ss-break-sm);
 }

@@ -6,7 +6,7 @@ Generate a css-grid with one line.
 | ---: | --- |
 | **use-name:** | `snip-grid` |
 | **type:** | mixin |
-| **arguments:** | `$col-gap`<br>default: `15` (int, pixel value) <br><br>`$row-gap`<br>default: `15` (int, pixel value) <br><br>`$cols`<br>default: null.  |
+| **arguments:** | <ol><li>`$col-gap`<br/>default: `15` (int, pixel value)</li><li>`$row-gap`<br/>default: `15` (int, pixel value) </li><li>`$cols`<br/>default: `4`</li></ol> |
 
 ```html
 @example
