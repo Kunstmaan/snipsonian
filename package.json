@@ -11,7 +11,7 @@
     "jest": "jest --watch --verbose",
     "del-generated": "del packages/*/es/** packages/*/cjs/**",
     "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
-    "to-es": "npm run del-generated && lerna exec -- tsc --project tsconfig.json && npm run replace-snipsonian-imports",
+    "to-es": "npm run del-generated && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.json && npm run replace-snipsonian-imports",
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
