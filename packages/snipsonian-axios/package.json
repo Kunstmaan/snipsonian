@@ -1,0 +1,22 @@
+{
+  "name": "@snipsonian/axios",
+  "version": "1.4.4",
+  "description": "Axios snippets",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
+  "dependencies": {
+    "@snipsonian/core": "^1.4.3",
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "^1.16.0"
+  },
+  "keywords": [
+    "axios"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}
