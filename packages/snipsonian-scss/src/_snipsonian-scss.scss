@@ -4,8 +4,13 @@
    Never add styles directly to this file - set up imports
    ========================================================================== */
 
+/* Functions
+   ========================================================================== */
+@import 'functions/deep-get';
+
 /* Layout
    ========================================================================== */
+@import 'layout/center-absolutely';
 @import 'layout/coordinates';
 @import 'layout/flex-grid';
 @import 'layout/grid';
@@ -16,4 +21,5 @@
    ========================================================================== */
 @import 'utility/object-fit';
 @import 'utility/pseudo';
+@import 'utility/selectors';
 @import 'utility/visibility';

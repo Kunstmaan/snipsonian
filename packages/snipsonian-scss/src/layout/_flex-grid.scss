@@ -18,12 +18,14 @@
             @if $cols == 0 {
                 @warn "0 is an invalid value for $cols";
             } @else {
-                width: calc(#{(100% / $cols)} - #{$gutter});
+                @if $gutter > 0 {
+                    width: calc(#{(100% / $cols)} - #{$gutter});
+                } @else {
+                    width: #{(100% / $cols)};
+                }
                 flex-basis: auto;
-                flex-grow: 0;
             }
             flex-grow: 0;
-            margin: #{$gutter / 2};
         } @else {
             flex-basis: 1px;
             flex-grow: 1;
