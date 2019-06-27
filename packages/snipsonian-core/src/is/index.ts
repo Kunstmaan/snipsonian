@@ -4,6 +4,7 @@ import isSet from './isSet';
 import isFunction from './isFunction';
 import isBoolean from './isBoolean';
 import isNumber from './isNumber';
+import isInteger from './isInteger';
 import isString from './isString';
 import isArray from './isArray';
 import isObject from './isObject';
@@ -17,6 +18,7 @@ export default {
     function: isFunction,
     boolean: isBoolean,
     number: isNumber,
+    integer: isInteger,
     string: isString,
     array: isArray,
     object: isObject,
