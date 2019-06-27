@@ -1,0 +1,39 @@
+{
+  "name": "@snipsonian/react",
+  "version": "1.4.4",
+  "description": "Generic React snippets & components",
+  "main": "es/index.js",
+  "typings": "es/index.d.ts",
+  "peerDependencies": {
+    "react": "^16.8.x",
+    "react-dom": "^16.8.x"
+  },
+  "dependencies": {
+    "@snipsonian/core": "^1.4.4",
+    "@snipsonian/browser": "^1.4.4",
+    "classnames": "^2.2.6",
+    "flat": "^4.1.0",
+    "formik": "1.5.7",
+    "yup": "0.27.0"
+  },
+  "devDependencies": {
+    "@testing-library/react": "8.0.1",
+    "@types/classnames": "^2.2.7",
+    "@types/flat": "0.0.28",
+    "@types/react": "16.8.8",
+    "@types/react-dom": "16.8.2",
+    "@types/yup": "0.26.13",
+    "jest-dom": "3.5.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "keywords": [
+    "React",
+    "component"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}
