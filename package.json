@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/parent",
-  "version": "1.4.4",
+  "version": "1.5.2",
   "description": "Small re-usable typescript code snippets (parent module)",
   "main": "src/index.js",
   "scripts": {
