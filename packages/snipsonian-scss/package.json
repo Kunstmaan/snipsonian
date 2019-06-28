@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/scss",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Scss snippets",
   "main": "src/_snipsonian-scss.scss",
   "devDependencies": {
