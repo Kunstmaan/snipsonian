@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { MixedSchema } from 'yup';
-import { FormikProps, withFormik, FormikTouched, validateYupSchema, FormikBag } from 'formik';
+import { FormikProps, withFormik, FormikTouched, validateYupSchema, FormikBag, makeCancelable } from 'formik';
 
 export interface IValidationError<ErrorTypes> {
     type: ErrorTypes;
@@ -70,7 +70,7 @@ export const FormContext = React.createContext({
 
 class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorTypes> & FormikProps<Values>> {
     private isInitialValid: boolean = true;
-    private willUnmount: boolean = false;
+    private cancelValidateForm: (() => void)|null = null;
 
     public render() {
         const { props } = this;
@@ -130,16 +130,23 @@ class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorT
 
     public async componentDidMount() {
         const { validateForm, values, setErrors } = this.props;
-        const errors = await validateForm(values);
-        if (this.willUnmount) {
-            setErrors(errors);
+        let errors;
+        [errors, this.cancelValidateForm] = makeCancelable(validateForm(values));
+        try {
+            setErrors(await errors);
             const isValid = Object.keys(errors).length === 0;
             this.isInitialValid = isValid;
+        } catch (ex) {
+            if (!ex.isCanceled) {
+                throw ex;
+            }
         }
     }
 
     public async componentWillUnmount() {
-        this.willUnmount = true;
+        if (this.cancelValidateForm !== null) {
+            this.cancelValidateForm();
+        }
     }
 
     private isFormValid() {
