@@ -1,11 +1,11 @@
 {
   "name": "@snipsonian/browser",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "Browser snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "dependencies": {
-    "@snipsonian/core": "^1.4.4"
+    "@snipsonian/core": "^1.5.0"
   },
   "keywords": [
     "browser",
