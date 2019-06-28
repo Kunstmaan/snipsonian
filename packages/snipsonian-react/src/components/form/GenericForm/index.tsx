@@ -70,6 +70,7 @@ export const FormContext = React.createContext({
 
 class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorTypes> & FormikProps<Values>> {
     private isInitialValid: boolean = true;
+    private willUnmount: boolean = false;
 
     public render() {
         const { props } = this;
@@ -130,9 +131,15 @@ class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorT
     public async componentDidMount() {
         const { validateForm, values, setErrors } = this.props;
         const errors = await validateForm(values);
-        setErrors(errors);
-        const isValid = Object.keys(errors).length === 0;
-        this.isInitialValid = isValid;
+        if (this.willUnmount) {
+            setErrors(errors);
+            const isValid = Object.keys(errors).length === 0;
+            this.isInitialValid = isValid;
+        }
+    }
+
+    public async componentWillUnmount() {
+        this.willUnmount = true;
     }
 
     private isFormValid() {
