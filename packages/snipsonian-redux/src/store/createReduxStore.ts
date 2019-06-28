@@ -9,6 +9,7 @@ import {
 import createStoreEnhancer, { IStoreEnhancerConfig } from './createStoreEnhancer';
 import { getRegisteredReducers, IReducers } from '../reducer/reducerManager';
 import { STATE_STORAGE_TYPE } from '../config/storageType';
+import { registerStore } from './storeManager';
 
 interface IReduxStoreConfig extends Pick<
     IStoreEnhancerConfig,
@@ -47,6 +48,8 @@ export default function createReduxStore<State>({
         storeEnhancer.preloadedState,
         composeEnhancers(...enhancers, applyMiddleware(...storeEnhancer.middlewares)),
     );
+
+    registerStore(store);
 
     return store as unknown as Store<State>;
 }
