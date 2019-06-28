@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "./es",
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve"
+    "jsx": "react"
   },
   "include": [
     "./src/**/*"

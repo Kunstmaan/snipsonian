@@ -44,7 +44,8 @@
     /* Prevent errors from duplicate typings (nested dependencies) */
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "jsx": "react"
   },
   "include": [
     "typings.base.d.ts",
