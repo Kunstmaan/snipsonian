@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/node",
-  "version": "1.5.2",
+  "version": "1.5.4",
   "description": "NodeJS snippets",
   "main": "cjs/index.js",
   "typings": "cjs/index.d.ts",
