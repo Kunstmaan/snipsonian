@@ -26,6 +26,7 @@ export interface IRequestWrapper {
     get: <Result, ResponseData = Result>(config: IBaseRequestConfig<Result, ResponseData>) => Promise<Result>;
     post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
     put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
+    patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
     remove: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
 }
 
@@ -51,6 +52,7 @@ export default function getRequestWrapper<
         get,
         post,
         put,
+        patch,
         remove,
     };
 
@@ -122,6 +124,32 @@ export default function getRequestWrapper<
             }),
             data: body,
             method: REQUEST_METHODS.PUT,
+            timeout: timeoutInMillis,
+            headers: appendContentTypeHeaderIfSet(headers, contentType),
+        };
+
+        return executeApiCall<Result, ResponseData>(request, mapResponse);
+    }
+
+    function patch<Result, ResponseData = Result>({
+        url,
+        baseUrl = defaultBaseUrl,
+        pathParams = {},
+        queryParams = {},
+        body = {},
+        headers = {},
+        responseType = RESPONSE_TYPES.json,
+        contentType = CONTENT_TYPES.json,
+        mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        timeoutInMillis = defaultTimeoutInMillis,
+    }: IBodyRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        const request = {
+            responseType,
+            url: constructResourceUrl({
+                url, baseUrl, pathParams, queryParams,
+            }),
+            data: body,
+            method: REQUEST_METHODS.PATCH,
             timeout: timeoutInMillis,
             headers: appendContentTypeHeaderIfSet(headers, contentType),
         };
