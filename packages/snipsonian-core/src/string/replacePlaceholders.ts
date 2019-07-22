@@ -12,7 +12,7 @@ export default function replacePlaceholders({ msg, placeholders = {} }: IReplace
 
             const regex = new RegExp(`{${placeholderName}}`, 'g');
 
-            return prevMsgResult.replace(regex, placeholderValue.toString());
+            return prevMsgResult.replace(regex, placeholderValue && placeholderValue.toString());
         },
         msg,
     );
