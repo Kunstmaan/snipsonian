@@ -77,6 +77,58 @@ export function mockPutSuccess({
     return spy;
 }
 
+export function mockPostSuccess({
+    url,
+    baseUrl = '',
+    pathParams = {},
+    queryParams = {},
+    responseStatus = HTTP_STATUS.OK,
+    responseData,
+    responseHeaders,
+    onlyMatchUrlStart = false,
+}: IMockConfig): jest.Mock<{}> {
+    const urlToMock = getUrlToMock({
+        url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
+    });
+
+    const spy = jest.fn();
+
+    axiosMock
+        .onPost(urlToMock)
+        .reply((axiosConfig) => {
+            spy(axiosConfig);
+            return [responseStatus, responseData, responseHeaders];
+        });
+
+    return spy;
+}
+
+export function mockPatchSuccess({
+    url,
+    baseUrl = '',
+    pathParams = {},
+    queryParams = {},
+    responseStatus = HTTP_STATUS.OK,
+    responseData,
+    responseHeaders,
+    onlyMatchUrlStart = false,
+}: IMockConfig): jest.Mock<{}> {
+    const urlToMock = getUrlToMock({
+        url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
+    });
+
+    const spy = jest.fn();
+
+    axiosMock
+        .onPatch(urlToMock)
+        .reply((axiosConfig) => {
+            spy(axiosConfig);
+            return [responseStatus, responseData, responseHeaders];
+        });
+
+    return spy;
+}
+
 function getUrlToMock({
     url,
     baseUrl,
