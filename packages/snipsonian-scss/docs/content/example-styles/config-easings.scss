@@ -73,7 +73,7 @@
 /* end hidden rules */
 
 /* example start */
-$snip-easing-names: sine cubic quint circ quad quart expo;
+$snip-easing-names: sine cubic quint circ quad quart expo back;
 $snip-easing-directions : in out in-out;
 
 @each $easing in $snip-easing-names {
