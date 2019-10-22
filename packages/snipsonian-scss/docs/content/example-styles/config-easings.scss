@@ -1,0 +1,88 @@
+/* import start */
+@import "example-variables";
+@import "../../../src/config/easings";
+@import "../../../src/functions/deep-get";
+/* import end */
+
+/* hidden rules */
+.snip-easing-holder {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-gap: 20px;
+}
+
+.snip-easing-group {
+    flex: 0;
+
+    padding: 20px;
+
+    background: $ss-muted;
+}
+
+.snip-easing-group__title {
+    text-transform: uppercase;
+}
+
+.snip-easing-group__example {
+    position: relative;
+
+    height: 50px;
+    width: 100%;
+
+    background: $ss-light;
+
+    + .snip-easing-group__example {
+        margin-top: 10px;
+    }
+}
+
+.snip-easing-group__example__object {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    display: block;
+
+    width: 50px;
+    height: 50px;
+
+    background: $ss-dark;
+
+    .snip-easing-group--move & {
+        left: calc(100% - 50px);
+    }
+}
+
+.snip-easing-group__example__direction {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    right: 20px;
+
+    transform:  translate3d(0, -50%, 0);
+
+    font-size: 30px;
+    color: #fff;
+}
+
+.snip-easing-group__toggle {
+    margin-top: 20px;
+}
+/* end hidden rules */
+
+/* example start */
+$snip-easing-names: sine cubic quint circ quad quart expo;
+$snip-easing-directions : in out in-out;
+
+@each $easing in $snip-easing-names {
+    .snip-easing-group--#{$easing} {
+        @each $direction in $snip-easing-directions {
+            .snip-easing-group__example--#{$direction} .snip-easing-group__example__object {
+                transition: .5s left deep-get($direction, $easing, $snip-easings);
+            }
+        }
+    }
+}
+/* example end */

@@ -49,7 +49,7 @@ function processCssExamples() {
     const processedCssDir = './docs/content/example-styles/processed/';
     return gulp.src([examplesScssSrc])
         .pipe(sass({
-            'outputStyle': 'expanded'
+            outputStyle: 'expanded',
         }).on('error', sassErrorHandler))
         .pipe(replace(regexExampleOnly, '$1'))
         .pipe(replace(regexTwoLines, ''))
@@ -80,7 +80,7 @@ function generateDocs() {
         .pipe(livingcss('./docs/dist', {
             template: './docs/dev/template/template.hbs',
             loadcss: false,
-            preprocess: function(context, template, Handlebars) {
+            preprocess(context, template, Handlebars) {
                 context.globalStylesheets = ['css/examples.css'];
                 context.title = 'Snipsonian';
                 context.suffix = 'SCSS';
@@ -119,10 +119,10 @@ function generateDocs() {
                 });
             },
             sortOrder: [
-                ['index', 'utility', 'layout']
+                ['index', 'config', 'utility', 'layout'],
             ],
             tags: {
-                cssExample: function() {
+                cssExample() {
                     const fileName = this.tag.description || this.block.name;
                     try {
                         const cssFile = fs.readFileSync(`docs/content/example-styles/processed/${fileName}.css`, 'utf8');
@@ -145,7 +145,7 @@ function generateDocs() {
 function scssDocs() {
     return gulp.src('./docs/dev/assets/scss/*.scss')
         .pipe(sass({
-            'outputStyle': 'compressed'
+            outputStyle: 'compressed',
         }).on('error', sassErrorHandler))
         .pipe(gulp.dest('./docs/dist/css'));
 }
@@ -177,7 +177,7 @@ function buildOnChange(cb) {
     gulp.watch([
         './docs/content/**/*.{css,md}',
         '!./docs/content/example-styles/processed/**',
-        './docs/dev/template/**/*.hbs'
+        './docs/dev/template/**/*.hbs',
     ], generateDocs);
     cb();
 }
@@ -263,4 +263,4 @@ const dev = gulp.series(
     testOnChange,
 );
 
-export { build, dev }
+export { build, dev };
