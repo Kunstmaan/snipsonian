@@ -23,3 +23,8 @@
 @import 'utility/pseudo';
 @import 'utility/selectors';
 @import 'utility/visibility';
+
+/* WCAG Helpers
+   ========================================================================== */
+@import 'wcag-helpers/visually-hidden';
+@import 'wcag-helpers/assistive-hidden';

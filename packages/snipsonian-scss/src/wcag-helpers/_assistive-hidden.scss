@@ -1,0 +1,10 @@
+/* ==========================================================================
+    WCAG Helpers - assistive hidden
+   ========================================================================== */
+
+%snip-assistive-hidden,
+.snip-assistive-hidden {
+    &[aria-hidden="true"] {
+        display: none;
+    }
+}
