@@ -19,8 +19,6 @@ export default function init() {
 function handleClick(e) {
     e.preventDefault();
 
-    console.log('click');
-
     const CONTENT = document.querySelector('.ss-docs-main');
 
     const targetString = e.target.getAttribute('data-scroll-to') || false;
