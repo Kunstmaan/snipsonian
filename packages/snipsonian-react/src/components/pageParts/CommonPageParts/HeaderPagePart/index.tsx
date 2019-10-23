@@ -1,4 +1,5 @@
 import React from 'react';
+import { toAnchorTargetId } from '@snipsonian/react/es/utils/anchor';
 import { IPagePartComponentProps } from '../../pageParts.models';
 import Translate from '../../../i18n/Translate';
 
@@ -9,10 +10,9 @@ export interface IHeaderPagePartData {
 
 export default function HeaderPagePart(props: IPagePartComponentProps<IHeaderPagePartData>) {
     const { data } = props;
+    const header = `h${data.niv || 2}`; // Default H2
 
-    return (
-        <h2 className="HeaderPagePart">
-            <Translate msg={data.title} />
-        </h2>
-    );
+    return React.createElement(header, { id: toAnchorTargetId(data.title), className: 'HeaderPagePart' }, (
+        <Translate msg={data.title} />
+    ));
 }
