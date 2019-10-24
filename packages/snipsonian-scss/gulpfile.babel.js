@@ -119,7 +119,7 @@ function generateDocs() {
                 });
             },
             sortOrder: [
-                ['index', 'config', 'utility', 'layout'],
+                ['index', 'config', 'utility', 'layout', 'wcag-helpers'],
             ],
             tags: {
                 cssExample() {
