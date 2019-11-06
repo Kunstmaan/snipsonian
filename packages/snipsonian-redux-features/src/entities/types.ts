@@ -93,7 +93,7 @@ export interface IAsyncEntityToFetch<State, Action, ApiInput> {
        (takes precedence over the one in IFetchAsyncEntityApiConfig) */
     apiInputSelector?: (props: { state: State; action: Action }) => ApiInput;
     shouldFetch?: (props: { state: State }) => boolean;
-    refreshMode?: TRefreshMode<State, Action>;
+    refreshMode?: TRefreshMode<State, Action>; // default 'always'
     resetDataOnTrigger?: boolean; // default true
 }
 
