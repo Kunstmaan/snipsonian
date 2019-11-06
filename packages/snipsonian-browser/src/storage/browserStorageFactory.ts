@@ -40,7 +40,7 @@ function create(storageType: STORAGE_TYPE = STORAGE_TYPE.localStorage): IBrowser
 
         read: ({ key, defaultValue = false }: { key: string; defaultValue?: TStorageValue }) => {
             if (!storage.isSupported) {
-                return undefined;
+                return defaultValue;
             }
             return JSON.parse(window[storageType].getItem(key)) || defaultValue;
         },
