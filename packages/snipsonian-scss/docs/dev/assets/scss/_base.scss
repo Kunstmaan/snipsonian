@@ -71,7 +71,7 @@ body {
         width: 40%;
         padding: 0;
         flex: 1 1 auto;
-        height: 100%;
+        height: calc(100vh - 90px);
         overflow: auto;
 
         > article {
@@ -88,6 +88,7 @@ body {
 
         @media (min-width: $screen-md-min) {
             width: 70%;
+            height: calc(100vh - 115px);
 
             > article {
                 padding-left: 50px;
