@@ -10,5 +10,5 @@ function slugifyStringAsId(key: string): string {
     return key
         .trim()
         .toLowerCase()
-        .replace(' ', '-');
+        .replace(/\s/g, '-');
 }
