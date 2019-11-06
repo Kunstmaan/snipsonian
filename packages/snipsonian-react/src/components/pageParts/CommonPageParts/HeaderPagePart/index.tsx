@@ -1,7 +1,7 @@
 import React from 'react';
-import { toAnchorTargetId } from '@snipsonian/react/es/utils/anchor';
 import { IPagePartComponentProps } from '../../pageParts.models';
 import Translate from '../../../i18n/Translate';
+import { toAnchorTargetId } from '../../../../utils/anchor';
 
 export interface IHeaderPagePartData {
     niv?: number; // header niv, e.g. 2 for a H2
