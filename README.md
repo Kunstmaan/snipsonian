@@ -44,7 +44,10 @@ Runs sequentially the linters and the unit tests.
 2. execute `npm run to-es` to transpile the typescript code to .js and .d.ts files under the /es folders (per package)
 3. manually check the generated folders (snipsonian-analytics !)
 4. switch to the appropriate npm user
-5. execute `npx lerna publish` or `npx lerna publish from-git` or `npx lerna publish from-package`. (see https://github.com/lerna/lerna/tree/master/commands/publish)
+5. execute one of:  (see https://github.com/lerna/lerna/tree/master/commands/publish)
+    * `npx lerna publish` = publish packages that have changed since the last release
+    * `npx lerna publish from-git` = explicitly publish packages tagged in the current commit
+    * `npx lerna publish from-package` = explicitly publish packages where the latest version is not present in the registry
 
 
 ## License
