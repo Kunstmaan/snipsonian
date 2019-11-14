@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/redux",
-  "version": "1.8.0",
+  "version": "1.8.2",
   "description": "Redux snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
