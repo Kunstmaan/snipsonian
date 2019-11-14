@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/redux-features",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "Redux features snippets = actions, reducers, journeys, etc. for specific use-cases.",
   "main": "es/index.js",
   "typings": "es/index.d.ts",

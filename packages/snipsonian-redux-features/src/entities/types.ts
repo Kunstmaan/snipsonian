@@ -110,6 +110,7 @@ export interface IFetchAsyncEntityApiConfig<State, Result, ApiInput> {
     api: (apiInput: ApiInput) => Promise<Result>;
     /* only to be configured if input needed and apiInputSelector not configured on the (route)action */
     apiInputSelector?: (props: { state: State }) => ApiInput;
+    mapDataResult?: (props: { dataResult: Result; state: State }) => Result;
 }
 
 export interface IAsyncEntityKey2ApiConfigMap<State> {

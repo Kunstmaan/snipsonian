@@ -150,7 +150,7 @@ function fetchAsyncEntity<State, Action>({
                 .succeeded({
                     key: asyncEntityToFetch.entityKey,
                     operation: AsyncOperation.fetch,
-                    data: dataResult,
+                    data: isSet(apiConfig.mapDataResult) ? apiConfig.mapDataResult({ dataResult, state }) : dataResult,
                 })
                 .dispatch();
         })
