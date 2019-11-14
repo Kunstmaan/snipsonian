@@ -84,14 +84,15 @@ export interface IUpdateAsyncEntitiesActionCreatorChain<Error = ITraceableApiErr
 
 export interface IActionType2AsyncEntitiesToFetchMap<State, Action> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [actionType: string]: IAsyncEntityToFetch<State, Action, any>[];
+    [actionType: string]: IAsyncEntityToFetch<State, Action, any, any>[];
 }
 
-export interface IAsyncEntityToFetch<State, Action, ApiInput> {
+export interface IAsyncEntityToFetch<State, Action, ApiInput, Result> {
     entityKey: TEntityKey;
     /* only to be configured if input needed and if api input depends on the (route)action
        (takes precedence over the one in IFetchAsyncEntityApiConfig) */
     apiInputSelector?: (props: { state: State; action: Action }) => ApiInput;
+    mapDataResult?: (props: { dataResult: Result; state: State }) => Result;
     shouldFetch?: (props: { state: State }) => boolean;
     refreshMode?: TRefreshMode<State, Action>; // default 'always'
     resetDataOnTrigger?: boolean; // default true
@@ -110,7 +111,6 @@ export interface IFetchAsyncEntityApiConfig<State, Result, ApiInput> {
     api: (apiInput: ApiInput) => Promise<Result>;
     /* only to be configured if input needed and apiInputSelector not configured on the (route)action */
     apiInputSelector?: (props: { state: State }) => ApiInput;
-    mapDataResult?: (props: { dataResult: Result; state: State }) => Result;
 }
 
 export interface IAsyncEntityKey2ApiConfigMap<State> {

@@ -76,7 +76,7 @@ function shouldEntityBeFetched<State, Action>({
     state,
     action,
 }: {
-    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}>;
+    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}, {}>;
     state: State;
     action: Action;
 }): boolean {
@@ -113,7 +113,7 @@ function shouldEntityBeFetched<State, Action>({
 }
 
 function filterEntityKeysToTriggerFetch<State, Action = IAction<{}>>(
-    asyncEntitiesToFetch: IAsyncEntityToFetch<State, Action, {}>[],
+    asyncEntitiesToFetch: IAsyncEntityToFetch<State, Action, {}, {}>[],
     expectedResetDataOnTrigger = true,
 ): IEntityKeyOperation[] {
     return asyncEntitiesToFetch
@@ -131,7 +131,7 @@ function fetchAsyncEntity<State, Action>({
     action,
     dispatch,
 }: {
-    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}>;
+    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}, {}>;
     apiConfig: IFetchAsyncEntityApiConfig<State, {}, {}>;
     state: State;
     action: Action;
@@ -150,7 +150,8 @@ function fetchAsyncEntity<State, Action>({
                 .succeeded({
                     key: asyncEntityToFetch.entityKey,
                     operation: AsyncOperation.fetch,
-                    data: isSet(apiConfig.mapDataResult) ? apiConfig.mapDataResult({ dataResult, state }) : dataResult,
+                    data: isSet(asyncEntityToFetch.mapDataResult) ?
+                        asyncEntityToFetch.mapDataResult({ dataResult, state }) : dataResult,
                 })
                 .dispatch();
         })
