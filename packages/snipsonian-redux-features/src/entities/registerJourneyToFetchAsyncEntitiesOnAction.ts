@@ -14,6 +14,7 @@ import {
 } from './types';
 import { updateAsyncEntitiesChain } from './actions';
 import { getAsyncEntity } from './selectors';
+import { shouldResetEntityDataOnTrigger } from './entityUtils';
 
 export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({
     onActionTypeRegex,
@@ -117,7 +118,7 @@ function filterEntityKeysToTriggerFetch<State, Action = IAction<{}>>(
     expectedResetDataOnTrigger = true,
 ): IEntityKeyOperation[] {
     return asyncEntitiesToFetch
-        .filter((toFetch) => !!toFetch.resetDataOnTrigger === expectedResetDataOnTrigger)
+        .filter((toFetch) => shouldResetEntityDataOnTrigger<State, Action>(toFetch) === expectedResetDataOnTrigger)
         .map((toFetch) => ({
             key: toFetch.entityKey,
             operation: AsyncOperation.fetch,
