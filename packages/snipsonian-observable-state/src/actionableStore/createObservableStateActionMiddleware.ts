@@ -1,4 +1,4 @@
-import isFunction from '@snipsonian/core/es/is/isFunction';
+import isFunction from '@snipsonian/core/src/is/isFunction';
 import {
     Action,
     AnyAction,

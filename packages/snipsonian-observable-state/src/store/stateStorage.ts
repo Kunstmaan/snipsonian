@@ -1,6 +1,6 @@
-import mergeObjectPropsDeeply from '@snipsonian/core/es/merge/mergeObjectPropsDeeply';
-import localStorage from '@snipsonian/browser/es/storage/localStorage';
-import sessionStorage from '@snipsonian/browser/es/storage/sessionStorage';
+import mergeObjectPropsDeeply from '@snipsonian/core/src/merge/mergeObjectPropsDeeply';
+import localStorage from '@snipsonian/browser/src/storage/localStorage';
+import sessionStorage from '@snipsonian/browser/src/storage/sessionStorage';
 
 export interface IStateStorageConfig<State> {
     local?: IBrowserStorageConfig<State>;

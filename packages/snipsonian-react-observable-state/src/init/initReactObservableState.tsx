@@ -22,7 +22,6 @@ export default function initReactObservableState<State, StateChangeNotificationK
                     /* eslint-disable react/no-this-in-sfc */
                     class ObserverWrapper extends React.Component {
                         private observer: IStateObserver<StateChangeNotificationKey>;
-                        private props: PublicProps;
 
                         public constructor(props: PublicProps) {
                             super(props);
@@ -35,7 +34,6 @@ export default function initReactObservableState<State, StateChangeNotificationK
                                 onNotify: () => {
                                     // will cause render() to be called on the component,
                                     // skipping shouldComponentUpdate()
-                                    // @ts-ignore
                                     this.forceUpdate();
                                 },
                             });

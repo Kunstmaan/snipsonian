@@ -1,4 +1,4 @@
-import isArray from '@snipsonian/core/es/is/isArray';
+import isArray from '@snipsonian/core/src/is/isArray';
 
 export interface IStateObserverManager<StateChangeNotificationKey> {
     // eslint-disable-next-line max-len
