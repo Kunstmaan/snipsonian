@@ -28,5 +28,7 @@ module.exports = {
         '@typescript-eslint/interface-name-prefix': [ERROR, 'always'],
         '@typescript-eslint/no-object-literal-type-assertion': [ERROR, { allowAsParameter: true }],
         '@typescript-eslint/no-use-before-define': [ERROR, { functions: false, classes: true }],
+
+        'react/sort-comp': [OFF],
     }
 };
