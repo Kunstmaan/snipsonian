@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/observable-state",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "description": "Observable-state snippets (redux-like)",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
