@@ -1,6 +1,7 @@
 import isUndefined from '../is/isUndefined';
 import isNull from '../is/isNull';
 import isObjectPure from '../is/isObjectPure';
+import cloneObjectDataProps from '../object/cloneObjectDataProps';
 
 /**
  * Merges the properties of two or more input objects deeply, returning a new object with the properties of all
@@ -21,15 +22,23 @@ import isObjectPure from '../is/isObjectPure';
  *   {a: 'abc'}             'xyz' (string)          {a: 'abc'}
  *   null                   {b: 'zzz'}              {b: 'zzz'}
  *   undefined              {b: 'zzz'}              {b: 'zzz'}
+ *
+ * p.s. properties containing a function will not end up in the resulting object!
  */
 export default function mergeObjectPropsDeeply(...sources: object[]): object {
     const initialValue = {};
 
     return sources.reduce(
-        (accumulator, source) => mergeObjectPropsDeeplyFromSourceToTarget({
-            target: accumulator,
-            source,
-        }),
+        (accumulator, source, index) => {
+            if (index === 0) {
+                return cloneObjectDataProps(source);
+            }
+
+            return mergeObjectPropsDeeplyFromSourceToTarget({
+                target: accumulator,
+                source,
+            });
+        },
         initialValue,
     );
 }
@@ -42,27 +51,45 @@ export function mergeObjectPropsDeeplyFromSourceToTarget({
     source: object;
 }): object {
     if (isUndefined(target) || isNull(target)) {
-        return source;
+        return cloneProp(source);
     }
 
-    if (isObjectPure(target) && isObjectPure(source)) {
-        Object.keys(source).forEach((key) => {
-            if (isObjectPure(source[key])) {
-                if (!(key in target)) {
-                    Object.assign(target, { [key]: source[key] });
-                } else {
-                    // eslint-disable-next-line no-param-reassign
-                    target[key] = mergeObjectPropsDeeplyFromSourceToTarget({
-                        target: target[key],
-                        source: source[key],
-                    });
-                }
-            } else if (!isObjectPure(target[key])) {
-                Object.assign(target, { [key]: source[key] });
-            }
-            // else (only the target is an object): target remains untouched
-        });
+    if (isUndefined(source) || isNull(source)) {
+        return target;
     }
 
-    return target;
+    if (typeof source !== typeof target) {
+        return target;
+    }
+
+    if (isObjectPure(target)) {
+        if (isObjectPure(source)) {
+            Object.keys(source).forEach((key) => {
+                // eslint-disable-next-line no-param-reassign
+                target[key] = mergeObjectPropsDeeplyFromSourceToTarget({
+                    target: target[key],
+                    source: source[key],
+                });
+            });
+        }
+        // else source is an array --> we just keep the target value
+
+        return target;
+    }
+
+    return cloneProp(source);
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function cloneProp(prop: any): any {
+    if (isUndefined(prop) || isNull(prop)) {
+        return prop;
+    }
+
+    if (isObjectPure(prop)) {
+        return cloneObjectDataProps(prop);
+    }
+
+    // eslint-disable-next-line dot-notation
+    return cloneObjectDataProps({ temp: prop })['temp'];
 }
