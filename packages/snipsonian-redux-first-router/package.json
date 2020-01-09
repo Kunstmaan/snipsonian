@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/redux-first-router",
-  "version": "1.8.2",
+  "version": "1.9.1",
   "description": "Redux-first-router snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -10,8 +10,8 @@
     "redux-first-router": "^2.x"
   },
   "dependencies": {
-    "@snipsonian/core": "^1.8.0",
-    "@snipsonian/redux": "^1.8.2",
+    "@snipsonian/core": "^1.9.1",
+    "@snipsonian/redux": "^1.9.1",
     "query-string": "^6.4.0"
   },
   "devDependencies": {
