@@ -1,6 +1,5 @@
-import decorate from '@snipsonian/core/src/decorate';
+import decorate, { TDecorator } from '@snipsonian/core/src/decorate';
 import addProp from '@snipsonian/core/src/decorate/decorators/addProp';
-import { TDecorator } from '../../../../snipsonian-core/src/decorate';
 
 export default function initOptionalFields(nameValueObj: object): object {
     return decorate({})
