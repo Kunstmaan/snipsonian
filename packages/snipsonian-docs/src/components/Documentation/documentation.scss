@@ -1,0 +1,16 @@
+@import '../../assets/scss/imports.scss';
+/*
+    Documentation
+*/
+
+.Documentation {
+    .Documentation__folder {
+        .Documentation__item {
+            padding: 15px 0;
+
+            h4 {
+                color: $color-primary;
+            }
+        }
+    }
+}

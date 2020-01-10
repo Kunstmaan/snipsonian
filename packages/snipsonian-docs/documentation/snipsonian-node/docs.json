@@ -1,0 +1,130 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-node/src",
+    "slug": "/snipsonian-node/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "dir",
+            "path": "packages/snipsonian-node/src/dir",
+            "slug": "/snipsonian-node/src/dir",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getDirectoryNamesSync.spec.ts",
+                    "path": "packages/snipsonian-node/src/dir/getDirectoryNamesSync.spec.ts",
+                    "slug": "/snipsonian-node/src/dir/getDirectoryNamesSync.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getDirectoryNamesSync.ts",
+                    "path": "packages/snipsonian-node/src/dir/getDirectoryNamesSync.ts",
+                    "slug": "/snipsonian-node/src/dir/getDirectoryNamesSync.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getFilesRecursiveSync.spec.ts",
+                    "path": "packages/snipsonian-node/src/dir/getFilesRecursiveSync.spec.ts",
+                    "slug": "/snipsonian-node/src/dir/getFilesRecursiveSync.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getFilesRecursiveSync.ts",
+                    "path": "packages/snipsonian-node/src/dir/getFilesRecursiveSync.ts",
+                    "slug": "/snipsonian-node/src/dir/getFilesRecursiveSync.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isDirectorySync.spec.ts",
+                    "path": "packages/snipsonian-node/src/dir/isDirectorySync.spec.ts",
+                    "slug": "/snipsonian-node/src/dir/isDirectorySync.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isDirectorySync.ts",
+                    "path": "packages/snipsonian-node/src/dir/isDirectorySync.ts",
+                    "slug": "/snipsonian-node/src/dir/isDirectorySync.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "testDir",
+                    "path": "packages/snipsonian-node/src/dir/testDir",
+                    "slug": "/snipsonian-node/src/dir/testDir",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "file.txt",
+                            "path": "packages/snipsonian-node/src/dir/testDir/file.txt",
+                            "slug": "/snipsonian-node/src/dir/testDir/file.txt",
+                            "type": "file"
+                        },
+                        {
+                            "name": "file2.txt",
+                            "path": "packages/snipsonian-node/src/dir/testDir/file2.txt",
+                            "slug": "/snipsonian-node/src/dir/testDir/file2.txt",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "file",
+            "path": "packages/snipsonian-node/src/file",
+            "slug": "/snipsonian-node/src/file",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "readFile.spec.ts",
+                    "path": "packages/snipsonian-node/src/file/readFile.spec.ts",
+                    "slug": "/snipsonian-node/src/file/readFile.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "readFile.ts",
+                    "path": "packages/snipsonian-node/src/file/readFile.ts",
+                    "slug": "/snipsonian-node/src/file/readFile.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "testFiles",
+                    "path": "packages/snipsonian-node/src/file/testFiles",
+                    "slug": "/snipsonian-node/src/file/testFiles",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "read.txt",
+                            "path": "packages/snipsonian-node/src/file/testFiles/read.txt",
+                            "slug": "/snipsonian-node/src/file/testFiles/read.txt",
+                            "type": "file"
+                        },
+                        {
+                            "name": "write.txt",
+                            "path": "packages/snipsonian-node/src/file/testFiles/write.txt",
+                            "slug": "/snipsonian-node/src/file/testFiles/write.txt",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "writeFile.spec.ts",
+                    "path": "packages/snipsonian-node/src/file/writeFile.spec.ts",
+                    "slug": "/snipsonian-node/src/file/writeFile.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "writeFile.ts",
+                    "path": "packages/snipsonian-node/src/file/writeFile.ts",
+                    "slug": "/snipsonian-node/src/file/writeFile.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-node/src/index.ts",
+            "slug": "/snipsonian-node/src/index.ts",
+            "type": "file"
+        }
+    ]
+}

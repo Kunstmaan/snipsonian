@@ -1,0 +1,252 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-redux/src",
+    "slug": "/snipsonian-redux/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "action",
+            "path": "packages/snipsonian-redux/src/action",
+            "slug": "/snipsonian-redux/src/action",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "actionTypeGenerator.ts",
+                    "path": "packages/snipsonian-redux/src/action/actionTypeGenerator.ts",
+                    "slug": "/snipsonian-redux/src/action/actionTypeGenerator.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createAction.ts",
+                    "path": "packages/snipsonian-redux/src/action/createAction.ts",
+                    "slug": "/snipsonian-redux/src/action/createAction.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createTypeActions.ts",
+                    "path": "packages/snipsonian-redux/src/action/createTypeActions.ts",
+                    "slug": "/snipsonian-redux/src/action/createTypeActions.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isActionType.ts",
+                    "path": "packages/snipsonian-redux/src/action/isActionType.ts",
+                    "slug": "/snipsonian-redux/src/action/isActionType.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-redux/src/action/types.ts",
+                    "slug": "/snipsonian-redux/src/action/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "config",
+            "path": "packages/snipsonian-redux/src/config",
+            "slug": "/snipsonian-redux/src/config",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "storageType.spec.ts",
+                    "path": "packages/snipsonian-redux/src/config/storageType.spec.ts",
+                    "slug": "/snipsonian-redux/src/config/storageType.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "storageType.ts",
+                    "path": "packages/snipsonian-redux/src/config/storageType.ts",
+                    "slug": "/snipsonian-redux/src/config/storageType.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-redux/src/index.ts",
+            "slug": "/snipsonian-redux/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "integrationTests.spec.ts",
+            "path": "packages/snipsonian-redux/src/integrationTests.spec.ts",
+            "slug": "/snipsonian-redux/src/integrationTests.spec.ts",
+            "type": "file"
+        },
+        {
+            "name": "middleware",
+            "path": "packages/snipsonian-redux/src/middleware",
+            "slug": "/snipsonian-redux/src/middleware",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createConsoleLoggerMiddleware.ts",
+                    "path": "packages/snipsonian-redux/src/middleware/createConsoleLoggerMiddleware.ts",
+                    "slug": "/snipsonian-redux/src/middleware/createConsoleLoggerMiddleware.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createErrorLoggerMiddleware.ts",
+                    "path": "packages/snipsonian-redux/src/middleware/createErrorLoggerMiddleware.ts",
+                    "slug": "/snipsonian-redux/src/middleware/createErrorLoggerMiddleware.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getStateStorageByReducerMiddlewareFactory.ts",
+                    "path": "packages/snipsonian-redux/src/middleware/getStateStorageByReducerMiddlewareFactory.ts",
+                    "slug": "/snipsonian-redux/src/middleware/getStateStorageByReducerMiddlewareFactory.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getStateStorageMiddlewareFactory.ts",
+                    "path": "packages/snipsonian-redux/src/middleware/getStateStorageMiddlewareFactory.ts",
+                    "slug": "/snipsonian-redux/src/middleware/getStateStorageMiddlewareFactory.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "journey",
+                    "path": "packages/snipsonian-redux/src/middleware/journey",
+                    "slug": "/snipsonian-redux/src/middleware/journey",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "actionTypeMaps",
+                            "path": "packages/snipsonian-redux/src/middleware/journey/actionTypeMaps",
+                            "slug": "/snipsonian-redux/src/middleware/journey/actionTypeMaps",
+                            "type": "folder",
+                            "children": [
+                                {
+                                    "name": "getActionType2JourneyHooksMaps.ts",
+                                    "path": "packages/snipsonian-redux/src/middleware/journey/actionTypeMaps/getActionType2JourneyHooksMaps.ts",
+                                    "slug": "/snipsonian-redux/src/middleware/journey/actionTypeMaps/getActionType2JourneyHooksMaps.ts",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "getJourneyHooksThatMatchAction.ts",
+                                    "path": "packages/snipsonian-redux/src/middleware/journey/actionTypeMaps/getJourneyHooksThatMatchAction.ts",
+                                    "slug": "/snipsonian-redux/src/middleware/journey/actionTypeMaps/getJourneyHooksThatMatchAction.ts",
+                                    "type": "file"
+                                },
+                                {
+                                    "name": "isOnActionTypeArray.ts",
+                                    "path": "packages/snipsonian-redux/src/middleware/journey/actionTypeMaps/isOnActionTypeArray.ts",
+                                    "slug": "/snipsonian-redux/src/middleware/journey/actionTypeMaps/isOnActionTypeArray.ts",
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "createJourneyMiddleware.ts",
+                            "path": "packages/snipsonian-redux/src/middleware/journey/createJourneyMiddleware.ts",
+                            "slug": "/snipsonian-redux/src/middleware/journey/createJourneyMiddleware.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "journeyManager.ts",
+                            "path": "packages/snipsonian-redux/src/middleware/journey/journeyManager.ts",
+                            "slug": "/snipsonian-redux/src/middleware/journey/journeyManager.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "types.ts",
+                            "path": "packages/snipsonian-redux/src/middleware/journey/types.ts",
+                            "slug": "/snipsonian-redux/src/middleware/journey/types.ts",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "reducer",
+            "path": "packages/snipsonian-redux/src/reducer",
+            "slug": "/snipsonian-redux/src/reducer",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createActionHandler.ts",
+                    "path": "packages/snipsonian-redux/src/reducer/createActionHandler.ts",
+                    "slug": "/snipsonian-redux/src/reducer/createActionHandler.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createActionHandlersForType.ts",
+                    "path": "packages/snipsonian-redux/src/reducer/createActionHandlersForType.ts",
+                    "slug": "/snipsonian-redux/src/reducer/createActionHandlersForType.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createReducer.ts",
+                    "path": "packages/snipsonian-redux/src/reducer/createReducer.ts",
+                    "slug": "/snipsonian-redux/src/reducer/createReducer.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "reducerManager.ts",
+                    "path": "packages/snipsonian-redux/src/reducer/reducerManager.ts",
+                    "slug": "/snipsonian-redux/src/reducer/reducerManager.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "registerProvidedReducer.ts",
+                    "path": "packages/snipsonian-redux/src/reducer/registerProvidedReducer.ts",
+                    "slug": "/snipsonian-redux/src/reducer/registerProvidedReducer.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "store",
+            "path": "packages/snipsonian-redux/src/store",
+            "slug": "/snipsonian-redux/src/store",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createReduxStore.ts",
+                    "path": "packages/snipsonian-redux/src/store/createReduxStore.ts",
+                    "slug": "/snipsonian-redux/src/store/createReduxStore.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createStoreEnhancer.ts",
+                    "path": "packages/snipsonian-redux/src/store/createStoreEnhancer.ts",
+                    "slug": "/snipsonian-redux/src/store/createStoreEnhancer.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "storeManager.ts",
+                    "path": "packages/snipsonian-redux/src/store/storeManager.ts",
+                    "slug": "/snipsonian-redux/src/store/storeManager.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "test",
+            "path": "packages/snipsonian-redux/src/test",
+            "slug": "/snipsonian-redux/src/test",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "ReducerTest.ts",
+                    "path": "packages/snipsonian-redux/src/test/ReducerTest.ts",
+                    "slug": "/snipsonian-redux/src/test/ReducerTest.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getReduxIntegrationTester.ts",
+                    "path": "packages/snipsonian-redux/src/test/getReduxIntegrationTester.ts",
+                    "slug": "/snipsonian-redux/src/test/getReduxIntegrationTester.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-redux/src/test/types.ts",
+                    "slug": "/snipsonian-redux/src/test/types.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

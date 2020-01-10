@@ -1,0 +1,45 @@
+@import '../../assets/scss//imports';
+
+/*
+    Main Template
+*/
+
+.MainTemplate {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+
+    > header {
+        background: $slate-grey--dark;
+
+        h1 {
+            margin: auto;
+            padding: 8px 20px;
+        }
+    }
+
+    > main {
+        display: flex;
+        flex: 1 1 auto;
+
+        > aside,
+        > section {
+            height: calc(100vh - 55px);
+
+            overflow-y: scroll;
+        }
+
+        > section {
+            flex: 1 1 auto;
+            padding: 40px;
+
+            .TableOfContents {
+                margin-bottom: 60px;
+            }
+
+            > h1 {
+                margin-top: 0;
+            }
+        }
+    }
+}

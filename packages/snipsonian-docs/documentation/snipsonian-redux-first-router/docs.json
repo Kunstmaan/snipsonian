@@ -1,0 +1,108 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-redux-first-router/src",
+    "slug": "/snipsonian-redux-first-router/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "action",
+            "path": "packages/snipsonian-redux-first-router/src/action",
+            "slug": "/snipsonian-redux-first-router/src/action",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "actions.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/action/actions.ts",
+                    "slug": "/snipsonian-redux-first-router/src/action/actions.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/action/types.ts",
+                    "slug": "/snipsonian-redux-first-router/src/action/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "configureRouter",
+            "path": "packages/snipsonian-redux-first-router/src/configureRouter",
+            "slug": "/snipsonian-redux-first-router/src/configureRouter",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/configureRouter/index.ts",
+                    "slug": "/snipsonian-redux-first-router/src/configureRouter/index.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "toRoutesMap.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/configureRouter/toRoutesMap.ts",
+                    "slug": "/snipsonian-redux-first-router/src/configureRouter/toRoutesMap.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-redux-first-router/src/index.ts",
+            "slug": "/snipsonian-redux-first-router/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "reducer",
+            "path": "packages/snipsonian-redux-first-router/src/reducer",
+            "slug": "/snipsonian-redux-first-router/src/reducer",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/reducer/index.ts",
+                    "slug": "/snipsonian-redux-first-router/src/reducer/index.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "route",
+            "path": "packages/snipsonian-redux-first-router/src/route",
+            "slug": "/snipsonian-redux-first-router/src/route",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "routeManager.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/route/routeManager.ts",
+                    "slug": "/snipsonian-redux-first-router/src/route/routeManager.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/route/types.ts",
+                    "slug": "/snipsonian-redux-first-router/src/route/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "selectors",
+            "path": "packages/snipsonian-redux-first-router/src/selectors",
+            "slug": "/snipsonian-redux-first-router/src/selectors",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/selectors/index.ts",
+                    "slug": "/snipsonian-redux-first-router/src/selectors/index.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "parseVirtualPage.ts",
+                    "path": "packages/snipsonian-redux-first-router/src/selectors/parseVirtualPage.ts",
+                    "slug": "/snipsonian-redux-first-router/src/selectors/parseVirtualPage.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

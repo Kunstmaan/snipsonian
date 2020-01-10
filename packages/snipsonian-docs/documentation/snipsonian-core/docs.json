@@ -1,0 +1,526 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-core/src",
+    "slug": "/snipsonian-core/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "assert",
+            "path": "packages/snipsonian-core/src/assert",
+            "slug": "/snipsonian-core/src/assert",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.spec.ts",
+                    "path": "packages/snipsonian-core/src/assert/index.spec.ts",
+                    "slug": "/snipsonian-core/src/assert/index.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-core/src/assert/index.ts",
+                    "slug": "/snipsonian-core/src/assert/index.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "builder",
+            "path": "packages/snipsonian-core/src/builder",
+            "slug": "/snipsonian-core/src/builder",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "buildIfBuilder.spec.ts",
+                    "path": "packages/snipsonian-core/src/builder/buildIfBuilder.spec.ts",
+                    "slug": "/snipsonian-core/src/builder/buildIfBuilder.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "buildIfBuilder.ts",
+                    "path": "packages/snipsonian-core/src/builder/buildIfBuilder.ts",
+                    "slug": "/snipsonian-core/src/builder/buildIfBuilder.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "decorate",
+            "path": "packages/snipsonian-core/src/decorate",
+            "slug": "/snipsonian-core/src/decorate",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "decorators",
+                    "path": "packages/snipsonian-core/src/decorate/decorators",
+                    "slug": "/snipsonian-core/src/decorate/decorators",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "addProp.spec.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/addProp.spec.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/addProp.spec.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "addProp.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/addProp.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/addProp.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "builder.spec.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/builder.spec.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/builder.spec.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "builder.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/builder.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/builder.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "collapsable.spec.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/collapsable.spec.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/collapsable.spec.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "collapsable.ts",
+                            "path": "packages/snipsonian-core/src/decorate/decorators/collapsable.ts",
+                            "slug": "/snipsonian-core/src/decorate/decorators/collapsable.ts",
+                            "type": "file"
+                        }
+                    ]
+                },
+                {
+                    "name": "index.spec.ts",
+                    "path": "packages/snipsonian-core/src/decorate/index.spec.ts",
+                    "slug": "/snipsonian-core/src/decorate/index.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-core/src/decorate/index.ts",
+                    "slug": "/snipsonian-core/src/decorate/index.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "error",
+            "path": "packages/snipsonian-core/src/error",
+            "slug": "/snipsonian-core/src/error",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "conditionalCatch.spec.ts",
+                    "path": "packages/snipsonian-core/src/error/conditionalCatch.spec.ts",
+                    "slug": "/snipsonian-core/src/error/conditionalCatch.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "conditionalCatch.ts",
+                    "path": "packages/snipsonian-core/src/error/conditionalCatch.ts",
+                    "slug": "/snipsonian-core/src/error/conditionalCatch.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "file",
+            "path": "packages/snipsonian-core/src/file",
+            "slug": "/snipsonian-core/src/file",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "stripFileExtension.ts",
+                    "path": "packages/snipsonian-core/src/file/stripFileExtension.ts",
+                    "slug": "/snipsonian-core/src/file/stripFileExtension.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "supportWindowsPath.ts",
+                    "path": "packages/snipsonian-core/src/file/supportWindowsPath.ts",
+                    "slug": "/snipsonian-core/src/file/supportWindowsPath.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-core/src/index.ts",
+            "slug": "/snipsonian-core/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "is",
+            "path": "packages/snipsonian-core/src/is",
+            "slug": "/snipsonian-core/src/is",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.spec.ts",
+                    "path": "packages/snipsonian-core/src/is/index.spec.ts",
+                    "slug": "/snipsonian-core/src/is/index.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-core/src/is/index.ts",
+                    "slug": "/snipsonian-core/src/is/index.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isArray.ts",
+                    "path": "packages/snipsonian-core/src/is/isArray.ts",
+                    "slug": "/snipsonian-core/src/is/isArray.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isBoolean.ts",
+                    "path": "packages/snipsonian-core/src/is/isBoolean.ts",
+                    "slug": "/snipsonian-core/src/is/isBoolean.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isBuilder.ts",
+                    "path": "packages/snipsonian-core/src/is/isBuilder.ts",
+                    "slug": "/snipsonian-core/src/is/isBuilder.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isFunction.ts",
+                    "path": "packages/snipsonian-core/src/is/isFunction.ts",
+                    "slug": "/snipsonian-core/src/is/isFunction.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isInteger.ts",
+                    "path": "packages/snipsonian-core/src/is/isInteger.ts",
+                    "slug": "/snipsonian-core/src/is/isInteger.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isNull.ts",
+                    "path": "packages/snipsonian-core/src/is/isNull.ts",
+                    "slug": "/snipsonian-core/src/is/isNull.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isNumber.ts",
+                    "path": "packages/snipsonian-core/src/is/isNumber.ts",
+                    "slug": "/snipsonian-core/src/is/isNumber.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isObject.ts",
+                    "path": "packages/snipsonian-core/src/is/isObject.ts",
+                    "slug": "/snipsonian-core/src/is/isObject.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isObjectPure.ts",
+                    "path": "packages/snipsonian-core/src/is/isObjectPure.ts",
+                    "slug": "/snipsonian-core/src/is/isObjectPure.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isSet.ts",
+                    "path": "packages/snipsonian-core/src/is/isSet.ts",
+                    "slug": "/snipsonian-core/src/is/isSet.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isString.ts",
+                    "path": "packages/snipsonian-core/src/is/isString.ts",
+                    "slug": "/snipsonian-core/src/is/isString.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isUndefined.ts",
+                    "path": "packages/snipsonian-core/src/is/isUndefined.ts",
+                    "slug": "/snipsonian-core/src/is/isUndefined.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "merge",
+            "path": "packages/snipsonian-core/src/merge",
+            "slug": "/snipsonian-core/src/merge",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "mergeObjectPropsDeeply.spec.ts",
+                    "path": "packages/snipsonian-core/src/merge/mergeObjectPropsDeeply.spec.ts",
+                    "slug": "/snipsonian-core/src/merge/mergeObjectPropsDeeply.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "mergeObjectPropsDeeply.ts",
+                    "path": "packages/snipsonian-core/src/merge/mergeObjectPropsDeeply.ts",
+                    "slug": "/snipsonian-core/src/merge/mergeObjectPropsDeeply.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "monads",
+            "path": "packages/snipsonian-core/src/monads",
+            "slug": "/snipsonian-core/src/monads",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "maybe.ts",
+                    "path": "packages/snipsonian-core/src/monads/maybe.ts",
+                    "slug": "/snipsonian-core/src/monads/maybe.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "object",
+            "path": "packages/snipsonian-core/src/object",
+            "slug": "/snipsonian-core/src/object",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "deletePropsFromObject.ts",
+                    "path": "packages/snipsonian-core/src/object/deletePropsFromObject.ts",
+                    "slug": "/snipsonian-core/src/object/deletePropsFromObject.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isEmptyObject.ts",
+                    "path": "packages/snipsonian-core/src/object/isEmptyObject.ts",
+                    "slug": "/snipsonian-core/src/object/isEmptyObject.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isFalsyOrEmptyObject.ts",
+                    "path": "packages/snipsonian-core/src/object/isFalsyOrEmptyObject.ts",
+                    "slug": "/snipsonian-core/src/object/isFalsyOrEmptyObject.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "patterns",
+            "path": "packages/snipsonian-core/src/patterns",
+            "slug": "/snipsonian-core/src/patterns",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createObserverManager.spec.ts",
+                    "path": "packages/snipsonian-core/src/patterns/createObserverManager.spec.ts",
+                    "slug": "/snipsonian-core/src/patterns/createObserverManager.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createObserverManager.ts",
+                    "path": "packages/snipsonian-core/src/patterns/createObserverManager.ts",
+                    "slug": "/snipsonian-core/src/patterns/createObserverManager.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "string",
+            "path": "packages/snipsonian-core/src/string",
+            "slug": "/snipsonian-core/src/string",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getPartBetween.spec.ts",
+                    "path": "packages/snipsonian-core/src/string/getPartBetween.spec.ts",
+                    "slug": "/snipsonian-core/src/string/getPartBetween.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getPartBetween.ts",
+                    "path": "packages/snipsonian-core/src/string/getPartBetween.ts",
+                    "slug": "/snipsonian-core/src/string/getPartBetween.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isEmptyString.ts",
+                    "path": "packages/snipsonian-core/src/string/isEmptyString.ts",
+                    "slug": "/snipsonian-core/src/string/isEmptyString.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isSetString.ts",
+                    "path": "packages/snipsonian-core/src/string/isSetString.ts",
+                    "slug": "/snipsonian-core/src/string/isSetString.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "joinStringParts.ts",
+                    "path": "packages/snipsonian-core/src/string/joinStringParts.ts",
+                    "slug": "/snipsonian-core/src/string/joinStringParts.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "replacePlaceholders.spec.ts",
+                    "path": "packages/snipsonian-core/src/string/replacePlaceholders.spec.ts",
+                    "slug": "/snipsonian-core/src/string/replacePlaceholders.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "replacePlaceholders.ts",
+                    "path": "packages/snipsonian-core/src/string/replacePlaceholders.ts",
+                    "slug": "/snipsonian-core/src/string/replacePlaceholders.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "test",
+            "path": "packages/snipsonian-core/src/test",
+            "slug": "/snipsonian-core/src/test",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "simulateWaitTime.ts",
+                    "path": "packages/snipsonian-core/src/test/simulateWaitTime.ts",
+                    "slug": "/snipsonian-core/src/test/simulateWaitTime.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "time",
+            "path": "packages/snipsonian-core/src/time",
+            "slug": "/snipsonian-core/src/time",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "periodsInMillis.ts",
+                    "path": "packages/snipsonian-core/src/time/periodsInMillis.ts",
+                    "slug": "/snipsonian-core/src/time/periodsInMillis.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "typings",
+            "path": "packages/snipsonian-core/src/typings",
+            "slug": "/snipsonian-core/src/typings",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "apiErrors.ts",
+                    "path": "packages/snipsonian-core/src/typings/apiErrors.ts",
+                    "slug": "/snipsonian-core/src/typings/apiErrors.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "errorReporting.ts",
+                    "path": "packages/snipsonian-core/src/typings/errorReporting.ts",
+                    "slug": "/snipsonian-core/src/typings/errorReporting.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "logging.ts",
+                    "path": "packages/snipsonian-core/src/typings/logging.ts",
+                    "slug": "/snipsonian-core/src/typings/logging.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "patterns.ts",
+                    "path": "packages/snipsonian-core/src/typings/patterns.ts",
+                    "slug": "/snipsonian-core/src/typings/patterns.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "url",
+            "path": "packages/snipsonian-core/src/url",
+            "slug": "/snipsonian-core/src/url",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "appendQueryParams.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/appendQueryParams.spec.ts",
+                    "slug": "/snipsonian-core/src/url/appendQueryParams.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "appendQueryParams.ts",
+                    "path": "packages/snipsonian-core/src/url/appendQueryParams.ts",
+                    "slug": "/snipsonian-core/src/url/appendQueryParams.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "appendUrlParam.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/appendUrlParam.spec.ts",
+                    "slug": "/snipsonian-core/src/url/appendUrlParam.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "appendUrlParam.ts",
+                    "path": "packages/snipsonian-core/src/url/appendUrlParam.ts",
+                    "slug": "/snipsonian-core/src/url/appendUrlParam.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "appendUrlParamIfNotAlready.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/appendUrlParamIfNotAlready.spec.ts",
+                    "slug": "/snipsonian-core/src/url/appendUrlParamIfNotAlready.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "appendUrlParamIfNotAlready.ts",
+                    "path": "packages/snipsonian-core/src/url/appendUrlParamIfNotAlready.ts",
+                    "slug": "/snipsonian-core/src/url/appendUrlParamIfNotAlready.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "constructResourceUrl.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/constructResourceUrl.spec.ts",
+                    "slug": "/snipsonian-core/src/url/constructResourceUrl.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "constructResourceUrl.ts",
+                    "path": "packages/snipsonian-core/src/url/constructResourceUrl.ts",
+                    "slug": "/snipsonian-core/src/url/constructResourceUrl.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getUrlPartBetween.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/getUrlPartBetween.spec.ts",
+                    "slug": "/snipsonian-core/src/url/getUrlPartBetween.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getUrlPartBetween.ts",
+                    "path": "packages/snipsonian-core/src/url/getUrlPartBetween.ts",
+                    "slug": "/snipsonian-core/src/url/getUrlPartBetween.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "replacePathParams.spec.ts",
+                    "path": "packages/snipsonian-core/src/url/replacePathParams.spec.ts",
+                    "slug": "/snipsonian-core/src/url/replacePathParams.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "replacePathParams.ts",
+                    "path": "packages/snipsonian-core/src/url/replacePathParams.ts",
+                    "slug": "/snipsonian-core/src/url/replacePathParams.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-core/src/url/types.ts",
+                    "slug": "/snipsonian-core/src/url/types.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-observable-state/src",
+    "slug": "/snipsonian-observable-state/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "actionableStore",
+            "path": "packages/snipsonian-observable-state/src/actionableStore",
+            "slug": "/snipsonian-observable-state/src/actionableStore",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "actionCreators.ts",
+                    "path": "packages/snipsonian-observable-state/src/actionableStore/actionCreators.ts",
+                    "slug": "/snipsonian-observable-state/src/actionableStore/actionCreators.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createActionableObservableStateStore.ts",
+                    "path": "packages/snipsonian-observable-state/src/actionableStore/createActionableObservableStateStore.ts",
+                    "slug": "/snipsonian-observable-state/src/actionableStore/createActionableObservableStateStore.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "createObservableStateActionMiddleware.ts",
+                    "path": "packages/snipsonian-observable-state/src/actionableStore/createObservableStateActionMiddleware.ts",
+                    "slug": "/snipsonian-observable-state/src/actionableStore/createObservableStateActionMiddleware.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isObservableStateAction.ts",
+                    "path": "packages/snipsonian-observable-state/src/actionableStore/isObservableStateAction.ts",
+                    "slug": "/snipsonian-observable-state/src/actionableStore/isObservableStateAction.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-observable-state/src/actionableStore/types.ts",
+                    "slug": "/snipsonian-observable-state/src/actionableStore/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-observable-state/src/index.ts",
+            "slug": "/snipsonian-observable-state/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "observer",
+            "path": "packages/snipsonian-observable-state/src/observer",
+            "slug": "/snipsonian-observable-state/src/observer",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createStateObserverManager.ts",
+                    "path": "packages/snipsonian-observable-state/src/observer/createStateObserverManager.ts",
+                    "slug": "/snipsonian-observable-state/src/observer/createStateObserverManager.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "store",
+            "path": "packages/snipsonian-observable-state/src/store",
+            "slug": "/snipsonian-observable-state/src/store",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createObservableStateStore.ts",
+                    "path": "packages/snipsonian-observable-state/src/store/createObservableStateStore.ts",
+                    "slug": "/snipsonian-observable-state/src/store/createObservableStateStore.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "stateStorage.ts",
+                    "path": "packages/snipsonian-observable-state/src/store/stateStorage.ts",
+                    "slug": "/snipsonian-observable-state/src/store/stateStorage.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "storeManager.ts",
+                    "path": "packages/snipsonian-observable-state/src/store/storeManager.ts",
+                    "slug": "/snipsonian-observable-state/src/store/storeManager.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-observable-state/src/store/types.ts",
+                    "slug": "/snipsonian-observable-state/src/store/types.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-dvlp/src",
+    "slug": "/snipsonian-dvlp/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-dvlp/src/index.ts",
+            "slug": "/snipsonian-dvlp/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "storedConfig",
+            "path": "packages/snipsonian-dvlp/src/storedConfig",
+            "slug": "/snipsonian-dvlp/src/storedConfig",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getLocalDvlpConfig.ts",
+                    "path": "packages/snipsonian-dvlp/src/storedConfig/getLocalDvlpConfig.ts",
+                    "slug": "/snipsonian-dvlp/src/storedConfig/getLocalDvlpConfig.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

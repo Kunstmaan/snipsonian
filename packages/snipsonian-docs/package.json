@@ -1,0 +1,52 @@
+{
+  "name": "snipsonian-docs",
+  "private": true,
+  "description": "Snipsonian documentation",
+  "version": "0.1.0",
+  "author": "Kunstmaan",
+  "dependencies": {
+    "gatsby": "^2.15.28",
+    "gatsby-image": "^2.2.23",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-plugin-offline": "^3.0.11",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-sass": "2.1.17",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-typescript": "2.1.11",
+    "gatsby-source-filesystem": "^2.1.28",
+    "gatsby-transformer-json": "2.2.22",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "node-sass": "4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-helmet": "^5.2.1",
+    "source-map-support": "0.5.13",
+    "ts-node": "8.4.1",
+    "typescript": "3.6.3"
+  },
+  "devDependencies": {
+    "@kunstmaan/eslint-typescript-config": "^1.0.2",
+    "@kunstmaan/stylelint-config": "^1.2.0",
+    "prettier": "^1.18.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

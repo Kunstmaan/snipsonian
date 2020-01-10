@@ -1,0 +1,82 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-redux-features/src",
+    "slug": "/snipsonian-redux-features/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "entities",
+            "path": "packages/snipsonian-redux-features/src/entities",
+            "slug": "/snipsonian-redux-features/src/entities",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "EntityMaybe.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/EntityMaybe.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/EntityMaybe.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "actionTypes.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/actionTypes.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/actionTypes.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "actions.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/actions.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/actions.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "entitiesIntegrationTests.spec.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/entitiesIntegrationTests.spec.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/entitiesIntegrationTests.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "entityUtils.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/entityUtils.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/entityUtils.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "mapAsyncEntityKey2ApiConfigMap.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/mapAsyncEntityKey2ApiConfigMap.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/mapAsyncEntityKey2ApiConfigMap.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "reducerBuildingBlocks.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/reducerBuildingBlocks.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/reducerBuildingBlocks.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "registerJourneyToFetchAsyncEntitiesOnAction.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "selectors.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/selectors.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/selectors.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-redux-features/src/entities/types.ts",
+                    "slug": "/snipsonian-redux-features/src/entities/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-redux-features/src/index.ts",
+            "slug": "/snipsonian-redux-features/src/index.ts",
+            "type": "file"
+        }
+    ]
+}

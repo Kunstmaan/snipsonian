@@ -1,0 +1,36 @@
+/* Colors
+   ========================================================================== */
+$black:                     #000000;
+$grey--dark:                #868686;
+$grey:                      #A8A8A8;
+$grey--light:               #E7E2D9;
+$grey--lighter:             #F1EFED;
+$grey--lightest:            #F8F7F6;
+$white:                     #FFFFFF;
+
+$slate-grey:                #3E444C;
+$slate-grey--dark:          #2D3339;
+
+$blue:                      #028090;
+$blue--dark:                #05668D;
+
+$green:                     #02C39A;
+$green--dark:               #00A896;
+
+$beige:                     #F0F3BD;
+
+/* Brand colors
+    ========================================================================== */
+$color-primary:             $green;
+$color-primary--dark:       $green--dark;
+
+$color-secondary:           $blue;
+$color-secondary--dark:     $blue--dark;
+
+$color-tertiary:            $beige;
+
+
+/* Defaults
+    ========================================================================== */
+$color-text:                $slate-grey;
+$color-border:              $grey--light;

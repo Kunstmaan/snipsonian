@@ -1,0 +1,42 @@
+@import "../../assets/scss/imports.scss";
+/*
+    Sidebar
+*/
+
+.Sidebar {
+    flex: 0 0 250px;
+    padding: 20px;
+
+    .Sidebar__nav-item {
+        margin-bottom: 4px;
+
+        a {
+            display: block;
+
+            color: $color-text;
+            font-weight: 600;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    // .Sidebar__folder {
+    //     margin: 4px 0;
+
+    //     > div:first-child {
+    //         font-weight: 600;
+    //     }
+
+    //     .Sidebar__item-link,
+    //     .Sidebar__children {
+    //         margin: 4px 0;
+    //         padding-left: 4px;
+    //     }
+
+    //     .Sidebar__children {
+    //         border-left: 1px dashed rgba(blue, .3);
+    //     }
+    // }
+}

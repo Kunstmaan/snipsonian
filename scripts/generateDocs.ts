@@ -3,9 +3,10 @@ import { IDocumentationItem } from '../packages/snipsonian-docs/src/models/docum
 /* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
+const junk = require('junk');
 
 const PACKAGES_DIR = 'packages';
-const DOCS_DIR = 'packages/snipsonian-docs/src/assets/documentation';
+const DOCS_DIR = 'packages/snipsonian-docs/documentation';
 
 function dirTree(filePath: string, slug: string): IDocumentationItem {
     const stats = fs.lstatSync(filePath);
@@ -29,17 +30,19 @@ function dirTree(filePath: string, slug: string): IDocumentationItem {
     return info;
 }
 
-fs.readdirSync(PACKAGES_DIR).forEach((file: string) => {
-    const pkgPath = `${PACKAGES_DIR}/${file}/src`;
+fs.readdirSync(PACKAGES_DIR)
+    .filter(junk.not) // removes junk files like '.DS_Store'
+    .forEach((file: string) => {
+        const pkgPath = `${PACKAGES_DIR}/${file}/src`;
 
-    const data = JSON.stringify(dirTree(pkgPath, `/${file}`), null, 4);
-    const docPath = `${DOCS_DIR}/${file}`;
+        const data = JSON.stringify(dirTree(pkgPath, `/${file}`), null, 4);
+        const docPath = `${DOCS_DIR}/${file}`;
 
-    fs.mkdir(docPath, { recursive: true }, (mkdirErr: Error) => {
-        if (mkdirErr) throw mkdirErr;
-        fs.writeFile(`${docPath}/docs.json`, data, (writeErr: Error) => {
-            if (writeErr) throw writeErr;
-            console.log(`${file} docs have been saved!`);
+        fs.mkdir(docPath, { recursive: true }, (mkdirErr: Error) => {
+            if (mkdirErr) throw mkdirErr;
+            fs.writeFile(`${docPath}/docs.json`, data, (writeErr: Error) => {
+                if (writeErr) throw writeErr;
+                console.log(`${file} docs have been saved!`);
+            });
         });
     });
-});

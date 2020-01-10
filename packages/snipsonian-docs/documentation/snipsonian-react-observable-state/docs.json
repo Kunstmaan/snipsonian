@@ -1,0 +1,54 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-react-observable-state/src",
+    "slug": "/snipsonian-react-observable-state/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "context",
+            "path": "packages/snipsonian-react-observable-state/src/context",
+            "slug": "/snipsonian-react-observable-state/src/context",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createObservableStateContext.ts",
+                    "path": "packages/snipsonian-react-observable-state/src/context/createObservableStateContext.ts",
+                    "slug": "/snipsonian-react-observable-state/src/context/createObservableStateContext.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-react-observable-state/src/index.ts",
+            "slug": "/snipsonian-react-observable-state/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "init",
+            "path": "packages/snipsonian-react-observable-state/src/init",
+            "slug": "/snipsonian-react-observable-state/src/init",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "initActionableReactObservableState.tsx",
+                    "path": "packages/snipsonian-react-observable-state/src/init/initActionableReactObservableState.tsx",
+                    "slug": "/snipsonian-react-observable-state/src/init/initActionableReactObservableState.tsx",
+                    "type": "file"
+                },
+                {
+                    "name": "initReactObservableState.tsx",
+                    "path": "packages/snipsonian-react-observable-state/src/init/initReactObservableState.tsx",
+                    "slug": "/snipsonian-react-observable-state/src/init/initReactObservableState.tsx",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-react-observable-state/src/init/types.ts",
+                    "slug": "/snipsonian-react-observable-state/src/init/types.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

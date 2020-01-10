@@ -1,0 +1,98 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-analytics/src",
+    "slug": "/snipsonian-analytics/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-analytics/src/index.ts",
+            "slug": "/snipsonian-analytics/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "performance",
+            "path": "packages/snipsonian-analytics/src/performance",
+            "slug": "/snipsonian-analytics/src/performance",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getNavigationStartTimeInMillis.ts",
+                    "path": "packages/snipsonian-analytics/src/performance/getNavigationStartTimeInMillis.ts",
+                    "slug": "/snipsonian-analytics/src/performance/getNavigationStartTimeInMillis.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getTimeToFirstPaintInMillis.ts",
+                    "path": "packages/snipsonian-analytics/src/performance/getTimeToFirstPaintInMillis.ts",
+                    "slug": "/snipsonian-analytics/src/performance/getTimeToFirstPaintInMillis.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "sendPerformanceEventsOnPageLoad.ts",
+                    "path": "packages/snipsonian-analytics/src/performance/sendPerformanceEventsOnPageLoad.ts",
+                    "slug": "/snipsonian-analytics/src/performance/sendPerformanceEventsOnPageLoad.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "tracker",
+            "path": "packages/snipsonian-analytics/src/tracker",
+            "slug": "/snipsonian-analytics/src/tracker",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.spec.ts",
+                    "path": "packages/snipsonian-analytics/src/tracker/index.spec.ts",
+                    "slug": "/snipsonian-analytics/src/tracker/index.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-analytics/src/tracker/index.ts",
+                    "slug": "/snipsonian-analytics/src/tracker/index.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "providers",
+                    "path": "packages/snipsonian-analytics/src/tracker/providers",
+                    "slug": "/snipsonian-analytics/src/tracker/providers",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "gaTracker.spec.ts",
+                            "path": "packages/snipsonian-analytics/src/tracker/providers/gaTracker.spec.ts",
+                            "slug": "/snipsonian-analytics/src/tracker/providers/gaTracker.spec.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gaTracker.ts",
+                            "path": "packages/snipsonian-analytics/src/tracker/providers/gaTracker.ts",
+                            "slug": "/snipsonian-analytics/src/tracker/providers/gaTracker.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gtmTracker.spec.ts",
+                            "path": "packages/snipsonian-analytics/src/tracker/providers/gtmTracker.spec.ts",
+                            "slug": "/snipsonian-analytics/src/tracker/providers/gtmTracker.spec.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "gtmTracker.ts",
+                            "path": "packages/snipsonian-analytics/src/tracker/providers/gtmTracker.ts",
+                            "slug": "/snipsonian-analytics/src/tracker/providers/gtmTracker.ts",
+                            "type": "file"
+                        },
+                        {
+                            "name": "initOptionalFields.ts",
+                            "path": "packages/snipsonian-analytics/src/tracker/providers/initOptionalFields.ts",
+                            "slug": "/snipsonian-analytics/src/tracker/providers/initOptionalFields.ts",
+                            "type": "file"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

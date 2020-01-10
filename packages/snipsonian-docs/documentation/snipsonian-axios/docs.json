@@ -1,0 +1,122 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-axios/src",
+    "slug": "/snipsonian-axios/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "error",
+            "path": "packages/snipsonian-axios/src/error",
+            "slug": "/snipsonian-axios/src/error",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "generateTraceableApiErrorId.ts",
+                    "path": "packages/snipsonian-axios/src/error/generateTraceableApiErrorId.ts",
+                    "slug": "/snipsonian-axios/src/error/generateTraceableApiErrorId.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "getErrorStatus.ts",
+                    "path": "packages/snipsonian-axios/src/error/getErrorStatus.ts",
+                    "slug": "/snipsonian-axios/src/error/getErrorStatus.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "isTraceableApiError.ts",
+                    "path": "packages/snipsonian-axios/src/error/isTraceableApiError.ts",
+                    "slug": "/snipsonian-axios/src/error/isTraceableApiError.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "header",
+            "path": "packages/snipsonian-axios/src/header",
+            "slug": "/snipsonian-axios/src/header",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "headerManager.ts",
+                    "path": "packages/snipsonian-axios/src/header/headerManager.ts",
+                    "slug": "/snipsonian-axios/src/header/headerManager.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-axios/src/header/types.ts",
+                    "slug": "/snipsonian-axios/src/header/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "httpStatus",
+            "path": "packages/snipsonian-axios/src/httpStatus",
+            "slug": "/snipsonian-axios/src/httpStatus",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "index.ts",
+                    "path": "packages/snipsonian-axios/src/httpStatus/index.ts",
+                    "slug": "/snipsonian-axios/src/httpStatus/index.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-axios/src/index.ts",
+            "slug": "/snipsonian-axios/src/index.ts",
+            "type": "file"
+        },
+        {
+            "name": "logging",
+            "path": "packages/snipsonian-axios/src/logging",
+            "slug": "/snipsonian-axios/src/logging",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getApiLogger.ts",
+                    "path": "packages/snipsonian-axios/src/logging/getApiLogger.ts",
+                    "slug": "/snipsonian-axios/src/logging/getApiLogger.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "request",
+            "path": "packages/snipsonian-axios/src/request",
+            "slug": "/snipsonian-axios/src/request",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "getRequestWrapper.ts",
+                    "path": "packages/snipsonian-axios/src/request/getRequestWrapper.ts",
+                    "slug": "/snipsonian-axios/src/request/getRequestWrapper.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "types.ts",
+                    "path": "packages/snipsonian-axios/src/request/types.ts",
+                    "slug": "/snipsonian-axios/src/request/types.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "test",
+            "path": "packages/snipsonian-axios/src/test",
+            "slug": "/snipsonian-axios/src/test",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "requestMocker.ts",
+                    "path": "packages/snipsonian-axios/src/test/requestMocker.ts",
+                    "slug": "/snipsonian-axios/src/test/requestMocker.ts",
+                    "type": "file"
+                }
+            ]
+        }
+    ]
+}

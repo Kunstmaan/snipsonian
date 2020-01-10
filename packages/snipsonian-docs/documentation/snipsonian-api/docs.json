@@ -1,0 +1,52 @@
+{
+    "name": "src",
+    "path": "packages/snipsonian-api/src",
+    "slug": "/snipsonian-api/src",
+    "type": "folder",
+    "children": [
+        {
+            "name": "fetch",
+            "path": "packages/snipsonian-api/src/fetch",
+            "slug": "/snipsonian-api/src/fetch",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "createFetchRequest.ts",
+                    "path": "packages/snipsonian-api/src/fetch/createFetchRequest.ts",
+                    "slug": "/snipsonian-api/src/fetch/createFetchRequest.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "fetcher.ts",
+                    "path": "packages/snipsonian-api/src/fetch/fetcher.ts",
+                    "slug": "/snipsonian-api/src/fetch/fetcher.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "jsonFetcher.ts",
+                    "path": "packages/snipsonian-api/src/fetch/jsonFetcher.ts",
+                    "slug": "/snipsonian-api/src/fetch/jsonFetcher.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "rejectPromiseOnHttpErrorStatus.spec.ts",
+                    "path": "packages/snipsonian-api/src/fetch/rejectPromiseOnHttpErrorStatus.spec.ts",
+                    "slug": "/snipsonian-api/src/fetch/rejectPromiseOnHttpErrorStatus.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "rejectPromiseOnHttpErrorStatus.ts",
+                    "path": "packages/snipsonian-api/src/fetch/rejectPromiseOnHttpErrorStatus.ts",
+                    "slug": "/snipsonian-api/src/fetch/rejectPromiseOnHttpErrorStatus.ts",
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "name": "index.ts",
+            "path": "packages/snipsonian-api/src/index.ts",
+            "slug": "/snipsonian-api/src/index.ts",
+            "type": "file"
+        }
+    ]
+}
