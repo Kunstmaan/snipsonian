@@ -4,6 +4,7 @@
   "description": "Small re-usable typescript code snippets (parent module)",
   "main": "src/index.js",
   "scripts": {
+    "generateDocs": "ts-node scripts/generateDocs.ts",
     "lintScss": "stylelint **/*.scss",
     "lintJs": "eslint *.js",
     "lintTs": "eslint --ext .ts,.tsx packages *.ts",
@@ -15,7 +16,9 @@
     "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ts-node": "8.5.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
