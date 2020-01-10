@@ -287,6 +287,18 @@
             "type": "folder",
             "children": [
                 {
+                    "name": "cloneObjectDataProps.spec.ts",
+                    "path": "packages/snipsonian-core/src/object/cloneObjectDataProps.spec.ts",
+                    "slug": "/snipsonian-core/src/object/cloneObjectDataProps.spec.ts",
+                    "type": "file"
+                },
+                {
+                    "name": "cloneObjectDataProps.ts",
+                    "path": "packages/snipsonian-core/src/object/cloneObjectDataProps.ts",
+                    "slug": "/snipsonian-core/src/object/cloneObjectDataProps.ts",
+                    "type": "file"
+                },
+                {
                     "name": "deletePropsFromObject.ts",
                     "path": "packages/snipsonian-core/src/object/deletePropsFromObject.ts",
                     "slug": "/snipsonian-core/src/object/deletePropsFromObject.ts",
