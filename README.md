@@ -42,7 +42,7 @@ Runs sequentially the linters and the unit tests.
 
 1. `nvm use`
 2. execute `npm run to-es` to transpile the typescript code to .js and .d.ts files under the /es folders (per package)
-3. manually check the generated folders (snipsonian-analytics !)
+3. manually briefly check the generated folders (snipsonian-analytics was previously generated somewhat wrong, but that issue is now fixed !)
 4. switch to the appropriate npm user
 5. execute one of:  (see https://github.com/lerna/lerna/tree/master/commands/publish)
     * `npx lerna publish` = publish packages that have changed since the last release

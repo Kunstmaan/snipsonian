@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/react",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Generic React snippets & components",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -9,8 +9,8 @@
     "react-dom": "^16.8.x"
   },
   "dependencies": {
-    "@snipsonian/browser": "^1.8.0",
-    "@snipsonian/core": "^1.8.0",
+    "@snipsonian/browser": "^1.9.1",
+    "@snipsonian/core": "^1.9.1",
     "classnames": "^2.2.6",
     "flat": "^4.1.0",
     "formik": "1.5.7",

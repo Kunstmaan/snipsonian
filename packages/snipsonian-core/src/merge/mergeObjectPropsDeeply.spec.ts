@@ -25,21 +25,36 @@ describe('mergeObjectPropsDeeply()', () => {
         expect(source2['a']).toBeUndefined(); // eslint-disable-line dot-notation
     });
 
-    it('the last source takes precedence for properties occurring in multiple sources', () => {
+    // eslint-disable-next-line max-len
+    it('the last source takes precedence for properties occurring in multiple sources, but only if they have the same type', () => {
         const actual = mergeObjectPropsDeeply(
-            { a: 1 },
-            { a: 'z', b: ['a', 'b', 'c'] },
+            {
+                a: 1,
+                c: 'x',
+                d: true,
+                e: true,
+            },
+            {
+                a: 'z',
+                b: ['a', 'b', 'c'],
+                c: 'y',
+                d: false,
+                e: 1,
+            },
         );
 
         expect(actual).toEqual({
-            a: 'z',
+            a: 1,
             b: ['a', 'b', 'c'],
+            c: 'y',
+            d: false,
+            e: true,
         });
     });
 
     it('does NOT merge arrays (the last source takes precedence)', () => {
         const actual = mergeObjectPropsDeeply(
-            { a: ['x', 'y'], b: 3, c: ['test'] },
+            { a: ['x', 'y'], b: [], c: ['test'] },
             { a: ['a', 'b', 'c'], b: [99], c: [] },
         );
 
@@ -58,6 +73,7 @@ describe('mergeObjectPropsDeeply()', () => {
                 c: {
                     x: 'xxx',
                     z: 999,
+                    s: 456,
                     n: {
                         o: 123,
                         q: 789,
@@ -70,6 +86,7 @@ describe('mergeObjectPropsDeeply()', () => {
                 c: {
                     y: 'yyy',
                     z: 'zzz',
+                    s: 567,
                     n: {
                         o: 456,
                         p: 'qed',
@@ -86,7 +103,8 @@ describe('mergeObjectPropsDeeply()', () => {
             c: {
                 x: 'xxx',
                 y: 'yyy',
-                z: 'zzz',
+                z: 999,
+                s: 567,
                 n: {
                     o: 456,
                     p: 'qed',
@@ -220,5 +238,40 @@ describe('mergeObjectPropsDeeply()', () => {
                 },
             },
         });
+    });
+
+    // eslint-disable-next-line max-len
+    it('clones on all levels (deeply) so that no upper/inner object or array of the input sources are changed in either way', () => {
+        const source1 = { a: 1, f: { g: '6' }, h: ['7', '8'] };
+        const source2 = { b: { c: { d: '2' }, e: [3, 4, 5] } };
+
+        const actual = mergeObjectPropsDeeply(
+            source1,
+            source2,
+        );
+
+        expect(actual).toEqual({
+            a: 1,
+            b: {
+                c: { d: '2' },
+                e: [3, 4, 5],
+            },
+            f: {
+                g: '6',
+            },
+            h: ['7', '8'],
+        });
+
+        expect(actual === source1).toBeFalsy();
+        expect(actual === source2).toBeFalsy();
+
+        /* eslint-disable dot-notation */
+        expect(actual['b'] === source2['b']).toBeFalsy();
+        expect(actual['b']['c'] === source2['b']['c']).toBeFalsy();
+        expect(actual['b']['e'] === source2['b']['e']).toBeFalsy();
+
+        expect(actual['f'] === source1['f']).toBeFalsy();
+        expect(actual['h'] === source1['h']).toBeFalsy();
+        /* eslint-enable dot-notation */
     });
 });
