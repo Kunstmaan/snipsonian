@@ -9,15 +9,16 @@ const analytics = require('./documentation/snipsonian-analytics/docs.json');
 const api = require('./documentation/snipsonian-api/docs.json');
 const axios = require('./documentation/snipsonian-axios/docs.json');
 const browser = require('./documentation/snipsonian-browser/docs.json');
-const core = require('./documentation/snipsonian-dvlp/docs.json');
-const dvlp = require('./documentation/snipsonian-node/docs.json');
+const core = require('./documentation/snipsonian-core/docs.json');
+const dvlp = require('./documentation/snipsonian-dvlp/docs.json');
+const node = require('./documentation/snipsonian-node/docs.json');
 const observableState = require('./documentation/snipsonian-observable-state/docs.json');
 const react = require('./documentation/snipsonian-react/docs.json');
 const reactObservableState = require('./documentation/snipsonian-react-observable-state/docs.json');
 const redux = require('./documentation/snipsonian-redux/docs.json');
 const reduxFeatures = require('./documentation/snipsonian-redux-features/docs.json');
 const reduxFirstRouter = require('./documentation/snipsonian-redux-first-router/docs.json');
-const scss = require('./documentation/snipsonian-scss/docs.json');
+// const scss = require('./documentation/snipsonian-scss/docs.json');
 
 
 exports.createPages = ({ actions }) => {
@@ -29,6 +30,7 @@ exports.createPages = ({ actions }) => {
         axios,
         browser,
         core,
+        node,
         dvlp,
         observableState,
         react,
@@ -36,7 +38,7 @@ exports.createPages = ({ actions }) => {
         redux,
         reduxFeatures,
         reduxFirstRouter,
-        scss,
+        // scss,
     };
 
     const navigation = Object.keys(documentation).map((key) => {
@@ -52,7 +54,7 @@ exports.createPages = ({ actions }) => {
         component: require.resolve('./src/templates/MainTemplate/index.tsx'),
         context: {
             navigation,
-            documentation: null,
+            packageDocumentation: null,
             home: {
                 title: 'Snipsonian',
                 text: 'Documentation for the snipsonian package',
@@ -68,7 +70,7 @@ exports.createPages = ({ actions }) => {
             component: require.resolve('./src/templates/MainTemplate/index.tsx'),
             context: {
                 navigation,
-                documentation: packageDoc,
+                packageDocumentation: packageDoc,
             },
         });
 

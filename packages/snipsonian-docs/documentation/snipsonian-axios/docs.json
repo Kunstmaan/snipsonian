@@ -1,120 +1,152 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-axios/src",
-    "slug": "/snipsonian-axios/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-axios",
+    "slug": "/snipsonian-axios",
+    "description": "Axios request utilities",
+    "documentation": [
         {
             "name": "error",
             "path": "packages/snipsonian-axios/src/error",
-            "slug": "/snipsonian-axios/src/error",
+            "slug": "/snipsonian-axios/error",
             "type": "folder",
             "children": [
                 {
                     "name": "generateTraceableApiErrorId.ts",
                     "path": "packages/snipsonian-axios/src/error/generateTraceableApiErrorId.ts",
-                    "slug": "/snipsonian-axios/src/error/generateTraceableApiErrorId.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/error/generateTraceableApiErrorId.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function generateTraceableApiErrorId(): string"
+                    }
                 },
                 {
                     "name": "getErrorStatus.ts",
                     "path": "packages/snipsonian-axios/src/error/getErrorStatus.ts",
-                    "slug": "/snipsonian-axios/src/error/getErrorStatus.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/error/getErrorStatus.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getErrorStatus(error: AxiosError): number"
+                    }
                 },
                 {
                     "name": "isTraceableApiError.ts",
                     "path": "packages/snipsonian-axios/src/error/isTraceableApiError.ts",
-                    "slug": "/snipsonian-axios/src/error/isTraceableApiError.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/error/isTraceableApiError.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>"
+                    }
                 }
             ]
         },
         {
             "name": "header",
             "path": "packages/snipsonian-axios/src/header",
-            "slug": "/snipsonian-axios/src/header",
+            "slug": "/snipsonian-axios/header",
             "type": "folder",
             "children": [
                 {
                     "name": "headerManager.ts",
                     "path": "packages/snipsonian-axios/src/header/headerManager.ts",
-                    "slug": "/snipsonian-axios/src/header/headerManager.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/header/headerManager.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-axios/src/header/types.ts",
-                    "slug": "/snipsonian-axios/src/header/types.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/header/types.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "httpStatus",
             "path": "packages/snipsonian-axios/src/httpStatus",
-            "slug": "/snipsonian-axios/src/httpStatus",
+            "slug": "/snipsonian-axios/httpStatus",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-axios/src/httpStatus/index.ts",
-                    "slug": "/snipsonian-axios/src/httpStatus/index.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/httpStatus/index.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "index.ts",
             "path": "packages/snipsonian-axios/src/index.ts",
-            "slug": "/snipsonian-axios/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-axios/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         },
         {
             "name": "logging",
             "path": "packages/snipsonian-axios/src/logging",
-            "slug": "/snipsonian-axios/src/logging",
+            "slug": "/snipsonian-axios/logging",
             "type": "folder",
             "children": [
                 {
                     "name": "getApiLogger.ts",
                     "path": "packages/snipsonian-axios/src/logging/getApiLogger.ts",
-                    "slug": "/snipsonian-axios/src/logging/getApiLogger.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/logging/getApiLogger.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger"
+                    }
                 }
             ]
         },
         {
             "name": "request",
             "path": "packages/snipsonian-axios/src/request",
-            "slug": "/snipsonian-axios/src/request",
+            "slug": "/snipsonian-axios/request",
             "type": "folder",
             "children": [
                 {
                     "name": "getRequestWrapper.ts",
                     "path": "packages/snipsonian-axios/src/request/getRequestWrapper.ts",
-                    "slug": "/snipsonian-axios/src/request/getRequestWrapper.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/request/getRequestWrapper.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper"
+                    }
                 },
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-axios/src/request/types.ts",
-                    "slug": "/snipsonian-axios/src/request/types.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/request/types.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "test",
             "path": "packages/snipsonian-axios/src/test",
-            "slug": "/snipsonian-axios/src/test",
+            "slug": "/snipsonian-axios/test",
             "type": "folder",
             "children": [
                 {
                     "name": "requestMocker.ts",
                     "path": "packages/snipsonian-axios/src/test/requestMocker.ts",
-                    "slug": "/snipsonian-axios/src/test/requestMocker.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-axios/test/requestMocker.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         }

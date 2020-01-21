@@ -3,16 +3,17 @@ import { Link } from 'gatsby';
 import '../../assets/scss/global.scss';
 import './main-template.scss';
 import Sidebar from '../../components/Sidebar';
-import { INavigationItem, IDocumentationItem } from '../../models/documentation';
+import { INavigationItem, IPackageDocumentation } from '../../models/documentation';
 import Documentation from '../../components/Documentation';
 import TableOfContents from '../../components/TableOfContents';
+import { capitalize } from '../../utils/format';
 
 const CLASS_NAME = 'MainTemplate';
 
 interface IPublicProps {
     pageContext: {
         navigation: INavigationItem[];
-        documentation: IDocumentationItem;
+        packageDocumentation: IPackageDocumentation;
         home?: {
             title: string;
             text: string;
@@ -20,8 +21,8 @@ interface IPublicProps {
     };
 }
 
-function MainTemplate({ pageContext: { documentation, navigation, home } }: IPublicProps) {
-    console.log({ navigation, documentation });
+function MainTemplate({ pageContext: { packageDocumentation, navigation, home } }: IPublicProps) {
+    console.log({ navigation, packageDocumentation });
 
     return (
         <div className={CLASS_NAME}>
@@ -37,11 +38,15 @@ function MainTemplate({ pageContext: { documentation, navigation, home } }: IPub
                             <p>{home.text}</p>
                         </>
                     )}
-                    {documentation && (
+                    {packageDocumentation && (
                         <>
-                            <TableOfContents documentation={documentation} />
+                            <div className={`${CLASS_NAME}__package-info`}>
+                                <h2>{capitalize(packageDocumentation.title)}</h2>
+                                <p>{packageDocumentation.description}</p>
+                            </div>
+                            <TableOfContents documentation={packageDocumentation.documentation} />
                             <hr />
-                            <Documentation documentation={documentation} />
+                            <Documentation documentation={packageDocumentation.documentation} />
                         </>
                     )}
                 </section>

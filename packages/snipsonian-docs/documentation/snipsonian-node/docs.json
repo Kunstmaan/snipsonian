@@ -1,68 +1,64 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-node/src",
-    "slug": "/snipsonian-node/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-node",
+    "slug": "/snipsonian-node",
+    "description": "Node file utilities",
+    "documentation": [
         {
             "name": "dir",
             "path": "packages/snipsonian-node/src/dir",
-            "slug": "/snipsonian-node/src/dir",
+            "slug": "/snipsonian-node/dir",
             "type": "folder",
             "children": [
                 {
-                    "name": "getDirectoryNamesSync.spec.ts",
-                    "path": "packages/snipsonian-node/src/dir/getDirectoryNamesSync.spec.ts",
-                    "slug": "/snipsonian-node/src/dir/getDirectoryNamesSync.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "getDirectoryNamesSync.ts",
                     "path": "packages/snipsonian-node/src/dir/getDirectoryNamesSync.ts",
-                    "slug": "/snipsonian-node/src/dir/getDirectoryNamesSync.ts",
-                    "type": "file"
-                },
-                {
-                    "name": "getFilesRecursiveSync.spec.ts",
-                    "path": "packages/snipsonian-node/src/dir/getFilesRecursiveSync.spec.ts",
-                    "slug": "/snipsonian-node/src/dir/getFilesRecursiveSync.spec.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-node/dir/getDirectoryNamesSync.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getDirectoryNamesSync({ sourcePath }: { sourcePath: string}): string[]"
+                    }
                 },
                 {
                     "name": "getFilesRecursiveSync.ts",
                     "path": "packages/snipsonian-node/src/dir/getFilesRecursiveSync.ts",
-                    "slug": "/snipsonian-node/src/dir/getFilesRecursiveSync.ts",
-                    "type": "file"
-                },
-                {
-                    "name": "isDirectorySync.spec.ts",
-                    "path": "packages/snipsonian-node/src/dir/isDirectorySync.spec.ts",
-                    "slug": "/snipsonian-node/src/dir/isDirectorySync.spec.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-node/dir/getFilesRecursiveSync.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[]"
+                    }
                 },
                 {
                     "name": "isDirectorySync.ts",
                     "path": "packages/snipsonian-node/src/dir/isDirectorySync.ts",
-                    "slug": "/snipsonian-node/src/dir/isDirectorySync.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-node/dir/isDirectorySync.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function isDirectorySync({ inputPath }: { inputPath: string }): boolean"
+                    }
                 },
                 {
                     "name": "testDir",
                     "path": "packages/snipsonian-node/src/dir/testDir",
-                    "slug": "/snipsonian-node/src/dir/testDir",
+                    "slug": "/snipsonian-node/dir/testDir",
                     "type": "folder",
                     "children": [
                         {
                             "name": "file.txt",
                             "path": "packages/snipsonian-node/src/dir/testDir/file.txt",
-                            "slug": "/snipsonian-node/src/dir/testDir/file.txt",
-                            "type": "file"
+                            "slug": "/snipsonian-node/dir/testDir/file.txt",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         },
                         {
                             "name": "file2.txt",
                             "path": "packages/snipsonian-node/src/dir/testDir/file2.txt",
-                            "slug": "/snipsonian-node/src/dir/testDir/file2.txt",
-                            "type": "file"
+                            "slug": "/snipsonian-node/dir/testDir/file2.txt",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         }
                     ]
                 }
@@ -71,60 +67,63 @@
         {
             "name": "file",
             "path": "packages/snipsonian-node/src/file",
-            "slug": "/snipsonian-node/src/file",
+            "slug": "/snipsonian-node/file",
             "type": "folder",
             "children": [
                 {
-                    "name": "readFile.spec.ts",
-                    "path": "packages/snipsonian-node/src/file/readFile.spec.ts",
-                    "slug": "/snipsonian-node/src/file/readFile.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "readFile.ts",
                     "path": "packages/snipsonian-node/src/file/readFile.ts",
-                    "slug": "/snipsonian-node/src/file/readFile.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-node/file/readFile.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function readFile({\n    filePath,\n    options = {},\n}: {\n    filePath: string;\n    options?: object;\n}): Promise<string>"
+                    }
                 },
                 {
                     "name": "testFiles",
                     "path": "packages/snipsonian-node/src/file/testFiles",
-                    "slug": "/snipsonian-node/src/file/testFiles",
+                    "slug": "/snipsonian-node/file/testFiles",
                     "type": "folder",
                     "children": [
                         {
                             "name": "read.txt",
                             "path": "packages/snipsonian-node/src/file/testFiles/read.txt",
-                            "slug": "/snipsonian-node/src/file/testFiles/read.txt",
-                            "type": "file"
+                            "slug": "/snipsonian-node/file/testFiles/read.txt",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         },
                         {
                             "name": "write.txt",
                             "path": "packages/snipsonian-node/src/file/testFiles/write.txt",
-                            "slug": "/snipsonian-node/src/file/testFiles/write.txt",
-                            "type": "file"
+                            "slug": "/snipsonian-node/file/testFiles/write.txt",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         }
                     ]
                 },
                 {
-                    "name": "writeFile.spec.ts",
-                    "path": "packages/snipsonian-node/src/file/writeFile.spec.ts",
-                    "slug": "/snipsonian-node/src/file/writeFile.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "writeFile.ts",
                     "path": "packages/snipsonian-node/src/file/writeFile.ts",
-                    "slug": "/snipsonian-node/src/file/writeFile.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-node/file/writeFile.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function writeFile({\n    filePath,\n    data,\n    options = {},\n}: {\n    filePath: string;\n    data: string;\n    options?: object;\n}): Promise<string>"
+                    }
                 }
             ]
         },
         {
             "name": "index.ts",
             "path": "packages/snipsonian-node/src/index.ts",
-            "slug": "/snipsonian-node/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-node/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         }
     ]
 }

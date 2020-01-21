@@ -1,166 +1,171 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-browser/src",
-    "slug": "/snipsonian-browser/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-browser",
+    "slug": "/snipsonian-browser",
+    "description": "Utilities for browser functionality",
+    "documentation": [
         {
             "name": "events",
             "path": "packages/snipsonian-browser/src/events",
-            "slug": "/snipsonian-browser/src/events",
+            "slug": "/snipsonian-browser/events",
             "type": "folder",
             "children": [
                 {
                     "name": "executeOnLoad.ts",
                     "path": "packages/snipsonian-browser/src/events/executeOnLoad.ts",
-                    "slug": "/snipsonian-browser/src/events/executeOnLoad.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/events/executeOnLoad.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void"
+                    }
                 }
             ]
         },
         {
             "name": "index.ts",
             "path": "packages/snipsonian-browser/src/index.ts",
-            "slug": "/snipsonian-browser/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-browser/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         },
         {
             "name": "logging",
             "path": "packages/snipsonian-browser/src/logging",
-            "slug": "/snipsonian-browser/src/logging",
+            "slug": "/snipsonian-browser/logging",
             "type": "folder",
             "children": [
                 {
                     "name": "consoleGroupLogger.ts",
                     "path": "packages/snipsonian-browser/src/logging/consoleGroupLogger.ts",
-                    "slug": "/snipsonian-browser/src/logging/consoleGroupLogger.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/logging/consoleGroupLogger.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "serviceWorker",
             "path": "packages/snipsonian-browser/src/serviceWorker",
-            "slug": "/snipsonian-browser/src/serviceWorker",
+            "slug": "/snipsonian-browser/serviceWorker",
             "type": "folder",
             "children": [
                 {
-                    "name": "getServiceWorkerStatus.spec.ts",
-                    "path": "packages/snipsonian-browser/src/serviceWorker/getServiceWorkerStatus.spec.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/getServiceWorkerStatus.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "getServiceWorkerStatus.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/getServiceWorkerStatus.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/getServiceWorkerStatus.ts",
-                    "type": "file"
-                },
-                {
-                    "name": "isServiceWorkerSupported.spec.ts",
-                    "path": "packages/snipsonian-browser/src/serviceWorker/isServiceWorkerSupported.spec.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/isServiceWorkerSupported.spec.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/serviceWorker/getServiceWorkerStatus.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS"
+                    }
                 },
                 {
                     "name": "isServiceWorkerSupported.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/isServiceWorkerSupported.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/isServiceWorkerSupported.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/serviceWorker/isServiceWorkerSupported.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "registerServiceWorker.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/registerServiceWorker.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/registerServiceWorker.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/serviceWorker/registerServiceWorker.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void"
+                    }
                 },
                 {
                     "name": "serviceWorkerStatus.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/serviceWorkerStatus.ts",
-                    "slug": "/snipsonian-browser/src/serviceWorker/serviceWorkerStatus.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/serviceWorker/serviceWorkerStatus.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "storage",
             "path": "packages/snipsonian-browser/src/storage",
-            "slug": "/snipsonian-browser/src/storage",
+            "slug": "/snipsonian-browser/storage",
             "type": "folder",
             "children": [
                 {
-                    "name": "browserStorageFactory.spec.ts",
-                    "path": "packages/snipsonian-browser/src/storage/browserStorageFactory.spec.ts",
-                    "slug": "/snipsonian-browser/src/storage/browserStorageFactory.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "browserStorageFactory.ts",
                     "path": "packages/snipsonian-browser/src/storage/browserStorageFactory.ts",
-                    "slug": "/snipsonian-browser/src/storage/browserStorageFactory.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/browserStorageFactory.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "createMockStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/createMockStorage.ts",
-                    "slug": "/snipsonian-browser/src/storage/createMockStorage.ts",
-                    "type": "file"
-                },
-                {
-                    "name": "isStorageSupported.spec.ts",
-                    "path": "packages/snipsonian-browser/src/storage/isStorageSupported.spec.ts",
-                    "slug": "/snipsonian-browser/src/storage/isStorageSupported.spec.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/createMockStorage.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createMockStorage(): IMockStorage"
+                    }
                 },
                 {
                     "name": "isStorageSupported.ts",
                     "path": "packages/snipsonian-browser/src/storage/isStorageSupported.ts",
-                    "slug": "/snipsonian-browser/src/storage/isStorageSupported.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/isStorageSupported.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "localStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/localStorage.ts",
-                    "slug": "/snipsonian-browser/src/storage/localStorage.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/localStorage.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "sessionStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/sessionStorage.ts",
-                    "slug": "/snipsonian-browser/src/storage/sessionStorage.ts",
-                    "type": "file"
-                },
-                {
-                    "name": "storageType.spec.ts",
-                    "path": "packages/snipsonian-browser/src/storage/storageType.spec.ts",
-                    "slug": "/snipsonian-browser/src/storage/storageType.spec.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/sessionStorage.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "storageType.ts",
                     "path": "packages/snipsonian-browser/src/storage/storageType.ts",
-                    "slug": "/snipsonian-browser/src/storage/storageType.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/storage/storageType.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "url",
             "path": "packages/snipsonian-browser/src/url",
-            "slug": "/snipsonian-browser/src/url",
+            "slug": "/snipsonian-browser/url",
             "type": "folder",
             "children": [
                 {
-                    "name": "getUrlPath.spec.ts",
-                    "path": "packages/snipsonian-browser/src/url/getUrlPath.spec.ts",
-                    "slug": "/snipsonian-browser/src/url/getUrlPath.spec.ts",
-                    "type": "file"
-                },
-                {
                     "name": "getUrlPath.ts",
                     "path": "packages/snipsonian-browser/src/url/getUrlPath.ts",
-                    "slug": "/snipsonian-browser/src/url/getUrlPath.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-browser/url/getUrlPath.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         }

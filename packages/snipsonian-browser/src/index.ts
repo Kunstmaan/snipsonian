@@ -1,3 +1,6 @@
+/*
+    Utilities for browser functionality
+ */
 import registerServiceWorker from './serviceWorker/registerServiceWorker';
 import localStorage from './storage/localStorage';
 import sessionStorage from './storage/sessionStorage';

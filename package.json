@@ -18,7 +18,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/parser": "7.7.7",
     "@babel/preset-env": "^7.3.1",
+    "@babel/traverse": "7.7.4",
+    "@babel/types": "7.7.4",
     "@kunstmaan/eslint-typescript-config": "^1.0.2",
     "@kunstmaan/stylelint-config": "^1.2.0",
     "@types/jest": "^23.3.13",

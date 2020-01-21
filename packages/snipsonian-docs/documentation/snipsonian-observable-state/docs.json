@@ -1,96 +1,128 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-observable-state/src",
-    "slug": "/snipsonian-observable-state/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-observable-state",
+    "slug": "/snipsonian-observable-state",
+    "description": "Utilities to detect changes in a large state store",
+    "documentation": [
         {
             "name": "actionableStore",
             "path": "packages/snipsonian-observable-state/src/actionableStore",
-            "slug": "/snipsonian-observable-state/src/actionableStore",
+            "slug": "/snipsonian-observable-state/actionableStore",
             "type": "folder",
             "children": [
                 {
                     "name": "actionCreators.ts",
                     "path": "packages/snipsonian-observable-state/src/actionableStore/actionCreators.ts",
-                    "slug": "/snipsonian-observable-state/src/actionableStore/actionCreators.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/actionableStore/actionCreators.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "createActionableObservableStateStore.ts",
                     "path": "packages/snipsonian-observable-state/src/actionableStore/createActionableObservableStateStore.ts",
-                    "slug": "/snipsonian-observable-state/src/actionableStore/createActionableObservableStateStore.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/actionableStore/createActionableObservableStateStore.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>"
+                    }
                 },
                 {
                     "name": "createObservableStateActionMiddleware.ts",
                     "path": "packages/snipsonian-observable-state/src/actionableStore/createObservableStateActionMiddleware.ts",
-                    "slug": "/snipsonian-observable-state/src/actionableStore/createObservableStateActionMiddleware.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/actionableStore/createObservableStateActionMiddleware.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware"
+                    }
                 },
                 {
                     "name": "isObservableStateAction.ts",
                     "path": "packages/snipsonian-observable-state/src/actionableStore/isObservableStateAction.ts",
-                    "slug": "/snipsonian-observable-state/src/actionableStore/isObservableStateAction.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/actionableStore/isObservableStateAction.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>"
+                    }
                 },
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-observable-state/src/actionableStore/types.ts",
-                    "slug": "/snipsonian-observable-state/src/actionableStore/types.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/actionableStore/types.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "index.ts",
             "path": "packages/snipsonian-observable-state/src/index.ts",
-            "slug": "/snipsonian-observable-state/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-observable-state/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         },
         {
             "name": "observer",
             "path": "packages/snipsonian-observable-state/src/observer",
-            "slug": "/snipsonian-observable-state/src/observer",
+            "slug": "/snipsonian-observable-state/observer",
             "type": "folder",
             "children": [
                 {
                     "name": "createStateObserverManager.ts",
                     "path": "packages/snipsonian-observable-state/src/observer/createStateObserverManager.ts",
-                    "slug": "/snipsonian-observable-state/src/observer/createStateObserverManager.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/observer/createStateObserverManager.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>"
+                    }
                 }
             ]
         },
         {
             "name": "store",
             "path": "packages/snipsonian-observable-state/src/store",
-            "slug": "/snipsonian-observable-state/src/store",
+            "slug": "/snipsonian-observable-state/store",
             "type": "folder",
             "children": [
                 {
                     "name": "createObservableStateStore.ts",
                     "path": "packages/snipsonian-observable-state/src/store/createObservableStateStore.ts",
-                    "slug": "/snipsonian-observable-state/src/store/createObservableStateStore.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/store/createObservableStateStore.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>"
+                    }
                 },
                 {
                     "name": "stateStorage.ts",
                     "path": "packages/snipsonian-observable-state/src/store/stateStorage.ts",
-                    "slug": "/snipsonian-observable-state/src/store/stateStorage.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/store/stateStorage.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "storeManager.ts",
                     "path": "packages/snipsonian-observable-state/src/store/storeManager.ts",
-                    "slug": "/snipsonian-observable-state/src/store/storeManager.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/store/storeManager.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-observable-state/src/store/types.ts",
-                    "slug": "/snipsonian-observable-state/src/store/types.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-observable-state/store/types.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         }

@@ -1,3 +1,6 @@
+/*
+    Node file utilities
+ */
 import isDirectorySync from './dir/isDirectorySync';
 import getFilesRecursiveSync from './dir/getFilesRecursiveSync';
 import getDirectoryNamesSync from './dir/getDirectoryNamesSync';

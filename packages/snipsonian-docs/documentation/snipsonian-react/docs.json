@@ -1,38 +1,43 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-react/src",
-    "slug": "/snipsonian-react/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-react",
+    "slug": "/snipsonian-react",
+    "description": "React utilities",
+    "documentation": [
         {
             "name": "components",
             "path": "packages/snipsonian-react/src/components",
-            "slug": "/snipsonian-react/src/components",
+            "slug": "/snipsonian-react/components",
             "type": "folder",
             "children": [
                 {
                     "name": ".eslintrc.js",
                     "path": "packages/snipsonian-react/src/components/.eslintrc.js",
-                    "slug": "/snipsonian-react/src/components/.eslintrc.js",
-                    "type": "file"
+                    "slug": "/snipsonian-react/components/.eslintrc.js",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "appShell",
                     "path": "packages/snipsonian-react/src/components/appShell",
-                    "slug": "/snipsonian-react/src/components/appShell",
+                    "slug": "/snipsonian-react/components/appShell",
                     "type": "folder",
                     "children": [
                         {
                             "name": "BodySwitcher",
                             "path": "packages/snipsonian-react/src/components/appShell/BodySwitcher",
-                            "slug": "/snipsonian-react/src/components/appShell/BodySwitcher",
+                            "slug": "/snipsonian-react/components/appShell/BodySwitcher",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/appShell/BodySwitcher/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/appShell/BodySwitcher/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/appShell/BodySwitcher/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         }
@@ -41,20 +46,23 @@
                 {
                     "name": "form",
                     "path": "packages/snipsonian-react/src/components/form",
-                    "slug": "/snipsonian-react/src/components/form",
+                    "slug": "/snipsonian-react/components/form",
                     "type": "folder",
                     "children": [
                         {
                             "name": "GenericForm",
                             "path": "packages/snipsonian-react/src/components/form/GenericForm",
-                            "slug": "/snipsonian-react/src/components/form/GenericForm",
+                            "slug": "/snipsonian-react/components/form/GenericForm",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/form/GenericForm/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/form/GenericForm/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/form/GenericForm/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         }
@@ -63,86 +71,110 @@
                 {
                     "name": "i18n",
                     "path": "packages/snipsonian-react/src/components/i18n",
-                    "slug": "/snipsonian-react/src/components/i18n",
+                    "slug": "/snipsonian-react/components/i18n",
                     "type": "folder",
                     "children": [
                         {
                             "name": "I18nContext",
                             "path": "packages/snipsonian-react/src/components/i18n/I18nContext",
-                            "slug": "/snipsonian-react/src/components/i18n/I18nContext",
+                            "slug": "/snipsonian-react/components/i18n/I18nContext",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/i18n/I18nContext/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/i18n/I18nContext/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/I18nContext/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "Translate",
                             "path": "packages/snipsonian-react/src/components/i18n/Translate",
-                            "slug": "/snipsonian-react/src/components/i18n/Translate",
+                            "slug": "/snipsonian-react/components/i18n/Translate",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/i18n/Translate/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/i18n/Translate/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/Translate/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "translations",
                             "path": "packages/snipsonian-react/src/components/i18n/translations",
-                            "slug": "/snipsonian-react/src/components/i18n/translations",
+                            "slug": "/snipsonian-react/components/i18n/translations",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "createTranslationsManager.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translations/createTranslationsManager.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translations/createTranslationsManager.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translations/createTranslationsManager.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": "export default function createTranslationsManager({\n    locales,\n    initialTranslations,\n    localStorageKey,\n}: ITranslationsManagerConfig): ITranslationsManager"
+                                    }
                                 },
                                 {
                                     "name": "types.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translations/types.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translations/types.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translations/types.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "translator",
                             "path": "packages/snipsonian-react/src/components/i18n/translator",
-                            "slug": "/snipsonian-react/src/components/i18n/translator",
+                            "slug": "/snipsonian-react/components/i18n/translator",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "generateTranslatorForEachSupportedLocale.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translator/generateTranslatorForEachSupportedLocale.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translator/generateTranslatorForEachSupportedLocale.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translator/generateTranslatorForEachSupportedLocale.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": "export default function generateTranslatorForEachSupportedLocale({\n    translationsManager,\n}: {\n    translationsManager: ITranslationsManager;\n}): ILocaleTranslators"
+                                    }
                                 },
                                 {
                                     "name": "listenForTranslationKeyToggles.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translator/listenForTranslationKeyToggles.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translator/listenForTranslationKeyToggles.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translator/listenForTranslationKeyToggles.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 },
                                 {
                                     "name": "translatorManager.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translator/translatorManager.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translator/translatorManager.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translator/translatorManager.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 },
                                 {
                                     "name": "types.ts",
                                     "path": "packages/snipsonian-react/src/components/i18n/translator/types.ts",
-                                    "slug": "/snipsonian-react/src/components/i18n/translator/types.ts",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/i18n/translator/types.ts",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         }
@@ -151,40 +183,46 @@
                 {
                     "name": "pageParts",
                     "path": "packages/snipsonian-react/src/components/pageParts",
-                    "slug": "/snipsonian-react/src/components/pageParts",
+                    "slug": "/snipsonian-react/components/pageParts",
                     "type": "folder",
                     "children": [
                         {
                             "name": "CommonPageParts",
                             "path": "packages/snipsonian-react/src/components/pageParts/CommonPageParts",
-                            "slug": "/snipsonian-react/src/components/pageParts/CommonPageParts",
+                            "slug": "/snipsonian-react/components/pageParts/CommonPageParts",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "HeaderPagePart",
                                     "path": "packages/snipsonian-react/src/components/pageParts/CommonPageParts/HeaderPagePart",
-                                    "slug": "/snipsonian-react/src/components/pageParts/CommonPageParts/HeaderPagePart",
+                                    "slug": "/snipsonian-react/components/pageParts/CommonPageParts/HeaderPagePart",
                                     "type": "folder",
                                     "children": [
                                         {
                                             "name": "index.tsx",
                                             "path": "packages/snipsonian-react/src/components/pageParts/CommonPageParts/HeaderPagePart/index.tsx",
-                                            "slug": "/snipsonian-react/src/components/pageParts/CommonPageParts/HeaderPagePart/index.tsx",
-                                            "type": "file"
+                                            "slug": "/snipsonian-react/components/pageParts/CommonPageParts/HeaderPagePart/index.tsx",
+                                            "type": "file",
+                                            "fileInfo": {
+                                                "defaultExport": null
+                                            }
                                         }
                                     ]
                                 },
                                 {
                                     "name": "TextPagePart",
                                     "path": "packages/snipsonian-react/src/components/pageParts/CommonPageParts/TextPagePart",
-                                    "slug": "/snipsonian-react/src/components/pageParts/CommonPageParts/TextPagePart",
+                                    "slug": "/snipsonian-react/components/pageParts/CommonPageParts/TextPagePart",
                                     "type": "folder",
                                     "children": [
                                         {
                                             "name": "index.tsx",
                                             "path": "packages/snipsonian-react/src/components/pageParts/CommonPageParts/TextPagePart/index.tsx",
-                                            "slug": "/snipsonian-react/src/components/pageParts/CommonPageParts/TextPagePart/index.tsx",
-                                            "type": "file"
+                                            "slug": "/snipsonian-react/components/pageParts/CommonPageParts/TextPagePart/index.tsx",
+                                            "type": "file",
+                                            "fileInfo": {
+                                                "defaultExport": null
+                                            }
                                         }
                                     ]
                                 }
@@ -193,56 +231,68 @@
                         {
                             "name": "PagePartWrapper",
                             "path": "packages/snipsonian-react/src/components/pageParts/PagePartWrapper",
-                            "slug": "/snipsonian-react/src/components/pageParts/PagePartWrapper",
+                            "slug": "/snipsonian-react/components/pageParts/PagePartWrapper",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/pageParts/PagePartWrapper/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/pageParts/PagePartWrapper/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/pageParts/PagePartWrapper/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "PageParts",
                             "path": "packages/snipsonian-react/src/components/pageParts/PageParts",
-                            "slug": "/snipsonian-react/src/components/pageParts/PageParts",
+                            "slug": "/snipsonian-react/components/pageParts/PageParts",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/pageParts/PageParts/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/pageParts/PageParts/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/pageParts/PageParts/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "pageParts.models.ts",
                             "path": "packages/snipsonian-react/src/components/pageParts/pageParts.models.ts",
-                            "slug": "/snipsonian-react/src/components/pageParts/pageParts.models.ts",
-                            "type": "file"
+                            "slug": "/snipsonian-react/components/pageParts/pageParts.models.ts",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         }
                     ]
                 },
                 {
                     "name": "technical",
                     "path": "packages/snipsonian-react/src/components/technical",
-                    "slug": "/snipsonian-react/src/components/technical",
+                    "slug": "/snipsonian-react/components/technical",
                     "type": "folder",
                     "children": [
                         {
                             "name": "Portal",
                             "path": "packages/snipsonian-react/src/components/technical/Portal",
-                            "slug": "/snipsonian-react/src/components/technical/Portal",
+                            "slug": "/snipsonian-react/components/technical/Portal",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/technical/Portal/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/technical/Portal/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/technical/Portal/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         }
@@ -251,74 +301,92 @@
                 {
                     "name": "test",
                     "path": "packages/snipsonian-react/src/components/test",
-                    "slug": "/snipsonian-react/src/components/test",
+                    "slug": "/snipsonian-react/components/test",
                     "type": "folder",
                     "children": [
                         {
                             "name": "getComponentTester.tsx",
                             "path": "packages/snipsonian-react/src/components/test/getComponentTester.tsx",
-                            "slug": "/snipsonian-react/src/components/test/getComponentTester.tsx",
-                            "type": "file"
+                            "slug": "/snipsonian-react/components/test/getComponentTester.tsx",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         },
                         {
                             "name": "types.ts",
                             "path": "packages/snipsonian-react/src/components/test/types.ts",
-                            "slug": "/snipsonian-react/src/components/test/types.ts",
-                            "type": "file"
+                            "slug": "/snipsonian-react/components/test/types.ts",
+                            "type": "file",
+                            "fileInfo": {
+                                "defaultExport": null
+                            }
                         }
                     ]
                 },
                 {
                     "name": "waiting",
                     "path": "packages/snipsonian-react/src/components/waiting",
-                    "slug": "/snipsonian-react/src/components/waiting",
+                    "slug": "/snipsonian-react/components/waiting",
                     "type": "folder",
                     "children": [
                         {
                             "name": "GenericLoader",
                             "path": "packages/snipsonian-react/src/components/waiting/GenericLoader",
-                            "slug": "/snipsonian-react/src/components/waiting/GenericLoader",
+                            "slug": "/snipsonian-react/components/waiting/GenericLoader",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/waiting/GenericLoader/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/waiting/GenericLoader/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/waiting/GenericLoader/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "HideAfterDelay",
                             "path": "packages/snipsonian-react/src/components/waiting/HideAfterDelay",
-                            "slug": "/snipsonian-react/src/components/waiting/HideAfterDelay",
+                            "slug": "/snipsonian-react/components/waiting/HideAfterDelay",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/waiting/HideAfterDelay/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/waiting/HideAfterDelay/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/waiting/HideAfterDelay/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         },
                         {
                             "name": "ShowAfterDelay",
                             "path": "packages/snipsonian-react/src/components/waiting/ShowAfterDelay",
-                            "slug": "/snipsonian-react/src/components/waiting/ShowAfterDelay",
+                            "slug": "/snipsonian-react/components/waiting/ShowAfterDelay",
                             "type": "folder",
                             "children": [
                                 {
                                     "name": "index.specIgnore.tsx",
                                     "path": "packages/snipsonian-react/src/components/waiting/ShowAfterDelay/index.specIgnore.tsx",
-                                    "slug": "/snipsonian-react/src/components/waiting/ShowAfterDelay/index.specIgnore.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/waiting/ShowAfterDelay/index.specIgnore.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 },
                                 {
                                     "name": "index.tsx",
                                     "path": "packages/snipsonian-react/src/components/waiting/ShowAfterDelay/index.tsx",
-                                    "slug": "/snipsonian-react/src/components/waiting/ShowAfterDelay/index.tsx",
-                                    "type": "file"
+                                    "slug": "/snipsonian-react/components/waiting/ShowAfterDelay/index.tsx",
+                                    "type": "file",
+                                    "fileInfo": {
+                                        "defaultExport": null
+                                    }
                                 }
                             ]
                         }
@@ -329,52 +397,70 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-react/src/index.ts",
-            "slug": "/snipsonian-react/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-react/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         },
         {
             "name": "models",
             "path": "packages/snipsonian-react/src/models",
-            "slug": "/snipsonian-react/src/models",
+            "slug": "/snipsonian-react/models",
             "type": "folder",
             "children": [
                 {
                     "name": "pages.models.ts",
                     "path": "packages/snipsonian-react/src/models/pages.models.ts",
-                    "slug": "/snipsonian-react/src/models/pages.models.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react/models/pages.models.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         },
         {
             "name": "utils",
             "path": "packages/snipsonian-react/src/utils",
-            "slug": "/snipsonian-react/src/utils",
+            "slug": "/snipsonian-react/utils",
             "type": "folder",
             "children": [
                 {
                     "name": "anchor.ts",
                     "path": "packages/snipsonian-react/src/utils/anchor.ts",
-                    "slug": "/snipsonian-react/src/utils/anchor.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react/utils/anchor.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "getOrCreateElementInBodyById.ts",
                     "path": "packages/snipsonian-react/src/utils/getOrCreateElementInBodyById.ts",
-                    "slug": "/snipsonian-react/src/utils/getOrCreateElementInBodyById.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react/utils/getOrCreateElementInBodyById.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "isReactComponentClass.ts",
                     "path": "packages/snipsonian-react/src/utils/isReactComponentClass.ts",
-                    "slug": "/snipsonian-react/src/utils/isReactComponentClass.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react/utils/isReactComponentClass.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 },
                 {
                     "name": "noRerender.ts",
                     "path": "packages/snipsonian-react/src/utils/noRerender.ts",
-                    "slug": "/snipsonian-react/src/utils/noRerender.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react/utils/noRerender.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         }

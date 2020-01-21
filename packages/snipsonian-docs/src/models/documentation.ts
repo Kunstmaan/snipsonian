@@ -1,8 +1,17 @@
+
+
 type TFileType = 'file' | 'folder';
 
 export interface INavigationItem {
     title: string;
     to: string;
+}
+
+export interface IPackageDocumentation {
+    title: string;
+    description: string;
+    documentation: IDocumentationItem[];
+    slug: string;
 }
 
 export interface IDocumentationItem {
@@ -11,4 +20,7 @@ export interface IDocumentationItem {
     type: TFileType;
     slug: string;
     children?: IDocumentationItem[];
+    fileInfo?: {
+        defaultExport: string;
+    };
 }

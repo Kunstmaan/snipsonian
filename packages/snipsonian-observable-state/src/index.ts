@@ -1,3 +1,6 @@
+/*
+    Utilities to detect changes in a large state store
+ */
 import createObservableStateStoreIntern from './store/createObservableStateStore';
 import createActionableObservableStateStoreIntern from './actionableStore/createActionableObservableStateStore';
 

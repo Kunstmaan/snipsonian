@@ -14,15 +14,21 @@ $slate-grey--dark:          #2D3339;
 $blue:                      #028090;
 $blue--dark:                #05668D;
 
-$green:                     #02C39A;
-$green--dark:               #00A896;
+$green:                     #2F9E1E;
+
+$blue-green:                #02C39A;
+$blue-green--dark:          #00A896;
+
+$orange:                    #EE8600;
+
+$red:                       #C5450D;
 
 $beige:                     #F0F3BD;
 
 /* Brand colors
     ========================================================================== */
-$color-primary:             $green;
-$color-primary--dark:       $green--dark;
+$color-primary:             $blue-green;
+$color-primary--dark:       $blue-green--dark;
 
 $color-secondary:           $blue;
 $color-secondary--dark:     $blue--dark;

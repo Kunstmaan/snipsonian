@@ -33,6 +33,14 @@
             flex: 1 1 auto;
             padding: 40px;
 
+            .MainTemplate__package-info {
+                margin-bottom: 60px;
+
+                > h2 {
+                    color: $color-primary;
+                }
+            }
+
             .TableOfContents {
                 margin-bottom: 60px;
             }

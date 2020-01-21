@@ -1,52 +1,66 @@
 {
-    "name": "src",
-    "path": "packages/snipsonian-react-observable-state/src",
-    "slug": "/snipsonian-react-observable-state/src",
-    "type": "folder",
-    "children": [
+    "title": "snipsonian-react-observable-state",
+    "slug": "/snipsonian-react-observable-state",
+    "description": "Utilities to detect changes in a large state store in React",
+    "documentation": [
         {
             "name": "context",
             "path": "packages/snipsonian-react-observable-state/src/context",
-            "slug": "/snipsonian-react-observable-state/src/context",
+            "slug": "/snipsonian-react-observable-state/context",
             "type": "folder",
             "children": [
                 {
                     "name": "createObservableStateContext.ts",
                     "path": "packages/snipsonian-react-observable-state/src/context/createObservableStateContext.ts",
-                    "slug": "/snipsonian-react-observable-state/src/context/createObservableStateContext.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react-observable-state/context/createObservableStateContext.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function createObservableStateContext<\n    State,\n    StateChangeNotificationKey,\n    StateStore = IObservableStateStore<State, StateChangeNotificationKey>>(): Context<StateStore>"
+                    }
                 }
             ]
         },
         {
             "name": "index.ts",
             "path": "packages/snipsonian-react-observable-state/src/index.ts",
-            "slug": "/snipsonian-react-observable-state/src/index.ts",
-            "type": "file"
+            "slug": "/snipsonian-react-observable-state/index.ts",
+            "type": "file",
+            "fileInfo": {
+                "defaultExport": null
+            }
         },
         {
             "name": "init",
             "path": "packages/snipsonian-react-observable-state/src/init",
-            "slug": "/snipsonian-react-observable-state/src/init",
+            "slug": "/snipsonian-react-observable-state/init",
             "type": "folder",
             "children": [
                 {
                     "name": "initActionableReactObservableState.tsx",
                     "path": "packages/snipsonian-react-observable-state/src/init/initActionableReactObservableState.tsx",
-                    "slug": "/snipsonian-react-observable-state/src/init/initActionableReactObservableState.tsx",
-                    "type": "file"
+                    "slug": "/snipsonian-react-observable-state/init/initActionableReactObservableState.tsx",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function initActionableReactObservableState<State, StateChangeNotificationKey = string>(): IActionableReactObservableState<State, StateChangeNotificationKey>"
+                    }
                 },
                 {
                     "name": "initReactObservableState.tsx",
                     "path": "packages/snipsonian-react-observable-state/src/init/initReactObservableState.tsx",
-                    "slug": "/snipsonian-react-observable-state/src/init/initReactObservableState.tsx",
-                    "type": "file"
+                    "slug": "/snipsonian-react-observable-state/init/initReactObservableState.tsx",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": "export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey>"
+                    }
                 },
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-react-observable-state/src/init/types.ts",
-                    "slug": "/snipsonian-react-observable-state/src/init/types.ts",
-                    "type": "file"
+                    "slug": "/snipsonian-react-observable-state/init/types.ts",
+                    "type": "file",
+                    "fileInfo": {
+                        "defaultExport": null
+                    }
                 }
             ]
         }

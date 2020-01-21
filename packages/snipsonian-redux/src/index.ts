@@ -1,3 +1,6 @@
+/*
+    Redux action creators, middlewares, reducer utilities, ...
+ */
 import { STATE_STORAGE_TYPE, REDUCER_STORAGE_TYPE } from './config/storageType';
 import createReducer from './reducer/createReducer';
 import {

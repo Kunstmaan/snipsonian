@@ -6,17 +6,15 @@ import { capitalize } from '../../utils/format';
 const CLASS_NAME = 'TableOfContents';
 
 interface IPublicProps {
-    documentation: IDocumentationItem;
+    documentation: IDocumentationItem[];
 }
 
 export default function TableOfContents({ documentation }: IPublicProps) {
     const level = 1;
     return (
         <div className={CLASS_NAME}>
-            <h1>Table Of Contents</h1>
-            <Folder key={documentation.slug} title={documentation.name}>
-                <Children level={level} items={documentation.children} />
-            </Folder>
+            <h3>Table Of Contents</h3>
+            {documentation.map((item) => renderFolder({ item, level }))}
         </div>
     );
 }

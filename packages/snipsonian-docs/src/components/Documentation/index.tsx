@@ -1,20 +1,19 @@
 import React from 'react';
 import './documentation.scss';
 import { IDocumentationItem } from '../../models/documentation';
+import DefaultExportInfo from './DefaultExportInfo';
 
 const CLASS_NAME = 'Documentation';
 
 interface IPublicProps {
-    documentation: IDocumentationItem;
+    documentation: IDocumentationItem[];
 }
 
 export default function Documentation({ documentation }: IPublicProps) {
     const level = 1;
     return (
         <div className={CLASS_NAME}>
-            <Folder key={documentation.path} title={documentation.name}>
-                <Children level={level} items={documentation.children} />
-            </Folder>
+            {documentation.map((item) => renderFolder({ item, level }))}
         </div>
     );
 }
@@ -43,6 +42,7 @@ function Item({ item }: { item: IDocumentationItem }) {
     return (
         <div className={`${CLASS_NAME}__item`} id={item.name}>
             <h4><a href={`#${item.name}`}>{item.name}</a></h4>
+            <DefaultExportInfo file={item} />
             <p>{`Path: ${item.path}`}</p>
         </div>
     );
