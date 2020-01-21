@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-api",
-    "slug": "/snipsonian-api",
+    "version": "1.9.1",
+    "slug": "/snipsonian-api/1.9.1",
     "description": "Api fetcher utilities",
     "documentation": [
         {
             "name": "fetch",
             "path": "packages/snipsonian-api/src/fetch",
-            "slug": "/snipsonian-api/fetch",
+            "slug": "/snipsonian-api/1.9.1/fetch",
             "type": "folder",
             "children": [
                 {
                     "name": "createFetchRequest.ts",
                     "path": "packages/snipsonian-api/src/fetch/createFetchRequest.ts",
-                    "slug": "/snipsonian-api/fetch/createFetchRequest.ts",
+                    "slug": "/snipsonian-api/1.9.1/fetch/createFetchRequest.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request"
@@ -21,7 +22,7 @@
                 {
                     "name": "fetcher.ts",
                     "path": "packages/snipsonian-api/src/fetch/fetcher.ts",
-                    "slug": "/snipsonian-api/fetch/fetcher.ts",
+                    "slug": "/snipsonian-api/1.9.1/fetch/fetcher.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -30,7 +31,7 @@
                 {
                     "name": "jsonFetcher.ts",
                     "path": "packages/snipsonian-api/src/fetch/jsonFetcher.ts",
-                    "slug": "/snipsonian-api/fetch/jsonFetcher.ts",
+                    "slug": "/snipsonian-api/1.9.1/fetch/jsonFetcher.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -39,7 +40,7 @@
                 {
                     "name": "rejectPromiseOnHttpErrorStatus.ts",
                     "path": "packages/snipsonian-api/src/fetch/rejectPromiseOnHttpErrorStatus.ts",
-                    "slug": "/snipsonian-api/fetch/rejectPromiseOnHttpErrorStatus.ts",
+                    "slug": "/snipsonian-api/1.9.1/fetch/rejectPromiseOnHttpErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function rejectPromiseOnHttpErrorStatus(response: Response): Response"
@@ -50,7 +51,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-api/src/index.ts",
-            "slug": "/snipsonian-api/index.ts",
+            "slug": "/snipsonian-api/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null

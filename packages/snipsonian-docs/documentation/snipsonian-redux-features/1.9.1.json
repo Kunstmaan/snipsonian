@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-redux-features",
-    "slug": "/snipsonian-redux-features",
+    "version": "1.9.1",
+    "slug": "/snipsonian-redux-features/1.9.1",
     "description": "Custom redux features like entities",
     "documentation": [
         {
             "name": "entities",
             "path": "packages/snipsonian-redux-features/src/entities",
-            "slug": "/snipsonian-redux-features/entities",
+            "slug": "/snipsonian-redux-features/1.9.1/entities",
             "type": "folder",
             "children": [
                 {
                     "name": "EntityMaybe.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/EntityMaybe.ts",
-                    "slug": "/snipsonian-redux-features/entities/EntityMaybe.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/EntityMaybe.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -21,7 +22,7 @@
                 {
                     "name": "actionTypes.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/actionTypes.ts",
-                    "slug": "/snipsonian-redux-features/entities/actionTypes.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/actionTypes.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -30,7 +31,7 @@
                 {
                     "name": "actions.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/actions.ts",
-                    "slug": "/snipsonian-redux-features/entities/actions.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/actions.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -39,7 +40,7 @@
                 {
                     "name": "entityUtils.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/entityUtils.ts",
-                    "slug": "/snipsonian-redux-features/entities/entityUtils.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/entityUtils.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -48,7 +49,7 @@
                 {
                     "name": "mapAsyncEntityKey2ApiConfigMap.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/mapAsyncEntityKey2ApiConfigMap.ts",
-                    "slug": "/snipsonian-redux-features/entities/mapAsyncEntityKey2ApiConfigMap.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/mapAsyncEntityKey2ApiConfigMap.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -57,7 +58,7 @@
                 {
                     "name": "reducerBuildingBlocks.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/reducerBuildingBlocks.ts",
-                    "slug": "/snipsonian-redux-features/entities/reducerBuildingBlocks.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/reducerBuildingBlocks.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -66,7 +67,7 @@
                 {
                     "name": "registerJourneyToFetchAsyncEntitiesOnAction.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
-                    "slug": "/snipsonian-redux-features/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void"
@@ -75,7 +76,7 @@
                 {
                     "name": "selectors.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/selectors.ts",
-                    "slug": "/snipsonian-redux-features/entities/selectors.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/selectors.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -84,7 +85,7 @@
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-redux-features/src/entities/types.ts",
-                    "slug": "/snipsonian-redux-features/entities/types.ts",
+                    "slug": "/snipsonian-redux-features/1.9.1/entities/types.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -95,7 +96,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-redux-features/src/index.ts",
-            "slug": "/snipsonian-redux-features/index.ts",
+            "slug": "/snipsonian-redux-features/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null

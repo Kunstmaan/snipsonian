@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-browser",
-    "slug": "/snipsonian-browser",
+    "version": "1.9.1",
+    "slug": "/snipsonian-browser/1.9.1",
     "description": "Utilities for browser functionality",
     "documentation": [
         {
             "name": "events",
             "path": "packages/snipsonian-browser/src/events",
-            "slug": "/snipsonian-browser/events",
+            "slug": "/snipsonian-browser/1.9.1/events",
             "type": "folder",
             "children": [
                 {
                     "name": "executeOnLoad.ts",
                     "path": "packages/snipsonian-browser/src/events/executeOnLoad.ts",
-                    "slug": "/snipsonian-browser/events/executeOnLoad.ts",
+                    "slug": "/snipsonian-browser/1.9.1/events/executeOnLoad.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void"
@@ -23,7 +24,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-browser/src/index.ts",
-            "slug": "/snipsonian-browser/index.ts",
+            "slug": "/snipsonian-browser/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null
@@ -32,13 +33,13 @@
         {
             "name": "logging",
             "path": "packages/snipsonian-browser/src/logging",
-            "slug": "/snipsonian-browser/logging",
+            "slug": "/snipsonian-browser/1.9.1/logging",
             "type": "folder",
             "children": [
                 {
                     "name": "consoleGroupLogger.ts",
                     "path": "packages/snipsonian-browser/src/logging/consoleGroupLogger.ts",
-                    "slug": "/snipsonian-browser/logging/consoleGroupLogger.ts",
+                    "slug": "/snipsonian-browser/1.9.1/logging/consoleGroupLogger.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -49,13 +50,13 @@
         {
             "name": "serviceWorker",
             "path": "packages/snipsonian-browser/src/serviceWorker",
-            "slug": "/snipsonian-browser/serviceWorker",
+            "slug": "/snipsonian-browser/1.9.1/serviceWorker",
             "type": "folder",
             "children": [
                 {
                     "name": "getServiceWorkerStatus.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/getServiceWorkerStatus.ts",
-                    "slug": "/snipsonian-browser/serviceWorker/getServiceWorkerStatus.ts",
+                    "slug": "/snipsonian-browser/1.9.1/serviceWorker/getServiceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS"
@@ -64,7 +65,7 @@
                 {
                     "name": "isServiceWorkerSupported.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/isServiceWorkerSupported.ts",
-                    "slug": "/snipsonian-browser/serviceWorker/isServiceWorkerSupported.ts",
+                    "slug": "/snipsonian-browser/1.9.1/serviceWorker/isServiceWorkerSupported.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -73,7 +74,7 @@
                 {
                     "name": "registerServiceWorker.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/registerServiceWorker.ts",
-                    "slug": "/snipsonian-browser/serviceWorker/registerServiceWorker.ts",
+                    "slug": "/snipsonian-browser/1.9.1/serviceWorker/registerServiceWorker.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void"
@@ -82,7 +83,7 @@
                 {
                     "name": "serviceWorkerStatus.ts",
                     "path": "packages/snipsonian-browser/src/serviceWorker/serviceWorkerStatus.ts",
-                    "slug": "/snipsonian-browser/serviceWorker/serviceWorkerStatus.ts",
+                    "slug": "/snipsonian-browser/1.9.1/serviceWorker/serviceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -93,13 +94,13 @@
         {
             "name": "storage",
             "path": "packages/snipsonian-browser/src/storage",
-            "slug": "/snipsonian-browser/storage",
+            "slug": "/snipsonian-browser/1.9.1/storage",
             "type": "folder",
             "children": [
                 {
                     "name": "browserStorageFactory.ts",
                     "path": "packages/snipsonian-browser/src/storage/browserStorageFactory.ts",
-                    "slug": "/snipsonian-browser/storage/browserStorageFactory.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/browserStorageFactory.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -108,7 +109,7 @@
                 {
                     "name": "createMockStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/createMockStorage.ts",
-                    "slug": "/snipsonian-browser/storage/createMockStorage.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/createMockStorage.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createMockStorage(): IMockStorage"
@@ -117,7 +118,7 @@
                 {
                     "name": "isStorageSupported.ts",
                     "path": "packages/snipsonian-browser/src/storage/isStorageSupported.ts",
-                    "slug": "/snipsonian-browser/storage/isStorageSupported.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/isStorageSupported.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -126,7 +127,7 @@
                 {
                     "name": "localStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/localStorage.ts",
-                    "slug": "/snipsonian-browser/storage/localStorage.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/localStorage.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -135,7 +136,7 @@
                 {
                     "name": "sessionStorage.ts",
                     "path": "packages/snipsonian-browser/src/storage/sessionStorage.ts",
-                    "slug": "/snipsonian-browser/storage/sessionStorage.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/sessionStorage.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -144,7 +145,7 @@
                 {
                     "name": "storageType.ts",
                     "path": "packages/snipsonian-browser/src/storage/storageType.ts",
-                    "slug": "/snipsonian-browser/storage/storageType.ts",
+                    "slug": "/snipsonian-browser/1.9.1/storage/storageType.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -155,13 +156,13 @@
         {
             "name": "url",
             "path": "packages/snipsonian-browser/src/url",
-            "slug": "/snipsonian-browser/url",
+            "slug": "/snipsonian-browser/1.9.1/url",
             "type": "folder",
             "children": [
                 {
                     "name": "getUrlPath.ts",
                     "path": "packages/snipsonian-browser/src/url/getUrlPath.ts",
-                    "slug": "/snipsonian-browser/url/getUrlPath.ts",
+                    "slug": "/snipsonian-browser/1.9.1/url/getUrlPath.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null

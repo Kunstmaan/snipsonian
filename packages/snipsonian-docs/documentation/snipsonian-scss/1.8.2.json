@@ -1,40 +1,41 @@
 {
     "title": "snipsonian-scss",
-    "slug": "/snipsonian-scss",
+    "version": "1.8.2",
+    "slug": "/snipsonian-scss/1.8.2",
     "description": "",
     "documentation": [
         {
             "name": "config",
             "path": "packages/snipsonian-scss/src/config",
-            "slug": "/snipsonian-scss/config",
+            "slug": "/snipsonian-scss/1.8.2/config",
             "type": "folder",
             "children": []
         },
         {
             "name": "functions",
             "path": "packages/snipsonian-scss/src/functions",
-            "slug": "/snipsonian-scss/functions",
+            "slug": "/snipsonian-scss/1.8.2/functions",
             "type": "folder",
             "children": []
         },
         {
             "name": "layout",
             "path": "packages/snipsonian-scss/src/layout",
-            "slug": "/snipsonian-scss/layout",
+            "slug": "/snipsonian-scss/1.8.2/layout",
             "type": "folder",
             "children": []
         },
         {
             "name": "utility",
             "path": "packages/snipsonian-scss/src/utility",
-            "slug": "/snipsonian-scss/utility",
+            "slug": "/snipsonian-scss/1.8.2/utility",
             "type": "folder",
             "children": []
         },
         {
             "name": "wcag-helpers",
             "path": "packages/snipsonian-scss/src/wcag-helpers",
-            "slug": "/snipsonian-scss/wcag-helpers",
+            "slug": "/snipsonian-scss/1.8.2/wcag-helpers",
             "type": "folder",
             "children": []
         }

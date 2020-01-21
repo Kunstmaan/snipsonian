@@ -47,12 +47,14 @@ fs.readdirSync(PACKAGES_DIR)
         if (file === 'snipsonian-docs') {
             return;
         }
+        const packageJson = JSON.parse(fs.readFileSync(`${PACKAGES_DIR}/${file}/package.json`));
         const pkgPath = `${PACKAGES_DIR}/${file}/src`;
-        const pkgSlug = `/${file}`;
+        const pkgSlug = `/${file}/${packageJson.version}`;
         const astManager: IAstManager = createAstManager({ filePath: `${pkgPath}/index.ts` });
 
         const packageDocumentation: IPackageDocumentation = {
             title: file,
+            version: packageJson.version,
             slug: pkgSlug,
             description: astManager ? astManager.getDescriptionAtStartOfFile() : '',
             documentation: fs.readdirSync(pkgPath)
@@ -68,7 +70,7 @@ fs.readdirSync(PACKAGES_DIR)
                 console.log(mkdirErr);
                 throw mkdirErr;
             }
-            fs.writeFile(`${docPath}/docs.json`, data, (writeErr: Error) => {
+            fs.writeFile(`${docPath}/${packageJson.version}.json`, data, (writeErr: Error) => {
                 if (writeErr) {
                     console.log(writeErr);
                     throw writeErr;

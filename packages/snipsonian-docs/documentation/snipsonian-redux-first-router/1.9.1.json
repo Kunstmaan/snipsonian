@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-redux-first-router",
-    "slug": "/snipsonian-redux-first-router",
+    "version": "1.9.1",
+    "slug": "/snipsonian-redux-first-router/1.9.1",
     "description": "Router configuration with redux",
     "documentation": [
         {
             "name": "action",
             "path": "packages/snipsonian-redux-first-router/src/action",
-            "slug": "/snipsonian-redux-first-router/action",
+            "slug": "/snipsonian-redux-first-router/1.9.1/action",
             "type": "folder",
             "children": [
                 {
                     "name": "actions.ts",
                     "path": "packages/snipsonian-redux-first-router/src/action/actions.ts",
-                    "slug": "/snipsonian-redux-first-router/action/actions.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/action/actions.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -21,7 +22,7 @@
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-redux-first-router/src/action/types.ts",
-                    "slug": "/snipsonian-redux-first-router/action/types.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/action/types.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -32,13 +33,13 @@
         {
             "name": "configureRouter",
             "path": "packages/snipsonian-redux-first-router/src/configureRouter",
-            "slug": "/snipsonian-redux-first-router/configureRouter",
+            "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-redux-first-router/src/configureRouter/index.ts",
-                    "slug": "/snipsonian-redux-first-router/configureRouter/index.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/index.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter"
@@ -47,7 +48,7 @@
                 {
                     "name": "toRoutesMap.ts",
                     "path": "packages/snipsonian-redux-first-router/src/configureRouter/toRoutesMap.ts",
-                    "slug": "/snipsonian-redux-first-router/configureRouter/toRoutesMap.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/toRoutesMap.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap"
@@ -58,7 +59,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-redux-first-router/src/index.ts",
-            "slug": "/snipsonian-redux-first-router/index.ts",
+            "slug": "/snipsonian-redux-first-router/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null
@@ -67,13 +68,13 @@
         {
             "name": "reducer",
             "path": "packages/snipsonian-redux-first-router/src/reducer",
-            "slug": "/snipsonian-redux-first-router/reducer",
+            "slug": "/snipsonian-redux-first-router/1.9.1/reducer",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-redux-first-router/src/reducer/index.ts",
-                    "slug": "/snipsonian-redux-first-router/reducer/index.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/reducer/index.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -84,13 +85,13 @@
         {
             "name": "route",
             "path": "packages/snipsonian-redux-first-router/src/route",
-            "slug": "/snipsonian-redux-first-router/route",
+            "slug": "/snipsonian-redux-first-router/1.9.1/route",
             "type": "folder",
             "children": [
                 {
                     "name": "routeManager.ts",
                     "path": "packages/snipsonian-redux-first-router/src/route/routeManager.ts",
-                    "slug": "/snipsonian-redux-first-router/route/routeManager.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/route/routeManager.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -99,7 +100,7 @@
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-redux-first-router/src/route/types.ts",
-                    "slug": "/snipsonian-redux-first-router/route/types.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/route/types.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -110,13 +111,13 @@
         {
             "name": "selectors",
             "path": "packages/snipsonian-redux-first-router/src/selectors",
-            "slug": "/snipsonian-redux-first-router/selectors",
+            "slug": "/snipsonian-redux-first-router/1.9.1/selectors",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-redux-first-router/src/selectors/index.ts",
-                    "slug": "/snipsonian-redux-first-router/selectors/index.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/selectors/index.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -125,7 +126,7 @@
                 {
                     "name": "parseVirtualPage.ts",
                     "path": "packages/snipsonian-redux-first-router/src/selectors/parseVirtualPage.ts",
-                    "slug": "/snipsonian-redux-first-router/selectors/parseVirtualPage.ts",
+                    "slug": "/snipsonian-redux-first-router/1.9.1/selectors/parseVirtualPage.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string"

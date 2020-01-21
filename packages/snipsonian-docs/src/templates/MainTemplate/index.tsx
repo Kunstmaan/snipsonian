@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import '../../assets/scss/global.scss';
 import './main-template.scss';
 import Sidebar from '../../components/Sidebar';
@@ -7,6 +7,7 @@ import { INavigationItem, IPackageDocumentation } from '../../models/documentati
 import Documentation from '../../components/Documentation';
 import TableOfContents from '../../components/TableOfContents';
 import { capitalize } from '../../utils/format';
+import VersionNavigation from '../../components/VersionNavigation';
 
 const CLASS_NAME = 'MainTemplate';
 
@@ -14,6 +15,7 @@ interface IPublicProps {
     pageContext: {
         navigation: INavigationItem[];
         packageDocumentation: IPackageDocumentation;
+        versionNavigation: INavigationItem[];
         home?: {
             title: string;
             text: string;
@@ -21,8 +23,8 @@ interface IPublicProps {
     };
 }
 
-function MainTemplate({ pageContext: { packageDocumentation, navigation, home } }: IPublicProps) {
-    console.log({ navigation, packageDocumentation });
+function MainTemplate({ pageContext: { packageDocumentation, navigation, home, versionNavigation } }: IPublicProps) {
+    console.log({ navigation, packageDocumentation, versionNavigation });
 
     return (
         <div className={CLASS_NAME}>
@@ -41,7 +43,13 @@ function MainTemplate({ pageContext: { packageDocumentation, navigation, home } 
                     {packageDocumentation && (
                         <>
                             <div className={`${CLASS_NAME}__package-info`}>
-                                <h2>{capitalize(packageDocumentation.title)}</h2>
+                                <div className={`${CLASS_NAME}__package-title`}>
+                                    <h2>{capitalize(packageDocumentation.title)}</h2>
+                                    <VersionNavigation
+                                        versionNavigation={versionNavigation}
+                                        defaultValue={packageDocumentation.slug}
+                                    />
+                                </div>
                                 <p>{packageDocumentation.description}</p>
                             </div>
                             <TableOfContents documentation={packageDocumentation.documentation} />

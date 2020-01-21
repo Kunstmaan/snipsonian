@@ -36,8 +36,17 @@
             .MainTemplate__package-info {
                 margin-bottom: 60px;
 
-                > h2 {
-                    color: $color-primary;
+                .MainTemplate__package-title {
+                    display: flex;
+                    align-items: center;
+
+                    h2 {
+                        color: $color-primary;
+                    }
+
+                    select {
+                        margin-left: 20px;
+                    }
                 }
             }
 

@@ -1,12 +1,13 @@
 {
     "title": "snipsonian-analytics",
-    "slug": "/snipsonian-analytics",
+    "version": "1.9.1",
+    "slug": "/snipsonian-analytics/1.9.1",
     "description": "Analytics logging, performance tracking, ...",
     "documentation": [
         {
             "name": "index.ts",
             "path": "packages/snipsonian-analytics/src/index.ts",
-            "slug": "/snipsonian-analytics/index.ts",
+            "slug": "/snipsonian-analytics/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null
@@ -15,13 +16,13 @@
         {
             "name": "performance",
             "path": "packages/snipsonian-analytics/src/performance",
-            "slug": "/snipsonian-analytics/performance",
+            "slug": "/snipsonian-analytics/1.9.1/performance",
             "type": "folder",
             "children": [
                 {
                     "name": "getNavigationStartTimeInMillis.ts",
                     "path": "packages/snipsonian-analytics/src/performance/getNavigationStartTimeInMillis.ts",
-                    "slug": "/snipsonian-analytics/performance/getNavigationStartTimeInMillis.ts",
+                    "slug": "/snipsonian-analytics/1.9.1/performance/getNavigationStartTimeInMillis.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -30,7 +31,7 @@
                 {
                     "name": "getTimeToFirstPaintInMillis.ts",
                     "path": "packages/snipsonian-analytics/src/performance/getTimeToFirstPaintInMillis.ts",
-                    "slug": "/snipsonian-analytics/performance/getTimeToFirstPaintInMillis.ts",
+                    "slug": "/snipsonian-analytics/1.9.1/performance/getTimeToFirstPaintInMillis.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getTimeToFirstPaintInMillis(): number"
@@ -39,7 +40,7 @@
                 {
                     "name": "sendPerformanceEventsOnPageLoad.ts",
                     "path": "packages/snipsonian-analytics/src/performance/sendPerformanceEventsOnPageLoad.ts",
-                    "slug": "/snipsonian-analytics/performance/sendPerformanceEventsOnPageLoad.ts",
+                    "slug": "/snipsonian-analytics/1.9.1/performance/sendPerformanceEventsOnPageLoad.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function sendPerformanceEventsOnPageLoad({\n    timingEventCategory = 'performance',\n    timeToFirstPaintVarName = 'timeToFirstPaint',\n    timeToLoadVarName = 'timeToLoad',\n}: ISendPerformanceEventsOnPageLoadOptions = {}): void"
@@ -50,13 +51,13 @@
         {
             "name": "tracker",
             "path": "packages/snipsonian-analytics/src/tracker",
-            "slug": "/snipsonian-analytics/tracker",
+            "slug": "/snipsonian-analytics/1.9.1/tracker",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-analytics/src/tracker/index.ts",
-                    "slug": "/snipsonian-analytics/tracker/index.ts",
+                    "slug": "/snipsonian-analytics/1.9.1/tracker/index.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -65,13 +66,13 @@
                 {
                     "name": "providers",
                     "path": "packages/snipsonian-analytics/src/tracker/providers",
-                    "slug": "/snipsonian-analytics/tracker/providers",
+                    "slug": "/snipsonian-analytics/1.9.1/tracker/providers",
                     "type": "folder",
                     "children": [
                         {
                             "name": "gaTracker.ts",
                             "path": "packages/snipsonian-analytics/src/tracker/providers/gaTracker.ts",
-                            "slug": "/snipsonian-analytics/tracker/providers/gaTracker.ts",
+                            "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gaTracker.ts",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -80,7 +81,7 @@
                         {
                             "name": "gtmTracker.ts",
                             "path": "packages/snipsonian-analytics/src/tracker/providers/gtmTracker.ts",
-                            "slug": "/snipsonian-analytics/tracker/providers/gtmTracker.ts",
+                            "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gtmTracker.ts",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -89,7 +90,7 @@
                         {
                             "name": "initOptionalFields.ts",
                             "path": "packages/snipsonian-analytics/src/tracker/providers/initOptionalFields.ts",
-                            "slug": "/snipsonian-analytics/tracker/providers/initOptionalFields.ts",
+                            "slug": "/snipsonian-analytics/1.9.1/tracker/providers/initOptionalFields.ts",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": "export default function initOptionalFields(nameValueObj: object): object"

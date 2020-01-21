@@ -12,6 +12,7 @@ export interface IPackageDocumentation {
     description: string;
     documentation: IDocumentationItem[];
     slug: string;
+    version: string;
 }
 
 export interface IDocumentationItem {

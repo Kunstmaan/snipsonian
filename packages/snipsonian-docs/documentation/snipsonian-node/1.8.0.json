@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-node",
-    "slug": "/snipsonian-node",
+    "version": "1.8.0",
+    "slug": "/snipsonian-node/1.8.0",
     "description": "Node file utilities",
     "documentation": [
         {
             "name": "dir",
             "path": "packages/snipsonian-node/src/dir",
-            "slug": "/snipsonian-node/dir",
+            "slug": "/snipsonian-node/1.8.0/dir",
             "type": "folder",
             "children": [
                 {
                     "name": "getDirectoryNamesSync.ts",
                     "path": "packages/snipsonian-node/src/dir/getDirectoryNamesSync.ts",
-                    "slug": "/snipsonian-node/dir/getDirectoryNamesSync.ts",
+                    "slug": "/snipsonian-node/1.8.0/dir/getDirectoryNamesSync.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getDirectoryNamesSync({ sourcePath }: { sourcePath: string}): string[]"
@@ -21,7 +22,7 @@
                 {
                     "name": "getFilesRecursiveSync.ts",
                     "path": "packages/snipsonian-node/src/dir/getFilesRecursiveSync.ts",
-                    "slug": "/snipsonian-node/dir/getFilesRecursiveSync.ts",
+                    "slug": "/snipsonian-node/1.8.0/dir/getFilesRecursiveSync.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[]"
@@ -30,7 +31,7 @@
                 {
                     "name": "isDirectorySync.ts",
                     "path": "packages/snipsonian-node/src/dir/isDirectorySync.ts",
-                    "slug": "/snipsonian-node/dir/isDirectorySync.ts",
+                    "slug": "/snipsonian-node/1.8.0/dir/isDirectorySync.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isDirectorySync({ inputPath }: { inputPath: string }): boolean"
@@ -39,13 +40,13 @@
                 {
                     "name": "testDir",
                     "path": "packages/snipsonian-node/src/dir/testDir",
-                    "slug": "/snipsonian-node/dir/testDir",
+                    "slug": "/snipsonian-node/1.8.0/dir/testDir",
                     "type": "folder",
                     "children": [
                         {
                             "name": "file.txt",
                             "path": "packages/snipsonian-node/src/dir/testDir/file.txt",
-                            "slug": "/snipsonian-node/dir/testDir/file.txt",
+                            "slug": "/snipsonian-node/1.8.0/dir/testDir/file.txt",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -54,7 +55,7 @@
                         {
                             "name": "file2.txt",
                             "path": "packages/snipsonian-node/src/dir/testDir/file2.txt",
-                            "slug": "/snipsonian-node/dir/testDir/file2.txt",
+                            "slug": "/snipsonian-node/1.8.0/dir/testDir/file2.txt",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -67,13 +68,13 @@
         {
             "name": "file",
             "path": "packages/snipsonian-node/src/file",
-            "slug": "/snipsonian-node/file",
+            "slug": "/snipsonian-node/1.8.0/file",
             "type": "folder",
             "children": [
                 {
                     "name": "readFile.ts",
                     "path": "packages/snipsonian-node/src/file/readFile.ts",
-                    "slug": "/snipsonian-node/file/readFile.ts",
+                    "slug": "/snipsonian-node/1.8.0/file/readFile.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function readFile({\n    filePath,\n    options = {},\n}: {\n    filePath: string;\n    options?: object;\n}): Promise<string>"
@@ -82,13 +83,13 @@
                 {
                     "name": "testFiles",
                     "path": "packages/snipsonian-node/src/file/testFiles",
-                    "slug": "/snipsonian-node/file/testFiles",
+                    "slug": "/snipsonian-node/1.8.0/file/testFiles",
                     "type": "folder",
                     "children": [
                         {
                             "name": "read.txt",
                             "path": "packages/snipsonian-node/src/file/testFiles/read.txt",
-                            "slug": "/snipsonian-node/file/testFiles/read.txt",
+                            "slug": "/snipsonian-node/1.8.0/file/testFiles/read.txt",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -97,7 +98,7 @@
                         {
                             "name": "write.txt",
                             "path": "packages/snipsonian-node/src/file/testFiles/write.txt",
-                            "slug": "/snipsonian-node/file/testFiles/write.txt",
+                            "slug": "/snipsonian-node/1.8.0/file/testFiles/write.txt",
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null
@@ -108,7 +109,7 @@
                 {
                     "name": "writeFile.ts",
                     "path": "packages/snipsonian-node/src/file/writeFile.ts",
-                    "slug": "/snipsonian-node/file/writeFile.ts",
+                    "slug": "/snipsonian-node/1.8.0/file/writeFile.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function writeFile({\n    filePath,\n    data,\n    options = {},\n}: {\n    filePath: string;\n    data: string;\n    options?: object;\n}): Promise<string>"
@@ -119,7 +120,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-node/src/index.ts",
-            "slug": "/snipsonian-node/index.ts",
+            "slug": "/snipsonian-node/1.8.0/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null

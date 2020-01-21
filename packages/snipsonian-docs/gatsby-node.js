@@ -5,47 +5,37 @@
  *
  */
 
-const analytics = require('./documentation/snipsonian-analytics/docs.json');
-const api = require('./documentation/snipsonian-api/docs.json');
-const axios = require('./documentation/snipsonian-axios/docs.json');
-const browser = require('./documentation/snipsonian-browser/docs.json');
-const core = require('./documentation/snipsonian-core/docs.json');
-const dvlp = require('./documentation/snipsonian-dvlp/docs.json');
-const node = require('./documentation/snipsonian-node/docs.json');
-const observableState = require('./documentation/snipsonian-observable-state/docs.json');
-const react = require('./documentation/snipsonian-react/docs.json');
-const reactObservableState = require('./documentation/snipsonian-react-observable-state/docs.json');
-const redux = require('./documentation/snipsonian-redux/docs.json');
-const reduxFeatures = require('./documentation/snipsonian-redux-features/docs.json');
-const reduxFirstRouter = require('./documentation/snipsonian-redux-first-router/docs.json');
-// const scss = require('./documentation/snipsonian-scss/docs.json');
-
+const fs = require('fs');
 
 exports.createPages = ({ actions }) => {
     const { createPage } = actions;
 
-    const documentation = {
-        analytics,
-        api,
-        axios,
-        browser,
-        core,
-        node,
-        dvlp,
-        observableState,
-        react,
-        reactObservableState,
-        redux,
-        reduxFeatures,
-        reduxFirstRouter,
-        // scss,
-    };
+    const packageNames = fs.readdirSync('./documentation');
+    const fullDocumentationPerPackage = packageNames.reduce(
+        (doc, packageName) => {
+            const versionFilenames = fs.readdirSync(`./documentation/${packageName}`);
 
-    const navigation = Object.keys(documentation).map((key) => {
-        const packageDoc = documentation[key];
+            // eslint-disable-next-line no-param-reassign
+            doc[packageName] = versionFilenames.reduce(
+                (acc, filename) => {
+                    const versionDocumentation =
+                        JSON.parse(fs.readFileSync(`./documentation/${packageName}/${filename}`));
+                    acc[versionDocumentation.version] = versionDocumentation;
+                    return acc;
+                },
+                {},
+            );
+            return doc;
+        },
+        {},
+    );
+
+    const navigation = Object.keys(fullDocumentationPerPackage).map((packageName) => {
+        const packageDoc = fullDocumentationPerPackage[packageName];
+        const firstVersionDocumentation = packageDoc[Object.keys(packageDoc).sort().pop()];
         return {
-            title: key,
-            to: packageDoc.slug,
+            title: packageName,
+            to: firstVersionDocumentation.slug,
         };
     });
 
@@ -54,7 +44,6 @@ exports.createPages = ({ actions }) => {
         component: require.resolve('./src/templates/MainTemplate/index.tsx'),
         context: {
             navigation,
-            packageDocumentation: null,
             home: {
                 title: 'Snipsonian',
                 text: 'Documentation for the snipsonian package',
@@ -62,33 +51,34 @@ exports.createPages = ({ actions }) => {
         },
     });
 
-    Object.keys(documentation).forEach((key) => {
-        const packageDoc = documentation[key];
+    Object.keys(fullDocumentationPerPackage).forEach((packageName) => {
+        const packageDoc = fullDocumentationPerPackage[packageName];
 
-        createPage({
-            path: packageDoc.slug,
-            component: require.resolve('./src/templates/MainTemplate/index.tsx'),
-            context: {
-                navigation,
-                packageDocumentation: packageDoc,
-            },
+        const versionNavigation = Object.keys(packageDoc)
+            .reduce(
+                (acc, version) => {
+                    const versionDoc = packageDoc[version];
+                    const navItem = {
+                        title: version,
+                        to: versionDoc.slug,
+                    };
+                    acc.push(navItem);
+                    return acc;
+                },
+                [],
+            );
+
+        Object.keys(packageDoc).forEach((version) => {
+            const versionDoc = packageDoc[version];
+            createPage({
+                path: versionDoc.slug,
+                component: require.resolve('./src/templates/MainTemplate/index.tsx'),
+                context: {
+                    navigation,
+                    packageDocumentation: versionDoc,
+                    versionNavigation,
+                },
+            });
         });
-
-        /* Creates a page for each file */
-        // function createPagesFromDoc(doc) {
-        //     if (doc.type === 'file') {
-        //         createPage({
-        //             path: doc.slug,
-        //             component: require.resolve('./src/components/templates/MainTemplate/index.tsx'),
-        //             context: {
-        //                 documentation,
-        //             },
-        //         });
-        //     } else if (doc.type === 'folder') {
-        //         doc.children.forEach((child) => createPagesFromDoc(child));
-        //     }
-        // }
-
-        // createPagesFromDoc(packageDoc);
     });
 };

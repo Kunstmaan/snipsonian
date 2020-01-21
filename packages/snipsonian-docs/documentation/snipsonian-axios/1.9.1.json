@@ -1,18 +1,19 @@
 {
     "title": "snipsonian-axios",
-    "slug": "/snipsonian-axios",
+    "version": "1.9.1",
+    "slug": "/snipsonian-axios/1.9.1",
     "description": "Axios request utilities",
     "documentation": [
         {
             "name": "error",
             "path": "packages/snipsonian-axios/src/error",
-            "slug": "/snipsonian-axios/error",
+            "slug": "/snipsonian-axios/1.9.1/error",
             "type": "folder",
             "children": [
                 {
                     "name": "generateTraceableApiErrorId.ts",
                     "path": "packages/snipsonian-axios/src/error/generateTraceableApiErrorId.ts",
-                    "slug": "/snipsonian-axios/error/generateTraceableApiErrorId.ts",
+                    "slug": "/snipsonian-axios/1.9.1/error/generateTraceableApiErrorId.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function generateTraceableApiErrorId(): string"
@@ -21,7 +22,7 @@
                 {
                     "name": "getErrorStatus.ts",
                     "path": "packages/snipsonian-axios/src/error/getErrorStatus.ts",
-                    "slug": "/snipsonian-axios/error/getErrorStatus.ts",
+                    "slug": "/snipsonian-axios/1.9.1/error/getErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getErrorStatus(error: AxiosError): number"
@@ -30,7 +31,7 @@
                 {
                     "name": "isTraceableApiError.ts",
                     "path": "packages/snipsonian-axios/src/error/isTraceableApiError.ts",
-                    "slug": "/snipsonian-axios/error/isTraceableApiError.ts",
+                    "slug": "/snipsonian-axios/1.9.1/error/isTraceableApiError.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>"
@@ -41,13 +42,13 @@
         {
             "name": "header",
             "path": "packages/snipsonian-axios/src/header",
-            "slug": "/snipsonian-axios/header",
+            "slug": "/snipsonian-axios/1.9.1/header",
             "type": "folder",
             "children": [
                 {
                     "name": "headerManager.ts",
                     "path": "packages/snipsonian-axios/src/header/headerManager.ts",
-                    "slug": "/snipsonian-axios/header/headerManager.ts",
+                    "slug": "/snipsonian-axios/1.9.1/header/headerManager.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -56,7 +57,7 @@
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-axios/src/header/types.ts",
-                    "slug": "/snipsonian-axios/header/types.ts",
+                    "slug": "/snipsonian-axios/1.9.1/header/types.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -67,13 +68,13 @@
         {
             "name": "httpStatus",
             "path": "packages/snipsonian-axios/src/httpStatus",
-            "slug": "/snipsonian-axios/httpStatus",
+            "slug": "/snipsonian-axios/1.9.1/httpStatus",
             "type": "folder",
             "children": [
                 {
                     "name": "index.ts",
                     "path": "packages/snipsonian-axios/src/httpStatus/index.ts",
-                    "slug": "/snipsonian-axios/httpStatus/index.ts",
+                    "slug": "/snipsonian-axios/1.9.1/httpStatus/index.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -84,7 +85,7 @@
         {
             "name": "index.ts",
             "path": "packages/snipsonian-axios/src/index.ts",
-            "slug": "/snipsonian-axios/index.ts",
+            "slug": "/snipsonian-axios/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
                 "defaultExport": null
@@ -93,13 +94,13 @@
         {
             "name": "logging",
             "path": "packages/snipsonian-axios/src/logging",
-            "slug": "/snipsonian-axios/logging",
+            "slug": "/snipsonian-axios/1.9.1/logging",
             "type": "folder",
             "children": [
                 {
                     "name": "getApiLogger.ts",
                     "path": "packages/snipsonian-axios/src/logging/getApiLogger.ts",
-                    "slug": "/snipsonian-axios/logging/getApiLogger.ts",
+                    "slug": "/snipsonian-axios/1.9.1/logging/getApiLogger.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger"
@@ -110,13 +111,13 @@
         {
             "name": "request",
             "path": "packages/snipsonian-axios/src/request",
-            "slug": "/snipsonian-axios/request",
+            "slug": "/snipsonian-axios/1.9.1/request",
             "type": "folder",
             "children": [
                 {
                     "name": "getRequestWrapper.ts",
                     "path": "packages/snipsonian-axios/src/request/getRequestWrapper.ts",
-                    "slug": "/snipsonian-axios/request/getRequestWrapper.ts",
+                    "slug": "/snipsonian-axios/1.9.1/request/getRequestWrapper.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper"
@@ -125,7 +126,7 @@
                 {
                     "name": "types.ts",
                     "path": "packages/snipsonian-axios/src/request/types.ts",
-                    "slug": "/snipsonian-axios/request/types.ts",
+                    "slug": "/snipsonian-axios/1.9.1/request/types.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
@@ -136,13 +137,13 @@
         {
             "name": "test",
             "path": "packages/snipsonian-axios/src/test",
-            "slug": "/snipsonian-axios/test",
+            "slug": "/snipsonian-axios/1.9.1/test",
             "type": "folder",
             "children": [
                 {
                     "name": "requestMocker.ts",
                     "path": "packages/snipsonian-axios/src/test/requestMocker.ts",
-                    "slug": "/snipsonian-axios/test/requestMocker.ts",
+                    "slug": "/snipsonian-axios/1.9.1/test/requestMocker.ts",
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null
