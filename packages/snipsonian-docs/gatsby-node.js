@@ -34,7 +34,7 @@ exports.createPages = ({ actions }) => {
         const packageDoc = fullDocumentationPerPackage[packageName];
         const firstVersionDocumentation = packageDoc[Object.keys(packageDoc).sort().pop()];
         return {
-            title: packageName,
+            title: packageName.replace('snipsonian-', ''),
             to: firstVersionDocumentation.slug,
         };
     });

@@ -11,13 +11,12 @@ $white:                     #FFFFFF;
 $slate-grey:                #3E444C;
 $slate-grey--dark:          #2D3339;
 
-$blue:                      #028090;
-$blue--dark:                #05668D;
+$blue--dark:                #03256C;
+$blue:                      #2541B2;
+$blue--light:               #1768AC;
+$blue--lighter:             #06BEE1;
 
 $green:                     #2F9E1E;
-
-$blue-green:                #02C39A;
-$blue-green--dark:          #00A896;
 
 $orange:                    #EE8600;
 
@@ -27,8 +26,8 @@ $beige:                     #F0F3BD;
 
 /* Brand colors
     ========================================================================== */
-$color-primary:             $blue-green;
-$color-primary--dark:       $blue-green--dark;
+$color-primary:             $blue;
+$color-primary--dark:       $blue--dark;
 
 $color-secondary:           $blue;
 $color-secondary--dark:     $blue--dark;
@@ -38,5 +37,5 @@ $color-tertiary:            $beige;
 
 /* Defaults
     ========================================================================== */
-$color-text:                $slate-grey;
+$color-text:                $black;
 $color-border:              $grey--light;

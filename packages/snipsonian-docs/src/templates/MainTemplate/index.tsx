@@ -29,7 +29,7 @@ function MainTemplate({ pageContext: { packageDocumentation, navigation, home, v
     return (
         <div className={CLASS_NAME}>
             <header>
-                <Link to="/"><h1>Snipsonian</h1></Link>
+                <Link to="/"><h1>snipsonian</h1></Link>
             </header>
             <main>
                 <Sidebar navigation={navigation} />

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './sidebar.scss';
 import { INavigationItem } from '../../models/documentation';
-import { capitalize } from '../../utils/format';
 
 const CLASS_NAME = 'Sidebar';
 
@@ -34,7 +33,7 @@ function Sidebar({ navigation }: IPublicProps) {
 function NavItem({ to, name }: { to: string; name: string }) {
     return (
         <div className={`${CLASS_NAME}__nav-item`}>
-            <Link to={to} >{capitalize(name)}</Link>
+            <Link to={to} >{name}</Link>
         </div>
     );
 }
