@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, navigate } from 'gatsby';
+import { Link } from 'gatsby';
 import '../../assets/scss/global.scss';
 import './main-template.scss';
 import Sidebar from '../../components/Sidebar';
-import { INavigationItem, IPackageDocumentation } from '../../models/documentation';
+import { INavigationItem, IPackageVersionDocumentation } from '../../models/documentation';
 import Documentation from '../../components/Documentation';
 import TableOfContents from '../../components/TableOfContents';
 import { capitalize } from '../../utils/format';
@@ -14,7 +14,7 @@ const CLASS_NAME = 'MainTemplate';
 interface IPublicProps {
     pageContext: {
         navigation: INavigationItem[];
-        packageDocumentation: IPackageDocumentation;
+        packageVersionDocumentation: IPackageVersionDocumentation;
         versionNavigation: INavigationItem[];
         home?: {
             title: string;
@@ -23,8 +23,10 @@ interface IPublicProps {
     };
 }
 
-function MainTemplate({ pageContext: { packageDocumentation, navigation, home, versionNavigation } }: IPublicProps) {
-    console.log({ navigation, packageDocumentation, versionNavigation });
+function MainTemplate({
+    pageContext: { packageVersionDocumentation, navigation, home, versionNavigation },
+}: IPublicProps) {
+    console.log({ navigation, packageVersionDocumentation, versionNavigation });
 
     return (
         <div className={CLASS_NAME}>
@@ -40,21 +42,21 @@ function MainTemplate({ pageContext: { packageDocumentation, navigation, home, v
                             <p>{home.text}</p>
                         </>
                     )}
-                    {packageDocumentation && (
+                    {packageVersionDocumentation && (
                         <>
                             <div className={`${CLASS_NAME}__package-info`}>
                                 <div className={`${CLASS_NAME}__package-title`}>
-                                    <h2>{capitalize(packageDocumentation.title)}</h2>
+                                    <h2>{capitalize(packageVersionDocumentation.title)}</h2>
                                     <VersionNavigation
                                         versionNavigation={versionNavigation}
-                                        defaultValue={packageDocumentation.slug}
+                                        defaultValue={packageVersionDocumentation.slug}
                                     />
                                 </div>
-                                <p>{packageDocumentation.description}</p>
+                                <p>{packageVersionDocumentation.description}</p>
                             </div>
-                            <TableOfContents documentation={packageDocumentation.documentation} />
+                            <TableOfContents documentation={packageVersionDocumentation.documentation} />
                             <hr />
-                            <Documentation documentation={packageDocumentation.documentation} />
+                            <Documentation documentation={packageVersionDocumentation.documentation} />
                         </>
                     )}
                 </section>

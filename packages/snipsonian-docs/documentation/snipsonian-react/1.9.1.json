@@ -442,7 +442,7 @@
                     "slug": "/snipsonian-react/1.9.1/utils/getOrCreateElementInBodyById.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function getOrCreateElementInBodyById(id: string): HTMLElement"
                     }
                 },
                 {

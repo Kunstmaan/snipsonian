@@ -25,7 +25,7 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/getNavigationStartTimeInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function getNavigationStartTimeInMillis(): number"
                     }
                 },
                 {

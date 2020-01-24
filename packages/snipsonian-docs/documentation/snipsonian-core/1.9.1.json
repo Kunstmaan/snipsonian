@@ -119,7 +119,7 @@
                     "slug": "/snipsonian-core/1.9.1/file/stripFileExtension.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function stripFileExtension(fileName: string): string"
                     }
                 },
                 {
@@ -128,7 +128,7 @@
                     "slug": "/snipsonian-core/1.9.1/file/supportWindowsPath.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function supportWindowsPath(filePath: string): string"
                     }
                 }
             ]
@@ -322,7 +322,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/deletePropsFromObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function deletePropsFromObject(obj: object): void"
                     }
                 },
                 {
@@ -331,7 +331,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/isEmptyObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function isEmptyObject(obj: object): boolean"
                     }
                 },
                 {
@@ -374,7 +374,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/getPartBetween.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function getPartBetween({\n    firstPart,\n    secondPart,\n    input,\n}: {\n    firstPart: string;\n    secondPart: string;\n    input: string;\n}): string"
                     }
                 },
                 {

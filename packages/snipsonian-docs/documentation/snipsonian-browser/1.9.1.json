@@ -68,7 +68,7 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/isServiceWorkerSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function isServiceWorkerSupported(): boolean"
                     }
                 },
                 {
@@ -121,7 +121,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/isStorageSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function isStorageSupported(storageType: string): boolean"
                     }
                 },
                 {
@@ -165,7 +165,7 @@
                     "slug": "/snipsonian-browser/1.9.1/url/getUrlPath.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": "export default function getUrlPath(): string"
                     }
                 }
             ]

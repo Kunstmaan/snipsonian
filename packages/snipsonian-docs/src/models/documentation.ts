@@ -7,7 +7,7 @@ export interface INavigationItem {
     to: string;
 }
 
-export interface IPackageDocumentation {
+export interface IPackageVersionDocumentation {
     title: string;
     description: string;
     documentation: IDocumentationItem[];
