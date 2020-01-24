@@ -13,23 +13,9 @@
         a {
             display: block;
         }
+
+        &.active a {
+            color: $color-primary;
+        }
     }
-
-    // .Sidebar__folder {
-    //     margin: 4px 0;
-
-    //     > div:first-child {
-    //         font-weight: 600;
-    //     }
-
-    //     .Sidebar__item-link,
-    //     .Sidebar__children {
-    //         margin: 4px 0;
-    //         padding-left: 4px;
-    //     }
-
-    //     .Sidebar__children {
-    //         border-left: 1px dashed rgba(blue, .3);
-    //     }
-    // }
 }
