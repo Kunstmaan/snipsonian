@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-react/1.9.1/components/.eslintrc.js",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -37,7 +38,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/appShell/BodySwitcher/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -62,7 +64,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/form/GenericForm/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -87,7 +90,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/I18nContext/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -104,7 +108,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/Translate/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -121,7 +126,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translations/createTranslationsManager.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function createTranslationsManager({\n    locales,\n    initialTranslations,\n    localStorageKey,\n}: ITranslationsManagerConfig): ITranslationsManager"
+                                        "defaultExport": "export default function createTranslationsManager({\n    locales,\n    initialTranslations,\n    localStorageKey,\n}: ITranslationsManagerConfig): ITranslationsManager",
+                                        "example": null
                                     }
                                 },
                                 {
@@ -130,7 +136,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translations/types.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -147,7 +154,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/generateTranslatorForEachSupportedLocale.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function generateTranslatorForEachSupportedLocale({\n    translationsManager,\n}: {\n    translationsManager: ITranslationsManager;\n}): ILocaleTranslators"
+                                        "defaultExport": "export default function generateTranslatorForEachSupportedLocale({\n    translationsManager,\n}: {\n    translationsManager: ITranslationsManager;\n}): ILocaleTranslators",
+                                        "example": null
                                     }
                                 },
                                 {
@@ -156,7 +164,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/listenForTranslationKeyToggles.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 },
                                 {
@@ -165,7 +174,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/translatorManager.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 },
                                 {
@@ -174,7 +184,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/types.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -205,7 +216,8 @@
                                             "slug": "/snipsonian-react/1.9.1/components/pageParts/CommonPageParts/HeaderPagePart/index.tsx",
                                             "type": "file",
                                             "fileInfo": {
-                                                "defaultExport": null
+                                                "defaultExport": null,
+                                                "example": null
                                             }
                                         }
                                     ]
@@ -222,7 +234,8 @@
                                             "slug": "/snipsonian-react/1.9.1/components/pageParts/CommonPageParts/TextPagePart/index.tsx",
                                             "type": "file",
                                             "fileInfo": {
-                                                "defaultExport": null
+                                                "defaultExport": null,
+                                                "example": null
                                             }
                                         }
                                     ]
@@ -241,7 +254,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/pageParts/PagePartWrapper/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -258,7 +272,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/pageParts/PageParts/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -269,7 +284,8 @@
                             "slug": "/snipsonian-react/1.9.1/components/pageParts/pageParts.models.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         }
                     ]
@@ -292,7 +308,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/technical/Portal/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -311,7 +328,8 @@
                             "slug": "/snipsonian-react/1.9.1/components/test/getComponentTester.tsx",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         },
                         {
@@ -320,7 +338,8 @@
                             "slug": "/snipsonian-react/1.9.1/components/test/types.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         }
                     ]
@@ -343,7 +362,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/GenericLoader/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -360,7 +380,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/HideAfterDelay/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -377,7 +398,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/ShowAfterDelay/index.specIgnore.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 },
                                 {
@@ -386,7 +408,8 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/ShowAfterDelay/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null
+                                        "defaultExport": null,
+                                        "example": null
                                     }
                                 }
                             ]
@@ -401,7 +424,8 @@
             "slug": "/snipsonian-react/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -416,7 +440,8 @@
                     "slug": "/snipsonian-react/1.9.1/models/pages.models.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -433,7 +458,8 @@
                     "slug": "/snipsonian-react/1.9.1/utils/anchor.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -442,7 +468,8 @@
                     "slug": "/snipsonian-react/1.9.1/utils/getOrCreateElementInBodyById.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getOrCreateElementInBodyById(id: string): HTMLElement"
+                        "defaultExport": "export default function getOrCreateElementInBodyById(id: string): HTMLElement",
+                        "example": null
                     }
                 },
                 {
@@ -451,7 +478,8 @@
                     "slug": "/snipsonian-react/1.9.1/utils/isReactComponentClass.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -460,7 +488,8 @@
                     "slug": "/snipsonian-react/1.9.1/utils/noRerender.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]

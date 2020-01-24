@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-axios/1.9.1/error/generateTraceableApiErrorId.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function generateTraceableApiErrorId(): string"
+                        "defaultExport": "export default function generateTraceableApiErrorId(): string",
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-axios/1.9.1/error/getErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getErrorStatus(error: AxiosError): number"
+                        "defaultExport": "export default function getErrorStatus(error: AxiosError): number",
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-axios/1.9.1/error/isTraceableApiError.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>"
+                        "defaultExport": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>",
+                        "example": null
                     }
                 }
             ]
@@ -51,7 +54,8 @@
                     "slug": "/snipsonian-axios/1.9.1/header/headerManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -60,7 +64,8 @@
                     "slug": "/snipsonian-axios/1.9.1/header/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -77,7 +82,8 @@
                     "slug": "/snipsonian-axios/1.9.1/httpStatus/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -88,7 +94,8 @@
             "slug": "/snipsonian-axios/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -103,7 +110,8 @@
                     "slug": "/snipsonian-axios/1.9.1/logging/getApiLogger.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger"
+                        "defaultExport": "export default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger",
+                        "example": null
                     }
                 }
             ]
@@ -120,7 +128,8 @@
                     "slug": "/snipsonian-axios/1.9.1/request/getRequestWrapper.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper"
+                        "defaultExport": "export default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper",
+                        "example": null
                     }
                 },
                 {
@@ -129,7 +138,8 @@
                     "slug": "/snipsonian-axios/1.9.1/request/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -146,7 +156,8 @@
                     "slug": "/snipsonian-axios/1.9.1/test/requestMocker.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]

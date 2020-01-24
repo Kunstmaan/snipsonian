@@ -3,6 +3,7 @@ import { IAstManager, IAst, IAstComment, IAstNodeLocation } from '../models/astM
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
+const path = require('path');
 const traverse = require('@babel/traverse').default;
 const getBabelAst = require('./getBabelAstFromFile').default;
 
@@ -14,8 +15,8 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
         return ast;
     }
 
-    function getDescriptionAtStartOfFile(): string {
-        let description = '';
+    function getDescriptionAtStartOfFile(): string | null {
+        let description = null;
 
         if (fileHasComments(ast)) {
             const commentAtStartOfFile = getCommentAtStartOfFile(ast);
@@ -27,7 +28,7 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
         return description;
     }
 
-    function getDefaultExport(): string {
+    function getDefaultExport(): string | null {
         const defaultExportLocation: IAstNodeLocation | null =
             getStartEndFromDefaultExportDeclaration(ast);
 
@@ -37,10 +38,20 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
         return file.substring(defaultExportLocation.start, defaultExportLocation.end);
     }
 
+    function getExampleCode(): string | null {
+        const parsedPath = path.parse(filePath);
+        const examplePath = `${parsedPath.dir}/${parsedPath.name}.example.ts`;
+        if (fs.existsSync(examplePath)) {
+            return fs.readFileSync(examplePath, { encoding: 'utf8' });
+        }
+        return null;
+    }
+
     return {
         getAst,
         getDefaultExport,
         getDescriptionAtStartOfFile,
+        getExampleCode,
     };
 };
 
@@ -56,16 +67,16 @@ function getStartEndFromDefaultExportDeclaration(ast: IAst): IAstNodeLocation | 
     let location: IAstNodeLocation = null;
     traverse(ast, {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        enter(path: any) {
+        enter(p: any) {
             if (
-                path.node.type === 'ExportDefaultDeclaration'
+                p.node.type === 'ExportDefaultDeclaration'
             ) {
                 location = {
-                    start: path.node.start,
+                    start: p.node.start,
                     end:
-                        path.node.declaration &&
-                        path.node.declaration.returnType &&
-                        path.node.declaration.returnType.end,
+                        p.node.declaration &&
+                        p.node.declaration.returnType &&
+                        p.node.declaration.returnType.end,
                 };
             }
         },

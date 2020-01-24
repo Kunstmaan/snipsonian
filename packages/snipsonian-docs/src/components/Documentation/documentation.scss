@@ -16,6 +16,11 @@
                     color: $color-primary;
                 }
             }
+
+            .Documentation__item__path {
+                font-size: .8em;
+                color: $grey;
+            }
         }
     }
 }

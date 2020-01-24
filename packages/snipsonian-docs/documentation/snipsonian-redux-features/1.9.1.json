@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/EntityMaybe.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/actionTypes.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/actions.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -43,7 +46,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/entityUtils.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -52,7 +56,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/mapAsyncEntityKey2ApiConfigMap.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -61,7 +66,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/reducerBuildingBlocks.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -70,7 +76,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void"
+                        "defaultExport": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void",
+                        "example": null
                     }
                 },
                 {
@@ -79,7 +86,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/selectors.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -88,7 +96,8 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -99,7 +108,8 @@
             "slug": "/snipsonian-redux-features/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         }
     ]

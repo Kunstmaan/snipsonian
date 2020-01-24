@@ -15,7 +15,7 @@ const createAstManager = require('../utils/astManager').default;
 
 const PACKAGES_DIR = 'packages';
 const DOCS_DIR = 'packages/snipsonian-docs/documentation';
-const FILENAME_REGEX = /\.spec\.ts$|\.scss$/;
+const EXTENSIONS_TO_IGNORE_REGEX = /\.spec\.ts$|\.scss$|\.example\.ts$/;
 
 fs.readdirSync(PACKAGES_DIR)
     .filter(junk.not) // removes junk files like '.DS_Store'
@@ -55,7 +55,7 @@ function createDocumentationRecursive({ filePath, slug }: { filePath: string; sl
 
     function createFolderDocumentation(): IDocumentationItem[] {
         return fs.readdirSync(info.path)
-            .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
+            .filter((child: string) => !RegExp(EXTENSIONS_TO_IGNORE_REGEX).test(child))
             .map((child: string) => createDocumentationRecursive({
                 filePath: `${info.path}/${child}`,
                 slug: info.slug,
@@ -66,6 +66,7 @@ function createDocumentationRecursive({ filePath, slug }: { filePath: string; sl
         const astManager: IAstManager = createAstManager({ filePath });
         return {
             defaultExport: astManager.getDefaultExport(),
+            example: astManager.getExampleCode(),
         };
     }
 }
@@ -88,7 +89,7 @@ function createPackageDocumentation({
         slug: packageSlug,
         description: astManager ? astManager.getDescriptionAtStartOfFile() : '',
         documentation: fs.readdirSync(packagePath)
-            .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
+            .filter((child: string) => !RegExp(EXTENSIONS_TO_IGNORE_REGEX).test(child))
             .map((child: string) => createDocumentationRecursive({
                 filePath: `${packagePath}/${child}`,
                 slug: packageSlug,

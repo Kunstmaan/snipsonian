@@ -5,5 +5,7 @@
 /packages/snipsonian-docs-site/tmp/**/*.js
 /packages/snipsonian-docs-site/bin/**/*.js
 
+/packages/**/*example.ts
+
 /packages/*/es
 /packages/*/cjs

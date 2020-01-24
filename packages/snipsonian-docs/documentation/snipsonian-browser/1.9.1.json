@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-browser/1.9.1/events/executeOnLoad.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void"
+                        "defaultExport": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void",
+                        "example": null
                     }
                 }
             ]
@@ -27,7 +28,8 @@
             "slug": "/snipsonian-browser/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -42,7 +44,8 @@
                     "slug": "/snipsonian-browser/1.9.1/logging/consoleGroupLogger.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -59,7 +62,8 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/getServiceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS"
+                        "defaultExport": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS",
+                        "example": null
                     }
                 },
                 {
@@ -68,7 +72,8 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/isServiceWorkerSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isServiceWorkerSupported(): boolean"
+                        "defaultExport": "export default function isServiceWorkerSupported(): boolean",
+                        "example": null
                     }
                 },
                 {
@@ -77,7 +82,8 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/registerServiceWorker.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void"
+                        "defaultExport": "export default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void",
+                        "example": null
                     }
                 },
                 {
@@ -86,7 +92,8 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/serviceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -103,7 +110,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/browserStorageFactory.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -112,7 +120,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/createMockStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createMockStorage(): IMockStorage"
+                        "defaultExport": "export default function createMockStorage(): IMockStorage",
+                        "example": null
                     }
                 },
                 {
@@ -121,7 +130,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/isStorageSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isStorageSupported(storageType: string): boolean"
+                        "defaultExport": "export default function isStorageSupported(storageType: string): boolean",
+                        "example": null
                     }
                 },
                 {
@@ -130,7 +140,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/localStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -139,7 +150,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/sessionStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -148,7 +160,8 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/storageType.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -165,7 +178,8 @@
                     "slug": "/snipsonian-browser/1.9.1/url/getUrlPath.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getUrlPath(): string"
+                        "defaultExport": "export default function getUrlPath(): string",
+                        "example": null
                     }
                 }
             ]

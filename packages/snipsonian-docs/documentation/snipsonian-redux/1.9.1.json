@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-redux/1.9.1/action/actionTypeGenerator.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-redux/1.9.1/action/createAction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-redux/1.9.1/action/createTypeActions.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -43,7 +46,8 @@
                     "slug": "/snipsonian-redux/1.9.1/action/isActionType.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -52,7 +56,8 @@
                     "slug": "/snipsonian-redux/1.9.1/action/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -69,7 +74,8 @@
                     "slug": "/snipsonian-redux/1.9.1/config/storageType.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -80,7 +86,8 @@
             "slug": "/snipsonian-redux/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -95,7 +102,8 @@
                     "slug": "/snipsonian-redux/1.9.1/middleware/createConsoleLoggerMiddleware.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createConsoleLoggerMiddleware({\n    collapsed = true,\n}: {\n    collapsed?: boolean;\n} = {}): Middleware"
+                        "defaultExport": "export default function createConsoleLoggerMiddleware({\n    collapsed = true,\n}: {\n    collapsed?: boolean;\n} = {}): Middleware",
+                        "example": null
                     }
                 },
                 {
@@ -104,7 +112,8 @@
                     "slug": "/snipsonian-redux/1.9.1/middleware/createErrorLoggerMiddleware.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createErrorLoggerMiddleware({\n    onError,\n}: IErrorLoggerMiddlewareConfig): Middleware"
+                        "defaultExport": "export default function createErrorLoggerMiddleware({\n    onError,\n}: IErrorLoggerMiddlewareConfig): Middleware",
+                        "example": null
                     }
                 },
                 {
@@ -113,7 +122,8 @@
                     "slug": "/snipsonian-redux/1.9.1/middleware/getStateStorageByReducerMiddlewareFactory.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getStateStorageByReducerMiddlewareFactory({\n    storageToReducerKeysConfigs,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageByReducerMiddlewareFactoryConfig): IStateStorageMiddlewareFactory"
+                        "defaultExport": "export default function getStateStorageByReducerMiddlewareFactory({\n    storageToReducerKeysConfigs,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageByReducerMiddlewareFactoryConfig): IStateStorageMiddlewareFactory",
+                        "example": null
                     }
                 },
                 {
@@ -122,7 +132,8 @@
                     "slug": "/snipsonian-redux/1.9.1/middleware/getStateStorageMiddlewareFactory.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getStateStorageMiddlewareFactory({\n    storage,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageMiddlewareFactoryConfig): IStateStorageMiddlewareFactory"
+                        "defaultExport": "export default function getStateStorageMiddlewareFactory({\n    storage,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageMiddlewareFactoryConfig): IStateStorageMiddlewareFactory",
+                        "example": null
                     }
                 },
                 {
@@ -143,7 +154,8 @@
                                     "slug": "/snipsonian-redux/1.9.1/middleware/journey/actionTypeMaps/getActionType2JourneyHooksMaps.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function getActionType2JourneyHooksMaps(\n    journeys: TRegisteredJourney[],\n): IActionType2JourneyHooksMaps"
+                                        "defaultExport": "export default function getActionType2JourneyHooksMaps(\n    journeys: TRegisteredJourney[],\n): IActionType2JourneyHooksMaps",
+                                        "example": null
                                     }
                                 },
                                 {
@@ -152,7 +164,8 @@
                                     "slug": "/snipsonian-redux/1.9.1/middleware/journey/actionTypeMaps/getJourneyHooksThatMatchAction.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function getJourneyHooksThatMatchAction(\n    action: IAction<{}>,\n    actionType2JourneyHooksMaps: IActionType2JourneyHooksMaps,\n): IActionJourneyHooks<{}, IAction<{}>>"
+                                        "defaultExport": "export default function getJourneyHooksThatMatchAction(\n    action: IAction<{}>,\n    actionType2JourneyHooksMaps: IActionType2JourneyHooksMaps,\n): IActionJourneyHooks<{}, IAction<{}>>",
+                                        "example": null
                                     }
                                 },
                                 {
@@ -161,7 +174,8 @@
                                     "slug": "/snipsonian-redux/1.9.1/middleware/journey/actionTypeMaps/isOnActionTypeArray.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function isOnActionTypeArray(onActionType: TOnActionType): onActionType is string[]"
+                                        "defaultExport": "export default function isOnActionTypeArray(onActionType: TOnActionType): onActionType is string[]",
+                                        "example": null
                                     }
                                 }
                             ]
@@ -172,7 +186,8 @@
                             "slug": "/snipsonian-redux/1.9.1/middleware/journey/createJourneyMiddleware.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function createJourneyMiddleware({\n    journeys = getRegisteredJourneys(),\n    extraProcessInput = {},\n}: {\n    journeys?: TRegisteredJourney[];\n    extraProcessInput?: object;\n} = {}): Middleware"
+                                "defaultExport": "export default function createJourneyMiddleware({\n    journeys = getRegisteredJourneys(),\n    extraProcessInput = {},\n}: {\n    journeys?: TRegisteredJourney[];\n    extraProcessInput?: object;\n} = {}): Middleware",
+                                "example": null
                             }
                         },
                         {
@@ -181,7 +196,8 @@
                             "slug": "/snipsonian-redux/1.9.1/middleware/journey/journeyManager.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         },
                         {
@@ -190,7 +206,8 @@
                             "slug": "/snipsonian-redux/1.9.1/middleware/journey/types.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         }
                     ]
@@ -209,7 +226,8 @@
                     "slug": "/snipsonian-redux/1.9.1/reducer/createActionHandler.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -218,7 +236,8 @@
                     "slug": "/snipsonian-redux/1.9.1/reducer/createActionHandlersForType.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -227,7 +246,8 @@
                     "slug": "/snipsonian-redux/1.9.1/reducer/createReducer.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createReducer<ReducerState = object>({\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    initialState = ({} as ReducerState),\n    actionHandlers = {},\n}: ICreateReducerConfig<ReducerState>): TReducer<ReducerState>"
+                        "defaultExport": "export default function createReducer<ReducerState = object>({\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    initialState = ({} as ReducerState),\n    actionHandlers = {},\n}: ICreateReducerConfig<ReducerState>): TReducer<ReducerState>",
+                        "example": null
                     }
                 },
                 {
@@ -236,7 +256,8 @@
                     "slug": "/snipsonian-redux/1.9.1/reducer/reducerManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -245,7 +266,8 @@
                     "slug": "/snipsonian-redux/1.9.1/reducer/registerProvidedReducer.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function registerProvidedReducer<ReducerState>(\n    reducer: TReducer<ReducerState>,\n    {\n        key,\n        reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,\n        transformReducerStateForStorage = (reducerState) => reducerState,\n    }: IProvidedReducerConfig<ReducerState>,\n): void"
+                        "defaultExport": "export default function registerProvidedReducer<ReducerState>(\n    reducer: TReducer<ReducerState>,\n    {\n        key,\n        reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,\n        transformReducerStateForStorage = (reducerState) => reducerState,\n    }: IProvidedReducerConfig<ReducerState>,\n): void",
+                        "example": null
                     }
                 }
             ]
@@ -262,7 +284,8 @@
                     "slug": "/snipsonian-redux/1.9.1/store/createReduxStore.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createReduxStore<State>({\n    reducers = getRegisteredReducers(),\n    middlewares = [],\n    enhancers = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IReduxStoreConfig): Store<State>"
+                        "defaultExport": "export default function createReduxStore<State>({\n    reducers = getRegisteredReducers(),\n    middlewares = [],\n    enhancers = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IReduxStoreConfig): Store<State>",
+                        "example": null
                     }
                 },
                 {
@@ -271,7 +294,8 @@
                     "slug": "/snipsonian-redux/1.9.1/store/createStoreEnhancer.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createStoreEnhancer({\n    middlewares = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IStoreEnhancerConfig): IStoreEnhancer"
+                        "defaultExport": "export default function createStoreEnhancer({\n    middlewares = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IStoreEnhancerConfig): IStoreEnhancer",
+                        "example": null
                     }
                 },
                 {
@@ -280,7 +304,8 @@
                     "slug": "/snipsonian-redux/1.9.1/store/storeManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -297,7 +322,8 @@
                     "slug": "/snipsonian-redux/1.9.1/test/ReducerTest.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -306,7 +332,8 @@
                     "slug": "/snipsonian-redux/1.9.1/test/getReduxIntegrationTester.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getReduxIntegrationTester<State, ExtraGivenProps extends object = {}>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraGivenProps = ({} as ExtraGivenProps),\n    onGivenStart,\n    actionToDispatchOnGivenStart, // e.g. action to reset to the initial state\n}: {\n    store: Store;\n    extraGivenProps?: ExtraGivenProps;\n    onGivenStart?: () => void;\n    actionToDispatchOnGivenStart?: IAction<{}>;\n}): IReduxIntegrationTester<State, ExtraGivenProps>"
+                        "defaultExport": "export default function getReduxIntegrationTester<State, ExtraGivenProps extends object = {}>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraGivenProps = ({} as ExtraGivenProps),\n    onGivenStart,\n    actionToDispatchOnGivenStart, // e.g. action to reset to the initial state\n}: {\n    store: Store;\n    extraGivenProps?: ExtraGivenProps;\n    onGivenStart?: () => void;\n    actionToDispatchOnGivenStart?: IAction<{}>;\n}): IReduxIntegrationTester<State, ExtraGivenProps>",
+                        "example": null
                     }
                 },
                 {
@@ -315,7 +342,8 @@
                     "slug": "/snipsonian-redux/1.9.1/test/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]

@@ -6,8 +6,9 @@ export interface IAst {
 }
 export interface IAstManager {
     getAst: () => IAst;
-    getDefaultExport: () => string;
-    getDescriptionAtStartOfFile: () => string;
+    getDefaultExport: () => string | null;
+    getDescriptionAtStartOfFile: () => string | null;
+    getExampleCode: () => string | null;
 }
 
 export interface IAstComment {

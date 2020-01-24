@@ -10,7 +10,8 @@
             "slug": "/snipsonian-analytics/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/getNavigationStartTimeInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getNavigationStartTimeInMillis(): number"
+                        "defaultExport": "export default function getNavigationStartTimeInMillis(): number",
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/getTimeToFirstPaintInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getTimeToFirstPaintInMillis(): number"
+                        "defaultExport": "export default function getTimeToFirstPaintInMillis(): number",
+                        "example": null
                     }
                 },
                 {
@@ -43,7 +46,8 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/sendPerformanceEventsOnPageLoad.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function sendPerformanceEventsOnPageLoad({\n    timingEventCategory = 'performance',\n    timeToFirstPaintVarName = 'timeToFirstPaint',\n    timeToLoadVarName = 'timeToLoad',\n}: ISendPerformanceEventsOnPageLoadOptions = {}): void"
+                        "defaultExport": "export default function sendPerformanceEventsOnPageLoad({\n    timingEventCategory = 'performance',\n    timeToFirstPaintVarName = 'timeToFirstPaint',\n    timeToLoadVarName = 'timeToLoad',\n}: ISendPerformanceEventsOnPageLoadOptions = {}): void",
+                        "example": null
                     }
                 }
             ]
@@ -60,7 +64,8 @@
                     "slug": "/snipsonian-analytics/1.9.1/tracker/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -75,7 +80,8 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gaTracker.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         },
                         {
@@ -84,7 +90,8 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gtmTracker.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null
+                                "defaultExport": null,
+                                "example": null
                             }
                         },
                         {
@@ -93,7 +100,8 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/initOptionalFields.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function initOptionalFields(nameValueObj: object): object"
+                                "defaultExport": "export default function initOptionalFields(nameValueObj: object): object",
+                                "example": null
                             }
                         }
                     ]

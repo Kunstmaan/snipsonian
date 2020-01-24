@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/createFetchRequest.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request"
+                        "defaultExport": "export default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request",
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/fetcher.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/jsonFetcher.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -43,7 +46,8 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/rejectPromiseOnHttpErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function rejectPromiseOnHttpErrorStatus(response: Response): Response"
+                        "defaultExport": "export default function rejectPromiseOnHttpErrorStatus(response: Response): Response",
+                        "example": null
                     }
                 }
             ]
@@ -54,7 +58,8 @@
             "slug": "/snipsonian-api/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         }
     ]

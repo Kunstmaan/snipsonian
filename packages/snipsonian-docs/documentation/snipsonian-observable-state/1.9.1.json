@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/actionCreators.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/createActionableObservableStateStore.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>"
+                        "defaultExport": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>",
+                        "example": null
                     }
                 },
                 {
@@ -34,7 +36,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/createObservableStateActionMiddleware.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware"
+                        "defaultExport": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware",
+                        "example": null
                     }
                 },
                 {
@@ -43,7 +46,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/isObservableStateAction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>"
+                        "defaultExport": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>",
+                        "example": null
                     }
                 },
                 {
@@ -52,7 +56,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -63,7 +68,8 @@
             "slug": "/snipsonian-observable-state/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -78,7 +84,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/observer/createStateObserverManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>"
+                        "defaultExport": "export default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>",
+                        "example": null
                     }
                 }
             ]
@@ -95,7 +102,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/createObservableStateStore.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>"
+                        "defaultExport": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>",
+                        "example": null
                     }
                 },
                 {
@@ -104,7 +112,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/stateStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -113,7 +122,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/storeManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -122,7 +132,8 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]

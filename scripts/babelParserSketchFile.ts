@@ -2,11 +2,14 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
-// const fileSystem = require('fs');
-const traverse = require('@babel/traverse').default;
-const getBabelAst = require('../utils/getBabelAstFromFile').default;
+// const fs = require('fs');
+// const traverse = require('@babel/traverse').default;
+// const getBabelAst = require('../utils/getBabelAstFromFile').default;
+const path = require('path');
 
-const ast = getBabelAst('packages/snipsonian-react/src/components/appShell/BodySwitcher/index.tsx');
+console.log(path.parse('packages/snipsonian-core/src/url/replacePathParams.ts'));
+
+// const ast = getBabelAst('packages/snipsonian-react/src/components/appShell/BodySwitcher/index.tsx');
 
 // const loca: { start: number; end: number } = {
 //     start: null,
@@ -15,16 +18,16 @@ const ast = getBabelAst('packages/snipsonian-react/src/components/appShell/BodyS
 
 // console.log(ast);
 
-traverse(ast, {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    enter(path: any) {
-        if (
-            path.node.type === 'ExportDefaultDeclaration'
-        ) {
-            console.log(path.node);
-        }
-    },
-});
+// traverse(ast, {
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//     enter(path: any) {
+//         if (
+//             path.node.type === 'ExportDefaultDeclaration'
+//         ) {
+//             console.log(path.node);
+//         }
+//     },
+// });
 
 // let locy: { start: number; end: number } = null;
 

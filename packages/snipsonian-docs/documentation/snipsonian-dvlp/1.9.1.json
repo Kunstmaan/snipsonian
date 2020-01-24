@@ -10,7 +10,8 @@
             "slug": "/snipsonian-dvlp/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-dvlp/1.9.1/storedConfig/getLocalDvlpConfig.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getLocalDvlpConfig<DvlpConfig extends object = {}>({\n    storageKey,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    defaultDevConfig = ({} as DvlpConfig),\n}: {\n    storageKey: string;\n    defaultDevConfig?: DvlpConfig;\n}): DvlpConfig"
+                        "defaultExport": "export default function getLocalDvlpConfig<DvlpConfig extends object = {}>({\n    storageKey,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    defaultDevConfig = ({} as DvlpConfig),\n}: {\n    storageKey: string;\n    defaultDevConfig?: DvlpConfig;\n}): DvlpConfig",
+                        "example": null
                     }
                 }
             ]

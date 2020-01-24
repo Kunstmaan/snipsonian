@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/action/actions.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -25,7 +26,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/action/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -42,7 +44,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter"
+                        "defaultExport": "export default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter",
+                        "example": null
                     }
                 },
                 {
@@ -51,7 +54,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/toRoutesMap.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap"
+                        "defaultExport": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap",
+                        "example": null
                     }
                 }
             ]
@@ -62,7 +66,8 @@
             "slug": "/snipsonian-redux-first-router/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -77,7 +82,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/reducer/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -94,7 +100,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/route/routeManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -103,7 +110,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/route/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]
@@ -120,7 +128,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/selectors/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 },
                 {
@@ -129,7 +138,8 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/selectors/parseVirtualPage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string"
+                        "defaultExport": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string",
+                        "example": null
                     }
                 }
             ]

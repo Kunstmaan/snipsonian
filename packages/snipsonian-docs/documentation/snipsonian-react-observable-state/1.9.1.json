@@ -16,7 +16,8 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/context/createObservableStateContext.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateContext<\n    State,\n    StateChangeNotificationKey,\n    StateStore = IObservableStateStore<State, StateChangeNotificationKey>>(): Context<StateStore>"
+                        "defaultExport": "export default function createObservableStateContext<\n    State,\n    StateChangeNotificationKey,\n    StateStore = IObservableStateStore<State, StateChangeNotificationKey>>(): Context<StateStore>",
+                        "example": null
                     }
                 }
             ]
@@ -27,7 +28,8 @@
             "slug": "/snipsonian-react-observable-state/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null
+                "defaultExport": null,
+                "example": null
             }
         },
         {
@@ -42,7 +44,8 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/initActionableReactObservableState.tsx",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function initActionableReactObservableState<State, StateChangeNotificationKey = string>(): IActionableReactObservableState<State, StateChangeNotificationKey>"
+                        "defaultExport": "export default function initActionableReactObservableState<State, StateChangeNotificationKey = string>(): IActionableReactObservableState<State, StateChangeNotificationKey>",
+                        "example": null
                     }
                 },
                 {
@@ -51,7 +54,8 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/initReactObservableState.tsx",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey>"
+                        "defaultExport": "export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey>",
+                        "example": null
                     }
                 },
                 {
@@ -60,7 +64,8 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null
+                        "defaultExport": null,
+                        "example": null
                     }
                 }
             ]

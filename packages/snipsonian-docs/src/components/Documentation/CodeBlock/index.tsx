@@ -1,23 +1,19 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { IDocumentationItem } from '../../../models/documentation';
-import './default-export-info.scss';
 
 interface IPublicProps {
-    file: IDocumentationItem;
+    code: string;
 }
 
-export default function DefaultExportInfo({
-    file,
+export default function CodeBlock({
+    code,
 }: IPublicProps) {
-    if (!file.fileInfo || !file.fileInfo.defaultExport) {
-        return null;
-    }
+    if (!code) { return null; }
 
     return (
         <SyntaxHighlighter language="typescript" style={atomOneLight}>
-            {file.fileInfo.defaultExport}
+            {code}
         </SyntaxHighlighter>
     );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import './documentation.scss';
 import { IDocumentationItem } from '../../models/documentation';
-import DefaultExportInfo from './DefaultExportInfo';
+import ExpandableCodeBlock from './ExpandableCodeBlock';
+import CodeBlock from './CodeBlock';
 
 const CLASS_NAME = 'Documentation';
 
@@ -42,8 +43,13 @@ function Item({ item }: { item: IDocumentationItem }) {
     return (
         <div className={`${CLASS_NAME}__item`} id={item.name}>
             <h4><a href={`#${item.name}`}>{item.name}</a></h4>
-            <DefaultExportInfo file={item} />
-            <p>{`Path: ${item.path}`}</p>
+            <p className={`${CLASS_NAME}__item__path`}>{`Path: ${item.path}`}</p>
+            {item.fileInfo && (
+                <>
+                    <CodeBlock code={item.fileInfo.defaultExport} />
+                    <ExpandableCodeBlock title="Example" code={item.fileInfo.example} />
+                </>
+            )}
         </div>
     );
 }
