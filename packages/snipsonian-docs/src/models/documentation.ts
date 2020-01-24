@@ -21,7 +21,9 @@ export interface IDocumentationItem {
     type: TFileType;
     slug: string;
     children?: IDocumentationItem[];
-    fileInfo?: {
-        defaultExport: string;
-    };
+    fileInfo?: IFileInfo;
+}
+
+export interface IFileInfo {
+    defaultExport: string;
 }

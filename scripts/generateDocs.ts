@@ -1,4 +1,8 @@
-import { IDocumentationItem, IPackageDocumentation } from '../packages/snipsonian-docs/src/models/documentation';
+import {
+    IDocumentationItem,
+    IPackageVersionDocumentation,
+    IFileInfo,
+} from '../packages/snipsonian-docs/src/models/documentation';
 import { IAstManager } from '../models/astManager.models';
 
 /* eslint-disable import/no-extraneous-dependencies */
@@ -13,69 +17,104 @@ const PACKAGES_DIR = 'packages';
 const DOCS_DIR = 'packages/snipsonian-docs/documentation';
 const FILENAME_REGEX = /\.spec\.ts$|\.scss$/;
 
-function dirTree(filePath: string, slug: string): IDocumentationItem {
+fs.readdirSync(PACKAGES_DIR)
+    .filter(junk.not) // removes junk files like '.DS_Store'
+    .forEach((fileName: string) => {
+        if (fileName === 'snipsonian-docs') {
+            return;
+        }
+        const { version: packageVersion } = getPackageJsonAsObject({ fileName });
+        const data = createPackageDocumentation({ fileName, packageVersion });
+        writeDocumentationToDocumentationFolder({ fileName, data, packageVersion });
+    });
+
+function createDocumentationRecursive({ filePath, slug }: { filePath: string; slug: string }): IDocumentationItem {
     const stats = fs.lstatSync(filePath);
     const name = path.basename(filePath);
-    const info: IDocumentationItem = {
-        name,
-        path: filePath,
-        slug: `${slug}/${name}`,
-        type: null,
-    };
+    const info = initDocumentationItem();
 
     if (stats.isDirectory()) {
         info.type = 'folder';
-        info.children = fs.readdirSync(info.path)
-            .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
-            .map((child: string) => dirTree(`${info.path}/${child}`, info.slug));
+        info.children = createFolderDocumentation();
     } else {
         // Assuming it's a file
         info.type = 'file';
-
-        const astManager: IAstManager = createAstManager({ filePath });
-        info.fileInfo = {
-            defaultExport: astManager.getDefaultExport(),
-        };
+        info.fileInfo = createFileInfo();
     }
 
     return info;
+
+    function initDocumentationItem(): IDocumentationItem {
+        return {
+            name,
+            path: filePath,
+            slug: `${slug}/${name}`,
+            type: null,
+        };
+    }
+
+    function createFolderDocumentation(): IDocumentationItem[] {
+        return fs.readdirSync(info.path)
+            .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
+            .map((child: string) => createDocumentationRecursive({
+                filePath: `${info.path}/${child}`,
+                slug: info.slug,
+            }));
+    }
+
+    function createFileInfo(): IFileInfo {
+        const astManager: IAstManager = createAstManager({ filePath });
+        return {
+            defaultExport: astManager.getDefaultExport(),
+        };
+    }
 }
 
-fs.readdirSync(PACKAGES_DIR)
-    .filter(junk.not) // removes junk files like '.DS_Store'
-    .forEach((file: string) => {
-        if (file === 'snipsonian-docs') {
-            return;
+function getPackageJsonAsObject({ fileName }: { fileName: string }): { version: string } {
+    return JSON.parse(fs.readFileSync(`${PACKAGES_DIR}/${fileName}/package.json`));
+}
+
+function createPackageDocumentation({
+    fileName,
+    packageVersion,
+}: { fileName: string; packageVersion: string }): string {
+    const packagePath = `${PACKAGES_DIR}/${fileName}/src`;
+    const packageSlug = `/${fileName}/${packageVersion}`;
+    const astManager: IAstManager = createAstManager({ filePath: `${packagePath}/index.ts` });
+
+    const packageDocumentation: IPackageVersionDocumentation = {
+        title: fileName,
+        version: packageVersion,
+        slug: packageSlug,
+        description: astManager ? astManager.getDescriptionAtStartOfFile() : '',
+        documentation: fs.readdirSync(packagePath)
+            .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
+            .map((child: string) => createDocumentationRecursive({
+                filePath: `${packagePath}/${child}`,
+                slug: packageSlug,
+            })),
+    };
+
+    return JSON.stringify(packageDocumentation, null, 4);
+}
+
+function writeDocumentationToDocumentationFolder({
+    fileName,
+    packageVersion,
+    data,
+}: { fileName: string; packageVersion: string; data: string }): void {
+    const destinationPath = `${DOCS_DIR}/${fileName}`;
+    fs.mkdir(destinationPath, { recursive: true }, (mkdirErr: Error) => {
+        if (mkdirErr) {
+            console.log(mkdirErr);
+            throw mkdirErr;
         }
-        const packageJson = JSON.parse(fs.readFileSync(`${PACKAGES_DIR}/${file}/package.json`));
-        const pkgPath = `${PACKAGES_DIR}/${file}/src`;
-        const pkgSlug = `/${file}/${packageJson.version}`;
-        const astManager: IAstManager = createAstManager({ filePath: `${pkgPath}/index.ts` });
-
-        const packageDocumentation: IPackageDocumentation = {
-            title: file,
-            version: packageJson.version,
-            slug: pkgSlug,
-            description: astManager ? astManager.getDescriptionAtStartOfFile() : '',
-            documentation: fs.readdirSync(pkgPath)
-                .filter((child: string) => !RegExp(FILENAME_REGEX).test(child))
-                .map((child: string) => dirTree(`${pkgPath}/${child}`, pkgSlug)),
-        };
-
-        const data = JSON.stringify(packageDocumentation, null, 4);
-        const docPath = `${DOCS_DIR}/${file}`;
-
-        fs.mkdir(docPath, { recursive: true }, (mkdirErr: Error) => {
-            if (mkdirErr) {
-                console.log(mkdirErr);
-                throw mkdirErr;
+        fs.writeFile(`${destinationPath}/${packageVersion}.json`, data, (writeErr: Error) => {
+            if (writeErr) {
+                console.log(writeErr);
+                throw writeErr;
             }
-            fs.writeFile(`${docPath}/${packageJson.version}.json`, data, (writeErr: Error) => {
-                if (writeErr) {
-                    console.log(writeErr);
-                    throw writeErr;
-                }
-                console.log(`${file} docs have been saved!`);
-            });
+            console.log(`${fileName} docs have been saved!`);
         });
     });
+}
