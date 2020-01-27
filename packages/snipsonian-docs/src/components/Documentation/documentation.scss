@@ -4,23 +4,21 @@
 */
 
 .Documentation {
-    .Documentation__folder {
-        .Documentation__item {
-            padding: 15px 0;
+    .Documentation__item {
+        padding: 15px 0;
 
-            h4 a {
-                font-size: 20px;
-                color: $color-text;
+        h4 a {
+            font-size: 20px;
+            color: $color-text;
 
-                &:hover {
-                    color: $color-primary;
-                }
+            &:hover {
+                color: $color-primary;
             }
+        }
 
-            .Documentation__item__path {
-                font-size: .8em;
-                color: $grey;
-            }
+        .Documentation__item__path {
+            font-size: .8em;
+            color: $grey;
         }
     }
 }
