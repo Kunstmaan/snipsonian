@@ -1,0 +1,41 @@
+/* stylelint-disable */
+@tailwind base;
+
+* {
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    @apply text-3xl my-6 font-semibold;
+}
+h2 {
+    @apply text-2xl my-4 font-semibold;
+}
+h3 {
+    @apply text-xl my-4 font-semibold;
+}
+h4 {
+    @apply text-lg my-4 font-semibold;
+}
+h5 {
+    @apply text-base my-4 font-semibold;
+}
+h6 {
+    @apply text-sm my-4 font-semibold;
+}
+a {
+    @apply text-greyDark;
+}
+a:hover {
+    @apply text-primary;
+}
+p {
+    @apply my-4;
+}
+
+
+@tailwind components;
+
+@tailwind utilities;

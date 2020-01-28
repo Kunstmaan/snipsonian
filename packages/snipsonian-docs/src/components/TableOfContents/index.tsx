@@ -1,10 +1,7 @@
 import React from 'react';
-import './table-of-contents.scss';
 import { IDocumentationItem } from '../../models/documentation';
 import { capitalize } from '../../utils/format';
 import { sortDocumentationItems } from '../../utils/sort';
-
-const CLASS_NAME = 'TableOfContents';
 
 interface IPublicProps {
     documentation: IDocumentationItem[];
@@ -13,7 +10,7 @@ interface IPublicProps {
 export default function TableOfContents({ documentation }: IPublicProps) {
     const level = 1;
     return (
-        <div className={CLASS_NAME}>
+        <div className="mb-12">
             <h3>Table Of Contents</h3>
             {sortDocumentationItems(documentation).map((item) => renderFolder({ item, level }))}
         </div>
@@ -42,7 +39,7 @@ function renderFolder({ item, level }: { item: IDocumentationItem; level: number
 
 function Item({ item }: { item: IDocumentationItem }) {
     return (
-        <div className={`${CLASS_NAME}__item`}>
+        <div className="my-1 pl-1">
             <a href={`#${item.name}`}>{item.name}</a>
         </div>
     );
@@ -50,7 +47,7 @@ function Item({ item }: { item: IDocumentationItem }) {
 
 function Folder({ children, title }: { children: React.ReactNode; title: string }) {
     return (
-        <div className={`${CLASS_NAME}__folder`}>
+        <div className="my-1">
             <div>{capitalize(title)}</div>
             {children}
         </div>
@@ -59,7 +56,7 @@ function Folder({ children, title }: { children: React.ReactNode; title: string 
 
 function Children({ items, level }: { level: number; items: IDocumentationItem[] }) {
     return (
-        <div className={`${CLASS_NAME}__children`}>
+        <div className="my-1 ml-2 pl-1 border-l border-dashed border-primary">
             {sortDocumentationItems(items).map((item) => renderFolder({ item, level }))}
         </div>
     );

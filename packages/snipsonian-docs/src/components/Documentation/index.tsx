@@ -1,12 +1,9 @@
 import React from 'react';
-import './documentation.scss';
 import { IDocumentationItem } from '../../models/documentation';
 import ExpandableCodeBlock from './ExpandableCodeBlock';
 import CodeBlock from './CodeBlock';
 import { sortDocumentationItems } from '../../utils/sort';
 import FilePath from './FilePath';
-
-const CLASS_NAME = 'Documentation';
 
 interface IPublicProps {
     documentation: IDocumentationItem[];
@@ -15,7 +12,7 @@ interface IPublicProps {
 export default function Documentation({ documentation }: IPublicProps) {
     const level = 1;
     return (
-        <div className={CLASS_NAME}>
+        <div>
             {sortDocumentationItems(documentation).map((item) => renderFolder({ item, level }))}
         </div>
     );
@@ -43,8 +40,12 @@ function renderFolder({ item, level }: { item: IDocumentationItem; level: number
 
 function Item({ item }: { item: IDocumentationItem }) {
     return (
-        <div className={`${CLASS_NAME}__item`} id={item.name}>
-            <h4><a href={`#${item.name}`}>{item.name}</a></h4>
+        <div className="py-6" id={item.name}>
+            <h4 className="mb-0">
+                <a className="text-black font-semibold" href={`#${item.name}`}>
+                    {item.name}
+                </a>
+            </h4>
             <FilePath path={item.path} />
             {item.fileInfo && (
                 <>
@@ -59,7 +60,7 @@ function Item({ item }: { item: IDocumentationItem }) {
 
 function Folder({ children, title }: { children: React.ReactNode; title: string }) {
     return (
-        <div className={`${CLASS_NAME}__folder`}>
+        <div>
             {children}
         </div>
     );
@@ -67,7 +68,7 @@ function Folder({ children, title }: { children: React.ReactNode; title: string 
 
 function Children({ items, level }: { level: number; items: IDocumentationItem[] }) {
     return (
-        <div className={`${CLASS_NAME}__children`}>
+        <div>
             {sortDocumentationItems(items).map((item) => renderFolder({ item, level }))}
         </div>
     );

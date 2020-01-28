@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import '../../assets/scss/global.scss';
-import './main-template.scss';
+import '../../assets/css/global.css';
 import Sidebar from '../../components/Sidebar';
 import { INavigationItem, IPackageVersionDocumentation } from '../../models/documentation';
 import Documentation from '../../components/Documentation';
 import TableOfContents from '../../components/TableOfContents';
 import { capitalize } from '../../utils/format';
 import VersionNavigation from '../../components/VersionNavigation';
-
-const CLASS_NAME = 'MainTemplate';
 
 interface IPublicProps {
     pageContext: {
@@ -29,13 +26,19 @@ function MainTemplate({
     console.log({ navigation, packageVersionDocumentation, versionNavigation });
 
     return (
-        <div className={CLASS_NAME}>
-            <header>
-                <Link to="/"><h1>snipsonian</h1></Link>
+        <div className="flex flex-auto flex-col">
+            <header className="border-b border-dotted border-primaryDark">
+                <Link to="/">
+                    <h1 className="m-auto py-2 px-4 text-primaryDark">snipsonian</h1>
+                </Link>
             </header>
-            <main>
-                <Sidebar navigation={navigation} />
-                <section>
+            <main className="flex flex-auto">
+                <aside
+                    className="h-screen-min-header overflow-y-scroll flex-grow-0 flex-shrink-0 w-64 p-4 shadow-right"
+                >
+                    <Sidebar navigation={navigation} />
+                </aside>
+                <section className="h-screen-min-header overflow-y-scroll flex-auto py-4 pr-8 pl-16">
                     {home && (
                         <>
                             <h1>{home.title}</h1>
@@ -44,9 +47,11 @@ function MainTemplate({
                     )}
                     {packageVersionDocumentation && (
                         <>
-                            <div className={`${CLASS_NAME}__package-info`}>
-                                <div className={`${CLASS_NAME}__package-title`}>
-                                    <h2>{capitalize(packageVersionDocumentation.title)}</h2>
+                            <div className="mb-12">
+                                <div className="flex items-center my-4">
+                                    <h2 className="text-primary m-0">
+                                        {capitalize(packageVersionDocumentation.title)}
+                                    </h2>
                                     <VersionNavigation
                                         versionNavigation={versionNavigation}
                                         defaultValue={packageVersionDocumentation.slug}
@@ -55,7 +60,6 @@ function MainTemplate({
                                 <p>{packageVersionDocumentation.description}</p>
                             </div>
                             <TableOfContents documentation={packageVersionDocumentation.documentation} />
-                            <hr />
                             <Documentation documentation={packageVersionDocumentation.documentation} />
                         </>
                     )}

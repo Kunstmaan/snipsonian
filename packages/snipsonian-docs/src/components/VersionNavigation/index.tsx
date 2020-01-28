@@ -14,6 +14,7 @@ export default function VersionNavigation({ versionNavigation, defaultValue }: I
 
     return (
         <select
+            className="ml-8"
             defaultValue={defaultValue}
             onChange={onChange}
         >

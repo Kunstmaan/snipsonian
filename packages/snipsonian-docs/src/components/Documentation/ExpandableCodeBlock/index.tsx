@@ -1,5 +1,4 @@
 import React from 'react';
-import './expandable-code-block.scss';
 import CodeBlock from '../CodeBlock';
 
 const CLASS_NAME = 'ExpandableCodeBlock';

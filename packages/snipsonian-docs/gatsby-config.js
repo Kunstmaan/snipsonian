@@ -5,7 +5,7 @@ module.exports = {
         author: 'Kunstmaan',
     },
     plugins: [
-        'gatsby-plugin-sass',
+        'gatsby-plugin-postcss',
         'gatsby-plugin-typescript',
         'gatsby-plugin-react-helmet',
         // {

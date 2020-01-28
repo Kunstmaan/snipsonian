@@ -12,7 +12,7 @@ export default function CodeBlock({
     if (!code) { return null; }
 
     return (
-        <SyntaxHighlighter language="typescript" style={atomOneLight}>
+        <SyntaxHighlighter customStyle={{ fontSize: '.8rem' }} language="typescript" style={atomOneLight}>
             {code}
         </SyntaxHighlighter>
     );
