@@ -1,5 +1,5 @@
-/*
-    Api fetcher utilities
+/**
+ * Api fetcher utilities
  */
 import fetcher from './fetch/fetcher';
 

@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -37,6 +39,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -47,6 +50,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -57,6 +61,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -69,6 +74,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Utilities to detect changes in a large state store",
                 "example": null
             }
         },
@@ -85,6 +91,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -103,6 +110,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -113,6 +121,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -123,6 +132,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": "You can get the store, after it has been configured, from here to avoid circular dependencies.",
                         "example": null
                     }
                 },
@@ -133,6 +143,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }

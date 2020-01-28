@@ -1,4 +1,4 @@
-import { IAstManager, IAst, IAstComment, IAstNodeLocation } from '../models/astManager.models';
+import { IAstManager, IAst, IAstNodeLocation } from '../models/astManager.models';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -8,8 +8,12 @@ const traverse = require('@babel/traverse').default;
 const getBabelAst = require('./getBabelAstFromFile').default;
 
 exports.default = function createAstManager({ filePath }: { filePath: string }): IAstManager {
-    if (!fs.existsSync(filePath)) { return null; }
+    if (!fs.existsSync(filePath)) {
+        console.log('CreateAstManager: File does not exist, returning null');
+        return null;
+    }
     const ast: IAst = getBabelAst(filePath);
+    const file: string = fs.readFileSync(filePath, { encoding: 'utf8' });
 
     function getAst(): IAst {
         return ast;
@@ -18,11 +22,8 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
     function getDescriptionAtStartOfFile(): string | null {
         let description = null;
 
-        if (fileHasComments(ast)) {
-            const commentAtStartOfFile = getCommentAtStartOfFile(ast);
-            if (commentAtStartOfFile && commentAtStartOfFile.value) {
-                description = commentAtStartOfFile.value.trim();
-            }
+        if (file.startsWith('/**')) {
+            description = getCommentAtStartOfFile(file);
         }
 
         return description;
@@ -31,8 +32,6 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
     function getDefaultExport(): string | null {
         const defaultExportLocation: IAstNodeLocation | null =
             getStartEndFromDefaultExportDeclaration(ast);
-
-        const file: string = fs.readFileSync(filePath, { encoding: 'utf8' });
 
         if (locationHasNoValidLocation(defaultExportLocation)) { return null; }
         return file.substring(defaultExportLocation.start, defaultExportLocation.end);
@@ -55,12 +54,9 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
     };
 };
 
-function fileHasComments(ast: IAst): boolean {
-    return ast.comments && ast.comments.length > 0;
-}
-
-function getCommentAtStartOfFile(ast: IAst): IAstComment {
-    return ast.comments.find((comment) => comment.start === 0);
+function getCommentAtStartOfFile(file: string): string {
+    const comment = file.split('*/')[0];
+    return comment.replace('/**', '').replace(' * ', '').trim();
 }
 
 function getStartEndFromDefaultExportDeclaration(ast: IAst): IAstNodeLocation | null {

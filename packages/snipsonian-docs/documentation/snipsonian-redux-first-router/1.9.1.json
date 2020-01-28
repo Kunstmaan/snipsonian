@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -45,6 +47,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -55,6 +58,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -67,6 +71,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Router configuration with redux",
                 "example": null
             }
         },
@@ -83,6 +88,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -101,6 +107,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -111,6 +118,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -129,6 +137,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -139,6 +148,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string",
+                        "description": null,
                         "example": null
                     }
                 }

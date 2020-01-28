@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function assert(\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    val: any,\n    validator: TValidator,\n    errorMessage: string = 'Assertion error for value \\'{val}\\'.',\n): void",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -35,6 +36,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function buildIfBuilder(entity: any): any",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -59,6 +61,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": "export default function addProp(\n    propName: string,\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    propValue: any,\n    { addIfValueUnset = true }: IAddPropOptions = {},\n): TDecorator",
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -69,6 +72,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": "export default function builder({\n    initialBuildParams = {},\n    buildStateName = '_builder',\n}: IBuilderOptions = {}): TDecorator",
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -79,6 +83,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": "export default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}): TDecorator",
+                                "description": null,
                                 "example": null
                             }
                         }
@@ -91,6 +96,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function decorate<Target = any>(target: Target): IDecorateTargetWith<Target>",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -109,6 +115,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function conditionalCatch({\n    actionToExecute,\n    onError,\n    shouldCatchErrors = false,\n}: IConditionalCatchInput): any",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -127,6 +134,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function stripFileExtension(fileName: string): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -137,6 +145,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function supportWindowsPath(filePath: string): string",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -149,6 +158,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Common utilities for JS primitives, URLs, filenames, ...",
                 "example": null
             }
         },
@@ -165,6 +175,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -175,6 +186,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isArray(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -185,6 +197,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isBoolean(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -195,6 +208,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isBuilder(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -205,6 +219,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isFunction(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -215,6 +230,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isInteger(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -225,6 +241,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isNull(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -235,6 +252,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isNumber(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -245,6 +263,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isObject(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -255,6 +274,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isObjectPure(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -265,6 +285,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isSet(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -275,6 +296,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isString(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -285,6 +307,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isUndefined(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -303,6 +326,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function mergeObjectPropsDeeply(...sources: object[]): object",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -321,6 +345,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -339,6 +364,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function cloneObjectDataProps(obj: object): object",
+                        "description": "Does a deep clone of the input object, and thus returning a new object.\n * It only clones data/json properties, as in string, number, boolean, object, array properties.\n * So if the input object contains e.g. a function, the cloned object would not contain that property.",
                         "example": null
                     }
                 },
@@ -349,6 +375,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function deletePropsFromObject(obj: object): void",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -359,6 +386,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isEmptyObject(obj: object): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -369,6 +397,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -387,6 +416,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createObserverManager(): IObserverManager",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -405,6 +435,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getPartBetween({\n    firstPart,\n    secondPart,\n    input,\n}: {\n    firstPart: string;\n    secondPart: string;\n    input: string;\n}): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -415,6 +446,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isEmptyString(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -425,6 +457,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isSetString(val?: any): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -435,6 +468,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function joinStringParts({\n    parts,\n    joinSeparator = ' ',\n}: {\n    parts: string[];\n    joinSeparator?: string;\n}): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -445,6 +479,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function replacePlaceholders({ msg, placeholders = {} }: IReplacePlaceholdersInput): string",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -463,6 +498,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -481,6 +517,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -499,6 +536,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -509,6 +547,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -519,6 +558,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -529,6 +569,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -547,6 +588,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function appendQueryParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -557,6 +599,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function appendUrlParam({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -567,6 +610,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function appendUrlParamIfNotAlready({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -577,6 +621,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function constructResourceUrl({\n    url,\n    baseUrl = '',\n    pathParams,\n    queryParams,\n}: {\n    url: string;\n    baseUrl?: string;\n    pathParams?: IUrlParams;\n    queryParams?: IUrlParams;\n}): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -587,6 +632,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getUrlPartBetween({\n    url,\n    firstPart,\n    secondPart = '/',\n}: {\n    url: string;\n    firstPart: string;\n    secondPart?: string;\n}): string",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -597,6 +643,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function replacePathParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
+                        "description": null,
                         "example": "import replacePathParams from './replacePathParams';\n\nreplacePathParams({ url: 'http://some.domain.be/articles/{articleId}', params: { articleId: 1234 }});"
                     }
                 },
@@ -607,6 +654,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }

@@ -1,4 +1,4 @@
-/*
-    Analytics logging, performance tracking, ...
+/**
+ * Analytics logging, performance tracking, ...
  */
 export * from './tracker';

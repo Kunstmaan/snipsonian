@@ -1,5 +1,5 @@
-/*
-    Custom redux features like entities
+/**
+ * Custom redux features like entities
  */
 import { initReducerBuildingBlocks } from './entities/reducerBuildingBlocks';
 

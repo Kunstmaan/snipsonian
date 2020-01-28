@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -37,6 +39,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -47,6 +50,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -57,6 +61,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -75,6 +80,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -87,6 +93,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Redux action creators, middlewares, reducer utilities, ...",
                 "example": null
             }
         },
@@ -103,6 +110,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createConsoleLoggerMiddleware({\n    collapsed = true,\n}: {\n    collapsed?: boolean;\n} = {}): Middleware",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -113,6 +121,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createErrorLoggerMiddleware({\n    onError,\n}: IErrorLoggerMiddlewareConfig): Middleware",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -123,6 +132,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getStateStorageByReducerMiddlewareFactory({\n    storageToReducerKeysConfigs,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageByReducerMiddlewareFactoryConfig): IStateStorageMiddlewareFactory",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -133,6 +143,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getStateStorageMiddlewareFactory({\n    storage,\n    stateStorageKey,\n    shouldCatchErrors = false,\n    onError,\n    reducerKeyToTransformReducerStateMap,\n}: IStateStorageMiddlewareFactoryConfig): IStateStorageMiddlewareFactory",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -155,6 +166,7 @@
                                     "type": "file",
                                     "fileInfo": {
                                         "defaultExport": "export default function getActionType2JourneyHooksMaps(\n    journeys: TRegisteredJourney[],\n): IActionType2JourneyHooksMaps",
+                                        "description": null,
                                         "example": null
                                     }
                                 },
@@ -165,6 +177,7 @@
                                     "type": "file",
                                     "fileInfo": {
                                         "defaultExport": "export default function getJourneyHooksThatMatchAction(\n    action: IAction<{}>,\n    actionType2JourneyHooksMaps: IActionType2JourneyHooksMaps,\n): IActionJourneyHooks<{}, IAction<{}>>",
+                                        "description": null,
                                         "example": null
                                     }
                                 },
@@ -175,6 +188,7 @@
                                     "type": "file",
                                     "fileInfo": {
                                         "defaultExport": "export default function isOnActionTypeArray(onActionType: TOnActionType): onActionType is string[]",
+                                        "description": null,
                                         "example": null
                                     }
                                 }
@@ -187,6 +201,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": "export default function createJourneyMiddleware({\n    journeys = getRegisteredJourneys(),\n    extraProcessInput = {},\n}: {\n    journeys?: TRegisteredJourney[];\n    extraProcessInput?: object;\n} = {}): Middleware",
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -197,6 +212,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -207,6 +223,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         }
@@ -227,6 +244,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -237,6 +255,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -247,6 +266,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createReducer<ReducerState = object>({\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    initialState = ({} as ReducerState),\n    actionHandlers = {},\n}: ICreateReducerConfig<ReducerState>): TReducer<ReducerState>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -257,6 +277,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -267,6 +288,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function registerProvidedReducer<ReducerState>(\n    reducer: TReducer<ReducerState>,\n    {\n        key,\n        reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,\n        transformReducerStateForStorage = (reducerState) => reducerState,\n    }: IProvidedReducerConfig<ReducerState>,\n): void",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -285,6 +307,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createReduxStore<State>({\n    reducers = getRegisteredReducers(),\n    middlewares = [],\n    enhancers = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IReduxStoreConfig): Store<State>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -295,6 +318,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createStoreEnhancer({\n    middlewares = [],\n    stateStorageType = STATE_STORAGE_TYPE.NO_STORAGE,\n    stateStorageKey,\n    customStorage,\n    shouldCatchStorageErrors = false,\n    onStorageError,\n}: IStoreEnhancerConfig): IStoreEnhancer",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -305,6 +329,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": "You can get the store, after it has been configured, from here to avoid circular dependencies.",
                         "example": null
                     }
                 }
@@ -323,6 +348,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -333,6 +359,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getReduxIntegrationTester<State, ExtraGivenProps extends object = {}>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraGivenProps = ({} as ExtraGivenProps),\n    onGivenStart,\n    actionToDispatchOnGivenStart, // e.g. action to reset to the initial state\n}: {\n    store: Store;\n    extraGivenProps?: ExtraGivenProps;\n    onGivenStart?: () => void;\n    actionToDispatchOnGivenStart?: IAction<{}>;\n}): IReduxIntegrationTester<State, ExtraGivenProps>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -343,6 +370,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }

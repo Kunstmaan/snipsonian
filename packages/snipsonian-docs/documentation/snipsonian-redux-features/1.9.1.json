@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -37,6 +39,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -47,6 +50,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -57,6 +61,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -67,6 +72,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -77,6 +83,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -87,6 +94,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -97,6 +105,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 }
@@ -109,6 +118,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Custom redux features like entities",
                 "example": null
             }
         }

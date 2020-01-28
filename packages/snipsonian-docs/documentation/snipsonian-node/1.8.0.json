@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getDirectoryNamesSync({ sourcePath }: { sourcePath: string}): string[]",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[]",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -37,6 +39,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function isDirectorySync({ inputPath }: { inputPath: string }): boolean",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -53,6 +56,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -63,6 +67,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         }
@@ -83,6 +88,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function readFile({\n    filePath,\n    options = {},\n}: {\n    filePath: string;\n    options?: object;\n}): Promise<string>",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -99,6 +105,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         },
@@ -109,6 +116,7 @@
                             "type": "file",
                             "fileInfo": {
                                 "defaultExport": null,
+                                "description": null,
                                 "example": null
                             }
                         }
@@ -121,6 +129,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function writeFile({\n    filePath,\n    data,\n    options = {},\n}: {\n    filePath: string;\n    data: string;\n    options?: object;\n}): Promise<string>",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -133,6 +142,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Node file utilities",
                 "example": null
             }
         }

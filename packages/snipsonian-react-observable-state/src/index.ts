@@ -1,5 +1,5 @@
-/*
-    Utilities to detect changes in a large state store in React
+/**
+ * Utilities to detect changes in a large state store in React
  */
 import initReactObservableStateIntern from './init/initReactObservableState';
 import initActionableReactObservableStateIntern from './init/initActionableReactObservableState';

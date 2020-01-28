@@ -2,6 +2,7 @@ import React from 'react';
 import './table-of-contents.scss';
 import { IDocumentationItem } from '../../models/documentation';
 import { capitalize } from '../../utils/format';
+import { sortDocumentationItems } from '../../utils/sort';
 
 const CLASS_NAME = 'TableOfContents';
 
@@ -14,7 +15,7 @@ export default function TableOfContents({ documentation }: IPublicProps) {
     return (
         <div className={CLASS_NAME}>
             <h3>Table Of Contents</h3>
-            {documentation.map((item) => renderFolder({ item, level }))}
+            {sortDocumentationItems(documentation).map((item) => renderFolder({ item, level }))}
         </div>
     );
 }
@@ -59,7 +60,7 @@ function Folder({ children, title }: { children: React.ReactNode; title: string 
 function Children({ items, level }: { level: number; items: IDocumentationItem[] }) {
     return (
         <div className={`${CLASS_NAME}__children`}>
-            {items.map((item) => renderFolder({ item, level }))}
+            {sortDocumentationItems(items).map((item) => renderFolder({ item, level }))}
         </div>
     );
 }

@@ -3,6 +3,7 @@ import './documentation.scss';
 import { IDocumentationItem } from '../../models/documentation';
 import ExpandableCodeBlock from './ExpandableCodeBlock';
 import CodeBlock from './CodeBlock';
+import { sortDocumentationItems } from '../../utils/sort';
 
 const CLASS_NAME = 'Documentation';
 
@@ -14,7 +15,7 @@ export default function Documentation({ documentation }: IPublicProps) {
     const level = 1;
     return (
         <div className={CLASS_NAME}>
-            {documentation.map((item) => renderFolder({ item, level }))}
+            {sortDocumentationItems(documentation).map((item) => renderFolder({ item, level }))}
         </div>
     );
 }
@@ -46,6 +47,7 @@ function Item({ item }: { item: IDocumentationItem }) {
             <p className={`${CLASS_NAME}__item__path`}>{`Path: ${item.path}`}</p>
             {item.fileInfo && (
                 <>
+                    {item.fileInfo.description && <p>{item.fileInfo.description}</p>}
                     <CodeBlock code={item.fileInfo.defaultExport} />
                     <ExpandableCodeBlock title="Example" code={item.fileInfo.example} />
                 </>
@@ -65,7 +67,7 @@ function Folder({ children, title }: { children: React.ReactNode; title: string 
 function Children({ items, level }: { level: number; items: IDocumentationItem[] }) {
     return (
         <div className={`${CLASS_NAME}__children`}>
-            {items.map((item) => renderFolder({ item, level }))}
+            {sortDocumentationItems(items).map((item) => renderFolder({ item, level }))}
         </div>
     );
 }

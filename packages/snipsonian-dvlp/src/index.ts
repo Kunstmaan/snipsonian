@@ -1,5 +1,5 @@
-/*
-    Local development config
+/**
+ * Local development config
  */
 import getLocalDvlpConfig from './storedConfig/getLocalDvlpConfig';
 

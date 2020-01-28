@@ -1,5 +1,5 @@
-/*
-    Node file utilities
+/**
+ * Node file utilities
  */
 import isDirectorySync from './dir/isDirectorySync';
 import getFilesRecursiveSync from './dir/getFilesRecursiveSync';

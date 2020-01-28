@@ -1,5 +1,5 @@
-/*
-    Common utilities for JS primitives, URLs, filenames, ...
+/**
+ * Common utilities for JS primitives, URLs, filenames, ...
  */
 import is from './is';
 import assert from './assert';

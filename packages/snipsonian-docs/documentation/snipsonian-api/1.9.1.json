@@ -17,6 +17,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request",
+                        "description": null,
                         "example": null
                     }
                 },
@@ -27,6 +28,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -37,6 +39,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": null,
+                        "description": null,
                         "example": null
                     }
                 },
@@ -47,6 +50,7 @@
                     "type": "file",
                     "fileInfo": {
                         "defaultExport": "export default function rejectPromiseOnHttpErrorStatus(response: Response): Response",
+                        "description": null,
                         "example": null
                     }
                 }
@@ -59,6 +63,7 @@
             "type": "file",
             "fileInfo": {
                 "defaultExport": null,
+                "description": "Api fetcher utilities",
                 "example": null
             }
         }

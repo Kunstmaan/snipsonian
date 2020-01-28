@@ -26,5 +26,6 @@ export interface IDocumentationItem {
 
 export interface IFileInfo {
     defaultExport: string;
+    description: string;
     example: string;
 }

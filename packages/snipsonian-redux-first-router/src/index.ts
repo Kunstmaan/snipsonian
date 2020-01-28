@@ -1,5 +1,5 @@
-/*
-    Router configuration with redux
+/**
+ * Router configuration with redux
  */
 import configureRouter from './configureRouter';
 
