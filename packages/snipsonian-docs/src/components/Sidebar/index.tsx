@@ -4,9 +4,10 @@ import { INavigationItem } from '../../models/documentation';
 
 interface IPublicProps {
     navigation: INavigationItem[];
+    currentPathname: string;
 }
 
-function Sidebar({ navigation }: IPublicProps) {
+function Sidebar({ navigation, currentPathname }: IPublicProps) {
     return (
         <nav>
             {navigation.map((item) => (
@@ -14,16 +15,15 @@ function Sidebar({ navigation }: IPublicProps) {
             ))}
         </nav>
     );
-}
 
-function NavItem({ to, name }: { to: string; name: string }) {
-    const { pathname } = window.location;
-    const isActive = pathname && pathname.startsWith(`/snipsonian-${name}/`);
-    return (
-        <div className="mb-1">
-            <Link className={isActive && 'text-primary'} to={to} >{name}</Link>
-        </div>
-    );
+    function NavItem({ to, name }: { to: string; name: string }) {
+        const isActive = currentPathname && currentPathname.startsWith(`/snipsonian-${name}/`);
+        return (
+            <div className="mb-1">
+                <Link className={isActive ? 'text-primary' : ''} to={to} >{name}</Link>
+            </div>
+        );
+    }
 }
 
 export default Sidebar;

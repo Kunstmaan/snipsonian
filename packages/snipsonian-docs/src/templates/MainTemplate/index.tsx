@@ -18,12 +18,16 @@ interface IPublicProps {
             text: string;
         };
     };
+    location: {
+        pathname: string;
+    };
 }
 
 function MainTemplate({
     pageContext: { packageVersionDocumentation, navigation, home, versionNavigation },
+    location,
 }: IPublicProps) {
-    console.log({ navigation, packageVersionDocumentation, versionNavigation });
+    console.log({ navigation, packageVersionDocumentation, versionNavigation, location });
 
     return (
         <div className="flex flex-auto flex-col">
@@ -36,7 +40,7 @@ function MainTemplate({
                 <aside
                     className="h-screen-min-header overflow-y-scroll flex-grow-0 flex-shrink-0 w-64 p-4 shadow-right"
                 >
-                    <Sidebar navigation={navigation} />
+                    <Sidebar currentPathname={location.pathname} navigation={navigation} />
                 </aside>
                 <section className="h-screen-min-header overflow-y-scroll flex-auto py-4 pr-8 pl-16">
                     {home && (
