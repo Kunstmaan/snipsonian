@@ -4,6 +4,7 @@ import { IDocumentationItem } from '../../models/documentation';
 import ExpandableCodeBlock from './ExpandableCodeBlock';
 import CodeBlock from './CodeBlock';
 import { sortDocumentationItems } from '../../utils/sort';
+import FilePath from './FilePath';
 
 const CLASS_NAME = 'Documentation';
 
@@ -44,7 +45,7 @@ function Item({ item }: { item: IDocumentationItem }) {
     return (
         <div className={`${CLASS_NAME}__item`} id={item.name}>
             <h4><a href={`#${item.name}`}>{item.name}</a></h4>
-            <p className={`${CLASS_NAME}__item__path`}>{`Path: ${item.path}`}</p>
+            <FilePath path={item.path} />
             {item.fileInfo && (
                 <>
                     {item.fileInfo.description && <p>{item.fileInfo.description}</p>}
