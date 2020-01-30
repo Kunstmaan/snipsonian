@@ -35,8 +35,9 @@ exports.createPages = ({ actions }) => {
                 path: versionDocumentation.slug,
                 component: require.resolve('./src/templates/MainTemplate/index.tsx'),
                 context: {
-                    navigation,
+                    version,
                     packageVersionDocumentation: versionDocumentation,
+                    navigation,
                     versionNavigation,
                 },
             });

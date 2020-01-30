@@ -10,6 +10,7 @@ import VersionNavigation from '../../components/VersionNavigation';
 
 interface IPublicProps {
     pageContext: {
+        version: string;
         navigation: INavigationItem[];
         packageVersionDocumentation: IPackageVersionDocumentation;
         versionNavigation: INavigationItem[];
@@ -24,10 +25,10 @@ interface IPublicProps {
 }
 
 function MainTemplate({
-    pageContext: { packageVersionDocumentation, navigation, home, versionNavigation },
+    pageContext: { packageVersionDocumentation, navigation, home, versionNavigation, version },
     location,
 }: IPublicProps) {
-    console.log({ navigation, packageVersionDocumentation, versionNavigation, location });
+    console.log({ navigation, packageVersionDocumentation, versionNavigation, location, version });
 
     return (
         <div className="flex flex-auto flex-col">
@@ -64,7 +65,10 @@ function MainTemplate({
                                 <p>{packageVersionDocumentation.description}</p>
                             </div>
                             <TableOfContents documentation={packageVersionDocumentation.documentation} />
-                            <Documentation documentation={packageVersionDocumentation.documentation} />
+                            <Documentation
+                                version={version}
+                                documentation={packageVersionDocumentation.documentation}
+                            />
                         </>
                     )}
                 </section>
