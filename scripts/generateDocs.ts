@@ -65,7 +65,7 @@ function createDocumentationRecursive({ filePath, slug }: { filePath: string; sl
     function createFileInfo(): IFileInfo {
         const astManager: IAstManager = createAstManager({ filePath });
         return {
-            defaultExport: astManager.getDefaultExport(),
+            exports: astManager.getExports(),
             description: astManager.getDescriptionAtStartOfFile(),
             example: astManager.getExampleCode(),
         };

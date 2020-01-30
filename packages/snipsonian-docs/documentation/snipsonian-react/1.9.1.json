@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-react/1.9.1/components/.eslintrc.js",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -39,7 +39,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/appShell/BodySwitcher/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export default class BodySwitcher extends Component<IPublicProps> \n\npublic render() \n\npublic shouldComponentUpdate(nextProps: IPublicProps) \n\npublic renderPage(renderProps?: object) \n\npublic loadPage(renderProps?: object) \n\nexport function getCachedAsyncPageComponent(pageKey: string)",
                                         "description": null,
                                         "example": null
                                     }
@@ -66,7 +66,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/form/GenericForm/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface IValidationError<ErrorTypes> \n\nexport interface IFormRenderProps<Values, ErrorTypes, Errors = ValidationErrors<Values, ErrorTypes>> \n\nexport default function GenericForm<Values, ErrorTypes extends string>()",
                                         "description": null,
                                         "example": null
                                     }
@@ -93,7 +93,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/I18nContext/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": null,
                                         "description": null,
                                         "example": null
                                     }
@@ -112,7 +112,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/Translate/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface IPublicProps \n\nexport default function Translate({\n    msg,\n    placeholders = {},\n    raw = false,\n}: IPublicProps)",
                                         "description": null,
                                         "example": null
                                     }
@@ -131,7 +131,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translations/createTranslationsManager.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function createTranslationsManager({\n    locales,\n    initialTranslations,\n    localStorageKey,\n}: ITranslationsManagerConfig): ITranslationsManager",
+                                        "exports": "export interface ITranslationsManager \n\nexport interface ITranslationsManagerConfig \n\nexport default function createTranslationsManager({\n    locales,\n    initialTranslations,\n    localStorageKey,\n}: ITranslationsManagerConfig): ITranslationsManager",
                                         "description": null,
                                         "example": null
                                     }
@@ -142,7 +142,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translations/types.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface ITranslations \n\nexport interface ITranslationsPerLocale",
                                         "description": null,
                                         "example": null
                                     }
@@ -161,7 +161,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/generateTranslatorForEachSupportedLocale.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": "export default function generateTranslatorForEachSupportedLocale({\n    translationsManager,\n}: {\n    translationsManager: ITranslationsManager;\n}): ILocaleTranslators",
+                                        "exports": "export default function generateTranslatorForEachSupportedLocale({\n    translationsManager,\n}: {\n    translationsManager: ITranslationsManager;\n}): ILocaleTranslators",
                                         "description": null,
                                         "example": null
                                     }
@@ -172,7 +172,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/listenForTranslationKeyToggles.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export default function listenForTranslationKeyToggles(config: IOnToggleConfig)",
                                         "description": null,
                                         "example": null
                                     }
@@ -183,7 +183,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/translatorManager.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export function setLocaleTranslators(newLocaleTranslators: ILocaleTranslators) \n\nexport function getTranslator({\n    locale,\n    showTranslationKeys = false,\n    areTranslationsRefreshed = true,\n}: {\n    locale: string;\n    showTranslationKeys?: boolean;\n    areTranslationsRefreshed?: boolean;\n}): TTranslator \n\nexport function getTranslatorInputParts(input: TTranslatorInput)",
                                         "description": null,
                                         "example": null
                                     }
@@ -194,7 +194,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/i18n/translator/types.ts",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface ITranslatorPlaceholders \n\nexport interface ILocaleTranslators",
                                         "description": null,
                                         "example": null
                                     }
@@ -227,7 +227,7 @@
                                             "slug": "/snipsonian-react/1.9.1/components/pageParts/CommonPageParts/HeaderPagePart/index.tsx",
                                             "type": "file",
                                             "fileInfo": {
-                                                "defaultExport": null,
+                                                "exports": "export interface IHeaderPagePartData \n\nexport default function HeaderPagePart(props: IPagePartComponentProps<IHeaderPagePartData>)",
                                                 "description": null,
                                                 "example": null
                                             }
@@ -246,7 +246,7 @@
                                             "slug": "/snipsonian-react/1.9.1/components/pageParts/CommonPageParts/TextPagePart/index.tsx",
                                             "type": "file",
                                             "fileInfo": {
-                                                "defaultExport": null,
+                                                "exports": "export interface ITextPagePartData \n\nexport default function TextPagePart(props: IPagePartComponentProps<ITextPagePartData>)",
                                                 "description": null,
                                                 "example": null
                                             }
@@ -267,7 +267,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/pageParts/PagePartWrapper/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export default function PagePartWrapper({ pagePart, pagePartType2ComponentMap }: IPublicProps)",
                                         "description": null,
                                         "example": null
                                     }
@@ -286,7 +286,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/pageParts/PageParts/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface IPagePartsProps \n\nexport default function PageParts(props: IPagePartsProps)",
                                         "description": null,
                                         "example": null
                                     }
@@ -299,7 +299,7 @@
                             "slug": "/snipsonian-react/1.9.1/components/pageParts/pageParts.models.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": "export interface IPagePart<PagePartType = string, PagePartData = {}> \n\nexport interface IPagePartType2ComponentMap \n\nexport interface IPagePartComponentProps<Data>",
                                 "description": null,
                                 "example": null
                             }
@@ -324,7 +324,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/technical/Portal/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export default function Portal(props: IProps)",
                                         "description": null,
                                         "example": null
                                     }
@@ -345,7 +345,7 @@
                             "slug": "/snipsonian-react/1.9.1/components/test/getComponentTester.tsx",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": "export default function getComponentTester<GivenProps extends object, ExtraThenProps extends object = {}>({\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    givenProps = ({} as GivenProps),\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraThenProps = ({} as ExtraThenProps),\n    onGivenStart,\n    ComponentWrapper,\n}: {\n    givenProps?: GivenProps;\n    extraThenProps?: ExtraThenProps;\n    onGivenStart?: () => void;\n    ComponentWrapper: ComponentType<IComponentWrapperProps>;\n})",
                                 "description": null,
                                 "example": null
                             }
@@ -356,7 +356,7 @@
                             "slug": "/snipsonian-react/1.9.1/components/test/types.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": "export interface IComponentWrapperProps \n\nexport interface IComponentTester<GivenProps, ExtraThenProps>",
                                 "description": null,
                                 "example": null
                             }
@@ -381,7 +381,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/GenericLoader/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface IGenericLoaderProps \n\nexport default function GenericLoader(props: IGenericLoaderProps)",
                                         "description": null,
                                         "example": null
                                     }
@@ -400,7 +400,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/HideAfterDelay/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export default class HideAfterDelay extends PureComponent<IHideAfterDelayProps> \n\npublic render() \n\npublic componentDidMount() \n\npublic componentWillReceiveProps(nextProps: IHideAfterDelayProps) \n\npublic componentWillUnmount()",
                                         "description": null,
                                         "example": null
                                     }
@@ -419,7 +419,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/ShowAfterDelay/index.specIgnore.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": null,
                                         "description": null,
                                         "example": null
                                     }
@@ -430,7 +430,7 @@
                                     "slug": "/snipsonian-react/1.9.1/components/waiting/ShowAfterDelay/index.tsx",
                                     "type": "file",
                                     "fileInfo": {
-                                        "defaultExport": null,
+                                        "exports": "export interface IShowAfterDelayProps \n\nexport default class ShowAfterDelay extends PureComponent<IShowAfterDelayProps, IComponentState> \n\npublic render() \n\npublic constructor(props: IShowAfterDelayProps) \n\npublic componentDidMount() \n\npublic componentWillReceiveProps(nextProps: IShowAfterDelayProps) \n\npublic componentWillUnmount()",
                                         "description": null,
                                         "example": null
                                     }
@@ -447,7 +447,7 @@
             "slug": "/snipsonian-react/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "React utilities",
                 "example": null
             }
@@ -464,7 +464,7 @@
                     "slug": "/snipsonian-react/1.9.1/models/pages.models.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IPage",
                         "description": null,
                         "example": null
                     }
@@ -483,7 +483,7 @@
                     "slug": "/snipsonian-react/1.9.1/utils/anchor.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function toAnchorTargetId(key: string): string \n\nexport function toAnchorLinkHref(key: string): string",
                         "description": null,
                         "example": null
                     }
@@ -494,7 +494,7 @@
                     "slug": "/snipsonian-react/1.9.1/utils/getOrCreateElementInBodyById.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getOrCreateElementInBodyById(id: string): HTMLElement",
+                        "exports": "export default function getOrCreateElementInBodyById(id: string): HTMLElement",
                         "description": null,
                         "example": null
                     }
@@ -505,7 +505,7 @@
                     "slug": "/snipsonian-react/1.9.1/utils/isReactComponentClass.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function isReactComponentClass<T>(input: ComponentClass | T): input is ComponentClass",
                         "description": null,
                         "example": null
                     }
@@ -516,7 +516,7 @@
                     "slug": "/snipsonian-react/1.9.1/utils/noRerender.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": "Constants to be returned by for example redux selectors if they have to return e.g. an empty list or object,\n * otherwise re-creating a new [] or {} - each time the selector gets called - would result in unnecessary re-renders.",
                         "example": null
                     }

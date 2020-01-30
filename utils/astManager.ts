@@ -1,4 +1,4 @@
-import { IAstManager, IAst, IAstNodeLocation } from '../models/astManager.models';
+import { IAstManager, IAst, IAstNodeLocation, IAstMethod } from '../models/astManager.models';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
@@ -29,12 +29,21 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
         return description;
     }
 
-    function getDefaultExport(): string | null {
-        const defaultExportLocation: IAstNodeLocation | null =
-            getStartEndFromDefaultExportDeclaration(ast);
+    function getExports(): string | null {
+        const exportLocations: IAstNodeLocation[] =
+            getStartEndFromExportDeclaration(ast);
 
-        if (locationHasNoValidLocation(defaultExportLocation)) { return null; }
-        return file.substring(defaultExportLocation.start, defaultExportLocation.end);
+        if (exportLocations.length <= 0) { return null; }
+        return exportLocations.reduce(
+            (acc, location, index) => {
+                if (locationHasNoValidLocation(location)) {
+                    return acc;
+                }
+                // eslint-disable-next-line prefer-template
+                return acc + ((index !== 0) ? '\n\n' : '') + file.substring(location.start, location.end);
+            },
+            '',
+        ).trim();
     }
 
     function getExampleCode(): string | null {
@@ -48,7 +57,7 @@ exports.default = function createAstManager({ filePath }: { filePath: string }):
 
     return {
         getAst,
-        getDefaultExport,
+        getExports,
         getDescriptionAtStartOfFile,
         getExampleCode,
     };
@@ -59,30 +68,42 @@ function getCommentAtStartOfFile(file: string): string {
     return comment.replace('/**', '').replace(' * ', '').trim();
 }
 
-function getStartEndFromDefaultExportDeclaration(ast: IAst): IAstNodeLocation | null {
-    let location: IAstNodeLocation = null;
+function getStartEndFromExportDeclaration(ast: IAst): IAstNodeLocation[] {
+    const locations: IAstNodeLocation[] = [];
     traverse(ast, {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         enter(p: any) {
             if (
-                p.node.type === 'ExportDefaultDeclaration'
+                p.node.type === 'ExportDefaultDeclaration' ||
+                p.node.type === 'ExportNamedDeclaration'
             ) {
-                location = {
-                    start: p.node.start,
-                    end:
-                        p.node.declaration &&
-                        p.node.declaration.returnType &&
-                        p.node.declaration.returnType.end,
-                };
+                if (p.node.declaration) {
+                    if (p.node.declaration.body) {
+                        locations.push({
+                            start: p.node.start,
+                            end: p.node.declaration.body.start,
+                        });
+                    }
+                    if (p.node.declaration.type === 'ClassDeclaration') {
+                        p.node.declaration.body.body.forEach((method: IAstMethod) => {
+                            if (method.type === 'ClassMethod' && method.accessibility === 'public') {
+                                locations.push({
+                                    start: method.start,
+                                    end: method.body.start,
+                                });
+                            }
+                        });
+                    }
+                }
             }
         },
     });
 
-    return location;
+    return locations;
 }
 
-function locationHasNoValidLocation(defaultExportLocation: IAstNodeLocation): boolean {
-    return !defaultExportLocation ||
-        typeof defaultExportLocation.start === 'undefined' ||
-        typeof defaultExportLocation.end === 'undefined';
+function locationHasNoValidLocation(location: IAstNodeLocation): boolean {
+    return !location ||
+        (!location.start && location.start !== 0) ||
+        (!location.end && location.start !== 0);
 }

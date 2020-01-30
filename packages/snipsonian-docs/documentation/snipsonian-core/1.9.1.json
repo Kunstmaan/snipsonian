@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-core/1.9.1/assert/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function assert(\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    val: any,\n    validator: TValidator,\n    errorMessage: string = 'Assertion error for value \\'{val}\\'.',\n): void",
+                        "exports": "export default function assert(\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    val: any,\n    validator: TValidator,\n    errorMessage: string = 'Assertion error for value \\'{val}\\'.',\n): void",
                         "description": null,
                         "example": null
                     }
@@ -35,7 +35,7 @@
                     "slug": "/snipsonian-core/1.9.1/builder/buildIfBuilder.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function buildIfBuilder(entity: any): any",
+                        "exports": "export default function buildIfBuilder(entity: any): any",
                         "description": null,
                         "example": null
                     }
@@ -60,7 +60,7 @@
                             "slug": "/snipsonian-core/1.9.1/decorate/decorators/addProp.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function addProp(\n    propName: string,\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    propValue: any,\n    { addIfValueUnset = true }: IAddPropOptions = {},\n): TDecorator",
+                                "exports": "export interface IAddPropOptions \n\nexport default function addProp(\n    propName: string,\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    propValue: any,\n    { addIfValueUnset = true }: IAddPropOptions = {},\n): TDecorator",
                                 "description": null,
                                 "example": null
                             }
@@ -71,7 +71,7 @@
                             "slug": "/snipsonian-core/1.9.1/decorate/decorators/builder.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function builder({\n    initialBuildParams = {},\n    buildStateName = '_builder',\n}: IBuilderOptions = {}): TDecorator",
+                                "exports": "export interface IBuilderOptions \n\nexport interface IBuilder<Result = {}> \n\nexport default function builder({\n    initialBuildParams = {},\n    buildStateName = '_builder',\n}: IBuilderOptions = {}): TDecorator",
                                 "description": null,
                                 "example": null
                             }
@@ -82,7 +82,7 @@
                             "slug": "/snipsonian-core/1.9.1/decorate/decorators/collapsable.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}): TDecorator",
+                                "exports": "export interface ICollapsableOptions \n\nexport interface ICollapsable \n\nexport default function collapsable({ initialIsCollapsed = false }: ICollapsableOptions = {}): TDecorator",
                                 "description": null,
                                 "example": null
                             }
@@ -95,7 +95,7 @@
                     "slug": "/snipsonian-core/1.9.1/decorate/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function decorate<Target = any>(target: Target): IDecorateTargetWith<Target>",
+                        "exports": "export default function decorate<Target = any>(target: Target): IDecorateTargetWith<Target>",
                         "description": null,
                         "example": null
                     }
@@ -114,7 +114,7 @@
                     "slug": "/snipsonian-core/1.9.1/error/conditionalCatch.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function conditionalCatch({\n    actionToExecute,\n    onError,\n    shouldCatchErrors = false,\n}: IConditionalCatchInput): any",
+                        "exports": "export interface IConditionalCatchInput \n\nexport default function conditionalCatch({\n    actionToExecute,\n    onError,\n    shouldCatchErrors = false,\n}: IConditionalCatchInput): any",
                         "description": null,
                         "example": null
                     }
@@ -133,7 +133,7 @@
                     "slug": "/snipsonian-core/1.9.1/file/stripFileExtension.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function stripFileExtension(fileName: string): string",
+                        "exports": "export default function stripFileExtension(fileName: string): string",
                         "description": null,
                         "example": null
                     }
@@ -144,7 +144,7 @@
                     "slug": "/snipsonian-core/1.9.1/file/supportWindowsPath.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function supportWindowsPath(filePath: string): string",
+                        "exports": "export default function supportWindowsPath(filePath: string): string",
                         "description": null,
                         "example": null
                     }
@@ -157,7 +157,7 @@
             "slug": "/snipsonian-core/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Common utilities for JS primitives, URLs, filenames, ...",
                 "example": null
             }
@@ -174,7 +174,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -185,7 +185,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isArray.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isArray(val?: any): boolean",
+                        "exports": "export default function isArray(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -196,7 +196,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isBoolean.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isBoolean(val?: any): boolean",
+                        "exports": "export default function isBoolean(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -207,7 +207,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isBuilder.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isBuilder(val?: any): boolean",
+                        "exports": "export default function isBuilder(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -218,7 +218,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isFunction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isFunction(val?: any): boolean",
+                        "exports": "export default function isFunction(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -229,7 +229,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isInteger.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isInteger(val?: any): boolean",
+                        "exports": "export default function isInteger(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -240,7 +240,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isNull.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isNull(val?: any): boolean",
+                        "exports": "export default function isNull(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -251,7 +251,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isNumber.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isNumber(val?: any): boolean",
+                        "exports": "export default function isNumber(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -262,7 +262,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isObject(val?: any): boolean",
+                        "exports": "export default function isObject(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -273,7 +273,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isObjectPure.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isObjectPure(val?: any): boolean",
+                        "exports": "export default function isObjectPure(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -284,7 +284,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isSet.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isSet(val?: any): boolean",
+                        "exports": "export default function isSet(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -295,7 +295,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isString.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isString(val?: any): boolean",
+                        "exports": "export default function isString(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -306,7 +306,7 @@
                     "slug": "/snipsonian-core/1.9.1/is/isUndefined.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isUndefined(val?: any): boolean",
+                        "exports": "export default function isUndefined(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -325,7 +325,7 @@
                     "slug": "/snipsonian-core/1.9.1/merge/mergeObjectPropsDeeply.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function mergeObjectPropsDeeply(...sources: object[]): object",
+                        "exports": "export default function mergeObjectPropsDeeply(...sources: object[]): object \n\nexport function mergeObjectPropsDeeplyFromSourceToTarget({\n    target,\n    source,\n}: {\n    target: object;\n    source: object;\n}): object",
                         "description": null,
                         "example": null
                     }
@@ -344,7 +344,7 @@
                     "slug": "/snipsonian-core/1.9.1/monads/maybe.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export class Maybe<Value> \n\npublic static of<Value>(value: Value | null | undefined): Maybe<Value> \n\npublic static nothing<Value>(): Maybe<Value> \n\npublic isNothing(): boolean \n\npublic map<ResultValue>(mapper: (prevValue: Value) => ResultValue): Maybe<ResultValue> \n\npublic flatMap<ResultValue>(mapper: (prevValue: Value) => Maybe<ResultValue>): Maybe<ResultValue> \n\npublic getOrElse(elseValue: Value): Value \n\npublic getOrNull(): Value | null \n\npublic getOrEmptyArray(): Value | [] \n\npublic getOrEmptyObject(): Value | {}",
                         "description": null,
                         "example": null
                     }
@@ -363,7 +363,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/cloneObjectDataProps.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function cloneObjectDataProps(obj: object): object",
+                        "exports": "export default function cloneObjectDataProps(obj: object): object",
                         "description": "Does a deep clone of the input object, and thus returning a new object.\n * It only clones data/json properties, as in string, number, boolean, object, array properties.\n * So if the input object contains e.g. a function, the cloned object would not contain that property.",
                         "example": null
                     }
@@ -374,7 +374,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/deletePropsFromObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function deletePropsFromObject(obj: object): void",
+                        "exports": "export default function deletePropsFromObject(obj: object): void",
                         "description": null,
                         "example": null
                     }
@@ -385,7 +385,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/isEmptyObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isEmptyObject(obj: object): boolean",
+                        "exports": "export default function isEmptyObject(obj: object): boolean",
                         "description": null,
                         "example": null
                     }
@@ -396,7 +396,7 @@
                     "slug": "/snipsonian-core/1.9.1/object/isFalsyOrEmptyObject.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function isFalsyOrEmptyObject(obj: object): boolean",
                         "description": null,
                         "example": null
                     }
@@ -415,7 +415,7 @@
                     "slug": "/snipsonian-core/1.9.1/patterns/createObserverManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObserverManager(): IObserverManager",
+                        "exports": "export interface IObserver \n\nexport interface IObserverManager \n\nexport default function createObserverManager(): IObserverManager",
                         "description": null,
                         "example": null
                     }
@@ -434,7 +434,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/getPartBetween.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getPartBetween({\n    firstPart,\n    secondPart,\n    input,\n}: {\n    firstPart: string;\n    secondPart: string;\n    input: string;\n}): string",
+                        "exports": "export default function getPartBetween({\n    firstPart,\n    secondPart,\n    input,\n}: {\n    firstPart: string;\n    secondPart: string;\n    input: string;\n}): string",
                         "description": null,
                         "example": null
                     }
@@ -445,7 +445,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/isEmptyString.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isEmptyString(val?: any): boolean",
+                        "exports": "export default function isEmptyString(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -456,7 +456,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/isSetString.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isSetString(val?: any): boolean",
+                        "exports": "export default function isSetString(val?: any): boolean",
                         "description": null,
                         "example": null
                     }
@@ -467,7 +467,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/joinStringParts.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function joinStringParts({\n    parts,\n    joinSeparator = ' ',\n}: {\n    parts: string[];\n    joinSeparator?: string;\n}): string",
+                        "exports": "export default function joinStringParts({\n    parts,\n    joinSeparator = ' ',\n}: {\n    parts: string[];\n    joinSeparator?: string;\n}): string",
                         "description": null,
                         "example": null
                     }
@@ -478,7 +478,7 @@
                     "slug": "/snipsonian-core/1.9.1/string/replacePlaceholders.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function replacePlaceholders({ msg, placeholders = {} }: IReplacePlaceholdersInput): string",
+                        "exports": "export default function replacePlaceholders({ msg, placeholders = {} }: IReplacePlaceholdersInput): string",
                         "description": null,
                         "example": null
                     }
@@ -497,7 +497,7 @@
                     "slug": "/snipsonian-core/1.9.1/test/simulateWaitTime.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function simulateWaitTime({\n    waitTimeInMillis = 10,\n    onWaited,\n}: {\n    waitTimeInMillis?: number;\n    onWaited?: (props: { waitTimeInMillis: number }) => void;\n} = {}): Promise<void>",
                         "description": null,
                         "example": null
                     }
@@ -516,7 +516,7 @@
                     "slug": "/snipsonian-core/1.9.1/time/periodsInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -535,7 +535,7 @@
                     "slug": "/snipsonian-core/1.9.1/typings/apiErrors.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IApiErrorBase<ErrorResponseData extends object> \n\nexport interface ITraceableApiErrorBase<ErrorResponseData extends object> extends IApiErrorBase<ErrorResponseData>",
                         "description": null,
                         "example": null
                     }
@@ -546,7 +546,7 @@
                     "slug": "/snipsonian-core/1.9.1/typings/errorReporting.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IReportOptions \n\nexport interface IErrorReporter<UserContext, ExtraContext = {}>",
                         "description": null,
                         "example": null
                     }
@@ -557,7 +557,7 @@
                     "slug": "/snipsonian-core/1.9.1/typings/logging.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IGroupLogger",
                         "description": null,
                         "example": null
                     }
@@ -568,7 +568,7 @@
                     "slug": "/snipsonian-core/1.9.1/typings/patterns.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IKeyValuePair<Key = string, Value = string>",
                         "description": null,
                         "example": null
                     }
@@ -587,7 +587,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/appendQueryParams.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function appendQueryParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
+                        "exports": "export default function appendQueryParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
                         "description": null,
                         "example": null
                     }
@@ -598,7 +598,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/appendUrlParam.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function appendUrlParam({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string",
+                        "exports": "export interface IAppendUrlParamInput \n\nexport default function appendUrlParam({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string \n\nexport function encodeParamName(paramName: string): string",
                         "description": null,
                         "example": null
                     }
@@ -609,7 +609,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/appendUrlParamIfNotAlready.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function appendUrlParamIfNotAlready({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string",
+                        "exports": "export default function appendUrlParamIfNotAlready({\n    url,\n    paramName,\n    paramValue,\n}: IAppendUrlParamInput): string",
                         "description": null,
                         "example": null
                     }
@@ -620,7 +620,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/constructResourceUrl.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function constructResourceUrl({\n    url,\n    baseUrl = '',\n    pathParams,\n    queryParams,\n}: {\n    url: string;\n    baseUrl?: string;\n    pathParams?: IUrlParams;\n    queryParams?: IUrlParams;\n}): string",
+                        "exports": "export default function constructResourceUrl({\n    url,\n    baseUrl = '',\n    pathParams,\n    queryParams,\n}: {\n    url: string;\n    baseUrl?: string;\n    pathParams?: IUrlParams;\n    queryParams?: IUrlParams;\n}): string",
                         "description": null,
                         "example": null
                     }
@@ -631,7 +631,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/getUrlPartBetween.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getUrlPartBetween({\n    url,\n    firstPart,\n    secondPart = '/',\n}: {\n    url: string;\n    firstPart: string;\n    secondPart?: string;\n}): string",
+                        "exports": "export default function getUrlPartBetween({\n    url,\n    firstPart,\n    secondPart = '/',\n}: {\n    url: string;\n    firstPart: string;\n    secondPart?: string;\n}): string",
                         "description": null,
                         "example": null
                     }
@@ -642,7 +642,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/replacePathParams.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function replacePathParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
+                        "exports": "export default function replacePathParams({\n    url,\n    params = {},\n}: {\n    url: string;\n    params?: IUrlParams;\n}): string",
                         "description": null,
                         "example": "import replacePathParams from './replacePathParams';\n\nreplacePathParams({ url: 'http://some.domain.be/articles/{articleId}', params: { articleId: 1234 }});"
                     }
@@ -653,7 +653,7 @@
                     "slug": "/snipsonian-core/1.9.1/url/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IUrlParams",
                         "description": null,
                         "example": null
                     }

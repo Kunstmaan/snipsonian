@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/context/createObservableStateContext.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateContext<\n    State,\n    StateChangeNotificationKey,\n    StateStore = IObservableStateStore<State, StateChangeNotificationKey>>(): Context<StateStore>",
+                        "exports": "export default function createObservableStateContext<\n    State,\n    StateChangeNotificationKey,\n    StateStore = IObservableStateStore<State, StateChangeNotificationKey>>(): Context<StateStore>",
                         "description": null,
                         "example": null
                     }
@@ -29,7 +29,7 @@
             "slug": "/snipsonian-react-observable-state/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Utilities to detect changes in a large state store in React",
                 "example": null
             }
@@ -46,7 +46,7 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/initActionableReactObservableState.tsx",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function initActionableReactObservableState<State, StateChangeNotificationKey = string>(): IActionableReactObservableState<State, StateChangeNotificationKey>",
+                        "exports": "export default function initActionableReactObservableState<State, StateChangeNotificationKey = string>(): IActionableReactObservableState<State, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -57,7 +57,7 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/initReactObservableState.tsx",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey>",
+                        "exports": "export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -68,7 +68,7 @@
                     "slug": "/snipsonian-react-observable-state/1.9.1/init/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IReactObservableState<State, StateChangeNotificationKey>\n    extends IReactObservableStateBase<State, StateChangeNotificationKey> \n\nexport interface IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>\n    extends IObservePropsBase<State, StateChangeNotificationKey, PrivateProps, PublicProps> \n\nexport interface IObserveSelectProps<State, PublicProps> \n\nexport interface IObserveSetProps<State, StateChangeNotificationKey, PublicProps>\n    extends Pick<IObservableStateStore<State, StateChangeNotificationKey>, 'getState' | 'setState'> \n\nexport interface IActionableReactObservableState<State, StateChangeNotificationKey>\n    // eslint-disable-next-line max-len\n    extends IReactObservableStateBase<State, StateChangeNotificationKey, IActionableObservableStateStore<State, StateChangeNotificationKey>> \n\nexport interface IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>\n    extends IObservePropsBase<State, StateChangeNotificationKey, PrivateProps, PublicProps> \n\nexport interface IActionableObserveSetProps<State, StateChangeNotificationKey, PublicProps>\n    extends Pick<IActionableObservableStateStore<State, StateChangeNotificationKey>, 'getState' | 'dispatch'>",
                         "description": null,
                         "example": null
                     }

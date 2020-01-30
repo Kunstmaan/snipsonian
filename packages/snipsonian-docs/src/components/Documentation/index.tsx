@@ -50,7 +50,7 @@ function Item({ item }: { item: IDocumentationItem }) {
             {item.fileInfo && (
                 <>
                     {item.fileInfo.description && <p>{item.fileInfo.description}</p>}
-                    <CodeBlock code={item.fileInfo.defaultExport} />
+                    <CodeBlock code={item.fileInfo.exports} />
                     <ExpandableCodeBlock title="Example" code={item.fileInfo.example} />
                 </>
             )}

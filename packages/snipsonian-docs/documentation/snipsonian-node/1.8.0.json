@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-node/1.8.0/dir/getDirectoryNamesSync.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getDirectoryNamesSync({ sourcePath }: { sourcePath: string}): string[]",
+                        "exports": "export default function getDirectoryNamesSync({ sourcePath }: { sourcePath: string}): string[]",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-node/1.8.0/dir/getFilesRecursiveSync.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[]",
+                        "exports": "export interface IFile \n\nexport default function getFilesRecursiveSync({ sourcePath }: { sourcePath: string }): IFile[]",
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-node/1.8.0/dir/isDirectorySync.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isDirectorySync({ inputPath }: { inputPath: string }): boolean",
+                        "exports": "export default function isDirectorySync({ inputPath }: { inputPath: string }): boolean",
                         "description": null,
                         "example": null
                     }
@@ -55,7 +55,7 @@
                             "slug": "/snipsonian-node/1.8.0/dir/testDir/file.txt",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": null,
                                 "description": null,
                                 "example": null
                             }
@@ -66,7 +66,7 @@
                             "slug": "/snipsonian-node/1.8.0/dir/testDir/file2.txt",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": null,
                                 "description": null,
                                 "example": null
                             }
@@ -87,7 +87,7 @@
                     "slug": "/snipsonian-node/1.8.0/file/readFile.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function readFile({\n    filePath,\n    options = {},\n}: {\n    filePath: string;\n    options?: object;\n}): Promise<string>",
+                        "exports": "export default function readFile({\n    filePath,\n    options = {},\n}: {\n    filePath: string;\n    options?: object;\n}): Promise<string>",
                         "description": null,
                         "example": null
                     }
@@ -104,7 +104,7 @@
                             "slug": "/snipsonian-node/1.8.0/file/testFiles/read.txt",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": null,
                                 "description": null,
                                 "example": null
                             }
@@ -115,7 +115,7 @@
                             "slug": "/snipsonian-node/1.8.0/file/testFiles/write.txt",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": null,
                                 "description": null,
                                 "example": null
                             }
@@ -128,7 +128,7 @@
                     "slug": "/snipsonian-node/1.8.0/file/writeFile.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function writeFile({\n    filePath,\n    data,\n    options = {},\n}: {\n    filePath: string;\n    data: string;\n    options?: object;\n}): Promise<string>",
+                        "exports": "export default function writeFile({\n    filePath,\n    data,\n    options = {},\n}: {\n    filePath: string;\n    data: string;\n    options?: object;\n}): Promise<string>",
                         "description": null,
                         "example": null
                     }
@@ -141,7 +141,7 @@
             "slug": "/snipsonian-node/1.8.0/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Node file utilities",
                 "example": null
             }

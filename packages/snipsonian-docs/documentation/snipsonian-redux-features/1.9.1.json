@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/EntityMaybe.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export class EntityMaybe<Data> \n\npublic static of<Data>(data: Data | null | undefined): EntityMaybe<Data | null | undefined> \n\npublic static nothing<Data>(): EntityMaybe<Data> \n\npublic isEmpty(): boolean \n\npublic exists(): boolean \n\npublic getOrElse(elseValue: Data): Data \n\npublic getOrNull(): Data | null \n\npublic getOrEmptyArray(): Data | [] \n\npublic getOrEmptyObject(): Data | {} \n\npublic doIfExists(runner: (value: Data) => any): any",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/actionTypes.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/actions.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function updateEntitiesGeneric<EntitiesReducerState>(\n    payload: IUpdateEntitiesGenericPayload<EntitiesReducerState>,\n): IAction<IUpdateEntitiesGenericPayload<EntitiesReducerState>> \n\nexport function updateAsyncEntitiesChain<Error = ITraceableApiErrorBase<{}>>(\n    dispatch: Dispatch<IAction<{}>>,\n): IUpdateAsyncEntitiesActionCreatorChain<Error>",
                         "description": null,
                         "example": null
                     }
@@ -49,7 +49,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/entityUtils.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function shouldResetEntityDataOnTrigger<State, Action>({\n    resetDataOnTrigger = true, // default true\n}: IAsyncEntityToFetch<State, Action, {}, {}>): boolean",
                         "description": null,
                         "example": null
                     }
@@ -60,7 +60,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/mapAsyncEntityKey2ApiConfigMap.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function mapToFetchApiConfigMap<State>(\n    apiConfigMap: IAsyncEntityKey2ApiConfigMap<State>,\n): IAsyncEntityKey2FetchApiConfigMap<State>",
                         "description": null,
                         "example": null
                     }
@@ -71,7 +71,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/reducerBuildingBlocks.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function initReducerBuildingBlocks<EntitiesReducerState extends IBaseEntitiesReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    initialState,\n    includeDefaultActionHandlers = true,\n    customActionHandlers = {},\n}: {\n    reducerKey?: string;\n    initialState: EntitiesReducerState;\n    includeDefaultActionHandlers?: boolean;\n    customActionHandlers?: IActionHandlers<EntitiesReducerState>;\n}): IReducerBuildingBlocks<EntitiesReducerState> \n\nexport function getEntitiesReducerKey(): string \n\nexport function getAsyncEntityInitialState<Data = {}, Error = ITraceableApiErrorBase<{}>>({\n    data,\n    type = 'object',\n    operations = [AsyncOperation.fetch],\n}: {\n    data?: Data;\n    type?: TInitialDataType;\n    operations?: AsyncOperation[];\n} = {}): IAsyncEntity<Data, Error>",
                         "description": null,
                         "example": null
                     }
@@ -82,7 +82,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/registerJourneyToFetchAsyncEntitiesOnAction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void",
+                        "exports": "export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({\n    onActionTypeRegex,\n    actionType2AsyncEntitiesToFetchMap,\n    asyncEntityKey2ApiConfigMap,\n}: {\n    onActionTypeRegex: IOnActionTypeRegex;\n    actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;\n    asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;\n}): void",
                         "description": null,
                         "example": null
                     }
@@ -93,7 +93,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/selectors.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function getReducerState<EntitiesReducerState extends IBaseEntitiesReducerState>(\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    state: any,\n): EntitiesReducerState \n\nexport function getEntity<Data>(state: any, entityKey: string): IEntity<Data> \n\nexport function getAsyncEntity<Data, Error = ITraceableApiErrorBase<{}>>(\n    // eslint-disable-next-line @typescript-eslint/no-explicit-any\n    state: any, entityKey: string,\n): IAsyncEntity<Data, Error>",
                         "description": null,
                         "example": null
                     }
@@ -104,7 +104,7 @@
                     "slug": "/snipsonian-redux-features/1.9.1/entities/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IBaseEntitiesReducerState \n\nexport interface IEntity<Data = any> \n\nexport interface IEntityAsyncOperation<Error = ITraceableApiErrorBase<{}>> \n\nexport interface IAsyncEntity<Data, Error = ITraceableApiErrorBase<{}>> extends IEntity<Data> \n\nexport interface IUpdateEntitiesGenericPayload<EntitiesReducerState> \n\nexport interface IUpdateAsyncEntitiesPayload<Error = ITraceableApiErrorBase<{}>> \n\nexport interface IEntityKeyOperation \n\nexport interface IEntityKeyOperationSucceeded extends IEntityKeyOperation \n\nexport interface IEntityKeyOperationFailed<Error> extends IEntityKeyOperation \n\nexport interface IUpdateAsyncEntitiesActionCreatorChain<Error = ITraceableApiErrorBase<{}>> \n\nexport interface IActionType2AsyncEntitiesToFetchMap<State, Action> \n\nexport interface IAsyncEntityToFetch<State, Action, ApiInput, Result> \n\nexport interface IAsyncEntityKey2FetchApiConfigMap<State> \n\nexport interface IFetchAsyncEntityApiConfig<State, Result, ApiInput> \n\nexport interface IAsyncEntityKey2ApiConfigMap<State>",
                         "description": null,
                         "example": null
                     }
@@ -117,7 +117,7 @@
             "slug": "/snipsonian-redux-features/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Custom redux features like entities",
                 "example": null
             }

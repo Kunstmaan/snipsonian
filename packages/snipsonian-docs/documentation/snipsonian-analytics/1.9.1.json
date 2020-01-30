@@ -10,7 +10,7 @@
             "slug": "/snipsonian-analytics/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Analytics logging, performance tracking, ...",
                 "example": null
             }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/getNavigationStartTimeInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getNavigationStartTimeInMillis(): number",
+                        "exports": "export default function getNavigationStartTimeInMillis(): number \n\nexport function isPerformanceTimingSupported(): boolean \n\nexport function getPerformanceTiming(): PerformanceTiming",
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/getTimeToFirstPaintInMillis.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getTimeToFirstPaintInMillis(): number",
+                        "exports": "export default function getTimeToFirstPaintInMillis(): number",
                         "description": null,
                         "example": null
                     }
@@ -49,7 +49,7 @@
                     "slug": "/snipsonian-analytics/1.9.1/performance/sendPerformanceEventsOnPageLoad.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function sendPerformanceEventsOnPageLoad({\n    timingEventCategory = 'performance',\n    timeToFirstPaintVarName = 'timeToFirstPaint',\n    timeToLoadVarName = 'timeToLoad',\n}: ISendPerformanceEventsOnPageLoadOptions = {}): void",
+                        "exports": "export default function sendPerformanceEventsOnPageLoad({\n    timingEventCategory = 'performance',\n    timeToFirstPaintVarName = 'timeToFirstPaint',\n    timeToLoadVarName = 'timeToLoad',\n}: ISendPerformanceEventsOnPageLoadOptions = {}): void",
                         "description": null,
                         "example": null
                     }
@@ -68,7 +68,7 @@
                     "slug": "/snipsonian-analytics/1.9.1/tracker/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IVirtualPageview \n\nexport interface IEvent \n\nexport interface ISocialInteraction \n\nexport interface ITiming \n\nexport interface IException \n\nexport interface ITracker \n\nexport function initTracker(newTracker: ITracker): void \n\nexport function sendVirtualPageview({\n    virtualUrl,\n    custom = {},\n}: IVirtualPageview): void \n\nexport function sendEvent({\n    category,\n    action,\n    label,\n    value,\n    isNonInteraction = false,\n    custom = {},\n}: IEvent): void \n\nexport function sendSocial({\n    network,\n    action,\n    target,\n    custom = {},\n}: ISocialInteraction): void \n\nexport function sendTiming({\n    category,\n    timingVar,\n    value,\n    label,\n    custom = {},\n}: ITiming): void \n\nexport function sendException({\n    description,\n    isFatal = false,\n    custom = {},\n}: IException): void",
                         "description": null,
                         "example": null
                     }
@@ -85,7 +85,7 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gaTracker.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": null,
                                 "description": null,
                                 "example": null
                             }
@@ -96,7 +96,7 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/gtmTracker.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": null,
+                                "exports": "export interface IGtmTracker extends ITracker",
                                 "description": null,
                                 "example": null
                             }
@@ -107,7 +107,7 @@
                             "slug": "/snipsonian-analytics/1.9.1/tracker/providers/initOptionalFields.ts",
                             "type": "file",
                             "fileInfo": {
-                                "defaultExport": "export default function initOptionalFields(nameValueObj: object): object",
+                                "exports": "export default function initOptionalFields(nameValueObj: object): object",
                                 "description": null,
                                 "example": null
                             }

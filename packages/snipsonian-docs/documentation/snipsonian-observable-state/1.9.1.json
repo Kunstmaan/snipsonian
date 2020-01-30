@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/actionCreators.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function createAction<Type, Payload>(\n    action: IPayloadAction<Type, Payload>,\n): IPayloadAction<Type, Payload> \n\nexport function createObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>(\n    action: IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>,\n): IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/createActionableObservableStateStore.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>",
+                        "exports": "export default function createActionableObservableStateStore<State, ExtraProcessInput, StateChangeNotificationKey = string>(\n    config: IActionableObservableStateStoreConfig<State, ExtraProcessInput>,\n): IActionableObservableStateStore<State, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/createObservableStateActionMiddleware.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware",
+                        "exports": "export default function createObservableStateActionMiddleware<\n    State,\n    ExtraProcessInput,\n    StateChangeNotificationKey>({\n    store,\n    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion\n    extraProcessInput = ({} as ExtraProcessInput),\n}: {\n    store: IObservableStateStore<State, StateChangeNotificationKey>;\n    extraProcessInput?: ExtraProcessInput;\n}): Middleware",
                         "description": null,
                         "example": null
                     }
@@ -49,7 +49,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/isObservableStateAction.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>",
+                        "exports": "export default function isObservableStateAction<\n    Type = string,\n    Payload = {},\n    State = {},\n    ExtraProcessInput = {},\n    // eslint-disable-next-line max-len\n    StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -60,7 +60,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/actionableStore/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface Action<T = any> \n\nexport interface AnyAction extends Action \n\nexport interface Dispatch<A extends Action = AnyAction> \n\nexport interface Middleware<\n    State = any,\n    D extends Dispatch = Dispatch> \n\nexport interface MiddlewareAPI<D extends Dispatch = Dispatch, State = any> \n\nexport interface IPayloadAction<Type, Payload> extends Action<Type> \n\nexport interface IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey>\n    extends IPayloadAction<Type, Payload> \n\nexport interface IActionableObservableStateStore<State, StateChangeNotificationKey>\n    extends IObservableStateStore<State, StateChangeNotificationKey> \n\nexport interface IActionableObservableStateStoreConfig<\n    State, ExtraProcessInput> extends IObservableStateStoreConfig<State>",
                         "description": null,
                         "example": null
                     }
@@ -73,7 +73,7 @@
             "slug": "/snipsonian-observable-state/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Utilities to detect changes in a large state store",
                 "example": null
             }
@@ -90,7 +90,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/observer/createStateObserverManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>",
+                        "exports": "export interface IStateObserverManager<StateChangeNotificationKey> \n\nexport interface IRegisterStateObserverProps<StateChangeNotificationKey> \n\nexport interface IStateObserver<StateChangeNotificationKey> \n\nexport interface IStateObserverNotifyProps<StateChangeNotificationKey> \n\nexport default function createStateObserverManager<StateChangeNotificationKey>(): IStateObserverManager<StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -109,7 +109,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/createObservableStateStore.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>",
+                        "exports": "export default function createObservableStateStore<State, StateChangeNotificationKey = string>(\n    config: IObservableStateStoreConfig<State>,\n): IObservableStateStore<State, StateChangeNotificationKey>",
                         "description": null,
                         "example": null
                     }
@@ -120,7 +120,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/stateStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IStateStorageConfig<State> \n\nexport interface IBrowserStorageConfig<State> extends IBaseStorageConfig<State> \n\nexport interface ICustomStorageConfig<State> extends IBaseStorageConfig<State> \n\nexport function determineInitialState<State>({\n    initialState,\n    stateStorageConfig,\n}: {\n    initialState: State;\n    stateStorageConfig: IStateStorageConfig<State>;\n}): State \n\nexport function saveStateToStorage<State>({\n    state,\n    stateStorageConfig,\n}: {\n    state: State;\n    stateStorageConfig: IStateStorageConfig<State>;\n}): void",
                         "description": null,
                         "example": null
                     }
@@ -131,7 +131,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/storeManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function registerStore<State, StateChangeNotificationKey>(\n    store: IObservableStateStore<State, StateChangeNotificationKey>,\n): void \n\nexport function getRegisteredStore<State, StateChangeNotificationKey>(): IObservableStateStore<State, StateChangeNotificationKey>",
                         "description": "You can get the store, after it has been configured, from here to avoid circular dependencies.",
                         "example": null
                     }
@@ -142,7 +142,7 @@
                     "slug": "/snipsonian-observable-state/1.9.1/store/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IObservableStateStore<State, StateChangeNotificationKey>\n    extends Pick<IStateObserverManager<StateChangeNotificationKey>, 'registerObserver' | 'unRegisterObserver'> \n\nexport interface IGetState<State> \n\nexport interface ISetState<State, StateChangeNotificationKey> \n\nexport interface ISetStateProps<State, StateChangeNotificationKey> \n\nexport interface ISetStateContext \n\nexport interface IObservableStateStoreConfig<State>",
                         "description": null,
                         "example": null
                     }

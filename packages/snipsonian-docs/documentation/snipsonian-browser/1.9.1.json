@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-browser/1.9.1/events/executeOnLoad.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void",
+                        "exports": "export default function executeOnLoad(config: IExecuteAfterPageLoadConfig): void",
                         "description": null,
                         "example": null
                     }
@@ -29,7 +29,7 @@
             "slug": "/snipsonian-browser/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Utilities for browser functionality",
                 "example": null
             }
@@ -46,7 +46,7 @@
                     "slug": "/snipsonian-browser/1.9.1/logging/consoleGroupLogger.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -65,7 +65,7 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/getServiceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS",
+                        "exports": "export default function getServiceWorkerStatus(): SERVICE_WORKER_STATUS",
                         "description": null,
                         "example": null
                     }
@@ -76,7 +76,7 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/isServiceWorkerSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isServiceWorkerSupported(): boolean",
+                        "exports": "export default function isServiceWorkerSupported(): boolean",
                         "description": null,
                         "example": null
                     }
@@ -87,7 +87,7 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/registerServiceWorker.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void",
+                        "exports": "export interface IServiceWorkerConfig \n\nexport default function registerServiceWorker({\n    swFileName = DEFAULT_SERVICE_WORKER_FILENAME,\n    onNewContent = NOOP,\n    onContentPrecached = NOOP,\n    onRedundant = NOOP,\n    onRegistration = NOOP,\n    onRegistrationError = NOOP,\n}: IServiceWorkerConfig = {}): void \n\nexport function unregister(): void",
                         "description": null,
                         "example": null
                     }
@@ -98,7 +98,7 @@
                     "slug": "/snipsonian-browser/1.9.1/serviceWorker/serviceWorkerStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -117,7 +117,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/browserStorageFactory.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IBrowserStorage",
                         "description": null,
                         "example": null
                     }
@@ -128,7 +128,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/createMockStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createMockStorage(): IMockStorage",
+                        "exports": "export default function createMockStorage(): IMockStorage",
                         "description": null,
                         "example": null
                     }
@@ -139,7 +139,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/isStorageSupported.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isStorageSupported(storageType: string): boolean",
+                        "exports": "export default function isStorageSupported(storageType: string): boolean",
                         "description": null,
                         "example": null
                     }
@@ -150,7 +150,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/localStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -161,7 +161,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/sessionStorage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -172,7 +172,7 @@
                     "slug": "/snipsonian-browser/1.9.1/storage/storageType.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function isValidStorageType(storageType: string): boolean",
                         "description": null,
                         "example": null
                     }
@@ -191,7 +191,7 @@
                     "slug": "/snipsonian-browser/1.9.1/url/getUrlPath.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getUrlPath(): string",
+                        "exports": "export default function getUrlPath(): string",
                         "description": null,
                         "example": null
                     }

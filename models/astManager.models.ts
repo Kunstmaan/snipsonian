@@ -6,7 +6,7 @@ export interface IAst {
 }
 export interface IAstManager {
     getAst: () => IAst;
-    getDefaultExport: () => string | null;
+    getExports: () => string | null;
     getDescriptionAtStartOfFile: () => string | null;
     getExampleCode: () => string | null;
 }
@@ -20,4 +20,13 @@ export interface IAstComment {
 export interface IAstNodeLocation {
     start: number;
     end: number;
+}
+
+export interface IAstMethod extends IAstNodeLocation {
+    type: string;
+    accessibility: 'public' | 'private';
+    body: {
+        start: number;
+        end: number;
+    };
 }

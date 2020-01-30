@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/createFetchRequest.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request",
+                        "exports": "export interface IFetchRequestConfig \n\nexport interface INameValueHeaderPairs \n\nexport default function createFetchRequest({\n    url,\n    method = RequestMethod.Get,\n    body,\n    nameValueHeaderPairs = {},\n}: {\n    url: string;\n    method: RequestMethod;\n    body?: object | string;\n    nameValueHeaderPairs?: INameValueHeaderPairs;\n}): Request",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/fetcher.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IFetchRequestTimeOutRejectProps",
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/jsonFetcher.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -49,7 +49,7 @@
                     "slug": "/snipsonian-api/1.9.1/fetch/rejectPromiseOnHttpErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function rejectPromiseOnHttpErrorStatus(response: Response): Response",
+                        "exports": "export interface IFetchRequestError extends TypeError \n\nexport default function rejectPromiseOnHttpErrorStatus(response: Response): Response",
                         "description": null,
                         "example": null
                     }
@@ -62,7 +62,7 @@
             "slug": "/snipsonian-api/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Api fetcher utilities",
                 "example": null
             }

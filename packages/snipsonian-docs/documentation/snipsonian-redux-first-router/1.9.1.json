@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/action/actions.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function createLocationAction<Payload extends object, Query extends RfrQuery = {}, ActionType = string>({\n    type,\n    payload = ({} as Payload), // eslint-disable-line @typescript-eslint/no-object-literal-type-assertion\n    query = ({} as Query), // eslint-disable-line @typescript-eslint/no-object-literal-type-assertion\n}: {\n    type: ActionType;\n    payload?: Payload;\n    query?: Query;\n}): ILocationAction<Payload, Query, ActionType>",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/action/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface ILocationAction<\n    Payload extends object,\n    Query extends RfrQuery = {},\n    ActionType = string\n> extends IAction<Payload, ActionType>",
                         "description": null,
                         "example": null
                     }
@@ -46,7 +46,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter",
+                        "exports": "export interface IConfigureOptions<ReducerState> \n\nexport default function configureRouter<ReducerState>({\n    reducerKey = DEFAULT_REDUCER_KEY,\n    routes = getRegisteredRoutes(),\n    initialDispatch,\n    reducerStorageType = REDUCER_STORAGE_TYPE.NO_STORAGE,\n    transformReducerStateForStorage,\n    otherRouterOptions = {},\n}: IConfigureOptions<ReducerState>): IConfiguredRouter",
                         "description": null,
                         "example": null
                     }
@@ -57,7 +57,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/configureRouter/toRoutesMap.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap",
+                        "exports": "export default function toRoutesMap(routes: IBaseRoutes): RoutesMap",
                         "description": null,
                         "example": null
                     }
@@ -70,7 +70,7 @@
             "slug": "/snipsonian-redux-first-router/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Router configuration with redux",
                 "example": null
             }
@@ -87,7 +87,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/reducer/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IReducerState<RouteKey extends string> extends LocationState \n\nexport interface IPrevLocation<RouteKey extends string> extends Location",
                         "description": null,
                         "example": null
                     }
@@ -106,7 +106,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/route/routeManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function registerRoutes(routes: IBaseRoutes): void \n\nexport function getRegisteredRoutes<Route extends IBaseRoute = IBaseRoute>(): IBaseRoutes<Route> \n\nexport function getRoute<Route extends IBaseRoute = IBaseRoute>({ routeKey }: { routeKey: string }): Route \n\nexport function getRoutePath({ routeKey }: { routeKey: string }): string \n\nexport function getRouteKeyByPath({ path }: { path: string }): string \n\nexport function doesRouteBelongToGroup({ routeKey, group }: { routeKey: string; group: string }): boolean \n\nexport function getRouteKeysThatBelongToGroup({ group }: { group: string }): string[]",
                         "description": null,
                         "example": null
                     }
@@ -117,7 +117,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/route/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IBaseRoute<Page = any, Template = any, AppState = any> extends RouteObject \n\nexport interface IBaseRoutes<Route extends IBaseRoute = IBaseRoute>",
                         "description": null,
                         "example": null
                     }
@@ -136,7 +136,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/selectors/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IPayload \n\nexport function setReducerKey(newReducerKey: string): void \n\nexport function getReducerState<RouteKey extends string>(state: any): IReducerState<RouteKey> \n\nexport function getCurrentRouteKey<RouteKey extends string>(state: any): RouteKey \n\nexport function getCurrentRouteInfo<Route extends IBaseRoute = IBaseRoute>(state: any): Route \n\nexport function getCurrentRoutePayload<Payload extends IPayload>(state: any): Payload \n\nexport function getPropertyFromCurrentRoutePayload<Payload extends IPayload>(state: any, property: string): any \n\nexport function getCurrentRouteQueryParams<Query extends object>(state: any): Query \n\nexport function getTopParentRouteKey(state: any): string \n\nexport function isChildRouteOf<RouteKey extends string>(routeKey: RouteKey, possibleParentRouteKey: string): boolean \n\nexport function getVirtualPageForRoute(state: any, route: IBaseRoute): string",
                         "description": null,
                         "example": null
                     }
@@ -147,7 +147,7 @@
                     "slug": "/snipsonian-redux-first-router/1.9.1/selectors/parseVirtualPage.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string",
+                        "exports": "export default function parseVirtualPage(state: any, virtualPageConfig: TVirtualPageConfig): string",
                         "description": null,
                         "example": null
                     }

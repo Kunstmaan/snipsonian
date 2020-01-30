@@ -16,7 +16,7 @@
                     "slug": "/snipsonian-axios/1.9.1/error/generateTraceableApiErrorId.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function generateTraceableApiErrorId(): string",
+                        "exports": "export default function generateTraceableApiErrorId(): string",
                         "description": null,
                         "example": null
                     }
@@ -27,7 +27,7 @@
                     "slug": "/snipsonian-axios/1.9.1/error/getErrorStatus.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getErrorStatus(error: AxiosError): number",
+                        "exports": "export default function getErrorStatus(error: AxiosError): number",
                         "description": null,
                         "example": null
                     }
@@ -38,7 +38,7 @@
                     "slug": "/snipsonian-axios/1.9.1/error/isTraceableApiError.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>",
+                        "exports": "export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}>",
                         "description": null,
                         "example": null
                     }
@@ -57,7 +57,7 @@
                     "slug": "/snipsonian-axios/1.9.1/header/headerManager.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function getAutomaticHeaders(requestMethod: REQUEST_METHODS): IHeaders \n\nexport function addAutomaticHeader(type: AutomaticHeaderType, ...keyValuePairs: IKeyValuePair<string, string>[]): void \n\nexport function isAutomaticHeaderSet(type: AutomaticHeaderType, headerName: string): boolean \n\nexport function clearAutomaticHeader(type: AutomaticHeaderType, headerName: string): void \n\nexport function appendAutomaticHeaders(headers: IHeaders, requestMethod: REQUEST_METHODS): IHeaders \n\nexport function appendContentTypeHeaderIfSet(headers: IHeaders, contentType: string): IHeaders",
                         "description": null,
                         "example": null
                     }
@@ -68,7 +68,7 @@
                     "slug": "/snipsonian-axios/1.9.1/header/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IHeaders \n\nexport interface IAutomaticHeadersMap",
                         "description": null,
                         "example": null
                     }
@@ -87,7 +87,7 @@
                     "slug": "/snipsonian-axios/1.9.1/httpStatus/index.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": null,
                         "description": null,
                         "example": null
                     }
@@ -100,7 +100,7 @@
             "slug": "/snipsonian-axios/1.9.1/index.ts",
             "type": "file",
             "fileInfo": {
-                "defaultExport": null,
+                "exports": null,
                 "description": "Axios request utilities",
                 "example": null
             }
@@ -117,7 +117,7 @@
                     "slug": "/snipsonian-axios/1.9.1/logging/getApiLogger.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger",
+                        "exports": "export interface IAxiosApiLogger \n\nexport default function getApiLogger({\n    isApiLoggingEnabled,\n    groupLogger,\n}: IAxiosApiLoggerConfig): IAxiosApiLogger",
                         "description": null,
                         "example": null
                     }
@@ -136,7 +136,7 @@
                     "slug": "/snipsonian-axios/1.9.1/request/getRequestWrapper.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": "export default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper",
+                        "exports": "export interface IRequestWrapper \n\nexport interface IRequestWrapperConfig<ResultingApiError, TraceableApiError> \n\nexport default function getRequestWrapper<\n    ResultingApiError = ITraceableApiErrorBase<{}>,\n    TraceableApiError = ITraceableApiErrorBase<{}>\n>({\n    apiLogger,\n    defaultBaseUrl = '',\n    defaultTimeoutInMillis,\n    mapError,\n    onError,\n}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper",
                         "description": null,
                         "example": null
                     }
@@ -147,7 +147,7 @@
                     "slug": "/snipsonian-axios/1.9.1/request/types.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export interface IBaseRequestConfig<Result, ResponseData> \n\nexport interface IBodyRequestConfig<Result, ResponseData> extends IBaseRequestConfig<Result, ResponseData>",
                         "description": null,
                         "example": null
                     }
@@ -166,7 +166,7 @@
                     "slug": "/snipsonian-axios/1.9.1/test/requestMocker.ts",
                     "type": "file",
                     "fileInfo": {
-                        "defaultExport": null,
+                        "exports": "export function resetMockHandlers(): void \n\nexport function mockGetSuccess({\n    url,\n    baseUrl = '',\n    pathParams = {},\n    queryParams = {},\n    responseStatus = HTTP_STATUS.OK,\n    responseData,\n    responseHeaders,\n    onlyMatchUrlStart = false,\n}: IMockConfig): jest.Mock<{}> \n\nexport function mockPutSuccess({\n    url,\n    baseUrl = '',\n    pathParams = {},\n    queryParams = {},\n    responseStatus = HTTP_STATUS.OK,\n    responseData,\n    responseHeaders,\n    onlyMatchUrlStart = false,\n}: IMockConfig): jest.Mock<{}> \n\nexport function mockPostSuccess({\n    url,\n    baseUrl = '',\n    pathParams = {},\n    queryParams = {},\n    responseStatus = HTTP_STATUS.OK,\n    responseData,\n    responseHeaders,\n    onlyMatchUrlStart = false,\n}: IMockConfig): jest.Mock<{}> \n\nexport function mockPatchSuccess({\n    url,\n    baseUrl = '',\n    pathParams = {},\n    queryParams = {},\n    responseStatus = HTTP_STATUS.OK,\n    responseData,\n    responseHeaders,\n    onlyMatchUrlStart = false,\n}: IMockConfig): jest.Mock<{}>",
                         "description": null,
                         "example": null
                     }
