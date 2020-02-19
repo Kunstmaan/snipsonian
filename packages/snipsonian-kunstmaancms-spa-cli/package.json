@@ -1,0 +1,29 @@
+{
+  "name": "@snipsonian/kunstmaancms-spa-cli",
+  "version": "1.9.1",
+  "description": "CLI scripts that can be used for a SinglePageApp that's using the KunstmaanCMS",
+  "main": "cjs/index.js",
+  "typings": "cjs/index.d.ts",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^2.4.2",
+    "chokidar": "^2.1.8",
+    "flat": "^4.1.0",
+    "fs-extra": "^7.0.1",
+    "glob": "^7.1.6",
+    "js-yaml": "^3.13.1",
+    "ramda": "^0.26.1"
+  },
+  "keywords": [
+    "kunstmaan",
+    "KunstmaanCMS",
+    "spa",
+    "cli",
+    "cms"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Kunstmaan Development",
+  "license": "ISC"
+}

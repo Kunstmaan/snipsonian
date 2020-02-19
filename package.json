@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "lintScss": "stylelint **/*.scss",
-    "lintJs": "eslint *.js",
+    "lintJs": "eslint packages/snipsonian-kunstmaancms-spa-cli *.js",
     "lintTs": "eslint --ext .ts,.tsx packages *.ts",
     "test": "npm run lintJs && npm run lintTs && jest && npm run lintScss",
     "jest": "jest --watch --verbose",
