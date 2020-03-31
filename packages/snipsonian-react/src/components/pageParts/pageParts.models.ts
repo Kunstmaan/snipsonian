@@ -14,4 +14,5 @@ export interface IPagePartType2ComponentMap {
 
 export interface IPagePartComponentProps<Data> {
     data: Data;
+    index: number;
 }
