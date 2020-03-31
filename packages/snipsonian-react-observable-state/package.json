@@ -9,13 +9,13 @@
     "react-dom": "^16.8.x"
   },
   "dependencies": {
-    "@snipsonian/observable-state": "^1.9.1"
+    "@snipsonian/observable-state": "^1.9.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
   },
   "devDependencies": {
     "@types/react": "16.8.8",
-    "@types/react-dom": "16.8.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "@types/react-dom": "16.8.2"
   },
   "keywords": [
     "react",
