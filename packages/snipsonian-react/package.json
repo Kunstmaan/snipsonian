@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/react",
-  "version": "1.9.1",
+  "version": "1.10.1",
   "description": "Generic React snippets & components",
   "main": "es/index.js",
   "typings": "es/index.d.ts",

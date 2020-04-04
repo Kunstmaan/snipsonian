@@ -50,6 +50,7 @@ function renderPageParts({ pageParts, pagePartIdPrefix, pagePartType2ComponentMa
                             <PagePartWrapper
                                 pagePart={pagePart}
                                 pagePartType2ComponentMap={pagePartType2ComponentMap}
+                                index={index}
                             />
                         </div>
                     );

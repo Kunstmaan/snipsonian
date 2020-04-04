@@ -6,9 +6,10 @@ const CLASS_NAME = 'PagePart';
 interface IPublicProps {
     pagePart: IPagePart<string, {}>;
     pagePartType2ComponentMap: IPagePartType2ComponentMap;
+    index: number;
 }
 
-export default function PagePartWrapper({ pagePart, pagePartType2ComponentMap }: IPublicProps) {
+export default function PagePartWrapper({ pagePart, pagePartType2ComponentMap, index }: IPublicProps) {
     const { type, data } = pagePart;
     const Component = pagePartType2ComponentMap[type];
 
@@ -18,7 +19,7 @@ export default function PagePartWrapper({ pagePart, pagePartType2ComponentMap }:
 
     return (
         <div className={CLASS_NAME}>
-            <Component data={data} />
+            <Component data={data} index={index} />
         </div>
     );
 }
