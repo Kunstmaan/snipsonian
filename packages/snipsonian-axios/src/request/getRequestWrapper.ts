@@ -3,6 +3,7 @@
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import { IApiErrorBase, ITraceableApiErrorBase } from '@snipsonian/core/src/typings/apiErrors';
 import constructResourceUrl from '@snipsonian/core/src/url/constructResourceUrl';
+import getRandomNumber from '@snipsonian/core/src/number/getRandomNumber';
 import {
     appendAutomaticHeaders, appendContentTypeHeaderIfSet,
 } from '../header/headerManager';
@@ -10,7 +11,7 @@ import { CONTENT_TYPES } from '../header/types';
 import getErrorStatus from '../error/getErrorStatus';
 import { IAxiosApiLogger } from '../logging/getApiLogger';
 import {
-    IBaseRequestConfig, IBodyRequestConfig,
+    IGetRequestConfig, IBodyRequestConfig,
     REQUEST_METHODS, RESPONSE_TYPES,
     TResponseMapper, TRequestWrapperPromise,
 } from './types';
@@ -23,7 +24,7 @@ const { CancelToken } = axios;
 const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = (data: any): any => data;
 
 export interface IRequestWrapper {
-    get: <Result, ResponseData = Result>(config: IBaseRequestConfig<Result, ResponseData>) => Promise<Result>;
+    get: <Result, ResponseData = Result>(config: IGetRequestConfig<Result, ResponseData>) => Promise<Result>;
     post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
     put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
     patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
@@ -65,7 +66,13 @@ export default function getRequestWrapper<
         responseType = RESPONSE_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
-    }: IBaseRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        addCacheBuster = false,
+    }: IGetRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        if (addCacheBuster) {
+            // eslint-disable-next-line no-param-reassign
+            queryParams['cache-buster'] = getRandomNumber({ min: 100000, max: 999999 });
+        }
+
         const request = {
             responseType,
             url: constructResourceUrl({

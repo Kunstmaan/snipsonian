@@ -31,6 +31,12 @@ export interface IBaseRequestConfig<Result, ResponseData> {
     timeoutInMillis?: number;
 }
 
+export interface IGetRequestConfig<Result, ResponseData> extends IBaseRequestConfig<Result, ResponseData> {
+    /* If true, a cache busting query param wil be added to the request url
+       to ensure that the latest version of the resource will be retrieved (thus bypassing browser caching) */
+    addCacheBuster?: boolean; // default false
+}
+
 export interface IBodyRequestConfig<Result, ResponseData> extends IBaseRequestConfig<Result, ResponseData> {
     body?: object | string;
     contentType?: string;
