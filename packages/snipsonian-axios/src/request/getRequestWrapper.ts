@@ -22,24 +22,31 @@ const { CancelToken } = axios;
 /* default do nothing with the response headers */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = (data: any): any => data;
+const DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS
+    = (params: { request: AxiosRequestConfig; customConfig: {} }): AxiosRequestConfig => params.request;
 
-export interface IRequestWrapper {
-    get: <Result, ResponseData = Result>(config: IGetRequestConfig<Result, ResponseData>) => Promise<Result>;
-    post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
-    put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
-    patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
-    remove: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData>) => Promise<Result>;
+export interface IRequestWrapper<CustomConfig> {
+    /* eslint-disable max-len */
+    get: <Result, ResponseData = Result>(config: IGetRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    remove: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    /* eslint-enable max-len */
 }
 
-export interface IRequestWrapperConfig<ResultingApiError, TraceableApiError> {
+export interface IRequestWrapperConfig<CustomConfig, ResultingApiError, TraceableApiError> {
     apiLogger?: IAxiosApiLogger;
     defaultBaseUrl?: string;
     defaultTimeoutInMillis: number;
     mapError?: (error: TraceableApiError) => ResultingApiError;
     onError?: (error: ResultingApiError) => void;
+    // eslint-disable-next-line max-len
+    requestCustomTransformer?: (params: { request: AxiosRequestConfig; customConfig: CustomConfig }) => AxiosRequestConfig;
 }
 
 export default function getRequestWrapper<
+    CustomConfig extends object = {},
     ResultingApiError = ITraceableApiErrorBase<{}>,
     TraceableApiError = ITraceableApiErrorBase<{}>
 >({
@@ -48,8 +55,9 @@ export default function getRequestWrapper<
     defaultTimeoutInMillis,
     mapError,
     onError,
-}: IRequestWrapperConfig<ResultingApiError, TraceableApiError>): IRequestWrapper {
-    const requestWrapper: IRequestWrapper = {
+    requestCustomTransformer = DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS,
+}: IRequestWrapperConfig<CustomConfig, ResultingApiError, TraceableApiError>): IRequestWrapper<CustomConfig> {
+    const requestWrapper: IRequestWrapper<CustomConfig> = {
         get,
         post,
         put,
@@ -67,7 +75,8 @@ export default function getRequestWrapper<
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         addCacheBuster = false,
-    }: IGetRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        ...customConfig
+    }: IGetRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
         if (addCacheBuster) {
             // eslint-disable-next-line no-param-reassign
             queryParams['cache-buster'] = getRandomNumber({ min: 100000, max: 999999 });
@@ -83,7 +92,10 @@ export default function getRequestWrapper<
             headers,
         };
 
-        return executeApiCall<Result, ResponseData>(request, mapResponse);
+        return executeApiCall<Result, ResponseData>(
+            requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
+            mapResponse,
+        );
     }
 
     function post<Result, ResponseData = Result>({
@@ -97,7 +109,8 @@ export default function getRequestWrapper<
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
-    }: IBodyRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        ...customConfig
+    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
         const request = {
             responseType,
             url: constructResourceUrl({
@@ -109,7 +122,10 @@ export default function getRequestWrapper<
             headers: appendContentTypeHeaderIfSet(headers, contentType),
         };
 
-        return executeApiCall<Result, ResponseData>(request, mapResponse);
+        return executeApiCall<Result, ResponseData>(
+            requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
+            mapResponse,
+        );
     }
 
     function put<Result, ResponseData = Result>({
@@ -123,7 +139,8 @@ export default function getRequestWrapper<
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
-    }: IBodyRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        ...customConfig
+    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
         const request = {
             responseType,
             url: constructResourceUrl({
@@ -135,7 +152,10 @@ export default function getRequestWrapper<
             headers: appendContentTypeHeaderIfSet(headers, contentType),
         };
 
-        return executeApiCall<Result, ResponseData>(request, mapResponse);
+        return executeApiCall<Result, ResponseData>(
+            requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
+            mapResponse,
+        );
     }
 
     function patch<Result, ResponseData = Result>({
@@ -149,7 +169,8 @@ export default function getRequestWrapper<
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
-    }: IBodyRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        ...customConfig
+    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
         const request = {
             responseType,
             url: constructResourceUrl({
@@ -161,7 +182,10 @@ export default function getRequestWrapper<
             headers: appendContentTypeHeaderIfSet(headers, contentType),
         };
 
-        return executeApiCall<Result, ResponseData>(request, mapResponse);
+        return executeApiCall<Result, ResponseData>(
+            requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
+            mapResponse,
+        );
     }
 
     function remove<Result, ResponseData = Result>({
@@ -175,7 +199,8 @@ export default function getRequestWrapper<
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
-    }: IBodyRequestConfig<Result, ResponseData>): TRequestWrapperPromise<Result> {
+        ...customConfig
+    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
         const request = {
             responseType,
             url: constructResourceUrl({
@@ -187,7 +212,10 @@ export default function getRequestWrapper<
             headers: appendContentTypeHeaderIfSet(headers, contentType),
         };
 
-        return executeApiCall<Result, ResponseData>(request, mapResponse);
+        return executeApiCall<Result, ResponseData>(
+            requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
+            mapResponse,
+        );
     }
 
     function executeApiCall<Result, ResponseData>(
