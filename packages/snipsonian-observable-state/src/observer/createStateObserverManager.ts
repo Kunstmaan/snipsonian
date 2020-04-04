@@ -1,10 +1,11 @@
 import isArray from '@snipsonian/core/src/is/isArray';
+import extendNotificationsToTrigger, { ITriggerParentNotifications } from './extendNotificationsToTrigger';
 
 export interface IStateObserverManager<StateChangeNotificationKey> {
     // eslint-disable-next-line max-len
     registerObserver: (props: IRegisterStateObserverProps<StateChangeNotificationKey>) => IStateObserver<StateChangeNotificationKey>;
     unRegisterObserver: (observer: IStateObserver<StateChangeNotificationKey>) => void;
-    notifyObserversOfStateChanges: (notificationsToTrigger: StateChangeNotificationKey[]) => void;
+    notifyObserversOfStateChanges: (props: INotifyObserversOfStateChangesProps<StateChangeNotificationKey>) => void;
 }
 
 export interface IRegisterStateObserverProps<StateChangeNotificationKey> {
@@ -21,6 +22,11 @@ export interface IStateObserver<StateChangeNotificationKey> {
 
 export interface IStateObserverNotifyProps<StateChangeNotificationKey> {
     notifications: StateChangeNotificationKey[];
+}
+
+interface INotifyObserversOfStateChangesProps<StateChangeNotificationKey> {
+    notificationsToTrigger: StateChangeNotificationKey[];
+    triggerParentNotifications: ITriggerParentNotifications;
 }
 
 interface IRegisteredStateObserver<StateChangeNotificationKey> extends IStateObserver<StateChangeNotificationKey> {
@@ -56,9 +62,15 @@ export default function createStateObserverManager<StateChangeNotificationKey>()
         unRegisterObserver: (observer: IStateObserver<StateChangeNotificationKey>) => {
             delete observerMap[observer.id];
         },
-        notifyObserversOfStateChanges: (notificationsToTrigger: StateChangeNotificationKey[]) => {
+        notifyObserversOfStateChanges: ({
+            notificationsToTrigger,
+            triggerParentNotifications,
+        }: INotifyObserversOfStateChangesProps<StateChangeNotificationKey>) => {
             if (isArray(notificationsToTrigger) && notificationsToTrigger.length > 0) {
-                const uniqueObserversToNotify = notificationsToTrigger
+                const uniqueObserversToNotify = extendNotificationsToTrigger({
+                    notificationsToTrigger,
+                    triggerParentNotifications,
+                })
                     .reduce(
                         (accumulator, notificationToTrigger) => {
                             const matchingObservers = Object.values(observerMap)

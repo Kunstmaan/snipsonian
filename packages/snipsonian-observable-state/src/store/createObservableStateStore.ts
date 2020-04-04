@@ -1,6 +1,15 @@
 import createStateObserverManager from '../observer/createStateObserverManager';
+import {
+    DEFAULT_NR_OF_PARENT_NOTIFICATION_LEVELS_TO_TRIGGER,
+    DEFAULT_PARENT_NOTIFICATIONS_DELIMITER,
+} from '../observer/extendNotificationsToTrigger';
 import { determineInitialState, saveStateToStorage } from './stateStorage';
-import { IObservableStateStore, IObservableStateStoreConfig, ISetStateProps, ISetStateContext } from './types';
+import {
+    IObservableStateStore,
+    IObservableStateStoreConfig,
+    ISetStateProps,
+    ISetStateContext,
+} from './types';
 import { registerStore } from './storeManager';
 
 const LOG_GROUP_LABEL_PREFIX = 'state-change';
@@ -15,12 +24,18 @@ export default function createObservableStateStore<State, StateChangeNotificatio
     });
     const observerManager = createStateObserverManager<StateChangeNotificationKey>();
 
+    const {
+        nrOfLevels: defaultNrOfParentNotificationLevelsToTrigger = DEFAULT_NR_OF_PARENT_NOTIFICATION_LEVELS_TO_TRIGGER,
+        notificationDelimiter: defaultParentNotificationsDelimiter = DEFAULT_PARENT_NOTIFICATIONS_DELIMITER,
+    } = config.triggerParentNotifications || {};
+
     const store = {
         getState: () => state,
         setState: ({
             newState,
             notificationsToTrigger,
             context,
+            nrOfParentNotificationLevelsToTrigger = defaultNrOfParentNotificationLevelsToTrigger,
         }: ISetStateProps<State, StateChangeNotificationKey>) => {
             const prevState = state;
             const stateToSet = config.onBeforeStateUpdate
@@ -52,7 +67,13 @@ export default function createObservableStateStore<State, StateChangeNotificatio
                 config.onAfterStateUpdate({ prevState, newState: stateToSet });
             }
 
-            observerManager.notifyObserversOfStateChanges(notificationsToTrigger);
+            observerManager.notifyObserversOfStateChanges({
+                notificationsToTrigger,
+                triggerParentNotifications: {
+                    nrOfLevels: nrOfParentNotificationLevelsToTrigger,
+                    notificationDelimiter: defaultParentNotificationsDelimiter,
+                },
+            });
         },
         registerObserver: observerManager.registerObserver,
         unRegisterObserver: observerManager.unRegisterObserver,
