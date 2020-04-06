@@ -21,7 +21,7 @@ const { CancelToken } = axios;
 
 /* default do nothing with the response headers */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = (data: any): any => data;
+const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = ({ data }: { data: any }): any => data;
 const DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS
     = (params: { request: AxiosRequestConfig; customConfig: {} }): AxiosRequestConfig => params.request;
 
