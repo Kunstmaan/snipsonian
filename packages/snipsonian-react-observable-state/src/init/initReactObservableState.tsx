@@ -22,7 +22,7 @@ export default function initReactObservableState<State, StateChangeNotificationK
                     /* eslint-disable react/no-this-in-sfc */
                     class ObserverWrapper extends React.Component {
                         private observer: IStateObserver<StateChangeNotificationKey>;
-                        private isMounted: boolean = false;
+                        private _isMounted: boolean = false;
 
                         public constructor(props: PublicProps) {
                             super(props);
@@ -35,7 +35,9 @@ export default function initReactObservableState<State, StateChangeNotificationK
                                 onNotify: () => {
                                     // will cause render() to be called on the component,
                                     // skipping shouldComponentUpdate()
-                                    if (this.isMounted) {
+
+                                    // eslint-disable-next-line no-underscore-dangle
+                                    if (this._isMounted) {
                                         this.forceUpdate();
                                     }
                                 },
@@ -73,7 +75,8 @@ export default function initReactObservableState<State, StateChangeNotificationK
 
                         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
                         public componentDidMount() {
-                            this.isMounted = true;
+                            // eslint-disable-next-line no-underscore-dangle
+                            this._isMounted = true;
                         }
 
                         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
