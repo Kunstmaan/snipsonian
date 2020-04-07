@@ -23,7 +23,7 @@ export interface IReactObservableState<State, StateChangeNotificationKey>
     observe: <PrivateProps, PublicProps = {}>(
         props: IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
-    ) => () => JSX.Element;
+    ) => React.ElementType;
 }
 
 export interface IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>
@@ -49,7 +49,7 @@ export interface IActionableReactObservableState<State, StateChangeNotificationK
     observe: <PrivateProps, PublicProps = {}>(
         props: IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
-    ) => () => JSX.Element;
+    ) => React.ElementType;
 }
 
 export interface IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>
