@@ -57,7 +57,8 @@ export default class ShowAfterDelay extends PureComponent<IShowAfterDelayProps, 
         }
     }
 
-    public componentWillReceiveProps(nextProps: IShowAfterDelayProps) {
+    // eslint-disable-next-line camelcase
+    public UNSAFE_componentWillReceiveProps(nextProps: IShowAfterDelayProps) {
         if (nextProps.enabled) {
             const { enabled } = this.props;
             if (!enabled) {

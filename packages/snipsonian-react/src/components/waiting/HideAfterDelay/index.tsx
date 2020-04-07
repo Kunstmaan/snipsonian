@@ -22,7 +22,8 @@ export default class HideAfterDelay extends PureComponent<IHideAfterDelayProps> 
         }
     }
 
-    public componentWillReceiveProps(nextProps: IHideAfterDelayProps) {
+    // eslint-disable-next-line camelcase
+    public UNSAFE_componentWillReceiveProps(nextProps: IHideAfterDelayProps) {
         this.clearTimeout();
         if (nextProps.enabled) {
             this.setAutoHideTimeout(nextProps);
