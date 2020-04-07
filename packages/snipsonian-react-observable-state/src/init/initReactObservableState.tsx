@@ -16,7 +16,7 @@ export default function initReactObservableState<State, StateChangeNotificationK
         }: IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
     ) {
-        return () => (
+        return (inputPublicProps: PublicProps) => (
             <ObservableStateContext.Consumer>
                 {(store) => {
                     /* eslint-disable react/no-this-in-sfc */
@@ -89,7 +89,7 @@ export default function initReactObservableState<State, StateChangeNotificationK
                     /* eslint-enable react/no-this-in-sfc */
 
                     // @ts-ignore
-                    return <ObserverWrapper />;
+                    return <ObserverWrapper {...inputPublicProps} />;
                 }}
             </ObservableStateContext.Consumer>
         );
