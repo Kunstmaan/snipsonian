@@ -3,51 +3,49 @@ import { ITranslatorPlaceholders } from '../translator/types';
 import I18nContext from '../I18nContext';
 
 const PLACEHOLDER_REGEX = /({.*?})/g;
+const DEFAULT_HTML_TRANSFORMER = (input: string) => input;
 
 interface IRenderedPlaceholders {
     [key: string]: string;
 }
 
+type THtmlTransformer = (input: string) => string;
+
 export interface IPublicProps {
     msg: string;
     placeholders?: ITranslatorPlaceholders;
-    raw?: boolean;
+    /* Set to true if you want that html within the message is not just shown as regular text */
+    raw?: boolean; // default false
+    htmlTransformer?: THtmlTransformer; // can be used to sanitize the resulting html
 }
 
 export default function Translate({
     msg,
     placeholders = {},
     raw = false,
+    htmlTransformer = DEFAULT_HTML_TRANSFORMER,
 }: IPublicProps) {
-    const renderedPlaceholders = renderPlaceholders(placeholders);
+    const renderedPlaceholders = renderBasicPlaceholders(placeholders);
+
     // Typings don't support yet returning a string from a stateless component
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20544
     return (
         <I18nContext.Consumer>
-            {({ translator }) => {
-                if (raw) {
-                    return (
-                        // eslint-disable-next-line react/no-danger
-                        <span dangerouslySetInnerHTML={{
-                            __html: translator({ msg, placeholders: renderedPlaceholders }),
-                        }}
-                        />
-                    );
-                }
-                return (
-                    injectReactPlaceholders(
-                        translator(
-                            { msg, placeholders: renderedPlaceholders },
-                        ),
-                        placeholders,
-                    ) as ReactElement<{}>
-                );
-            }}
+            {({ translator }) => (
+                injectReactPlaceholders(
+                    translator(
+                        { msg, placeholders: renderedPlaceholders },
+                    ),
+                    placeholders,
+                    raw,
+                    htmlTransformer,
+                ) as ReactElement<{}>
+            )}
         </I18nContext.Consumer>
     );
 }
 
-function renderPlaceholders(placeholders: ITranslatorPlaceholders): IRenderedPlaceholders {
+function renderBasicPlaceholders(placeholders: ITranslatorPlaceholders): IRenderedPlaceholders {
     const renderedPlaceholders: IRenderedPlaceholders = {};
 
     Object.keys(placeholders).forEach((key) => {
@@ -62,7 +60,12 @@ function renderPlaceholders(placeholders: ITranslatorPlaceholders): IRenderedPla
     return renderedPlaceholders;
 }
 
-function injectReactPlaceholders(message: string, placeholders: ITranslatorPlaceholders) {
+function injectReactPlaceholders(
+    message: string,
+    placeholders: ITranslatorPlaceholders,
+    raw: boolean,
+    htmlTransformer: THtmlTransformer,
+) {
     if (!message) {
         return null;
     }
@@ -84,14 +87,40 @@ function injectReactPlaceholders(message: string, placeholders: ITranslatorPlace
                     return (
                         // eslint-disable-next-line react/no-array-index-key
                         <Fragment key={`translate-message-part-${index}-${keySuffix}`}>
-                            {placeholderReplacement ? placeholderReplacement.value : messagePart}
+                            {
+                                // eslint-disable-next-line no-nested-ternary
+                                placeholderReplacement
+                                    ? placeholderReplacement.value
+                                    : (
+                                        raw
+                                            ? (
+                                                /* eslint-disable react/no-danger */
+                                                <span dangerouslySetInnerHTML={{
+                                                    __html: htmlTransformer(messagePart),
+                                                }}
+                                                />
+                                                /* eslint-enable react/no-danger */
+                                            )
+                                            : messagePart
+                                    )
+                            }
                         </Fragment>
                     );
                 })}
             </>
         );
     }
-    return message;
+
+    return raw
+        ? (
+            /* eslint-disable react/no-danger */
+            <span dangerouslySetInnerHTML={{
+                __html: htmlTransformer(message),
+            }}
+            />
+            /* eslint-enable react/no-danger */
+        )
+        : message;
 }
 
 function getPlaceholderReplacement(messagePart: string, placeholders: ITranslatorPlaceholders) {
