@@ -20,7 +20,7 @@ export interface ISetState<State, StateChangeNotificationKey> {
 }
 
 export interface ISetStateProps<State, StateChangeNotificationKey> {
-    newState: State;
+    newState: TNewState<State>;
     notificationsToTrigger?: StateChangeNotificationKey[];
     /* optional number (or false) to override - only in this state change instance - the similar number
        that is set while creating the observable state store */
@@ -29,6 +29,10 @@ export interface ISetStateProps<State, StateChangeNotificationKey> {
        which can be handy for logging or debugging */
     context?: ISetStateContext;
 }
+
+export type TNewState<State> = State | TToNewState<State>;
+
+export type TToNewState<State> = (currentState: State) => State;
 
 export interface ISetStateContext {
     title: string;

@@ -1,7 +1,11 @@
 import React from 'react';
 import { IStateObserver } from '@snipsonian/observable-state/src/observer/createStateObserverManager';
 import { IActionableObservableStateStore } from '@snipsonian/observable-state/src/actionableStore/types';
-import { IActionableReactObservableState, IActionableObserveProps } from './types';
+import {
+    IActionableReactObservableState,
+    IActionableObserveProps,
+    IActionableStoreForComp,
+} from './types';
 import createObservableStateContext from '../context/createObservableStateContext';
 
 // eslint-disable-next-line max-len
@@ -10,7 +14,21 @@ export default function initActionableReactObservableState<State, StateChangeNot
     const ObservableStateContext = createObservableStateContext<State, StateChangeNotificationKey, IActionableObservableStateStore<State, StateChangeNotificationKey>>();
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    function observe<PrivateProps, PublicProps = {}>(
+    function observe<PublicProps = {}>(
+        notifications: StateChangeNotificationKey[],
+        WrappedComponent: React.ElementType,
+    ) {
+        return observeXL<IActionableStoreForComp<State, StateChangeNotificationKey>, PublicProps>(
+            {
+                notifications,
+                select: ({ store }) => store,
+            },
+            WrappedComponent,
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    function observeXL<PrivateProps, PublicProps = {}>(
         {
             notifications,
             select,
@@ -53,9 +71,10 @@ export default function initActionableReactObservableState<State, StateChangeNot
                             const privatePropsFromSelect = select
                                 ? select({
                                     state: store.getState(),
+                                    store: getActionableStoreForComponent(),
                                     publicProps,
                                 })
-                                : {};
+                                : getActionableStoreForComponent();
 
                             // TODO is adding publicProps here bad for too much re-rendering?
                             const privatePropsFromSet = set
@@ -90,6 +109,20 @@ export default function initActionableReactObservableState<State, StateChangeNot
                     }
                     /* eslint-enable react/no-this-in-sfc */
 
+                    // eslint-disable-next-line max-len
+                    function getActionableStoreForComponent(): IActionableStoreForComp<State, StateChangeNotificationKey> {
+                        const {
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            getState, registerObserver, unRegisterObserver,
+                            ...otherProps
+                        } = store;
+
+                        return {
+                            state: store.getState(),
+                            ...otherProps,
+                        };
+                    }
+
                     // @ts-ignore
                     return <ObserverWrapper {...inputPublicProps} />;
                 }}
@@ -100,5 +133,6 @@ export default function initActionableReactObservableState<State, StateChangeNot
     return {
         ObservableStateProvider: ObservableStateContext.Provider,
         observe,
+        observeXL,
     };
 }

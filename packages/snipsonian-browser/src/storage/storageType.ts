@@ -6,5 +6,5 @@ enum STORAGE_TYPE {
 export default STORAGE_TYPE;
 
 export function isValidStorageType(storageType: string): boolean {
-    return Object.values(STORAGE_TYPE).includes(storageType);
+    return (Object.values(STORAGE_TYPE) as string[]).includes(storageType);
 }

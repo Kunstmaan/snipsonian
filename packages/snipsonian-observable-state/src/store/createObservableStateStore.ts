@@ -1,3 +1,4 @@
+import isFunction from '@snipsonian/core/src/is/isFunction';
 import createStateObserverManager from '../observer/createStateObserverManager';
 import {
     DEFAULT_NR_OF_PARENT_NOTIFICATION_LEVELS_TO_TRIGGER,
@@ -9,6 +10,8 @@ import {
     IObservableStateStoreConfig,
     ISetStateProps,
     ISetStateContext,
+    TNewState,
+    TToNewState,
 } from './types';
 import { registerStore } from './storeManager';
 
@@ -38,9 +41,14 @@ export default function createObservableStateStore<State, StateChangeNotificatio
             nrOfParentNotificationLevelsToTrigger = defaultNrOfParentNotificationLevelsToTrigger,
         }: ISetStateProps<State, StateChangeNotificationKey>) => {
             const prevState = state;
-            const stateToSet = config.onBeforeStateUpdate
-                ? config.onBeforeStateUpdate({ prevState, newState })
+
+            let stateToSet = isToNewState<State>(newState)
+                ? newState(prevState)
                 : newState;
+
+            if (config.onBeforeStateUpdate) {
+                stateToSet = config.onBeforeStateUpdate({ prevState, newState: stateToSet });
+            }
 
             state = stateToSet;
 
@@ -82,6 +90,10 @@ export default function createObservableStateStore<State, StateChangeNotificatio
     registerStore<State, StateChangeNotificationKey>(store);
 
     return store;
+}
+
+function isToNewState<State>(newState: TNewState<State>): newState is TToNewState<State> {
+    return isFunction(newState);
 }
 
 function determineLogGroupLabel(context?: ISetStateContext): string {

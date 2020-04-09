@@ -99,7 +99,7 @@ function getDefaultActionHandlers<EntitiesReducerState extends IBaseEntitiesRedu
 
         [UPDATE_ASYNC_ENTITIES]: createActionHandler<EntitiesReducerState, IUpdateAsyncEntitiesPayload>(
             ({ oldState, payload }) => {
-                const newState = {
+                const newState: IBaseEntitiesReducerState = {
                     ...oldState,
                 };
 
@@ -191,7 +191,7 @@ function getDefaultActionHandlers<EntitiesReducerState extends IBaseEntitiesRedu
                     });
                 }
 
-                return newState;
+                return newState as EntitiesReducerState;
             },
         ),
     };

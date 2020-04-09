@@ -10,29 +10,40 @@ interface IReactObservableStateBase<
     ObservableStateProvider: React.ProviderExoticComponent<React.ProviderProps<StateStore>>;
 }
 
-interface IObservePropsBase<State, StateChangeNotificationKey, PrivateProps, PublicProps> {
+interface IObservePropsBase<StateChangeNotificationKey> {
     /* state change notifications that will be observed */
     notifications: StateChangeNotificationKey[];
-    select?: (props: IObserveSelectProps<State, PublicProps>) => Partial<PrivateProps>;
 }
 
 /* "Standard" react observable state */
 
 export interface IReactObservableState<State, StateChangeNotificationKey>
     extends IReactObservableStateBase<State, StateChangeNotificationKey> {
-    observe: <PrivateProps, PublicProps = {}>(
+    observe: <PublicProps = {}>(
+        notifications: StateChangeNotificationKey[],
+        WrappedComponent: React.ElementType,
+    ) => React.ElementType<PublicProps>;
+    observeXL: <PrivateProps = IStoreForComp<State, StateChangeNotificationKey>, PublicProps = {}>(
         props: IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;
 }
 
+export interface IStoreForComp<State, StateChangeNotificationKey>
+    // eslint-disable-next-line max-len
+    extends Omit<IObservableStateStore<State, StateChangeNotificationKey>, 'getState' | 'registerObserver' | 'unRegisterObserver'> {
+    state: State;
+}
+
 export interface IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>
-    extends IObservePropsBase<State, StateChangeNotificationKey, PrivateProps, PublicProps> {
+    extends IObservePropsBase<StateChangeNotificationKey> {
+    select?: (props: IObserveSelectProps<State, PublicProps, StateChangeNotificationKey>) => Partial<PrivateProps>;
     set?: (props: IObserveSetProps<State, StateChangeNotificationKey, PublicProps>) => Partial<PrivateProps>;
 }
 
-export interface IObserveSelectProps<State, PublicProps> {
+export interface IObserveSelectProps<State, PublicProps, StateChangeNotificationKey> {
     state: State;
+    store: IStoreForComp<State, StateChangeNotificationKey>;
     publicProps?: PublicProps;
 }
 
@@ -46,16 +57,34 @@ export interface IObserveSetProps<State, StateChangeNotificationKey, PublicProps
 export interface IActionableReactObservableState<State, StateChangeNotificationKey>
     // eslint-disable-next-line max-len
     extends IReactObservableStateBase<State, StateChangeNotificationKey, IActionableObservableStateStore<State, StateChangeNotificationKey>> {
-    observe: <PrivateProps, PublicProps = {}>(
+    observe: <PublicProps = {}>(
+        notifications: StateChangeNotificationKey[],
+        WrappedComponent: React.ElementType,
+    ) => React.ElementType<PublicProps>;
+    observeXL: <PrivateProps = IActionableStoreForComp<State, StateChangeNotificationKey>, PublicProps = {}>(
         props: IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;
 }
 
+export interface IActionableStoreForComp<State, StateChangeNotificationKey>
+    // eslint-disable-next-line max-len
+    extends Omit<IActionableObservableStateStore<State, StateChangeNotificationKey>, 'getState' | 'registerObserver' | 'unRegisterObserver'> {
+    state: State;
+}
+
 export interface IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>
-    extends IObservePropsBase<State, StateChangeNotificationKey, PrivateProps, PublicProps> {
+    extends IObservePropsBase<StateChangeNotificationKey> {
+    // eslint-disable-next-line max-len
+    select?: (props: IActionableObserveSelectProps<State, PublicProps, StateChangeNotificationKey>) => Partial<PrivateProps>;
     // eslint-disable-next-line max-len
     set?: (props: IActionableObserveSetProps<State, StateChangeNotificationKey, PublicProps>) => Partial<PrivateProps>;
+}
+
+export interface IActionableObserveSelectProps<State, PublicProps, StateChangeNotificationKey> {
+    state: State;
+    store: IActionableStoreForComp<State, StateChangeNotificationKey>;
+    publicProps?: PublicProps;
 }
 
 export interface IActionableObserveSetProps<State, StateChangeNotificationKey, PublicProps>

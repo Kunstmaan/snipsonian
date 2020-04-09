@@ -1,14 +1,28 @@
 import React from 'react';
 import { IStateObserver } from '@snipsonian/observable-state/src/observer/createStateObserverManager';
 import createObservableStateContext from '../context/createObservableStateContext';
-import { IReactObservableState, IObserveProps } from './types';
+import { IReactObservableState, IObserveProps, IStoreForComp } from './types';
 
 // eslint-disable-next-line max-len
 export default function initReactObservableState<State, StateChangeNotificationKey = string>(): IReactObservableState<State, StateChangeNotificationKey> {
     const ObservableStateContext = createObservableStateContext<State, StateChangeNotificationKey>();
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    function observe<PrivateProps, PublicProps = {}>(
+    function observe<PublicProps = {}>(
+        notifications: StateChangeNotificationKey[],
+        WrappedComponent: React.ElementType,
+    ) {
+        return observeXL<IStoreForComp<State, StateChangeNotificationKey>, PublicProps>(
+            {
+                notifications,
+                select: ({ store }) => store,
+            },
+            WrappedComponent,
+        );
+    }
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    function observeXL<PrivateProps, PublicProps = {}>(
         {
             notifications,
             select,
@@ -51,9 +65,10 @@ export default function initReactObservableState<State, StateChangeNotificationK
                             const privatePropsFromSelect = select
                                 ? select({
                                     state: store.getState(),
+                                    store: getStoreForComponent(),
                                     publicProps,
                                 })
-                                : {};
+                                : getStoreForComponent();
 
                             // TODO is adding publicProps here bad for too much re-rendering?
                             const privatePropsFromSet = set
@@ -88,6 +103,19 @@ export default function initReactObservableState<State, StateChangeNotificationK
                     }
                     /* eslint-enable react/no-this-in-sfc */
 
+                    function getStoreForComponent(): IStoreForComp<State, StateChangeNotificationKey> {
+                        const {
+                            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                            getState, registerObserver, unRegisterObserver,
+                            ...otherProps
+                        } = store;
+
+                        return {
+                            state: store.getState(),
+                            ...otherProps,
+                        };
+                    }
+
                     // @ts-ignore
                     return <ObserverWrapper {...inputPublicProps} />;
                 }}
@@ -98,5 +126,6 @@ export default function initReactObservableState<State, StateChangeNotificationK
     return {
         ObservableStateProvider: ObservableStateContext.Provider,
         observe,
+        observeXL,
     };
 }
