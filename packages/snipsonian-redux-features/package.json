@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/redux-features",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "description": "Redux features snippets = actions, reducers, journeys, etc. for specific use-cases.",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@snipsonian/core": "^1.11.0",
-    "@snipsonian/redux": "^1.11.0"
+    "@snipsonian/redux": "^1.12.0"
   },
   "devDependencies": {
     "redux": "4.0.1"
