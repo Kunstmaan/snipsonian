@@ -51,10 +51,10 @@ export function getCurrentRoutePayload<Payload extends IPayload>(state: any): Pa
 
                 if (isInteger(value)) {
                     // eslint-disable-next-line no-param-reassign
-                    accumulator[current] = Number(value);
+                    (accumulator as IPayload)[current] = Number(value);
                 } else {
                     // eslint-disable-next-line no-param-reassign
-                    accumulator[current] = typeof value === 'string' ? decodeURIComponent(value) : value;
+                    (accumulator as IPayload)[current] = typeof value === 'string' ? decodeURIComponent(value) : value;
                 }
 
                 return accumulator;
