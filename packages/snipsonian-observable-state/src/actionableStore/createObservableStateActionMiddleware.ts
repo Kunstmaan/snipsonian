@@ -3,6 +3,7 @@ import {
     Action,
     AnyAction,
     Dispatch,
+    IActionableObservableStateStore,
     IObservableStateAction,
     Middleware,
     MiddlewareAPI,
@@ -99,6 +100,9 @@ export default function createObservableStateActionMiddleware<
                                     context,
                                 });
                             },
+                            /* the store.dispatch is created after creating this middleware, but is available
+                               at the moment that the actions get processed. */
+                            dispatch: (store as IActionableObservableStateStore<State, StateChangeNotificationKey>).dispatch,
                             ...extraProcessInput,
                         });
                     }

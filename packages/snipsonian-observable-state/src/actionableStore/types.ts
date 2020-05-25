@@ -50,6 +50,7 @@ export type TProcessHook<State, IncomingAction, ExtraProcessInput, StateChangeNo
         action: IncomingAction;
         getState: IGetState<State>;
         setState: ISetState<State, StateChangeNotificationKey>;
+        dispatch: Dispatch<Action>;
     } & ExtraProcessInput
 ) => void | Promise<void>;
 
