@@ -12,6 +12,8 @@ const MESSAGES = {
     verifySuccess:
         logStyles.success('[SUCCESS] The local .yml translation files are in sync between all the locales.\n'),
     verifyError: '[ERROR] The local .yml translation files are not in sync between all the locales.\n',
+    reOrdering:
+        'Re-ordering/re-writing the local .yml translation files even though the different languages matched.\n',
 };
 
 module.exports = prepareTranslationsSync;
@@ -23,6 +25,12 @@ function prepareTranslationsSync({
     translationFileExtension,
     missingKeyPlaceholder,
     verifyOnly = false,
+    /**
+     * If true, then even if there are no differences found between the locale files (or if there is only 1 locale)
+     * then the script will rewrite the yaml file(s) and thereby ordering the translation alphabetically etc.
+     * Has no effect if 'verifyOnly' is true.
+     */
+    optimizeEvenIfNoDiffs = false,
 }) {
     console.log(MESSAGES.start);
 
@@ -33,14 +41,26 @@ function prepareTranslationsSync({
         translationFileExtension,
         missingKeyPlaceholder,
     }).then((analysis) => {
+        let shouldWriteFixedTranslations = false;
+
         if (analysis.areDiffsDetected) {
             if (verifyOnly) {
                 console.log(MESSAGES.diffError + analysis.errors);
                 throw new Error(MESSAGES.verifyError);
             }
 
+            shouldWriteFixedTranslations = true;
             console.log(MESSAGES.diffError + analysis.errors + MESSAGES.fixing);
+        } else if (verifyOnly) {
+            console.log(MESSAGES.verifySuccess);
+        } else if (optimizeEvenIfNoDiffs) {
+            console.log(MESSAGES.reOrdering);
+            shouldWriteFixedTranslations = true;
+        } else {
+            console.log(MESSAGES.success);
+        }
 
+        if (shouldWriteFixedTranslations) {
             writeFixedTranslations({
                 diffs: analysis.data,
                 translationFileExtension,
@@ -50,10 +70,6 @@ function prepareTranslationsSync({
                 console.log(MESSAGES.fixError);
                 console.log(error);
             });
-        } else if (verifyOnly) {
-            console.log(MESSAGES.verifySuccess);
-        } else {
-            console.log(MESSAGES.success);
         }
     });
 }
