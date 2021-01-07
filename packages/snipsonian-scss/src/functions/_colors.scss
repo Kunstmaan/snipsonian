@@ -1,0 +1,18 @@
+/* ==========================================================================
+   Functions - Colors
+
+   Converts a rgba color to a rgb value based on the background-color, which
+   is white (#FFF) by default.
+
+   Use it like:
+   background-color: rgba-to-rgb($my-transparent-color);
+   or, for a different background:
+   background-color: rgba-to-rgb($my-transparent-color, #000);
+   ========================================================================== */
+@function rgba-to-rgb($rgba, $background: #fff) {
+    @return mix(
+        $color-1: rgb(red($rgba), green($rgba), blue($rgba)),
+        $color-2: $background,
+        $weight: alpha($rgba) * 100%,
+    );
+}

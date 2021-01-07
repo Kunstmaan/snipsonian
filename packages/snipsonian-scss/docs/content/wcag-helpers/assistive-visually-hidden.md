@@ -9,7 +9,7 @@ Makes use of the `aria-hidden="true"` property to hide for assistive services.
 | **type:** | wcag-helper |
 
 ```html
-@example
+@code
 <div>
     <p>Visible everywhere</p>
 </div>

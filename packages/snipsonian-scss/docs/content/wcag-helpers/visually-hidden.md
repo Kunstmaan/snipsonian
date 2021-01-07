@@ -8,7 +8,7 @@ Hide content which should remain available to assistive technologies like screen
 | **type:** | wcag-helper |
 
 ```html
-@example
+@code
 <div class="snip-visually-hidden">
     <p>You don't see me but I'm here.</p>
 </div>
