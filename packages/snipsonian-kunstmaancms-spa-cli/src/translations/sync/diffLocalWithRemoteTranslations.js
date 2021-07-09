@@ -21,11 +21,15 @@ function diffLocalWithRemoteTranslations({
     locale,
     missingKeyPlaceholder,
     forceTranslations,
+    sendLocaleAsQueryParam,
+    sendLocaleAsHeader,
 }) {
     return translationsApi.getTranslations({
         baseUrl,
         domain,
         locale,
+        sendLocaleAsQueryParam,
+        sendLocaleAsHeader,
     }).then(({ data: remoteTranslations }) => {
         const localTranslations = combineAllTranslationsForLocale({ analysisDiffs, locale });
 

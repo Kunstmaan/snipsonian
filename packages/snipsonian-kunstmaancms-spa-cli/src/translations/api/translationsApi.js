@@ -12,6 +12,7 @@ const RESPONSE_TYPE_JSON = 'json';
 const HEADER_NAME = {
     API_KEY: 'X-KUMA-API-KEY',
     CACHE_CONTROL: 'Cache-Control',
+    LOCALE: 'X-Locale',
 };
 
 module.exports = {
@@ -26,12 +27,19 @@ function getTranslations({
     baseUrl,
     domain,
     locale,
+    sendLocaleAsQueryParam,
+    sendLocaleAsHeader,
 }) {
     return executeApiCall({
         baseUrl,
-        resourceUrl: `/api/public/translations/${domain}?locale=${locale}`,
+        resourceUrl: sendLocaleAsQueryParam
+            ? `/api/public/translations/${domain}?locale=${locale}`
+            : `/api/public/translations/${domain}`,
         headers: {
             [HEADER_NAME.CACHE_CONTROL]: 'max-age=0, no-store',
+            ...!!sendLocaleAsHeader && {
+                [HEADER_NAME.LOCALE]: locale,
+            },
         },
     });
 }

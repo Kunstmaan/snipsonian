@@ -32,6 +32,8 @@ function syncTranslations({
     missingKeyPlaceholder,
     translationsDomain,
     forceTranslationsLocales = [],
+    sendLocaleAsQueryParam = true,
+    sendLocaleAsHeader = false,
 }) {
     console.log(MESSAGES.targetEnv(targetEnv, forceTranslationsLocales));
     console.log(MESSAGES.start);
@@ -63,6 +65,8 @@ function syncTranslations({
             translationsDomain,
             missingKeyPlaceholder,
             forceTranslationsLocales,
+            sendLocaleAsQueryParam,
+            sendLocaleAsHeader,
         })
             .then((syncedData) => {
                 const diffs = separateSyncedDataPerYamlFile({
