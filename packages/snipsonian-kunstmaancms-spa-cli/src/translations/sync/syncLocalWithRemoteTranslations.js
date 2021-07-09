@@ -31,6 +31,8 @@ function syncLocalWithRemoteTranslations({
     translationsDomain,
     missingKeyPlaceholder,
     forceTranslationsLocales = [],
+    sendLocaleAsQueryParam,
+    sendLocaleAsHeader,
 }) {
     const domain = translationsDomain;
 
@@ -45,6 +47,8 @@ function syncLocalWithRemoteTranslations({
             apiKey: targetEnvApiKey,
             missingKeyPlaceholder,
             forceTranslations: shouldForceTranslationsForLocale({ locale, forceTranslationsLocales }),
+            sendLocaleAsQueryParam,
+            sendLocaleAsHeader,
         }));
     });
 
@@ -60,6 +64,8 @@ function syncTranslationsForLocale({
     apiKey,
     missingKeyPlaceholder,
     forceTranslations = false,
+    sendLocaleAsQueryParam,
+    sendLocaleAsHeader,
 }) {
     console.log(MESSAGES.diffing(locale));
 
@@ -70,6 +76,8 @@ function syncTranslationsForLocale({
         locale,
         missingKeyPlaceholder,
         forceTranslations,
+        sendLocaleAsQueryParam,
+        sendLocaleAsHeader,
     }).then((diffs) => {
         // console.log(`\n[DEBUG] Diffs for locale ${locale}:\n${JSON.stringify(diffs)}`);
 
