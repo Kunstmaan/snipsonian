@@ -5,7 +5,7 @@
   "main": "cjs/index.js",
   "typings": "cjs/index.d.ts",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.4",
     "chalk": "^2.4.2",
     "chokidar": "^2.1.8",
     "flat": "^4.1.0",

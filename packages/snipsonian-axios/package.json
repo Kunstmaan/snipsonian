@@ -5,13 +5,13 @@
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "peerDependencies": {
-    "axios": "^0.18.x"
+    "axios": "^0.21.x"
   },
   "dependencies": {
     "@snipsonian/core": "^1.11.0"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.0",
     "axios-mock-adapter": "^1.16.0"
   },
   "keywords": [
