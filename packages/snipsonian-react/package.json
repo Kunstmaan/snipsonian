@@ -14,7 +14,7 @@
     "classnames": "^2.2.6",
     "flat": "^4.1.0",
     "formik": "1.5.7",
-    "yup": "0.27.0"
+    "yup": "0.32.9"
   },
   "devDependencies": {
     "@testing-library/react": "8.0.1",

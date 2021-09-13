@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-import { MixedSchema } from 'yup';
 import { FormikProps, withFormik, FormikTouched, validateYupSchema, FormikBag, makeCancelable } from 'formik';
 
 export interface IValidationError<ErrorTypes> {
@@ -33,9 +32,9 @@ interface IPublicProps<Values, ErrorTypes> {
      */
     name: string;
     /**
-     * Schema to use to validate the form values
+     * A Yup Schema or a function that returns a Yup schema
      */
-    schema: MixedSchema;
+    schema: any | (() => any);
     /**
      * Handle a form submit
      */
