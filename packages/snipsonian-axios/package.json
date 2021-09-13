@@ -11,7 +11,7 @@
     "@snipsonian/core": "^1.11.0"
   },
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.2",
     "axios-mock-adapter": "^1.16.0"
   },
   "keywords": [
