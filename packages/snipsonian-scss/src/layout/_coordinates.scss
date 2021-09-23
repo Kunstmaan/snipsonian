@@ -13,10 +13,10 @@
 @mixin snip-coordinates(
     $coordinates: n n n n
 ) {
-    $top: nth($coordinates, 1);
-    $right: nth($coordinates, 2);
-    $bottom: nth($coordinates, 3);
-    $left: nth($coordinates, 4);
+    $top: list.nth($coordinates, 1);
+    $right: list.nth($coordinates, 2);
+    $bottom: list.nth($coordinates, 3);
+    $left: list.nth($coordinates, 4);
 
     @if $top != n {
         top: snip-auto-or-value($top);

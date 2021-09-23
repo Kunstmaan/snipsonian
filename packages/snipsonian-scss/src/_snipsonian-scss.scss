@@ -6,30 +6,30 @@
 
 /* Config
    ========================================================================== */
-@import 'config/easings';
+@import "config/easings";
 
 /* Functions
    ========================================================================== */
-@import 'functions/colors';
-@import 'functions/deep-get';
+@import "functions/colors";
+@import "functions/deep-get";
 
 /* Layout
    ========================================================================== */
-@import 'layout/center-absolutely';
-@import 'layout/coordinates';
-@import 'layout/flex-grid';
-@import 'layout/grid';
-@import 'layout/position-absolute';
-@import 'layout/position-fixed';
+@import "layout/center-absolutely";
+@import "layout/coordinates";
+@import "layout/flex-grid";
+@import "layout/grid";
+@import "layout/position-absolute";
+@import "layout/position-fixed";
 
 /* Utility
    ========================================================================== */
-@import 'utility/object-fit';
-@import 'utility/pseudo';
-@import 'utility/selectors';
-@import 'utility/visibility';
+@import "utility/object-fit";
+@import "utility/pseudo";
+@import "utility/selectors";
+@import "utility/visibility";
 
 /* WCAG Helpers
    ========================================================================== */
-@import 'wcag-helpers/visually-hidden';
-@import 'wcag-helpers/assistive-visually-hidden';
+@import "wcag-helpers/visually-hidden";
+@import "wcag-helpers/assistive-visually-hidden";

@@ -42,7 +42,7 @@
     max-height: none;
     min-height: 100%;
     min-width: 100%;
-    transform: translate3d(map-get($xTransitions, $x), map-get($yTransitions, $y), 0);
+    transform: translate3d(map.get($xTransitions, $x), map.get($yTransitions, $y), 0);
 
     @supports (object-fit: $fit) {
         position: static;

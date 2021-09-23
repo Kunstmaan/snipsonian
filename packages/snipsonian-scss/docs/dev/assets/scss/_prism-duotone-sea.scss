@@ -1,3 +1,4 @@
+/* stylelint-disable */
 /*
 Name: Duotone Sea
 Author: by Simurai, adapted from DuoTone themes by Simurai for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
@@ -13,11 +14,11 @@ pre[class*="language-"] {
     font-family: 'Roboto Mono', Courier, monospace;
     font-size: 14px;
     line-height: 1.375;
-    direction: ltr;
     text-align: left;
     white-space: pre;
-    word-spacing: normal;
     word-break: normal;
+    word-spacing: normal;
+    direction: ltr;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;

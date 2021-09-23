@@ -2,17 +2,17 @@
    Functions - Deep Get
    ========================================================================== */
 @function deep-get($key: null, $level: null, $map: null) {
-    @if ($key != null and $map != null) {
+    @if $key and $map {
         $found: null;
 
-        @if ($level != null) {
-            $found: map-get(map-get($map, $level), $key);
+        @if $level {
+            $found: map.get(map.get($map, $level), $key);
         } @else {
-            $found: map-get($map, $key);
+            $found: map.get($map, $key);
         }
 
-        @if ($found == null) {
-            @error('Key #{$key} not found in map');
+        @if not $found {
+            @error("Key #{$key} not found in map");
         }
 
         @return $found;
