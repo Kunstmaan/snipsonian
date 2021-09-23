@@ -2,23 +2,25 @@ import fs from 'fs';
 import path from 'path';
 import gulp from 'gulp';
 import replace from 'gulp-replace';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
 import concat from 'gulp-concat';
 import notifier from 'node-notifier';
 import livingcss from 'gulp-livingcss';
 import browserSync from 'browser-sync';
 import webpack from 'webpack';
+import dartSass from 'sass';
 
-import stylelintPlugin from '../../node_modules/stylelint';
 import reporter from 'postcss-reporter';
 import postcss from 'gulp-postcss';
 import scssSyntax from 'postcss-scss';
+import stylelintPlugin from '../../node_modules/stylelint';
 
 import webpackConfig from './docs/config/webpack.config';
 
 const examplesScssSrc = './docs/content/example-styles/*.scss';
 const regexExampleOnly = /(?:[\s\S]*\/\* example start \*\/\n)([\s\S]*)(?:[.$]*\n\/\* example end \*\/[\s\S]*)/g;
 const regexTwoLines = /\n\n\n/g;
+const sass = gulpSass(dartSass);
 
 function stylelint() {
     return gulp.src(['./src/**/*.scss'])
