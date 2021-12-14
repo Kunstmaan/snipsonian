@@ -12,6 +12,6 @@ export default function isObservableStateAction<
         return false;
     }
 
-    // eslint-disable-next-line dot-notation
+    // eslint-disable-next-line @typescript-eslint/dot-notation
     return isFunction(action['filter']) || isFunction(action['process']);
 }

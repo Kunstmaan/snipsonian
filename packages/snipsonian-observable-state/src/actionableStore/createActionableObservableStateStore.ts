@@ -47,10 +47,12 @@ function applyMiddleware<State, StateChangeNotificationKey>({
 
     const middlewareAPI: MiddlewareAPI = {
         getState: store.getState,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         dispatch: (...args) => dispatch(...args),
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const innerDispatch: Dispatch<Action> = (action: Action): Action => action;
 
@@ -71,6 +73,7 @@ function applyMiddleware<State, StateChangeNotificationKey>({
  * (...args) => f(g(h(...args))).
  */
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 function compose(...funcs: Function[]): Function {
     if (funcs.length === 0) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

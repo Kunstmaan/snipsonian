@@ -16,8 +16,8 @@ export interface IStorageToReducerKeysConfig {
 }
 
 export interface IStateStorageByReducerMiddlewareFactoryConfig extends Pick<
-    IStateStorageMiddlewareFactoryConfig,
-    'stateStorageKey' | 'shouldCatchErrors' | 'onError' | 'reducerKeyToTransformReducerStateMap'
+IStateStorageMiddlewareFactoryConfig,
+'stateStorageKey' | 'shouldCatchErrors' | 'onError' | 'reducerKeyToTransformReducerStateMap'
 > {
     storageToReducerKeysConfigs: IStorageToReducerKeysConfig[];
 }
@@ -95,8 +95,7 @@ export default function getStateStorageByReducerMiddlewareFactory({
             .map((config) => config.storage)
             .reduce(
                 (accumulator, storage) =>
-                    Object.assign(accumulator, readStatePart(storage))
-                ,
+                    Object.assign(accumulator, readStatePart(storage)),
                 initialValue,
             );
     }

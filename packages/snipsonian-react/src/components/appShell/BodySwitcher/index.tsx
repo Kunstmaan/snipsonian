@@ -2,7 +2,7 @@ import React, { Component, ComponentClass, createElement, StatelessComponent } f
 import { IPage } from '../../../models/pages.models';
 import { isReactComponentClass } from '../../../utils/isReactComponentClass';
 
-const cachedAsyncPages: {[pageKey: string]: ComponentClass | (() => JSX.Element)} = {};
+const cachedAsyncPages: { [pageKey: string]: ComponentClass | (() => JSX.Element) } = {};
 
 interface IPublicProps {
     page: IPage;
@@ -12,12 +12,6 @@ interface IPublicProps {
 }
 
 export default class BodySwitcher extends Component<IPublicProps> {
-    public render() {
-        const { renderProps } = this.props;
-
-        return this.renderPage(renderProps);
-    }
-
     public shouldComponentUpdate(nextProps: IPublicProps) {
         const { page, pageProps } = this.props;
         return (
@@ -26,11 +20,17 @@ export default class BodySwitcher extends Component<IPublicProps> {
         );
     }
 
+    public render() {
+        const { renderProps } = this.props;
+
+        return this.renderPage(renderProps);
+    }
+
     public renderPage(renderProps?: object) {
         const { page, pageProps } = this.props;
         const possibleAsyncPage = cachedAsyncPages[page.key];
         if (typeof possibleAsyncPage !== 'undefined') {
-            return createElement<{ renderProps?: object}>(possibleAsyncPage, { ...pageProps, renderProps });
+            return createElement<{ renderProps?: object }>(possibleAsyncPage, { ...pageProps, renderProps });
         }
 
         return this.loadPage(renderProps);

@@ -5,7 +5,6 @@ import localStorage from '@snipsonian/browser/src/storage/localStorage';
 
 export default function getLocalDvlpConfig<DvlpConfig extends object = {}>({
     storageKey,
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     defaultDevConfig = ({} as DvlpConfig),
 }: {
     storageKey: string;

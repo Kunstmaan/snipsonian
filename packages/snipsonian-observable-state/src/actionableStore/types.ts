@@ -2,7 +2,7 @@ import { IGetState, ISetState, IObservableStateStore, IObservableStateStoreConfi
 
 /** ========== Same interfaces as the one redux uses : BEGIN  ========== */
 
-/* eslint-disable @typescript-eslint/interface-name-prefix,@typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/naming-convention,@typescript-eslint/no-explicit-any */
 
 export interface Action<T = any> {
     type: T;
@@ -30,7 +30,7 @@ export interface MiddlewareAPI<D extends Dispatch = Dispatch, State = any> {
     getState(): State;
 }
 
-/* eslint-enable @typescript-eslint/interface-name-prefix,@typescript-eslint/no-explicit-any */
+/* eslint-enable @typescript-eslint/naming-convention,@typescript-eslint/no-explicit-any */
 
 /** ========== Same interfaces as the one redux uses : END  ========== */
 

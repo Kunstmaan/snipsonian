@@ -9,7 +9,6 @@ class ReducerTest<ReducerState> {
     public constructor(reducer: TReducer<ReducerState>) {
         this.reducer = reducer;
 
-        // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
         this.initialState = this.reducer(undefined, {} as IAction<{}>);
 
         this.state = this.initialState;
@@ -27,6 +26,7 @@ class ReducerTest<ReducerState> {
     }
 
     public updateState(stateUpdates: object = {}): void {
+        // eslint-disable-next-line prefer-object-spread
         this.state = Object.assign({}, this.state, stateUpdates);
     }
 }

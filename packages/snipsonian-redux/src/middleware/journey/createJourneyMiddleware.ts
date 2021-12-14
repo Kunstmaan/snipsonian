@@ -33,6 +33,7 @@ export default function createJourneyMiddleware({
 
                 if (filterHooksResultingAction === false) {
                     /* the incoming action is stopped/rejected */
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     return;
                 }

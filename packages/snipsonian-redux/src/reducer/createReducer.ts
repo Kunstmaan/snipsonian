@@ -15,7 +15,6 @@ export interface ICreateReducerConfig<ReducerState> {
 }
 
 export default function createReducer<ReducerState = object>({
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     initialState = ({} as ReducerState),
     actionHandlers = {},
 }: ICreateReducerConfig<ReducerState>): TReducer<ReducerState> {

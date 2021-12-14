@@ -77,7 +77,6 @@ export default function createTranslationsManager({
 
                 return accumulator;
             },
-            // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
             {} as ITranslationsPerLocale,
         );
     }

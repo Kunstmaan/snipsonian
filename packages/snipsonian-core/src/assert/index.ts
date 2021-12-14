@@ -8,7 +8,7 @@ export default function assert(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     val: any,
     validator: TValidator,
-    errorMessage: string = 'Assertion error for value \'{val}\'.',
+    errorMessage = 'Assertion error for value \'{val}\'.',
 ): void {
     assertValidValidator(validator);
 

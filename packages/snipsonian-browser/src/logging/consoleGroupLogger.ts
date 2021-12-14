@@ -4,7 +4,7 @@ const isGroupingSupported = !!console.group;
 
 const consoleGroupLogger: IGroupLogger = {
     startLog(groupTitle: string) {
-        // eslint-disable-next-line no-unused-expressions
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         isGroupingSupported
             ? console.groupCollapsed(groupTitle)
             : console.log(groupTitle);

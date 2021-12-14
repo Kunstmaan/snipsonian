@@ -3,7 +3,6 @@ import { sendVirtualPageview, initTracker, ITracker } from './index';
 describe('tracker:', () => {
     let tracked: object[];
 
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     const customTracker = {
         sendVirtualPageview: ({ virtualUrl }: { virtualUrl: string }) => {
             tracked.push({

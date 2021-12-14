@@ -48,7 +48,7 @@ export interface IRequestWrapperConfig<CustomConfig, ResultingApiError, Traceabl
 export default function getRequestWrapper<
     CustomConfig extends object = {},
     ResultingApiError = ITraceableApiErrorBase<{}>,
-    TraceableApiError = ITraceableApiErrorBase<{}>
+    TraceableApiError = ITraceableApiErrorBase<{}>,
 >({
     apiLogger,
     defaultBaseUrl = '',
@@ -246,6 +246,7 @@ export default function getRequestWrapper<
 
                 const apiError = await transformError(error);
                 if (onError) onError(apiError);
+                // eslint-disable-next-line @typescript-eslint/no-throw-literal
                 throw apiError;
             }) as TRequestWrapperPromise<Result>;
 

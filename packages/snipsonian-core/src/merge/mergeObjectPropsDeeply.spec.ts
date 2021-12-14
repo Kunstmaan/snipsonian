@@ -21,8 +21,8 @@ describe('mergeObjectPropsDeeply()', () => {
                 c: '2',
             },
         });
-        expect(source1['b']).toBeUndefined(); // eslint-disable-line dot-notation
-        expect(source2['a']).toBeUndefined(); // eslint-disable-line dot-notation
+        expect(source1['b']).toBeUndefined(); // eslint-disable-line @typescript-eslint/dot-notation
+        expect(source2['a']).toBeUndefined(); // eslint-disable-line @typescript-eslint/dot-notation
     });
 
     // eslint-disable-next-line max-len
@@ -265,13 +265,13 @@ describe('mergeObjectPropsDeeply()', () => {
         expect(actual === source1).toBeFalsy();
         expect(actual === source2).toBeFalsy();
 
-        /* eslint-disable dot-notation */
+        /* eslint-disable @typescript-eslint/dot-notation */
         expect(actual['b'] === source2['b']).toBeFalsy();
         expect(actual['b']['c'] === source2['b']['c']).toBeFalsy();
         expect(actual['b']['e'] === source2['b']['e']).toBeFalsy();
 
         expect(actual['f'] === source1['f']).toBeFalsy();
         expect(actual['h'] === source1['h']).toBeFalsy();
-        /* eslint-enable dot-notation */
+        /* eslint-enable @typescript-eslint/dot-notation */
     });
 });

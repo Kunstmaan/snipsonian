@@ -68,8 +68,29 @@ export const FormContext = React.createContext({
 });
 
 class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorTypes> & FormikProps<Values>> {
-    private isInitialValid: boolean = true;
-    private cancelValidateForm: (() => void)|null = null;
+    private isInitialValid = true;
+    private cancelValidateForm: (() => void) | null = null;
+
+    public async componentDidMount() {
+        const { validateForm, values, setErrors } = this.props;
+        let errors;
+        [errors, this.cancelValidateForm] = makeCancelable(validateForm(values));
+        try {
+            setErrors(await errors);
+            const isValid = Object.keys(errors).length === 0;
+            this.isInitialValid = isValid;
+        } catch (ex) {
+            if (!ex.isCanceled) {
+                throw ex;
+            }
+        }
+    }
+
+    public async componentWillUnmount() {
+        if (this.cancelValidateForm !== null) {
+            this.cancelValidateForm();
+        }
+    }
 
     public render() {
         const { props } = this;
@@ -127,27 +148,6 @@ class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorT
         );
     }
 
-    public async componentDidMount() {
-        const { validateForm, values, setErrors } = this.props;
-        let errors;
-        [errors, this.cancelValidateForm] = makeCancelable(validateForm(values));
-        try {
-            setErrors(await errors);
-            const isValid = Object.keys(errors).length === 0;
-            this.isInitialValid = isValid;
-        } catch (ex) {
-            if (!ex.isCanceled) {
-                throw ex;
-            }
-        }
-    }
-
-    public async componentWillUnmount() {
-        if (this.cancelValidateForm !== null) {
-            this.cancelValidateForm();
-        }
-    }
-
     private isFormValid() {
         const { props } = this;
         if (!props.dirty) {
@@ -191,6 +191,7 @@ export default function GenericForm<Values, ErrorTypes extends string>() {
                             });
                         });
                     });
+                    // eslint-disable-next-line @typescript-eslint/no-throw-literal
                     throw allErrors;
                 }),
         handleSubmit: (values, formikBag) => {

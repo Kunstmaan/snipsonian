@@ -19,8 +19,10 @@ export default function getTimeToFirstPaintInMillis(): number {
 function getFirstPaintTimeInMillis(): number {
     // Chrome
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (window.chrome && window.chrome.loadTimes) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         return window.chrome.loadTimes().firstPaintTime * 1000;
     }
@@ -30,8 +32,10 @@ function getFirstPaintTimeInMillis(): number {
     // IE/Edge
     // See http://msdn.microsoft.com/ff974719
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (navTiming.msFirstPaint) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         return navTiming.msFirstPaint;
     }

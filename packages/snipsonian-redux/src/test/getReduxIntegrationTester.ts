@@ -9,7 +9,6 @@ import { IAction } from '../action/types';
 
 export default function getReduxIntegrationTester<State, ExtraGivenProps extends object = {}>({
     store,
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     extraGivenProps = ({} as ExtraGivenProps),
     onGivenStart,
     actionToDispatchOnGivenStart, // e.g. action to reset to the initial state

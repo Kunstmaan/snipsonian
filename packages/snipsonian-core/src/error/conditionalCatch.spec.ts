@@ -43,6 +43,7 @@ function action(): boolean {
 // This will throw a TypeError
 function actionWithError(): string {
     const object = {};
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return object.undefinedProp.undefinedChildProp;
 }

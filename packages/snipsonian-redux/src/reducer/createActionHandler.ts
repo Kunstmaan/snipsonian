@@ -2,7 +2,7 @@ import { IAction } from '../action/types';
 import { TActionHandler } from './createReducer';
 
 export type ICreateNewState<ReducerState, Payload = {}> =
-    (input: {oldState: ReducerState; payload: Payload}) => ReducerState;
+    (input: { oldState: ReducerState; payload: Payload }) => ReducerState;
 
 export function createActionHandler<ReducerState, Payload = {}>(
     handleAction: ICreateNewState<ReducerState, Payload>,

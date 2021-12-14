@@ -60,6 +60,7 @@ registerReducer<IDummyReducerState>({
         ...initialState,
     },
     actionHandlers: {
+        /* eslint-disable @typescript-eslint/indent */
         ...createActionHandlersForType<IDummyReducerState>(dummyActionTypes.DUMMY_UPDATE)
             .onTrigger<IDummyUpdateTriggerPayload>(({ oldState, payload }) => ({
                 ...oldState,
@@ -77,6 +78,7 @@ registerReducer<IDummyReducerState>({
                 someFlag: false,
             }))
             .create(),
+        /* eslint-enable @typescript-eslint/indent */
         [dummyActionTypes.INCREASE_COUNT]: createActionHandler(({ oldState }) => ({
             ...oldState,
             count: oldState.count + 1,

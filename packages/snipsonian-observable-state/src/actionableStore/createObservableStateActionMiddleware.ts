@@ -23,7 +23,6 @@ export default function createObservableStateActionMiddleware<
     ExtraProcessInput,
     StateChangeNotificationKey>({
     store,
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     extraProcessInput = ({} as ExtraProcessInput),
 }: {
     store: IObservableStateStore<State, StateChangeNotificationKey>;
@@ -38,6 +37,7 @@ export default function createObservableStateActionMiddleware<
 
                     if (filterHookResultingAction === false) {
                         /* the incoming action is stopped/rejected */
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         return;
                     }

@@ -18,9 +18,7 @@ import {
 } from './types';
 
 export default function getComponentTester<GivenProps extends object, ExtraThenProps extends object = {}>({
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     givenProps = ({} as GivenProps),
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     extraThenProps = ({} as ExtraThenProps),
     onGivenStart,
     ComponentWrapper,

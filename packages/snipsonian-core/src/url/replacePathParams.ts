@@ -28,7 +28,6 @@ function encodeStringParams(params: IUrlParams): IUrlParams {
                 paramAccumulator[key] = isString(val) ? encodeURIComponent(val as string) : val;
                 return paramAccumulator;
             },
-            // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
             {} as IUrlParams,
         );
 }

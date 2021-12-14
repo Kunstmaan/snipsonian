@@ -4,6 +4,7 @@ describe('cloneObjectDataProps()', () => {
     // eslint-disable-next-line max-len
     it('returns a new object by copying the string, boolean, number, object and array (nested) properties of the input object', () => {
         const orig = {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             a: null,
             b: {
@@ -11,6 +12,7 @@ describe('cloneObjectDataProps()', () => {
                 n: true,
                 o: 666,
                 p: {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     x: undefined,
                     y: 'deep',
@@ -41,7 +43,7 @@ describe('cloneObjectDataProps()', () => {
             d: ['q', 'e', 'd'],
         });
 
-        /* eslint-disable dot-notation */
+        /* eslint-disable @typescript-eslint/dot-notation */
         expect(actual === orig).toBeFalsy();
 
         expect(actual['b'] === orig['b']).toBeFalsy();
@@ -50,6 +52,6 @@ describe('cloneObjectDataProps()', () => {
 
         expect(actual['c'] === orig['c']).toBeTruthy(); // string equality
         expect(actual['d'] === orig['d']).toBeFalsy();
-        /* eslint-enable dot-notation */
+        /* eslint-enable @typescript-eslint/dot-notation */
     });
 });

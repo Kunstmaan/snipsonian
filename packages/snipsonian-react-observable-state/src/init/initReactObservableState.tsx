@@ -36,7 +36,7 @@ export default function initReactObservableState<State, StateChangeNotificationK
                     /* eslint-disable react/no-this-in-sfc */
                     class ObserverWrapper extends React.Component {
                         private observer: IStateObserver<StateChangeNotificationKey>;
-                        private _isMounted: boolean = false;
+                        private _isMounted = false;
 
                         public constructor(props: PublicProps) {
                             super(props);
@@ -56,6 +56,19 @@ export default function initReactObservableState<State, StateChangeNotificationK
                                     }
                                 },
                             });
+                        }
+
+                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+                        public componentDidMount() {
+                            // eslint-disable-next-line no-underscore-dangle
+                            this._isMounted = true;
+                        }
+
+                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+                        public componentWillUnmount() {
+                            if (this.observer) {
+                                store.unRegisterObserver(this.observer);
+                            }
                         }
 
                         // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -87,19 +100,6 @@ export default function initReactObservableState<State, StateChangeNotificationK
                                 />
                             );
                         }
-
-                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-                        public componentDidMount() {
-                            // eslint-disable-next-line no-underscore-dangle
-                            this._isMounted = true;
-                        }
-
-                        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-                        public componentWillUnmount() {
-                            if (this.observer) {
-                                store.unRegisterObserver(this.observer);
-                            }
-                        }
                     }
                     /* eslint-enable react/no-this-in-sfc */
 
@@ -116,6 +116,7 @@ export default function initReactObservableState<State, StateChangeNotificationK
                         };
                     }
 
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     return <ObserverWrapper {...inputPublicProps} />;
                 }}

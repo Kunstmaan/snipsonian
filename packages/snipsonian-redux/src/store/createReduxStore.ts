@@ -12,9 +12,9 @@ import { STATE_STORAGE_TYPE } from '../config/storageType';
 import { registerStore } from './storeManager';
 
 interface IReduxStoreConfig extends Pick<
-    IStoreEnhancerConfig,
-    'middlewares' | 'stateStorageType' | 'stateStorageKey' | 'customStorage' |
-    'shouldCatchStorageErrors' | 'onStorageError'
+IStoreEnhancerConfig,
+'middlewares' | 'stateStorageType' | 'stateStorageKey' | 'customStorage' |
+'shouldCatchStorageErrors' | 'onStorageError'
 > {
     reducers?: IReducers;
     enhancers?: StoreEnhancer[];
@@ -39,7 +39,7 @@ export default function createReduxStore<State>({
         onStorageError,
     });
 
-    // eslint-disable-next-line dot-notation
+    // eslint-disable-next-line @typescript-eslint/dot-notation
     const composeEnhancers = (typeof window !== 'undefined' && window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'])
         || compose;
 

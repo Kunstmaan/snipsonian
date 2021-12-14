@@ -19,19 +19,8 @@ export interface IShowAfterDelayProps {
 }
 
 export default class ShowAfterDelay extends PureComponent<IShowAfterDelayProps, IComponentState> {
-    public render() {
-        const { children, showDuringDelayComponent } = this.props;
-        if (this.isNotStartedYet()) {
-            return null;
-        }
-
-        if (this.isRunning()) {
-            return showDuringDelayComponent || null;
-        }
-
-        // Not running anymore
-        return children || null;
-    }
+    private delayBeforeShowTimeout: number;
+    private minDurationTimeout: number;
 
     public constructor(props: IShowAfterDelayProps) {
         super(props);
@@ -83,8 +72,19 @@ export default class ShowAfterDelay extends PureComponent<IShowAfterDelayProps, 
         this.clearDurationTimeout();
     }
 
-    private delayBeforeShowTimeout: number;
-    private minDurationTimeout: number;
+    public render() {
+        const { children, showDuringDelayComponent } = this.props;
+        if (this.isNotStartedYet()) {
+            return null;
+        }
+
+        if (this.isRunning()) {
+            return showDuringDelayComponent || null;
+        }
+
+        // Not running anymore
+        return children || null;
+    }
 
     protected isNotStartedYet() {
         const { visibilityState } = this.state;

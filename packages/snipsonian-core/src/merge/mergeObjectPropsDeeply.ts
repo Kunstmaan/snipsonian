@@ -90,6 +90,6 @@ function cloneProp(prop: any): any {
         return cloneObjectDataProps(prop);
     }
 
-    // eslint-disable-next-line dot-notation
+    // eslint-disable-next-line @typescript-eslint/dot-notation
     return cloneObjectDataProps({ temp: prop })['temp'];
 }

@@ -26,11 +26,11 @@ interface ITypeActions<TP, SP, FP, CP, RP> {
 }
 
 export function createTypeActions<
-    TP extends object = {},
-    SP extends object = {},
-    FP extends object = {},
-    CP extends object = {},
-    RP extends object = {}
+    TP extends object = object,
+    SP extends object = object,
+    FP extends object = object,
+    CP extends object = object,
+    RP extends object = object,
 >({
     type,
     onTrigger,

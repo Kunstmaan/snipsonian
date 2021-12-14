@@ -49,6 +49,10 @@
   },
   "include": [
     "typings.base.d.ts",
-    "packages/**/*.ts"
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "*.js",
+    "packages/**/*.js",
+    "packages/snipsonian-kunstmaancms-spa-cli/.eslintrc.js"
   ]
 }

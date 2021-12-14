@@ -14,10 +14,7 @@ export interface IProvidedReducerConfig<ReducerState> {
 
 export interface IReducerConfig<ReducerState> extends
     IProvidedReducerConfig<ReducerState>,
-    Pick<
-        ICreateReducerConfig<ReducerState>,
-        'initialState' | 'actionHandlers'
-    > {
+    Pick<ICreateReducerConfig<ReducerState>, 'initialState' | 'actionHandlers'> {
     /* If 'actionTypeToResetState' provided, an action handler will be added automatically that will reset
        the reducer state to the initialState on receiving this action */
     actionTypeToResetState?: string;
@@ -34,7 +31,6 @@ const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerS
 
 export function registerReducer<ReducerState = {}>({
     key,
-    // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
     initialState = ({} as ReducerState),
     actionHandlers = {},
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
@@ -103,8 +99,10 @@ export function getCombinedInitialState(): object {
         .reduce(
             (accumulator, reducerConfig) => {
                 // redux-first-router needs initial state to be undefined. TBD why.
-                const initialStateCopy = typeof reducerConfig.initialState === 'undefined' ?
-                    undefined : Object.assign({}, reducerConfig.initialState);
+                const initialStateCopy = typeof reducerConfig.initialState === 'undefined'
+                    ? undefined
+                    // eslint-disable-next-line prefer-object-spread
+                    : Object.assign({}, reducerConfig.initialState);
                 // eslint-disable-next-line no-param-reassign
                 accumulator[reducerConfig.key] = initialStateCopy;
 

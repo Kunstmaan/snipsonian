@@ -10,10 +10,7 @@ interface IHideAfterDelayProps {
 const DEFAULT_AUTO_HIDE_DURATION = 10000;
 
 export default class HideAfterDelay extends PureComponent<IHideAfterDelayProps> {
-    public render() {
-        const { children } = this.props;
-        return children;
-    }
+    private hideTimeout: number;
 
     public componentDidMount() {
         const { enabled } = this.props;
@@ -34,7 +31,10 @@ export default class HideAfterDelay extends PureComponent<IHideAfterDelayProps> 
         this.clearTimeout();
     }
 
-    private hideTimeout: number;
+    public render() {
+        const { children } = this.props;
+        return children;
+    }
 
     private setAutoHideTimeout(props: IHideAfterDelayProps) {
         this.hideTimeout = window.setTimeout(
