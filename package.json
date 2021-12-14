@@ -13,7 +13,8 @@
     "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
     "to-es": "npm run del-generated && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.json && npm run replace-snipsonian-imports",
     "preversion": "npm test",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "npm-audit": "npm audit && npx lerna exec -- npm audit"
   },
   "dependencies": {},
   "devDependencies": {

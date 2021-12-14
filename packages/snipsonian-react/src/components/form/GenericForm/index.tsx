@@ -34,7 +34,7 @@ interface IPublicProps<Values, ErrorTypes> {
     /**
      * A Yup Schema or a function that returns a Yup schema
      */
-    schema: any | (() => any);
+    schema: any | (() => any); // eslint-disable-line @typescript-eslint/no-explicit-any
     /**
      * Handle a form submit
      */

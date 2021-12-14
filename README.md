@@ -28,7 +28,8 @@ We'll add some documentation on how to use the different snippets in the future.
 1. install nvm (https://github.com/nvm-sh/nvm) if not installed yet
 2. git clone <this repo>
 3. switch to correct node version: `nvm install` (first time) or `nvm use` (later)
-4. Link local packages together and install remaining package dependencies: `npx lerna bootstrap`
+4. Install top package dependencies: `npm install`
+5. Link local packages together and install remaining package dependencies: `npx lerna bootstrap`
 
 
 ### Dev commands
