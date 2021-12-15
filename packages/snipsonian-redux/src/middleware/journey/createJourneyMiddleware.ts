@@ -24,9 +24,9 @@ export default function createJourneyMiddleware({
     const actionType2JourneyHooksMaps = getActionType2JourneyHooksMaps(journeys);
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    const middleware = ({ getState, dispatch }: MiddlewareAPI<Dispatch<Action>, {}>) =>
+    const middleware = ({ getState, dispatch }: MiddlewareAPI<Dispatch<Action>, object>) =>
         (next: Dispatch<Action>) =>
-            (action: IAction<{}>) => {
+            (action: IAction<object>) => {
                 const hooksThatMatchAction = getJourneyHooksThatMatchAction(action, actionType2JourneyHooksMaps);
 
                 const filterHooksResultingAction = executeFilterHooks();
@@ -81,7 +81,7 @@ export default function createJourneyMiddleware({
                     return resultingAction;
                 }
 
-                function executeProcessHooks(filteredAction: IAction<{}>): void {
+                function executeProcessHooks(filteredAction: IAction<object>): void {
                     // these hooks can return a promise, but here we're not interested in the result
 
                     if (hooksThatMatchAction && hooksThatMatchAction.processHooks) {

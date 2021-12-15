@@ -5,12 +5,12 @@ import isObjectPure from '@snipsonian/core/src/is/isObjectPure';
 import { TRACEABLE_API_ERROR_ID_PREFIX } from './generateTraceableApiErrorId';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<{}> {
+export default function isTraceableApiError(error: any): error is ITraceableApiErrorBase<object> {
     if (!isObjectPure(error)) {
         return false;
     }
 
-    const traceableAPiError = error as ITraceableApiErrorBase<{}>;
+    const traceableAPiError = error as ITraceableApiErrorBase<object>;
 
     return (
         traceableAPiError &&

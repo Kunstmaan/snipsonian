@@ -1,15 +1,15 @@
 import { IActionJourneyHooks, IActionType2JourneyHooksMaps } from '../types';
 import { IAction } from '../../../action/types';
 
-const NO_ACTION_JOURNEY_HOOKS: IActionJourneyHooks<{}, IAction<{}>> = {
+const NO_ACTION_JOURNEY_HOOKS: IActionJourneyHooks = {
     filterHooks: [],
     processHooks: [],
 };
 
 export default function getJourneyHooksThatMatchAction(
-    action: IAction<{}>,
+    action: IAction<object>,
     actionType2JourneyHooksMaps: IActionType2JourneyHooksMaps,
-): IActionJourneyHooks<{}, IAction<{}>> {
+): IActionJourneyHooks {
     const hooksThatMatchActionType = getHooksThatMatchActionType(action, actionType2JourneyHooksMaps);
     const hooksThatMatchingActionTypeRegex = getHooksThatMatchActionTypeRegex(action, actionType2JourneyHooksMaps);
 
@@ -20,16 +20,16 @@ export default function getJourneyHooksThatMatchAction(
 }
 
 function getHooksThatMatchActionType(
-    action: IAction<{}>,
+    action: IAction<object>,
     { actionType2HooksMap }: IActionType2JourneyHooksMaps,
-): IActionJourneyHooks<{}, IAction<{}>> {
+): IActionJourneyHooks {
     return actionType2HooksMap[action.type] || NO_ACTION_JOURNEY_HOOKS;
 }
 
 function getHooksThatMatchActionTypeRegex(
-    action: IAction<{}>,
+    action: IAction<object>,
     { actionTypeRegex2HooksList }: IActionType2JourneyHooksMaps,
-): IActionJourneyHooks<{}, IAction<{}>> {
+): IActionJourneyHooks {
     return actionTypeRegex2HooksList
         .filter((regexMapping) => regexMapping.actionTypeRegex.test(action.type))
         .reduce(
@@ -45,6 +45,6 @@ function getHooksThatMatchActionTypeRegex(
             {
                 filterHooks: [],
                 processHooks: [],
-            } as IActionJourneyHooks<{}, IAction<{}>>,
+            } as IActionJourneyHooks,
         );
 }

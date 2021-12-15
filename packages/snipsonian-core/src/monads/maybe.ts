@@ -8,6 +8,7 @@
 
 import isNull from '../is/isNull';
 import isUndefined from '../is/isUndefined';
+import { TEmptyObject } from '../typings/object';
 
 export class Maybe<Value> {
     private readonly value: Value | null | undefined;
@@ -58,7 +59,7 @@ export class Maybe<Value> {
         return this.getOrElse([] as unknown as Value);
     }
 
-    public getOrEmptyObject(): Value | {} {
+    public getOrEmptyObject(): Value | TEmptyObject {
         return this.getOrElse({} as unknown as Value);
     }
 }

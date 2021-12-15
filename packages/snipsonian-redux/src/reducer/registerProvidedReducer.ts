@@ -20,5 +20,5 @@ export default function registerProvidedReducer<ReducerState>(
         transformReducerStateForStorage,
     });
 
-    getRegisteredReducers()[key] = (reducer as unknown as TReducer<{}>);
+    getRegisteredReducers()[key] = (reducer as unknown as TReducer<object>);
 }

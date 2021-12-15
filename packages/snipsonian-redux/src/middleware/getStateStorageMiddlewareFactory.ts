@@ -37,7 +37,7 @@ export default function getStateStorageMiddlewareFactory({
     }
 
     const createMiddleware = (): Middleware =>
-        (store: MiddlewareAPI<Dispatch<Action>, {}>) => (next: Dispatch<Action>) => (action: Action) => {
+        (store: MiddlewareAPI<Dispatch<Action>, object>) => (next: Dispatch<Action>) => (action: Action) => {
             const r = next(action);
             conditionalCatch({
                 shouldCatchErrors,

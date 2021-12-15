@@ -17,7 +17,7 @@ import {
     IComponentWrapperProps,
 } from './types';
 
-export default function getComponentTester<GivenProps extends object, ExtraThenProps extends object = {}>({
+export default function getComponentTester<GivenProps extends object, ExtraThenProps extends object = object>({
     givenProps = ({} as GivenProps),
     extraThenProps = ({} as ExtraThenProps),
     onGivenStart,

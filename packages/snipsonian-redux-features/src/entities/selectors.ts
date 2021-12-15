@@ -14,7 +14,7 @@ export function getEntity<Data>(state: any, entityKey: string): IEntity<Data> {
     return getReducerState<IBaseEntitiesReducerState>(state)[entityKey];
 }
 
-export function getAsyncEntity<Data, Error = ITraceableApiErrorBase<{}>>(
+export function getAsyncEntity<Data, Error = ITraceableApiErrorBase<object>>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     state: any, entityKey: string,
 ): IAsyncEntity<Data, Error> {

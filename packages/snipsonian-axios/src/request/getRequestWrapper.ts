@@ -1,6 +1,4 @@
-/* global FileReader, Blob */
-
-import axios, { AxiosRequestConfig, AxiosError } from 'axios';
+import axios, { AxiosRequestConfig, AxiosError, ResponseType } from 'axios';
 import { IApiErrorBase, ITraceableApiErrorBase } from '@snipsonian/core/src/typings/apiErrors';
 import constructResourceUrl from '@snipsonian/core/src/url/constructResourceUrl';
 import getRandomNumber from '@snipsonian/core/src/number/getRandomNumber';
@@ -23,7 +21,7 @@ const { CancelToken } = axios;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = ({ data }: { data: any }): any => data;
 const DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS
-    = (params: { request: AxiosRequestConfig; customConfig: {} }): AxiosRequestConfig => params.request;
+    = (params: { request: AxiosRequestConfig; customConfig: object }): AxiosRequestConfig => params.request;
 
 export interface IRequestWrapper<CustomConfig> {
     /* eslint-disable max-len */
@@ -46,9 +44,9 @@ export interface IRequestWrapperConfig<CustomConfig, ResultingApiError, Traceabl
 }
 
 export default function getRequestWrapper<
-    CustomConfig extends object = {},
-    ResultingApiError = ITraceableApiErrorBase<{}>,
-    TraceableApiError = ITraceableApiErrorBase<{}>,
+    CustomConfig extends object = object,
+    ResultingApiError = ITraceableApiErrorBase<object>,
+    TraceableApiError = ITraceableApiErrorBase<object>,
 >({
     apiLogger,
     defaultBaseUrl = '',
@@ -82,8 +80,8 @@ export default function getRequestWrapper<
             queryParams['cache-buster'] = getRandomNumber({ min: 100000, max: 999999 });
         }
 
-        const request = {
-            responseType,
+        const request: AxiosRequestConfig = {
+            responseType: responseType as ResponseType,
             url: constructResourceUrl({
                 url, baseUrl, pathParams, queryParams,
             }),
@@ -111,8 +109,8 @@ export default function getRequestWrapper<
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
     }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
-        const request = {
-            responseType,
+        const request: AxiosRequestConfig = {
+            responseType: responseType as ResponseType,
             url: constructResourceUrl({
                 url, baseUrl, pathParams, queryParams,
             }),
@@ -141,8 +139,8 @@ export default function getRequestWrapper<
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
     }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
-        const request = {
-            responseType,
+        const request: AxiosRequestConfig = {
+            responseType: responseType as ResponseType,
             url: constructResourceUrl({
                 url, baseUrl, pathParams, queryParams,
             }),
@@ -171,8 +169,8 @@ export default function getRequestWrapper<
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
     }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
-        const request = {
-            responseType,
+        const request: AxiosRequestConfig = {
+            responseType: responseType as ResponseType,
             url: constructResourceUrl({
                 url, baseUrl, pathParams, queryParams,
             }),
@@ -201,8 +199,8 @@ export default function getRequestWrapper<
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
     }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
-        const request = {
-            responseType,
+        const request: AxiosRequestConfig = {
+            responseType: responseType as ResponseType,
             url: constructResourceUrl({
                 url, baseUrl, pathParams, queryParams,
             }),
@@ -265,7 +263,7 @@ export default function getRequestWrapper<
     return requestWrapper;
 }
 
-async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApiErrorBase<{}>> {
+async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApiErrorBase<object>> {
     const serverErrorResponse = await extractServerErrorResponseData(error);
     const requestMethod = error.config && error.config.method && error.config.method.toUpperCase();
     const wasCancelled = wasApiCancelled(error);
@@ -288,7 +286,7 @@ async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApi
     };
 }
 
-async function extractServerErrorResponseData(error: AxiosError): Promise<{}> {
+async function extractServerErrorResponseData(error: AxiosError): Promise<object> {
     if (error.response) {
         let responseJson = error.response.data;
         // Some browsers like IE don't parse the JSON automatically
@@ -309,7 +307,7 @@ async function extractServerErrorResponseData(error: AxiosError): Promise<{}> {
         }
         return responseJson;
     }
-    return undefined as unknown as IApiErrorBase<{}>;
+    return undefined as unknown as IApiErrorBase<object>;
 }
 
 function wasApiCancelled(error: AxiosError): boolean {

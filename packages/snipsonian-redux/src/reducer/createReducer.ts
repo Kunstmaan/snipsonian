@@ -1,8 +1,8 @@
 import { IAction } from '../action/types';
 
-export type TReducer<ReducerState> = (state: ReducerState, action: IAction<{}>) => ReducerState;
+export type TReducer<ReducerState> = (state: ReducerState, action: IAction<object>) => ReducerState;
 
-export type TActionHandler<ReducerState, ActionPayload = {}> =
+export type TActionHandler<ReducerState, ActionPayload = object> =
     (props: { state: ReducerState; action: IAction<ActionPayload> }) => ReducerState;
 
 export interface IActionHandlers<ReducerState> {

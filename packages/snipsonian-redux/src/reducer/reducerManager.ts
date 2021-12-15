@@ -21,15 +21,16 @@ export interface IReducerConfig<ReducerState> extends
 }
 
 export interface IReducers {
-    [reducerKey: string]: TReducer<{}>;
+    [reducerKey: string]: TReducer<object>;
 }
 
-const reducerConfigs: IReducerConfig<{}>[] = [];
+const reducerConfigs: IReducerConfig<object>[] = [];
 let registeredReducers: IReducers = {};
 
-const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<{}> = (reducerState: object): object => reducerState;
+const KEEP_REDUCER_STATE_AS_IS: TTransformReducerStateForStorage<object> =
+    (reducerState: object): object => reducerState;
 
-export function registerReducer<ReducerState = {}>({
+export function registerReducer<ReducerState = object>({
     key,
     initialState = ({} as ReducerState),
     actionHandlers = {},
@@ -43,7 +44,7 @@ export function registerReducer<ReducerState = {}>({
 
     reducerConfigs.push({
         key,
-        initialState,
+        initialState: initialState as unknown as object,
         actionHandlers: conditionallyAddActionHandlerToResetState({
             actionTypeToResetState,
             actionHandlers,
@@ -51,7 +52,7 @@ export function registerReducer<ReducerState = {}>({
         }),
         reducerStorageType,
         transformReducerStateForStorage:
-            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<{}>,
+            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<object>,
     });
 
     const reducer = createReducer({
@@ -59,12 +60,12 @@ export function registerReducer<ReducerState = {}>({
         actionHandlers,
     });
 
-    registeredReducers[key] = reducer as unknown as TReducer<{}>;
+    registeredReducers[key] = reducer as unknown as TReducer<object>;
 
     return reducer;
 }
 
-export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
+export function registerStorageTypeForProvidedReducer<ReducerState = object>({
     key,
     reducerStorageType = REDUCER_STORAGE_TYPE.INHERIT,
     // eslint-disable-next-line max-len
@@ -77,7 +78,7 @@ export function registerStorageTypeForProvidedReducer<ReducerState = {}>({
         key,
         reducerStorageType,
         transformReducerStateForStorage:
-            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<{}>,
+            transformReducerStateForStorage as unknown as TTransformReducerStateForStorage<object>,
     });
 }
 
@@ -159,7 +160,7 @@ export function getMapOfReducersThatHaveToBeStoredSpecifically({
 }
 
 export interface IReducerKeyToTransformReducerStateMap {
-    [reducerKey: string]: TTransformReducerStateForStorage<{}>;
+    [reducerKey: string]: TTransformReducerStateForStorage<object>;
 }
 
 export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransformReducerStateMap {
@@ -174,7 +175,7 @@ export function getReducerKeyToTransformReducerStateMap(): IReducerKeyToTransfor
         );
 }
 
-function findReducerConfig(key: string): IReducerConfig<{}> {
+function findReducerConfig(key: string): IReducerConfig<object> {
     return reducerConfigs
         .find((reducerConfig) => reducerConfig.key === key);
 }
@@ -183,15 +184,15 @@ function isReducerKeyUnique(key: string): boolean {
     return typeof findReducerConfig(key) === 'undefined';
 }
 
-function hasStorageTypeInherit(reducerConfig: IReducerConfig<{}>): boolean {
+function hasStorageTypeInherit(reducerConfig: IReducerConfig<object>): boolean {
     return reducerConfig.reducerStorageType === REDUCER_STORAGE_TYPE.INHERIT;
 }
 
-function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<{}>): boolean {
+function hasNotStorageTypeInherit(reducerConfig: IReducerConfig<object>): boolean {
     return !hasStorageTypeInherit(reducerConfig);
 }
 
-function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<{}>): boolean {
+function hasNotStorageTypeNoStorage(reducerConfig: IReducerConfig<object>): boolean {
     return reducerConfig.reducerStorageType !== REDUCER_STORAGE_TYPE.NO_STORAGE;
 }
 
@@ -199,7 +200,7 @@ function conditionallyAddActionHandlerToResetState<ReducerState>({
     actionTypeToResetState,
     actionHandlers,
     initialState,
-}: { actionTypeToResetState?: string } & ICreateReducerConfig<ReducerState>): IActionHandlers<{}> {
+}: { actionTypeToResetState?: string } & ICreateReducerConfig<ReducerState>): IActionHandlers<object> {
     if (actionTypeToResetState && noActionHandlerForType(actionTypeToResetState, actionHandlers)) {
         const initialStateActionHandler = createActionHandler(() => ({
             ...initialState,
@@ -209,7 +210,7 @@ function conditionallyAddActionHandlerToResetState<ReducerState>({
         actionHandlers[actionTypeToResetState] = initialStateActionHandler;
     }
 
-    return actionHandlers as unknown as IActionHandlers<{}>;
+    return actionHandlers as unknown as IActionHandlers<object>;
 }
 
 export function noActionHandlerForType<ReducerState>(

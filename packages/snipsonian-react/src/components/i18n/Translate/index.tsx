@@ -39,7 +39,7 @@ export default function Translate({
                     placeholders,
                     raw,
                     htmlTransformer,
-                ) as ReactElement<{}>
+                ) as ReactElement<object>
             )}
         </I18nContext.Consumer>
     );

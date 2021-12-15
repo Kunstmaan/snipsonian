@@ -13,7 +13,7 @@ export interface IEntity<Data = any> {
     data: Data;
 }
 
-export interface IEntityAsyncOperation<Error = ITraceableApiErrorBase<{}>> {
+export interface IEntityAsyncOperation<Error = ITraceableApiErrorBase<object>> {
     status: AsyncStatus;
     error: Error;
 }
@@ -26,7 +26,7 @@ export enum AsyncOperation {
     remove = 'remove',
 }
 
-export interface IAsyncEntity<Data, Error = ITraceableApiErrorBase<{}>> extends IEntity<Data> {
+export interface IAsyncEntity<Data, Error = ITraceableApiErrorBase<object>> extends IEntity<Data> {
     fetch?: IEntityAsyncOperation<Error>;
     create?: IEntityAsyncOperation<Error>;
     update?: IEntityAsyncOperation<Error>;
@@ -46,7 +46,7 @@ export interface IUpdateEntitiesGenericPayload<EntitiesReducerState> {
     updateReducerState: ICreateNewState<EntitiesReducerState>;
 }
 
-export interface IUpdateAsyncEntitiesPayload<Error = ITraceableApiErrorBase<{}>> {
+export interface IUpdateAsyncEntitiesPayload<Error = ITraceableApiErrorBase<object>> {
     triggerKeys?: IEntityKeyOperation[];
     triggerWithoutDataResetKeys?: IEntityKeyOperation[];
     succeededKeys?: IEntityKeyOperationSucceeded[];
@@ -70,7 +70,7 @@ export interface IEntityKeyOperationFailed<Error> extends IEntityKeyOperation {
     error: Error;
 }
 
-export interface IUpdateAsyncEntitiesActionCreatorChain<Error = ITraceableApiErrorBase<{}>> {
+export interface IUpdateAsyncEntitiesActionCreatorChain<Error = ITraceableApiErrorBase<object>> {
     trigger: (...keys: IEntityKeyOperation[]) => IUpdateAsyncEntitiesActionCreatorChain<Error>;
     triggerWithoutDataReset: (...keys: IEntityKeyOperation[]) => IUpdateAsyncEntitiesActionCreatorChain<Error>;
     succeeded: (...keys: IEntityKeyOperationSucceeded[]) => IUpdateAsyncEntitiesActionCreatorChain<Error>;
@@ -117,8 +117,8 @@ export interface IAsyncEntityKey2ApiConfigMap<State> {
     [asyncEntityKey: string]: {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         fetch?: IFetchAsyncEntityApiConfig<State, any, any>;
-        create?: {}; // TODO
-        update?: {}; // TODO
-        remove?: {}; // TODO
+        create?: object; // TODO
+        update?: object; // TODO
+        remove?: object; // TODO
     };
 }

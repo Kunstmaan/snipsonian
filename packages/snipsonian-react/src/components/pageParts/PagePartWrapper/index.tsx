@@ -4,7 +4,7 @@ import { IPagePart, IPagePartType2ComponentMap } from '../pageParts.models';
 const CLASS_NAME = 'PagePart';
 
 interface IPublicProps {
-    pagePart: IPagePart<string, {}>;
+    pagePart: IPagePart;
     pagePartType2ComponentMap: IPagePartType2ComponentMap;
     index: number;
 }

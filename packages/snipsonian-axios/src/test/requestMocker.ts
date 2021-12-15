@@ -34,7 +34,7 @@ export function mockGetSuccess({
     responseData,
     responseHeaders,
     onlyMatchUrlStart = false,
-}: IMockConfig): jest.Mock<{}> {
+}: IMockConfig): jest.Mock<object> {
     const urlToMock = getUrlToMock({
         url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
     });
@@ -60,7 +60,7 @@ export function mockPutSuccess({
     responseData,
     responseHeaders,
     onlyMatchUrlStart = false,
-}: IMockConfig): jest.Mock<{}> {
+}: IMockConfig): jest.Mock<object> {
     const urlToMock = getUrlToMock({
         url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
     });
@@ -86,7 +86,7 @@ export function mockPostSuccess({
     responseData,
     responseHeaders,
     onlyMatchUrlStart = false,
-}: IMockConfig): jest.Mock<{}> {
+}: IMockConfig): jest.Mock<object> {
     const urlToMock = getUrlToMock({
         url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
     });
@@ -112,7 +112,7 @@ export function mockPatchSuccess({
     responseData,
     responseHeaders,
     onlyMatchUrlStart = false,
-}: IMockConfig): jest.Mock<{}> {
+}: IMockConfig): jest.Mock<object> {
     const urlToMock = getUrlToMock({
         url, baseUrl, pathParams, queryParams, onlyMatchUrlStart,
     });

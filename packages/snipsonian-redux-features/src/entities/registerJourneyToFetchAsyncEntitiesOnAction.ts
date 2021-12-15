@@ -16,7 +16,7 @@ import { updateAsyncEntitiesChain } from './actions';
 import { getAsyncEntity } from './selectors';
 import { shouldResetEntityDataOnTrigger } from './entityUtils';
 
-export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<{}>>({
+export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Action = IAction<object>>({
     onActionTypeRegex,
     actionType2AsyncEntitiesToFetchMap,
     asyncEntityKey2ApiConfigMap,
@@ -25,7 +25,7 @@ export default function registerJourneyToFetchAsyncEntitiesOnAction<State, Actio
     actionType2AsyncEntitiesToFetchMap: IActionType2AsyncEntitiesToFetchMap<State, Action>;
     asyncEntityKey2ApiConfigMap: IAsyncEntityKey2FetchApiConfigMap<State>;
 }): void {
-    registerJourney<State, IAction<{}>>({
+    registerJourney<State, IAction<object>>({
         onActionTypeRegex,
         filter({ getState, action, dispatch }) {
             const asyncEntitiesFetchCandidates = actionType2AsyncEntitiesToFetchMap[action.type];
@@ -77,7 +77,7 @@ function shouldEntityBeFetched<State, Action>({
     state,
     action,
 }: {
-    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}, {}>;
+    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, object, object>;
     state: State;
     action: Action;
 }): boolean {
@@ -113,8 +113,8 @@ function shouldEntityBeFetched<State, Action>({
     return refreshMode({ state, action });
 }
 
-function filterEntityKeysToTriggerFetch<State, Action = IAction<{}>>(
-    asyncEntitiesToFetch: IAsyncEntityToFetch<State, Action, {}, {}>[],
+function filterEntityKeysToTriggerFetch<State, Action = IAction<object>>(
+    asyncEntitiesToFetch: IAsyncEntityToFetch<State, Action, object, object>[],
     expectedResetDataOnTrigger = true,
 ): IEntityKeyOperation[] {
     return asyncEntitiesToFetch
@@ -132,11 +132,11 @@ function fetchAsyncEntity<State, Action>({
     action,
     dispatch,
 }: {
-    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, {}, {}>;
-    apiConfig: IFetchAsyncEntityApiConfig<State, {}, {}>;
+    asyncEntityToFetch: IAsyncEntityToFetch<State, Action, object, object>;
+    apiConfig: IFetchAsyncEntityApiConfig<State, object, object>;
     state: State;
     action: Action;
-    dispatch: Dispatch<IAction<{}>>;
+    dispatch: Dispatch<IAction<object>>;
 }): Promise<void> {
     // eslint-disable-next-line no-nested-ternary
     const apiInput = isSet(apiConfig.apiInputSelector)

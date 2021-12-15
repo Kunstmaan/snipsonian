@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface IPagePart<PagePartType = string, PagePartData = {}> {
+export interface IPagePart<PagePartType = string, PagePartData = object> {
     type: PagePartType;
     data: PagePartData;
     /* anchorId is not returned by the cms,
@@ -9,7 +9,7 @@ export interface IPagePart<PagePartType = string, PagePartData = {}> {
 }
 
 export interface IPagePartType2ComponentMap {
-    [pagePartType: string]: React.FunctionComponent<IPagePartComponentProps<{}>>;
+    [pagePartType: string]: React.FunctionComponent<IPagePartComponentProps<object>>;
 }
 
 export interface IPagePartComponentProps<Data> {

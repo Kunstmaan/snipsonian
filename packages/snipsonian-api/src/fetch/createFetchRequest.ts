@@ -1,5 +1,3 @@
-/* global Request, Headers */
-
 export enum RequestMethod {
     Get = 'GET',
     Post = 'POST',

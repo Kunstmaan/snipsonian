@@ -60,7 +60,7 @@ export function getEntitiesReducerKey(): string {
     return entitiesReducerKey;
 }
 
-export function getAsyncEntityInitialState<Data = {}, Error = ITraceableApiErrorBase<{}>>({
+export function getAsyncEntityInitialState<Data = object, Error = ITraceableApiErrorBase<object>>({
     data,
     type = 'object',
     operations = [AsyncOperation.fetch],
@@ -95,7 +95,7 @@ function getDefaultActionHandlers<EntitiesReducerState extends IBaseEntitiesRedu
         [UPDATE_ENTITIES_GENERIC]:
             createActionHandler<EntitiesReducerState, IUpdateEntitiesGenericPayload<EntitiesReducerState>>(
                 ({ oldState, payload }) => payload.updateReducerState({ oldState, payload }),
-            ) as TActionHandler<EntitiesReducerState, {}>,
+            ) as TActionHandler<EntitiesReducerState, object>,
 
         [UPDATE_ASYNC_ENTITIES]: createActionHandler<EntitiesReducerState, IUpdateAsyncEntitiesPayload>(
             ({ oldState, payload }) => {

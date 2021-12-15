@@ -3,9 +3,9 @@ import { AnyAction, IObservableStateAction } from './types';
 
 export default function isObservableStateAction<
     Type = string,
-    Payload = {},
-    State = {},
-    ExtraProcessInput = {},
+    Payload = object,
+    State = object,
+    ExtraProcessInput = object,
     // eslint-disable-next-line max-len
     StateChangeNotificationKey = string>(action: AnyAction): action is IObservableStateAction<Type, Payload, State, ExtraProcessInput, StateChangeNotificationKey> {
     if (!action) {

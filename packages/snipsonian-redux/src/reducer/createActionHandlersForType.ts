@@ -103,6 +103,6 @@ export function createActionHandlersForType<ReducerState>(actionType: string): I
         handleAction: ICreateNewState<ReducerState, Payload>,
     ): void {
         handlers[actualActionType] =
-            createActionHandler<ReducerState>(handleAction as ICreateNewState<ReducerState, {}>);
+            createActionHandler<ReducerState>(handleAction as unknown as ICreateNewState<ReducerState, object>);
     }
 }

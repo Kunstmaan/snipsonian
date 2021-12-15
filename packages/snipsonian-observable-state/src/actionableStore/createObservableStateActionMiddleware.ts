@@ -32,7 +32,7 @@ export default function createObservableStateActionMiddleware<
     const middleware: Middleware = ({ getState }: MiddlewareAPI<Dispatch<Action>, State>) =>
         (next: Dispatch<Action>) =>
             (action: Action) => {
-                if (isObservableStateAction<string, {}, State, ExtraProcessInput, StateChangeNotificationKey>(action)) {
+                if (isObservableStateAction<string, object, State, ExtraProcessInput, StateChangeNotificationKey>(action)) {
                     const filterHookResultingAction = executeFilterHook(action);
 
                     if (filterHookResultingAction === false) {
@@ -59,8 +59,8 @@ export default function createObservableStateActionMiddleware<
                 return next(action);
 
                 function executeFilterHook(
-                    incomingAction: IObservableStateAction<string, {}, State, ExtraProcessInput, StateChangeNotificationKey>,
-                ): TFilterHookResult<IObservableStateAction<string, {}, State, ExtraProcessInput, StateChangeNotificationKey>> {
+                    incomingAction: IObservableStateAction<string, object, State, ExtraProcessInput, StateChangeNotificationKey>,
+                ): TFilterHookResult<IObservableStateAction<string, object, State, ExtraProcessInput, StateChangeNotificationKey>> {
                     if (incomingAction.filter) {
                         const filterResultingAction = incomingAction.filter({
                             action: incomingAction,
@@ -84,7 +84,7 @@ export default function createObservableStateActionMiddleware<
                     return incomingAction;
                 }
 
-                function executeProcessHook(filteredAction: IObservableStateAction<string, {}, State, ExtraProcessInput, StateChangeNotificationKey>): void {
+                function executeProcessHook(filteredAction: IObservableStateAction<string, object, State, ExtraProcessInput, StateChangeNotificationKey>): void {
                     /* the hook can return a promise, but here we're not really interested in the result of said promise
                        as it will just (probably) call the setState directly on success and/or fail */
 

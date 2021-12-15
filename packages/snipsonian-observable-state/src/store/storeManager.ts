@@ -6,12 +6,12 @@ import { IObservableStateStore } from './types';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-let registeredStore: IObservableStateStore<{}, any>;
+let registeredStore: IObservableStateStore<object, any>;
 
 export function registerStore<State, StateChangeNotificationKey>(
     store: IObservableStateStore<State, StateChangeNotificationKey>,
 ): void {
-    registeredStore = store as unknown as IObservableStateStore<{}, any>;
+    registeredStore = store as unknown as IObservableStateStore<object, any>;
 }
 
 /* eslint-enable @typescript-eslint/no-explicit-any */

@@ -3,7 +3,7 @@ import isSet from '@snipsonian/core/src/is/isSet';
 import isObjectPure from '@snipsonian/core/src/is/isObjectPure';
 import localStorage from '@snipsonian/browser/src/storage/localStorage';
 
-export default function getLocalDvlpConfig<DvlpConfig extends object = {}>({
+export default function getLocalDvlpConfig<DvlpConfig extends object = object>({
     storageKey,
     defaultDevConfig = ({} as DvlpConfig),
 }: {

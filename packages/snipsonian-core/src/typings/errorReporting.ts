@@ -5,7 +5,7 @@ export interface IReportOptions {
     extra?: object;
 }
 
-export interface IErrorReporter<UserContext, ExtraContext = {}> {
+export interface IErrorReporter<UserContext, ExtraContext = object> {
     reportException: (error: Error, options?: IReportOptions) => void;
     reportMessage: (message: string, options?: IReportOptions) => void;
     reportCriticalMessage: (message: string, extra?: object) => void;

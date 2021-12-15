@@ -7,7 +7,7 @@ export default function createConsoleLoggerMiddleware({
 } = {}): Middleware {
     const isGroupingSupported = console.group;
 
-    return (store: MiddlewareAPI<Dispatch<Action>, {}>) =>
+    return (store: MiddlewareAPI<Dispatch<Action>, object>) =>
         (next: Dispatch<Action>) =>
             (action: Action) => {
                 const groupLabel = action.type;

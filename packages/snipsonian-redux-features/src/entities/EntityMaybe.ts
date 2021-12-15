@@ -1,5 +1,6 @@
 import isNull from '@snipsonian/core/src/is/isNull';
 import isUndefined from '@snipsonian/core/src/is/isUndefined';
+import { TEmptyObject } from '@snipsonian/core/src/typings/object';
 
 export class EntityMaybe<Data> {
     private readonly value: Data | null | undefined;
@@ -38,7 +39,7 @@ export class EntityMaybe<Data> {
         return this.getOrElse([] as unknown as Data);
     }
 
-    public getOrEmptyObject(): Data | {} {
+    public getOrEmptyObject(): Data | TEmptyObject {
         return this.getOrElse({} as unknown as Data);
     }
 

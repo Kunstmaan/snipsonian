@@ -1,4 +1,4 @@
-import { Dispatch, Action } from 'redux';
+import { Dispatch } from 'redux';
 import { IAction } from '../../action/types';
 
 export type TOnActionType = string | string[];
@@ -17,13 +17,13 @@ export interface IOnActionTypeRegex {
  *   p.s. returning an action with another type is not supported (it's possible that the wrong journeys
  *   would pick up that returned action)
  */
-export type TFilterHookResult = IAction<{}> | false;
+export type TFilterHookResult = IAction<object> | false;
 
 export type TFilterHook<State, IncomingAction> = (
     input: {
         getState: () => State;
         action: IncomingAction;
-        dispatch: Dispatch<Action<{}>>; // dispatched action should be different than incoming action
+        dispatch: Dispatch<IAction<object>>; // dispatched action should be different than incoming action
     }
 ) => TFilterHookResult;
 
@@ -31,11 +31,12 @@ export type TProcessHook<State, IncomingAction, ExtraProcessInput> = (
     input: {
         getState: () => State;
         action: IncomingAction;
-        dispatch: Dispatch<Action<{}>>; // dispatched action should be different than incoming action
+        dispatch: Dispatch<IAction<object>>; // dispatched action should be different than incoming action
     } & ExtraProcessInput
 ) => void | Promise<void>;
 
-export interface IJourneyConfig<State, IncomingAction extends IAction<{}>, ExtraProcessInput extends object = {}> {
+export interface IJourneyConfig
+<State, IncomingAction extends IAction<object>, ExtraProcessInput extends object = object> {
     onActionType?: TOnActionType;
     onActionTypeRegex?: IOnActionTypeRegex;
 
@@ -46,23 +47,23 @@ export interface IJourneyConfig<State, IncomingAction extends IAction<{}>, Extra
     process?: TProcessHook<State, IncomingAction, ExtraProcessInput>;
 }
 
-export type TRegisteredJourney = IJourneyConfig<{}, IAction<{}>>;
+export type TRegisteredJourney = IJourneyConfig<object, IAction<object>>;
 
-export interface IActionJourneyHooks<State = {}, IncomingAction = IAction<{}>, ExtraProcessInput = {}> {
+export interface IActionJourneyHooks<State = object, IncomingAction = IAction<object>, ExtraProcessInput = object> {
     filterHooks: TFilterHook<State, IncomingAction>[];
     processHooks: TProcessHook<State, IncomingAction, ExtraProcessInput>[];
 }
 
-export interface IActionType2JourneyHooksMap<State = {}, IncomingAction = IAction<{}>> {
+export interface IActionType2JourneyHooksMap<State = object, IncomingAction = IAction<object>> {
     [actionType: string]: IActionJourneyHooks<State, IncomingAction>;
 }
 
-export interface IActionTypeRegex2JourneyHooks<State = {}, IncomingAction = IAction<{}>>
+export interface IActionTypeRegex2JourneyHooks<State = object, IncomingAction = IAction<object>>
     extends IActionJourneyHooks<State, IncomingAction> {
     actionTypeRegex: RegExp;
 }
 
-export interface IActionType2JourneyHooksMaps<State = {}, IncomingAction = IAction<{}>> {
+export interface IActionType2JourneyHooksMaps<State = object, IncomingAction = IAction<object>> {
     actionType2HooksMap: IActionType2JourneyHooksMap<State, IncomingAction>;
     actionTypeRegex2HooksList: IActionTypeRegex2JourneyHooks<State, IncomingAction>[];
 }

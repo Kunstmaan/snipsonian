@@ -19,13 +19,13 @@ export type TWhenCallback = (props: IWhenProps) => void;
 export type TThenCallback<State> = (props: IThenProps<State>) => void;
 
 interface IGivenProps<State> {
-    initialiseState: (...setupActions: IAction<{}>[]) => void;
+    initialiseState: (...setupActions: IAction<object>[]) => void;
     getState: () => State;
 }
 
 interface IWhenProps {
     triggerAction: (
-        action: IAction<{}>,
+        action: IAction<object>,
         options?: ITestOptions,
     ) => void;
 }

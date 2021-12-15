@@ -21,8 +21,8 @@ export function updateEntitiesGeneric<EntitiesReducerState>(
     return createAction(UPDATE_ENTITIES_GENERIC, payload);
 }
 
-export function updateAsyncEntitiesChain<Error = ITraceableApiErrorBase<{}>>(
-    dispatch: Dispatch<IAction<{}>>,
+export function updateAsyncEntitiesChain<Error = ITraceableApiErrorBase<object>>(
+    dispatch: Dispatch<IAction<object>>,
 ): IUpdateAsyncEntitiesActionCreatorChain<Error> {
     const payload: IUpdateAsyncEntitiesPayload<Error> = {};
 

@@ -23,9 +23,11 @@ const dummyUpdateActions = createTypeActions<IDummyUpdateTriggerPayload, IDummyU
     type: dummyActionTypes.DUMMY_UPDATE,
 });
 
-const increaseCountAction = (): IAction<{}> => createAction<{}>(dummyActionTypes.INCREASE_COUNT, {});
+const increaseCountAction = (): IAction<object> =>
+    createAction<object>(dummyActionTypes.INCREASE_COUNT, {});
 
-const resetAllAction = (): IAction<{}> => createAction<{}>(dummyActionTypes.RESET_ALL, {});
+const resetAllAction = (): IAction<object> =>
+    createAction<object>(dummyActionTypes.RESET_ALL, {});
 
 interface IDummyUpdateTriggerPayload {
     newValue: string;

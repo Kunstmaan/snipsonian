@@ -50,8 +50,10 @@ const entitiesInitialState: ITestEntitiesReducerState = {
     testAmount: getAsyncEntityInitialState({ data: 0, type: 'other' }),
 };
 
-const resetAllAction = (): IAction<{}> => createAction<{}>(testActionTypes.RESET_ALL, {});
-const willTriggerApiFetchAction = (): IAction<{}> => createAction<{}>(testActionTypes.WILL_TRIGGER_API_FETCH, {});
+const resetAllAction = (): IAction<object> =>
+    createAction<object>(testActionTypes.RESET_ALL, {});
+const willTriggerApiFetchAction = (): IAction<object> =>
+    createAction<object>(testActionTypes.WILL_TRIGGER_API_FETCH, {});
 
 const { key, initialState, actionHandlers } = initReducerBuildingBlocks<ITestEntitiesReducerState>({
     reducerKey: 'testEntitiesKey',
@@ -124,7 +126,7 @@ const { given, when, then } = getReduxIntegrationTester<ITestAppState>({
 });
 
 describe('Entities integration tests:', () => {
-    const DUMMY_ERROR: ITraceableApiErrorBase<{}> = {
+    const DUMMY_ERROR: ITraceableApiErrorBase<object> = {
         status: 400,
         traceableId: '258',
         wasCancelled: false,

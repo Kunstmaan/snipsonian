@@ -15,7 +15,7 @@ type TSetFieldValue<Values> =
 export interface IFormRenderProps<Values, ErrorTypes, Errors = ValidationErrors<Values, ErrorTypes>> {
     values: Values;
     errors: Errors;
-    handleChange: (e: React.ChangeEvent<{}>) => void;
+    handleChange: (e: React.ChangeEvent<object>) => void;
     dirty: boolean;
     isValid: boolean;
     touched: FormikTouched<Values>;
@@ -46,7 +46,7 @@ interface IPublicProps<Values, ErrorTypes> {
     /**
      * The form content
      */
-    render: (formRenderProps: IFormRenderProps<Values, ErrorTypes>) => React.ReactElement<{}>;
+    render: (formRenderProps: IFormRenderProps<Values, ErrorTypes>) => React.ReactElement<object>;
     /**
      * The base translation key, will be passed to components using the FormContext
      */

@@ -6,7 +6,7 @@ import { toAnchorTargetId } from '../../../utils/anchor';
 const DEFAULT_WRAPPER_CLASS_NAME = 'PageParts';
 
 export interface IPagePartsProps {
-    pageParts: IPagePart<string, {}>[];
+    pageParts: IPagePart[];
     pagePartType2ComponentMap: IPagePartType2ComponentMap;
     pagePartIdPrefix: string;
     wrapPageParts?: {

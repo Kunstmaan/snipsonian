@@ -5,12 +5,12 @@ import { IAction } from '../../action/types';
 
 let registeredJourneys: TRegisteredJourney[] = [];
 
-export function registerJourney<State, Action extends IAction<{}>, ExtraProcessInput extends object = {}>(
+export function registerJourney<State, Action extends IAction<object>, ExtraProcessInput extends object = object>(
     journey: IJourneyConfig<State, Action, ExtraProcessInput>,
 ): void {
     validateJourney<State, Action, ExtraProcessInput>(journey);
 
-    registeredJourneys.push(journey as TRegisteredJourney);
+    registeredJourneys.push(journey as unknown as TRegisteredJourney);
 }
 
 export function getRegisteredJourneys(): TRegisteredJourney[] {
@@ -20,7 +20,7 @@ export function getRegisteredJourneys(): TRegisteredJourney[] {
     return registeredJourneys;
 }
 
-function validateJourney<State, Action extends IAction<{}>, ExtraProcessInput extends object = {}>(
+function validateJourney<State, Action extends IAction<object>, ExtraProcessInput extends object = object>(
     journey: IJourneyConfig<State, Action, ExtraProcessInput>,
 ): void {
     assert(

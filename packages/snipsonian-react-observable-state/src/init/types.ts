@@ -19,11 +19,11 @@ interface IObservePropsBase<StateChangeNotificationKey> {
 
 export interface IReactObservableState<State, StateChangeNotificationKey>
     extends IReactObservableStateBase<State, StateChangeNotificationKey> {
-    observe: <PublicProps = {}>(
+    observe: <PublicProps = object>(
         notifications: StateChangeNotificationKey[],
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;
-    observeXL: <PrivateProps = IStoreForComp<State, StateChangeNotificationKey>, PublicProps = {}>(
+    observeXL: <PrivateProps = IStoreForComp<State, StateChangeNotificationKey>, PublicProps = object>(
         props: IObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;
@@ -57,11 +57,11 @@ export interface IObserveSetProps<State, StateChangeNotificationKey, PublicProps
 export interface IActionableReactObservableState<State, StateChangeNotificationKey>
     // eslint-disable-next-line max-len
     extends IReactObservableStateBase<State, StateChangeNotificationKey, IActionableObservableStateStore<State, StateChangeNotificationKey>> {
-    observe: <PublicProps = {}>(
+    observe: <PublicProps = object>(
         notifications: StateChangeNotificationKey[],
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;
-    observeXL: <PrivateProps = IActionableStoreForComp<State, StateChangeNotificationKey>, PublicProps = {}>(
+    observeXL: <PrivateProps = IActionableStoreForComp<State, StateChangeNotificationKey>, PublicProps = object>(
         props: IActionableObserveProps<State, StateChangeNotificationKey, PrivateProps, PublicProps>,
         WrappedComponent: React.ElementType,
     ) => React.ElementType<PublicProps>;

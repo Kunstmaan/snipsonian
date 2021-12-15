@@ -14,7 +14,7 @@ export default function initActionableReactObservableState<State, StateChangeNot
     const ObservableStateContext = createObservableStateContext<State, StateChangeNotificationKey, IActionableObservableStateStore<State, StateChangeNotificationKey>>();
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    function observe<PublicProps = {}>(
+    function observe<PublicProps = object>(
         notifications: StateChangeNotificationKey[],
         WrappedComponent: React.ElementType,
     ) {
@@ -28,7 +28,7 @@ export default function initActionableReactObservableState<State, StateChangeNot
     }
 
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-    function observeXL<PrivateProps, PublicProps = {}>(
+    function observeXL<PrivateProps, PublicProps = object>(
         {
             notifications,
             select,

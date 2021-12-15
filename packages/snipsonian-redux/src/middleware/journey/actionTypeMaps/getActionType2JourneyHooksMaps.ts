@@ -40,14 +40,14 @@ export default function getActionType2JourneyHooksMaps(
             journeyHooksMaps.actionType2HooksMap[actionType]
                 .filterHooks
                 .push(
-                    journey.filter as TFilterHook<{}, {}>,
+                    journey.filter as TFilterHook<object, object>,
                 );
         }
         if (journey.process) {
             journeyHooksMaps.actionType2HooksMap[actionType]
                 .processHooks
                 .push(
-                    journey.process as TProcessHook<{}, {}, {}>,
+                    journey.process as TProcessHook<object, object, object>,
                 );
         }
     }
@@ -62,13 +62,13 @@ export default function getActionType2JourneyHooksMaps(
         if (journey.filter) {
             regexMapping.filterHooks
                 .push(
-                    journey.filter as TFilterHook<{}, {}>,
+                    journey.filter as TFilterHook<object, object>,
                 );
         }
         if (journey.process) {
             regexMapping.processHooks
                 .push(
-                    journey.process as TProcessHook<{}, {}, {}>,
+                    journey.process as TProcessHook<object, object, object>,
                 );
         }
 

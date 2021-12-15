@@ -7,7 +7,7 @@ export interface IBuilderOptions {
     buildStateName?: string;
 }
 
-export interface IBuilder<Result = {}> {
+export interface IBuilder<Result = object> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     getBuildParam: (key: string) => any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

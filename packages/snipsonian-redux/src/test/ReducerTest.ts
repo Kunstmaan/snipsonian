@@ -9,7 +9,7 @@ class ReducerTest<ReducerState> {
     public constructor(reducer: TReducer<ReducerState>) {
         this.reducer = reducer;
 
-        this.initialState = this.reducer(undefined, {} as IAction<{}>);
+        this.initialState = this.reducer(undefined, {} as IAction<object>);
 
         this.state = this.initialState;
     }
@@ -18,7 +18,7 @@ class ReducerTest<ReducerState> {
         action,
         previousState = this.state,
     }: {
-        action: IAction<{}>;
+        action: IAction<object>;
         previousState: ReducerState;
     }): ReducerState {
         this.state = this.reducer(previousState, action);
