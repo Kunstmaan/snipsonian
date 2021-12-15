@@ -1,24 +1,34 @@
-const replace = require('replace-in-file');
+const { replaceInFile } = require('replace-in-file');
 
-replaceSnipsonianSrcImportsToEsImports();
+const args = process.argv.slice(2);
+const targetFolder = args[0];
 
-async function replaceSnipsonianSrcImportsToEsImports() {
-    console.error('Replacing snipsonian-src-imports with es-imports ...');
+if (!targetFolder || targetFolder.length === 0) {
+    throw new Error('Please provide a "targetFolder" as input, e.g. "es" or "cjs"');
+}
+
+replaceSnipsonianSrcImports({
+    targetFolder,
+});
+
+async function replaceSnipsonianSrcImports({ targetFolder }) {
+    console.error(`Replacing snipsonian-src-imports with ${targetFolder}-imports ...`);
 
     const replaceOptions = {
         files: [
-            'packages/*/es/**/*.js',
-            'packages/*/es/**/*.d.ts',
-            'packages/*/cjs/**/*.js',
-            'packages/*/cjs/**/*.d.ts'
+            `packages/*/${targetFolder}/**/*.js`,
+            `packages/*/${targetFolder}/**/*.d.ts`,
         ],
-        from: /'@snipsonian\/[a-zA-Z\-]*\/src\//g,
-        to: (match) => match.replace('/src/', '/es/'),
+        from: /@snipsonian\/[a-zA-Z\-]*\/src\//g,
+        to: (match) => match.replace('/src/', `/${targetFolder}/`),
     };
 
     try {
-        const changes = await replace(replaceOptions)
-        console.log('Modified files:', changes.join(', '));
+        const replaceResults = await replaceInFile(replaceOptions)
+        console.log('Modified files:', replaceResults
+            .filter((replaceResult) => replaceResult.hasChanged)
+            .map((replaceResult) => replaceResult.file)
+            .join(', '));
     } catch (error) {
         console.error('Error occurred:', error);
     }

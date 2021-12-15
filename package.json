@@ -9,9 +9,11 @@
     "lintTs": "eslint --ext .ts,.tsx packages *.ts",
     "test": "npm run lintJs && npm run lintTs && jest && npm run lintScss",
     "jest": "jest --watch --verbose",
-    "del-generated": "del packages/*/es/** packages/*/cjs/**",
+    "del-generated-es": "del packages/*/es/**",
+    "del-generated-cjs": "del packages/*/cjs/**",
     "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
-    "to-es": "npm run del-generated && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.json && npm run replace-snipsonian-imports",
+    "to-es": "npm run del-generated-es && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.json && npm run replace-snipsonian-imports -- es",
+    "to-cjs": "npm run del-generated-cjs && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.cjs.json && npm run replace-snipsonian-imports -- cjs",
     "preversion": "npm test",
     "postversion": "git push && git push --tags",
     "npm-audit": "npm audit && npx lerna exec -- npm audit"
