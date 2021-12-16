@@ -1,11 +1,11 @@
 {
   "name": "@snipsonian/api",
-  "version": "1.11.0",
+  "version": "2.0.0",
   "description": "Api snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "dependencies": {
-    "@snipsonian/core": "^1.11.0"
+    "@snipsonian/core": "^2.0.0"
   },
   "keywords": [
     "fetch"

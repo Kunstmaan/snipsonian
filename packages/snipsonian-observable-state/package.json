@@ -1,12 +1,12 @@
 {
   "name": "@snipsonian/observable-state",
-  "version": "1.13.0",
+  "version": "2.0.0",
   "description": "Observable-state snippets (redux-like)",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "dependencies": {
-    "@snipsonian/browser": "^1.12.0",
-    "@snipsonian/core": "^1.11.0"
+    "@snipsonian/browser": "^2.0.0",
+    "@snipsonian/core": "^2.0.0"
   },
   "keywords": [
     "observable",
