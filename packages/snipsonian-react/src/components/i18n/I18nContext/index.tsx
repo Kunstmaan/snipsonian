@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { TTranslator } from '../translator/types';
 
 const I18nContext = React.createContext({

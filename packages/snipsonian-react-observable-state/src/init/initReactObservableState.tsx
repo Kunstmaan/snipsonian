@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { IStateObserver } from '@snipsonian/observable-state/src/observer/createStateObserverManager';
 import createObservableStateContext from '../context/createObservableStateContext';
 import { IReactObservableState, IObserveProps, IStoreForComp } from './types';

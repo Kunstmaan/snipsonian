@@ -14,7 +14,8 @@ tslint.json
 node_modules
 package-lock.json
 
-*.spec.ts
+/packages/*/tsconfig.*
+/packages/**/*.spec.ts
 
 .idea
 .DS_Store

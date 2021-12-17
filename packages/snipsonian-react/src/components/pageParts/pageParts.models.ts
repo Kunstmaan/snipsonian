@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export interface IPagePart<PagePartType = string, PagePartData = object> {
     type: PagePartType;

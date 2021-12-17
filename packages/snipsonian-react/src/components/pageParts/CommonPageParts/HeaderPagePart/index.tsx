@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { IPagePartComponentProps } from '../../pageParts.models';
 import Translate from '../../../i18n/Translate';
 import { toAnchorTargetId } from '../../../../utils/anchor';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { IPagePart, IPagePartType2ComponentMap } from '../pageParts.models';
 
 const CLASS_NAME = 'PagePart';
