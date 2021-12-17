@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 
 enum VisibilityState {
     NOT_STARTED = 'NOT_STARTED',
@@ -18,7 +18,7 @@ export interface IShowAfterDelayProps {
     showDuringDelayComponent?: React.ReactNode;
 }
 
-export default class ShowAfterDelay extends PureComponent<IShowAfterDelayProps, IComponentState> {
+export default class ShowAfterDelay extends React.PureComponent<IShowAfterDelayProps, IComponentState> {
     private delayBeforeShowTimeout: number;
     private minDurationTimeout: number;
 

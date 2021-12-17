@@ -1,4 +1,4 @@
-import React, { ReactElement, Fragment } from 'react';
+import * as React from 'react';
 import { ITranslatorPlaceholders } from '../translator/types';
 import I18nContext from '../I18nContext';
 
@@ -39,7 +39,7 @@ export default function Translate({
                     placeholders,
                     raw,
                     htmlTransformer,
-                ) as ReactElement<object>
+                ) as React.ReactElement<object>
             )}
         </I18nContext.Consumer>
     );
@@ -86,7 +86,7 @@ function injectReactPlaceholders(
 
                     return (
                         // eslint-disable-next-line react/no-array-index-key
-                        <Fragment key={`translate-message-part-${index}-${keySuffix}`}>
+                        <React.Fragment key={`translate-message-part-${index}-${keySuffix}`}>
                             {
                                 // eslint-disable-next-line no-nested-ternary
                                 placeholderReplacement
@@ -104,7 +104,7 @@ function injectReactPlaceholders(
                                             : messagePart
                                     )
                             }
-                        </Fragment>
+                        </React.Fragment>
                     );
                 })}
             </>

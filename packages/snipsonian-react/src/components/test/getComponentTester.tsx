@@ -1,4 +1,4 @@
-import React, { ComponentType, ReactElement } from 'react';
+import * as React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'jest-dom/extend-expect';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -26,7 +26,7 @@ export default function getComponentTester<GivenProps extends object, ExtraThenP
     givenProps?: GivenProps;
     extraThenProps?: ExtraThenProps;
     onGivenStart?: () => void;
-    ComponentWrapper: ComponentType<IComponentWrapperProps>;
+    ComponentWrapper: React.ComponentType<IComponentWrapperProps>;
 }) {
     let renderResult: RenderResult;
 
@@ -42,7 +42,7 @@ export default function getComponentTester<GivenProps extends object, ExtraThenP
 
         when(callback: TWhenCallback) {
             callback({
-                render: (component: ReactElement) => {
+                render: (component: React.ReactElement) => {
                     if (ComponentWrapper) {
                         renderResult = render(
                             (

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import { FormikProps, withFormik, FormikTouched, validateYupSchema, FormikBag, makeCancelable } from 'formik';
 
@@ -67,7 +67,7 @@ export const FormContext = React.createContext({
     translationPrefix: '',
 });
 
-class Form<Values, ErrorTypes> extends PureComponent<IPublicProps<Values, ErrorTypes> & FormikProps<Values>> {
+class Form<Values, ErrorTypes> extends React.PureComponent<IPublicProps<Values, ErrorTypes> & FormikProps<Values>> {
     private isInitialValid = true;
     private cancelValidateForm: (() => void) | null = null;
 

@@ -1,8 +1,8 @@
-import React, { Component, ComponentClass, createElement, StatelessComponent } from 'react';
+import * as React from 'react';
 import { IPage } from '../../../models/pages.models';
 import { isReactComponentClass } from '../../../utils/isReactComponentClass';
 
-const cachedAsyncPages: { [pageKey: string]: ComponentClass | (() => JSX.Element) } = {};
+const cachedAsyncPages: { [pageKey: string]: React.ComponentClass | (() => JSX.Element) } = {};
 
 interface IPublicProps {
     page: IPage;
@@ -11,7 +11,7 @@ interface IPublicProps {
     AsyncPageLoader?: React.ReactType;
 }
 
-export default class BodySwitcher extends Component<IPublicProps> {
+export default class BodySwitcher extends React.Component<IPublicProps> {
     public shouldComponentUpdate(nextProps: IPublicProps) {
         const { page, pageProps } = this.props;
         return (
@@ -30,7 +30,7 @@ export default class BodySwitcher extends Component<IPublicProps> {
         const { page, pageProps } = this.props;
         const possibleAsyncPage = cachedAsyncPages[page.key];
         if (typeof possibleAsyncPage !== 'undefined') {
-            return createElement<{ renderProps?: object }>(possibleAsyncPage, { ...pageProps, renderProps });
+            return React.createElement<{ renderProps?: object }>(possibleAsyncPage, { ...pageProps, renderProps });
         }
 
         return this.loadPage(renderProps);
@@ -48,9 +48,9 @@ export default class BodySwitcher extends Component<IPublicProps> {
                 });
                 return !!AsyncPageLoader && <AsyncPageLoader />;
             }
-            return createElement<{ renderProps?: object }>(page.component as StatelessComponent, props);
+            return React.createElement<{ renderProps?: object }>(page.component as React.StatelessComponent, props);
         }
-        return createElement<{ renderProps?: object }>(page.component, props);
+        return React.createElement<{ renderProps?: object }>(page.component, props);
     }
 }
 

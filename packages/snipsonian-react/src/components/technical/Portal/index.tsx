@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 interface IProps {
-    children: ReactNode;
+    children: React.ReactNode;
     domNode: HTMLElement;
 }
 
