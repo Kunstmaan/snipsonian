@@ -1,4 +1,4 @@
-import flatten from 'flat';
+import { flatten } from 'flat';
 import localStorage from '@snipsonian/browser/src/storage/localStorage';
 import { ITranslations, ITranslationsPerLocale } from './types';
 

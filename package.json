@@ -12,6 +12,7 @@
     "del-generated-es": "del packages/*/es/**",
     "del-generated-cjs": "del packages/*/cjs/**",
     "replace-snipsonian-imports": "node bin/code/replaceSnipsonianImports.js",
+    "transpile": "npm run to-es && npm run to-cjs",
     "to-es": "npm run del-generated-es && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.json && npm run replace-snipsonian-imports -- es",
     "to-cjs": "npm run del-generated-cjs && lerna exec --ignore @snipsonian/scss -- tsc --project tsconfig.cjs.json && npm run replace-snipsonian-imports -- cjs",
     "preversion": "npm test",

@@ -42,11 +42,10 @@ Runs sequentially the linters and the unit tests.
 ### Publish new version
 
 1. `nvm use`
-2. execute `npm run to-es` to transpile the typescript code to .js and .d.ts files under the "/es" folders (per package)
-3. execute `npm run to-cjs` to transpile the typescript code to `common js` .js and .d.ts files under the "/cjs" folders (per package) which can be used by node js applications
-4. manually briefly check the generated folders (snipsonian-analytics was previously generated somewhat wrong, but that issue is now fixed !)
-5. switch to the appropriate npm user
-6. execute one of:  (see https://github.com/lerna/lerna/tree/master/commands/publish)
+2. execute `npm run transpile` to transpile the typescript code to .js and .d.ts files under the "/es" and "/cjs" (common js for node) folders (per package)
+3. manually briefly check the generated folders (snipsonian-analytics was previously generated somewhat wrong, but that issue is now fixed !)
+4. switch to the appropriate npm user
+5. execute one of:  (see https://github.com/lerna/lerna/tree/master/commands/publish)
     * `npx lerna publish` = publish packages that have changed since the last release
     * `npx lerna publish from-git` = explicitly publish packages tagged in the current commit
     * `npx lerna publish from-package` = explicitly publish packages where the latest version is not present in the registry
