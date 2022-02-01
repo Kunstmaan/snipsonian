@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/core",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Core/base reusable javascript code snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
