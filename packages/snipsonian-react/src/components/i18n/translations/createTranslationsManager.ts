@@ -1,6 +1,8 @@
 import { flatten } from 'flat';
+import isString from '@snipsonian/core/src/is/isString';
 import localStorage from '@snipsonian/browser/src/storage/localStorage';
 import { ITranslations, ITranslationsPerLocale } from './types';
+import { TranslationError } from './translationError';
 
 export interface ITranslationsManager {
     supportedLocales: string[];
@@ -18,12 +20,28 @@ export interface ITranslationsManagerConfig {
     // the 'initialTranslations' will be used if there are no translations yet stored in local storage
     initialTranslations: ITranslationsPerLocale;
     localStorageKey?: string; // only specify if translations have to be stored in localStorage
+    /**
+     * Will be called when, in the 'getTranslation' method, no translation was found for the input locale-key combo.
+     * E.g. to be used for logging or error reporting.
+     */
+    onTranslationNotFound?: (input: { locale: string; msgKey: string }) => void;
+    /**
+     * When getTranslation is called and this string is ...
+     * - 'return_key' (default) --> the translation key itself will be returned when no translation was found for it
+     * - 'throw_error' --> an error will be thrown when there was no translation found for the key
+     * - custom function --> the result of this function will be returned
+     */
+    returnWhenTranslationNotFound?: 'return_key' | 'throw_error' | TCustomReturnFunctionWhenTranslationNotFound;
 }
+
+type TCustomReturnFunctionWhenTranslationNotFound = (input: { locale: string; msgKey: string }) => string;
 
 export default function createTranslationsManager({
     locales,
     initialTranslations,
     localStorageKey,
+    onTranslationNotFound,
+    returnWhenTranslationNotFound = 'return_key',
 }: ITranslationsManagerConfig): ITranslationsManager {
     const allTranslations = getTranslationsToStartWith();
 
@@ -53,7 +71,27 @@ export default function createTranslationsManager({
         },
 
         getTranslation({ locale, msgKey }: { locale: string; msgKey: string }) {
-            return translationsManager.getTranslationsOfLocale({ locale })[msgKey];
+            const translation = translationsManager.getTranslationsOfLocale({ locale })[msgKey];
+
+            if (!isString(translation)) {
+                if (onTranslationNotFound) {
+                    onTranslationNotFound({ locale, msgKey });
+                }
+
+                switch (returnWhenTranslationNotFound) {
+                    case 'return_key':
+                        return msgKey;
+                    case 'throw_error':
+                        throw new TranslationError({
+                            locale,
+                            msgKey,
+                        });
+                    default:
+                        return returnWhenTranslationNotFound({ locale, msgKey });
+                }
+            }
+
+            return translation;
         },
 
         areTranslationsRefreshedForLocale(locale: string) {

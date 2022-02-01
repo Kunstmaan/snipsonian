@@ -25,7 +25,7 @@ export default function Translate({
     raw = false,
     htmlTransformer = DEFAULT_HTML_TRANSFORMER,
 }: IPublicProps) {
-    const renderedPlaceholders = renderBasicPlaceholders(placeholders);
+    const renderedBasicPlaceholders = renderBasicPlaceholders(placeholders);
 
     // Typings don't support yet returning a string from a stateless component
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20544
@@ -34,7 +34,7 @@ export default function Translate({
             {({ translator }) => (
                 injectReactPlaceholders(
                     translator(
-                        { msg, placeholders: renderedPlaceholders },
+                        { msg, placeholders: renderedBasicPlaceholders },
                     ),
                     placeholders,
                     raw,
@@ -46,18 +46,20 @@ export default function Translate({
 }
 
 function renderBasicPlaceholders(placeholders: ITranslatorPlaceholders): IRenderedPlaceholders {
-    const renderedPlaceholders: IRenderedPlaceholders = {};
+    return Object.keys(placeholders).reduce(
+        (accumulator, key) => {
+            const value = placeholders[key];
 
-    Object.keys(placeholders).forEach((key) => {
-        const value = placeholders[key];
-        if (typeof value === 'string') {
-            renderedPlaceholders[key] = value;
-        } else if (typeof value === 'number') {
-            renderedPlaceholders[key] = value.toString();
-        }
-    });
+            if (typeof value === 'string') {
+                accumulator[key] = value;
+            } else if (typeof value === 'number') {
+                accumulator[key] = value.toString();
+            }
 
-    return renderedPlaceholders;
+            return accumulator;
+        },
+        {},
+    );
 }
 
 function injectReactPlaceholders(

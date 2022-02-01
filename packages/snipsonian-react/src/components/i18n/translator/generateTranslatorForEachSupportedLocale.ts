@@ -1,7 +1,6 @@
-import replacePlaceholders from '@snipsonian/core/src/string/replacePlaceholders';
-import { ILocaleTranslators, TTranslatorInput } from './types';
+import { ILocaleTranslators } from './types';
 import { ITranslationsManager } from '../translations/createTranslationsManager';
-import { getTranslatorInputParts, setLocaleTranslators } from './translatorManager';
+import { initDefaultTranslator, setLocaleTranslators } from './translatorManager';
 
 /**
  * To avoid un-necessary re-renders, we want that the 'getTranslator' selector
@@ -21,17 +20,11 @@ export default function generateTranslatorForEachSupportedLocale({
         .reduce(
             (translatorAccumulator, locale) => {
                 // eslint-disable-next-line no-param-reassign
-                translatorAccumulator[locale] = (input: TTranslatorInput) => {
-                    const { msg, placeholders } = getTranslatorInputParts(input);
+                translatorAccumulator[locale] = initDefaultTranslator({
+                    locale,
+                    translationsManager,
+                });
 
-                    const translation = translationsManager.getTranslation({ locale, msgKey: msg });
-
-                    if (!translation) {
-                        return msg;
-                    }
-
-                    return replacePlaceholders({ placeholders, msg: translation });
-                };
                 return translatorAccumulator;
             },
             {} as ILocaleTranslators,

@@ -1,4 +1,6 @@
+import replacePlaceholders from '@snipsonian/core/src/string/replacePlaceholders';
 import { ILocaleTranslators, TTranslator, TTranslatorInput } from './types';
+import { ITranslationsManager } from '../translations/createTranslationsManager';
 
 export const SHOW_MSG_KEY_TRANSLATOR = (input: TTranslatorInput) => {
     const { msg } = getTranslatorInputParts(input);
@@ -57,6 +59,28 @@ function getTranslatorCopySoThatAfterTranslationsRefreshAllTranslationsWillBeReR
     }
 
     return translatorCopyCache[uniqueKey];
+}
+
+export function initDefaultTranslator({
+    locale,
+    translationsManager,
+}: {
+    locale: string;
+    translationsManager: ITranslationsManager;
+}) {
+    return (input: TTranslatorInput) => {
+        const { msg, placeholders } = getTranslatorInputParts(input);
+
+        const translation = translationsManager.getTranslation({ locale, msgKey: msg });
+
+        if (!translation) {
+            /** when translation not found, and the getTranslation did not throw an error, then
+             * the msg key itself will be returned */
+            return msg;
+        }
+
+        return replacePlaceholders({ placeholders, msg: translation });
+    };
 }
 
 export function getTranslatorInputParts(input: TTranslatorInput) {
