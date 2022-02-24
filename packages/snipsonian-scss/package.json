@@ -15,7 +15,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^5.1.0",
     "livingcss": "^5.0.2",
-    "node-notifier": "^5.4.0",
+    "node-notifier": "^8.0.1",
     "normalize.css": "^8.0.1",
     "postcss-reporter": "^6.0.1",
     "postcss-scss": "^2.0.0",
