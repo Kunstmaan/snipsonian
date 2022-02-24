@@ -2,6 +2,8 @@
    Object fit mixin
    ========================================================================== */
 
+@use "sass:map";
+
 @mixin snip-object-fit($fit: cover, $x: center, $y: center) {
     $yTransitions: (
         center: -50%,

@@ -1,6 +1,9 @@
 /* ==========================================================================
    Functions - Deep Get
    ========================================================================== */
+
+@use "sass:map";
+
 @function deep-get($key: null, $level: null, $map: null) {
     @if $key and $map {
         $found: null;
