@@ -1,4 +1,4 @@
-export interface IKeyValuePair<Key = string, Value = string> {
+export interface IKeyValuePair<Value = string, Key = string> {
     key: Key;
     value: Value;
 }

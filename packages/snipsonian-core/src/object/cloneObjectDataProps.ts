@@ -4,8 +4,9 @@
  * So if the input object contains e.g. a function, the cloned object would not contain that property.
  */
 import isObjectPure from '../is/isObjectPure';
+import { TAnyObject } from '../typings/object';
 
-export default function cloneObjectDataProps(obj: object): object {
+export default function cloneObjectDataProps<Obj = TAnyObject>(obj: Obj): Obj {
     if (!isObjectPure(obj)) {
         return null;
     }
