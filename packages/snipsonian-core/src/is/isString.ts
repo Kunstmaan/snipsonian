@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isString(val?: any): boolean {
-    return typeof val === 'string';
+export default function isString(input: string | unknown): input is string {
+    return typeof input === 'string';
 }

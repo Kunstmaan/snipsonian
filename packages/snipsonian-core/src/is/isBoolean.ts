@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isBoolean(val?: any): boolean {
-    return typeof val === 'boolean';
+export default function isBoolean(input: boolean | unknown): input is boolean {
+    return typeof input === 'boolean';
 }

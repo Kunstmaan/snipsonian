@@ -1,13 +1,13 @@
 import is from './index';
 
 describe('is:', () => {
+    // tslint:disable-next-line:prefer-const
+    let varWithoutValue: string;
+
     describe('is.undefined()', () => {
         it('returns true if input undefined', () => {
-            expect(is.undefined()).toEqual(true);
             expect(is.undefined(undefined)).toEqual(true);
 
-            // tslint:disable-next-line:prefer-const
-            let varWithoutValue;
             expect(is.undefined(varWithoutValue)).toEqual(true);
         });
 
@@ -35,6 +35,7 @@ describe('is:', () => {
             expect(is.null([])).toEqual(false);
             expect(is.null({})).toEqual(false);
 
+            expect(is.null(varWithoutValue)).toEqual(false);
             expect(is.null(undefined)).toEqual(false);
         });
     });
@@ -53,7 +54,7 @@ describe('is:', () => {
         });
 
         it('returns false if input undefined or null', () => {
-            expect(is.set()).toEqual(false);
+            expect(is.set(undefined)).toEqual(false);
             expect(is.set(null)).toEqual(false);
 
             const obj = {};
@@ -66,7 +67,6 @@ describe('is:', () => {
             expect(is.function(() => {})).toEqual(true);
             expect(is.function(sum)).toEqual(true);
 
-            expect(is.function()).toEqual(false);
             expect(is.function('')).toEqual(false);
             expect(is.function(0)).toEqual(false);
             expect(is.function([])).toEqual(false);
@@ -86,7 +86,6 @@ describe('is:', () => {
             expect(is.boolean(false)).toEqual(true);
             expect(is.boolean(dummyBool)).toEqual(true);
 
-            expect(is.boolean()).toEqual(false);
             expect(is.boolean('')).toEqual(false);
             expect(is.boolean(0)).toEqual(false);
             expect(is.boolean([])).toEqual(false);
@@ -104,7 +103,6 @@ describe('is:', () => {
             expect(is.number(450.06)).toEqual(true);
             expect(is.number(dummyNumb)).toEqual(true);
 
-            expect(is.number()).toEqual(false);
             expect(is.number('')).toEqual(false);
             expect(is.number([])).toEqual(false);
             expect(is.number({})).toEqual(false);
@@ -123,7 +121,6 @@ describe('is:', () => {
             expect(is.string(dummyStr)).toEqual(true);
             expect(is.string(`${dummyStr}_xyz`)).toEqual(true);
 
-            expect(is.string()).toEqual(false);
             expect(is.string(0)).toEqual(false);
             expect(is.string([])).toEqual(false);
             expect(is.string({})).toEqual(false);
@@ -138,7 +135,6 @@ describe('is:', () => {
             expect(is.array([])).toEqual(true);
             expect(is.array(dummyArr)).toEqual(true);
 
-            expect(is.array()).toEqual(false);
             expect(is.array('')).toEqual(false);
             expect(is.array(0)).toEqual(false);
             expect(is.array({})).toEqual(false);
@@ -156,7 +152,6 @@ describe('is:', () => {
             expect(is.object([])).toEqual(true); // an array is also an object
             expect(is.object(null)).toEqual(true); // null is also an object for JS
 
-            expect(is.object()).toEqual(false);
             expect(is.object('')).toEqual(false);
             expect(is.object(0)).toEqual(false);
             expect(is.object(() => {})).toEqual(false);
@@ -173,10 +168,35 @@ describe('is:', () => {
             expect(is.objectPure([])).toEqual(false); // !!!
             expect(is.objectPure(null)).toEqual(false); // !!!
 
-            expect(is.objectPure()).toEqual(false);
             expect(is.objectPure('')).toEqual(false);
             expect(is.objectPure(0)).toEqual(false);
             expect(is.objectPure(() => {})).toEqual(false);
+        });
+    });
+
+    describe('is.date()', () => {
+        it('returns only true if input is of type Date', () => {
+            expect(is.date(new Date())).toEqual(true);
+
+            expect(is.date(null)).toEqual(false);
+            expect(is.date(undefined)).toEqual(false);
+            expect(is.date({})).toEqual(false);
+            expect(is.date('2021-03-29')).toEqual(false);
+        });
+    });
+
+    describe('is.promise()', () => {
+        it('returns only true if input is a promise', () => {
+            expect(is.promise(Promise.resolve('success'))).toEqual(true);
+
+            const rejectedPromise = Promise
+                .reject(new Error('fail!'))
+                .catch(() => {});
+            expect(is.promise(rejectedPromise)).toEqual(true);
+
+            expect(is.promise(null)).toEqual(false);
+            expect(is.promise(undefined)).toEqual(false);
+            expect(is.promise({ then: 'is not a function' })).toEqual(false);
         });
     });
 
@@ -196,7 +216,6 @@ describe('is:', () => {
             expect(is.builder(DummyBuilderClass)).toEqual(false);
             expect(is.builder(new DummyBuilderClass())).toEqual(true);
 
-            expect(is.builder()).toEqual(false);
             expect(is.builder('')).toEqual(false);
             expect(is.builder(0)).toEqual(false);
             expect(is.builder([])).toEqual(false);

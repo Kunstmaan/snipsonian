@@ -1,4 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isObject(val?: any): boolean {
-    return typeof val === 'object';
+import { TAnyObject } from '../typings/object';
+
+export default function isObject<Obj = TAnyObject>(input: Obj | unknown): input is Obj {
+    return typeof input === 'object';
 }

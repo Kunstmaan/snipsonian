@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isUndefined(val?: any): boolean {
+export default function isUndefined(val: unknown): boolean {
     return typeof val === 'undefined';
 }

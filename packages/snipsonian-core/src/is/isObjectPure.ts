@@ -1,8 +1,8 @@
 import isObject from './isObject';
 import isArray from './isArray';
 import isNull from './isNull';
+import { TAnyObject } from '../typings/object';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function isObjectPure(val?: any): boolean {
-    return isObject(val) && !isArray(val) && !isNull(val);
+export default function isObjectPure<Obj = TAnyObject>(input: Obj | unknown): input is Obj {
+    return isObject(input) && !isArray(input) && !isNull(input);
 }

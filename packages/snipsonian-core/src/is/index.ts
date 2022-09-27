@@ -9,6 +9,8 @@ import isString from './isString';
 import isArray from './isArray';
 import isObject from './isObject';
 import isObjectPure from './isObjectPure';
+import isDate from './isDate';
+import isPromise from './isPromise';
 import isBuilder from './isBuilder';
 
 export default {
@@ -23,5 +25,7 @@ export default {
     array: isArray,
     object: isObject,
     objectPure: isObjectPure,
+    date: isDate,
+    promise: isPromise,
     builder: isBuilder,
 };

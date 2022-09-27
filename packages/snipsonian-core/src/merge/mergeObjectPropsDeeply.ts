@@ -67,8 +67,8 @@ export function mergeObjectPropsDeeplyFromSourceToTarget({
             Object.keys(source).forEach((key) => {
                 // eslint-disable-next-line no-param-reassign
                 target[key] = mergeObjectPropsDeeplyFromSourceToTarget({
-                    target: target[key],
-                    source: source[key],
+                    target: target[key] as object,
+                    source: source[key] as object,
                 });
             });
         }
