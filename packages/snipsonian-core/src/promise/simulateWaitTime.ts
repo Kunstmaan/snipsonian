@@ -1,4 +1,4 @@
-export function simulateWaitTime({
+export default function simulateWaitTime({
     waitTimeInMillis = 10,
     onWaited,
 }: {
