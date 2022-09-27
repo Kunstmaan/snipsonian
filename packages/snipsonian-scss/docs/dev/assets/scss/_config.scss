@@ -4,7 +4,7 @@
    Never add styles directly to this file - set up vars
    ========================================================================== */
 
-$className-prefix:          'ss-docs';
+$className-prefix:          "ss-docs";
 
 /* Colors
    ========================================================================== */
@@ -28,10 +28,10 @@ $color-text:                $grey-dark;
 
 /* Fonts
    ========================================================================== */
-$roboto:                    'Roboto';
-$roboto-mono:               'Roboto Mono';
-$font-family--base:          $roboto, Helvetica, Arial, sans-serif;
-$font-family--mono:          $roboto-mono, Georgia, serif;
+$roboto:                    "Roboto";
+$roboto-mono:               "Roboto Mono";
+$font-family--base:          $roboto, helvetica, arial, sans-serif;
+$font-family--mono:          $roboto-mono, georgia, serif;
 
 /* Sizes
    ========================================================================== */

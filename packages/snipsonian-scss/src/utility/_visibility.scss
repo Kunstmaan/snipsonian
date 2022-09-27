@@ -6,7 +6,7 @@
 @mixin snip-hide-from($breakpoint: null) {
     display: inherit !important;
 
-    @if $breakpoint != null {
+    @if $breakpoint {
         @media (min-width: $breakpoint) {
             display: none !important;
         }
@@ -16,7 +16,7 @@
 @mixin snip-show-from($breakpoint: null) {
     display: none !important;
 
-    @if $breakpoint != null {
+    @if $breakpoint {
         @media (min-width: $breakpoint) {
             display: inherit !important;
         }

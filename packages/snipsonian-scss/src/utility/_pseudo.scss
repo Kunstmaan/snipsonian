@@ -2,7 +2,7 @@
    Pseudo element positioning
    ========================================================================== */
 
-@mixin snip-pseudo($display: block, $pos: absolute, $content: '') {
+@mixin snip-pseudo($display: block, $pos: absolute, $content: "") {
     content: $content;
 
     position: $pos;
