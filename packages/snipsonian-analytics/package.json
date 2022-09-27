@@ -1,12 +1,12 @@
 {
   "name": "@snipsonian/analytics",
-  "version": "2.1.0",
+  "version": "3.0.2",
   "description": "Analytics snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "dependencies": {
-    "@snipsonian/browser": "^2.1.0",
-    "@snipsonian/core": "^2.1.0"
+    "@snipsonian/browser": "^3.0.2",
+    "@snipsonian/core": "^3.0.2"
   },
   "keywords": [
     "analytics",
