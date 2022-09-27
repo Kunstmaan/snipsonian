@@ -1,5 +1,5 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { obscureObjectProps } from '@snipsonian/core/src/object/obscureObjectProps';
+import { obscureObjectProps } from '@snipsonian/core/src/object/manipulation/obscureObjectProps';
 import getErrorStatus from '../error/getErrorStatus';
 import { IAxiosApiLogger } from './types';
 

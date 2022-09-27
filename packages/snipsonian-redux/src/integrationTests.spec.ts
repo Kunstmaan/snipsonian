@@ -1,5 +1,5 @@
 import isSetString from '@snipsonian/core/src/string/isSetString';
-import deletePropsFromObject from '@snipsonian/core/src/object/deletePropsFromObject';
+import deletePropsFromObject from '@snipsonian/core/src/object/manipulation/deletePropsFromObject';
 import { STATE_STORAGE_TYPE } from './config/storageType';
 import { IAction } from './action/types';
 import { toSuccessType } from './action/actionTypeGenerator';

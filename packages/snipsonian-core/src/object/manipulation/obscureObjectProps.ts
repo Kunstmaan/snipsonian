@@ -1,7 +1,7 @@
-import isSet from '../is/isSet';
-import isObjectPure from '../is/isObjectPure';
-import { TAnyObject } from '../typings/object';
-import cloneObjectDataProps from './cloneObjectDataProps';
+import isSet from '../../is/isSet';
+import isObjectPure from '../../is/isObjectPure';
+import { TAnyObject } from '../../typings/object';
+import cloneObjectDataProps from '../cloneObjectDataProps';
 
 /**
  * This method will

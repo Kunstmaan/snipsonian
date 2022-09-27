@@ -1,4 +1,4 @@
-import deletePropsFromObject from '@snipsonian/core/src/object/deletePropsFromObject';
+import deletePropsFromObject from '@snipsonian/core/src/object/manipulation/deletePropsFromObject';
 import { ITraceableApiErrorBase } from '@snipsonian/core/src/typings/apiErrors';
 import { STATE_STORAGE_TYPE } from '@snipsonian/redux/src/config/storageType';
 import { IAction } from '@snipsonian/redux/src/action/types';
