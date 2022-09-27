@@ -1,4 +1,4 @@
-import isString from '../is/isString';
+import isString from '../../is/isString';
 
 interface IHasArrayUniqueValuesOptions<Item = string> {
     itemMapper?: (item: Item) => string | number | boolean;

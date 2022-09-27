@@ -1,4 +1,4 @@
-import getArrayCopy from './getArrayCopy';
+import getArrayCopy from '../getArrayCopy';
 
 export interface IAddOrRemoveItemsFromArrayCommonOptions {
     resultInNewArray?: boolean;

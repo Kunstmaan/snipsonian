@@ -2,7 +2,7 @@
 import produce from 'immer';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import cloneDeep from 'lodash/cloneDeep';
-import isArrayWithValues from '@snipsonian/core/src/array/isArrayWithValues';
+import isArrayWithValues from '@snipsonian/core/src/array/verification/isArrayWithValues';
 import { getNrOfRunningApiCalls } from '@snipsonian/axios/src/request/getRequestWrapper';
 import {
     getRestServerMock,

@@ -1,5 +1,5 @@
 import { IAddOrRemoveItemsFromArrayCommonOptions } from './addItemAndGetResultingArray';
-import getArrayCopy from './getArrayCopy';
+import getArrayCopy from '../getArrayCopy';
 
 export default function removeItemByIndexAndGetResultingArray<Item = unknown>(
     arr: Item[],

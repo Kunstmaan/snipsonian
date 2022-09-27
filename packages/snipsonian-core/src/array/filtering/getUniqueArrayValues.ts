@@ -1,4 +1,4 @@
-import { TAnyObject } from '../typings/object';
+import { TAnyObject } from '../../typings/object';
 
 export default function getUniqueArrayValues<Item = string | number>(
     arr: Item[],
