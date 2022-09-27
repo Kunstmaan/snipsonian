@@ -8,7 +8,7 @@ import { registerReducer, getRegisteredReducers } from '@snipsonian/redux/src/re
 import createJourneyMiddleware from '@snipsonian/redux/src/middleware/journey/createJourneyMiddleware';
 import { clearRegisteredJourneys } from '@snipsonian/redux/src/middleware/journey/journeyManager';
 import createReduxStore from '@snipsonian/redux/src/store/createReduxStore';
-import getReduxIntegrationTester from '@snipsonian/redux/src/test/getReduxIntegrationTester';
+import getReduxIntegrationTester from '@snipsonian/redux/src/testing/getReduxIntegrationTester';
 import { AsyncOperation, AsyncStatus, IAsyncEntity, IBaseEntitiesReducerState } from './types';
 import { getAsyncEntityInitialState, initReducerBuildingBlocks } from './reducerBuildingBlocks';
 import { updateAsyncEntitiesChain, updateEntitiesGeneric } from './actions';

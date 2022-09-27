@@ -12,7 +12,8 @@
   },
   "devDependencies": {
     "axios": "^0.21.0",
-    "axios-mock-adapter": "^1.16.0"
+    "axios-mock-adapter": "^1.16.0",
+    "msw": "^0.47.3"
   },
   "keywords": [
     "axios"

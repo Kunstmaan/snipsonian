@@ -1,23 +1,17 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { IGroupLogger } from '@snipsonian/core/src/typings/logging';
 import getErrorStatus from '../error/getErrorStatus';
+import { IAxiosApiLogger } from './types';
 
-export interface IAxiosApiLogger {
-    logRequest: (request: AxiosRequestConfig) => void;
-    logResponse: (response: AxiosResponse) => void;
-    logErrorResponse: (error: AxiosError) => void;
-    logCancelledRequest: (error: AxiosError) => void;
-}
-
-interface IAxiosApiLoggerConfig {
+interface IConsoleBffLoggerConfig {
     isApiLoggingEnabled?: () => boolean;
     groupLogger: IGroupLogger;
 }
 
-export default function getApiLogger({
+export function createGroupApiLogger({
     isApiLoggingEnabled,
     groupLogger,
-}: IAxiosApiLoggerConfig): IAxiosApiLogger {
+}: IConsoleBffLoggerConfig): IAxiosApiLogger {
     const shouldLog = isApiLoggingEnabled ? isApiLoggingEnabled() : true;
 
     return {

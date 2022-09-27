@@ -2,51 +2,59 @@ import axios, { AxiosRequestConfig, AxiosError, ResponseType } from 'axios';
 import { IApiErrorBase, ITraceableApiErrorBase } from '@snipsonian/core/src/typings/apiErrors';
 import constructResourceUrl from '@snipsonian/core/src/url/constructResourceUrl';
 import getRandomNumber from '@snipsonian/core/src/number/getRandomNumber';
-import {
-    appendAutomaticHeaders, appendContentTypeHeaderIfSet,
-} from '../header/headerManager';
+import { IS_BROWSER } from '@snipsonian/core/src/is/isBrowser';
+import { appendAutomaticHeaders, appendContentTypeHeaderIfSet } from '../header/headerManager';
 import { CONTENT_TYPES } from '../header/types';
 import getErrorStatus from '../error/getErrorStatus';
-import { IAxiosApiLogger } from '../logging/getApiLogger';
+import generateTraceableApiErrorId from '../error/generateTraceableApiErrorId';
 import {
     IGetRequestConfig, IBodyRequestConfig,
     REQUEST_METHODS, RESPONSE_TYPES,
-    TResponseMapper, TRequestWrapperPromise,
+    TResponseMapper, TRequestWrapperPromise, TErrorEnhancer,
 } from './types';
-import generateTraceableApiErrorId from '../error/generateTraceableApiErrorId';
+import { IAxiosApiLogger } from '../logging/types';
 
 const { CancelToken } = axios;
 
 /* default do nothing with the response headers */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS = ({ data }: { data: any }): any => data;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS = (error: any): any => error;
 const DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS
-    = (params: { request: AxiosRequestConfig; customConfig: object }): AxiosRequestConfig => params.request;
+    = (params: { request: AxiosRequestConfig; customConfig: unknown }): AxiosRequestConfig => params.request;
 
-export interface IRequestWrapper<CustomConfig> {
+let nrOfRunningApiCalls = 0;
+
+export function getNrOfRunningApiCalls() {
+    return nrOfRunningApiCalls;
+}
+
+export interface IRequestWrapper<CustomConfig, ApiErrorClientSide> {
     /* eslint-disable max-len */
-    get: <Result, ResponseData = Result>(config: IGetRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
-    post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
-    put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
-    patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
-    remove: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData> & CustomConfig) => Promise<Result>;
+    get: <Result, ResponseData = Result>(config: IGetRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig) => Promise<Result>;
+    post: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig) => Promise<Result>;
+    put: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig) => Promise<Result>;
+    patch: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig) => Promise<Result>;
+    remove: <Result, ResponseData = Result>(config: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig) => Promise<Result>;
     /* eslint-enable max-len */
 }
 
-export interface IRequestWrapperConfig<CustomConfig, ResultingApiError, TraceableApiError> {
+export interface IRequestWrapperConfig<CustomConfig, ApiErrorClientSide, OrigApiErrorClientSide = ApiErrorClientSide> {
     apiLogger?: IAxiosApiLogger;
     defaultBaseUrl?: string;
     defaultTimeoutInMillis: number;
-    mapError?: (error: TraceableApiError) => ResultingApiError;
-    onError?: (error: ResultingApiError) => void;
+    mapError?: (error: OrigApiErrorClientSide) => ApiErrorClientSide;
+    onError?: (error: ApiErrorClientSide) => void;
     // eslint-disable-next-line max-len
     requestCustomTransformer?: (params: { request: AxiosRequestConfig; customConfig: CustomConfig }) => AxiosRequestConfig;
+    trackNrOfRunningApiCalls?: boolean; // default false
 }
 
 export default function getRequestWrapper<
-    CustomConfig extends object = object,
-    ResultingApiError = ITraceableApiErrorBase<object>,
-    TraceableApiError = ITraceableApiErrorBase<object>,
+    CustomConfig extends object = {}, // eslint-disable-line @typescript-eslint/ban-types
+    ApiErrorClientSide = ITraceableApiErrorBase<{}>, // eslint-disable-line @typescript-eslint/ban-types
+    OrigApiErrorClientSide = ApiErrorClientSide,
 >({
     apiLogger,
     defaultBaseUrl = '',
@@ -54,8 +62,10 @@ export default function getRequestWrapper<
     mapError,
     onError,
     requestCustomTransformer = DEFAULT_REQUEST_CUSTOM_TRANSFORMER_RETURNS_REQUEST_AS_IS,
-}: IRequestWrapperConfig<CustomConfig, ResultingApiError, TraceableApiError>): IRequestWrapper<CustomConfig> {
-    const requestWrapper: IRequestWrapper<CustomConfig> = {
+    trackNrOfRunningApiCalls = false,
+// eslint-disable-next-line max-len
+}: IRequestWrapperConfig<CustomConfig, ApiErrorClientSide, OrigApiErrorClientSide>): IRequestWrapper<CustomConfig, ApiErrorClientSide> {
+    const requestWrapper: IRequestWrapper<CustomConfig, ApiErrorClientSide> = {
         get,
         post,
         put,
@@ -71,10 +81,11 @@ export default function getRequestWrapper<
         headers = {},
         responseType = RESPONSE_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        enhanceError = DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         addCacheBuster = false,
         ...customConfig
-    }: IGetRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
+    }: IGetRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig): TRequestWrapperPromise<Result> {
         if (addCacheBuster) {
             // eslint-disable-next-line no-param-reassign
             queryParams['cache-buster'] = getRandomNumber({ min: 100000, max: 999999 });
@@ -93,6 +104,7 @@ export default function getRequestWrapper<
         return executeApiCall<Result, ResponseData>(
             requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
             mapResponse,
+            enhanceError,
         );
     }
 
@@ -106,9 +118,10 @@ export default function getRequestWrapper<
         responseType = RESPONSE_TYPES.json,
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        enhanceError = DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
-    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
+    }: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig): TRequestWrapperPromise<Result> {
         const request: AxiosRequestConfig = {
             responseType: responseType as ResponseType,
             url: constructResourceUrl({
@@ -123,6 +136,7 @@ export default function getRequestWrapper<
         return executeApiCall<Result, ResponseData>(
             requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
             mapResponse,
+            enhanceError,
         );
     }
 
@@ -136,9 +150,10 @@ export default function getRequestWrapper<
         responseType = RESPONSE_TYPES.json,
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        enhanceError = DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
-    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
+    }: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig): TRequestWrapperPromise<Result> {
         const request: AxiosRequestConfig = {
             responseType: responseType as ResponseType,
             url: constructResourceUrl({
@@ -153,6 +168,7 @@ export default function getRequestWrapper<
         return executeApiCall<Result, ResponseData>(
             requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
             mapResponse,
+            enhanceError,
         );
     }
 
@@ -166,9 +182,10 @@ export default function getRequestWrapper<
         responseType = RESPONSE_TYPES.json,
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        enhanceError = DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
-    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
+    }: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig): TRequestWrapperPromise<Result> {
         const request: AxiosRequestConfig = {
             responseType: responseType as ResponseType,
             url: constructResourceUrl({
@@ -183,6 +200,7 @@ export default function getRequestWrapper<
         return executeApiCall<Result, ResponseData>(
             requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
             mapResponse,
+            enhanceError,
         );
     }
 
@@ -196,9 +214,10 @@ export default function getRequestWrapper<
         responseType = RESPONSE_TYPES.json,
         contentType = CONTENT_TYPES.json,
         mapResponse = DEFAULT_RESPONSE_MAPPER_RETURNS_DATA_AS_IS,
+        enhanceError = DEFAULT_ERROR_ENHANCER_RETURNS_ERROR_AS_IS,
         timeoutInMillis = defaultTimeoutInMillis,
         ...customConfig
-    }: IBodyRequestConfig<Result, ResponseData> & CustomConfig): TRequestWrapperPromise<Result> {
+    }: IBodyRequestConfig<Result, ResponseData, ApiErrorClientSide> & CustomConfig): TRequestWrapperPromise<Result> {
         const request: AxiosRequestConfig = {
             responseType: responseType as ResponseType,
             url: constructResourceUrl({
@@ -213,12 +232,14 @@ export default function getRequestWrapper<
         return executeApiCall<Result, ResponseData>(
             requestCustomTransformer({ request, customConfig: customConfig as CustomConfig }),
             mapResponse,
+            enhanceError,
         );
     }
 
     function executeApiCall<Result, ResponseData>(
         request: AxiosRequestConfig,
         mapResponse: TResponseMapper<Result, ResponseData>,
+        enhanceError: TErrorEnhancer<ApiErrorClientSide>,
     ): TRequestWrapperPromise<Result> {
         request.headers = appendAutomaticHeaders(request.headers, request.method as REQUEST_METHODS);
 
@@ -227,13 +248,17 @@ export default function getRequestWrapper<
         const source = CancelToken.source();
         request.cancelToken = source.token;
 
+        if (trackNrOfRunningApiCalls) {
+            nrOfRunningApiCalls += 1;
+        }
+
         const requestPromise = axios(request)
             .then((result) => {
                 if (apiLogger) apiLogger.logResponse(result);
 
-                const { data, headers } = result;
+                const { data, headers, status, statusText } = result;
 
-                return mapResponse({ data, headers });
+                return mapResponse({ data, headers, status, statusText });
             })
             .catch(async (error: AxiosError) => {
                 if (!wasApiCancelled(error)) {
@@ -242,10 +267,15 @@ export default function getRequestWrapper<
                     apiLogger.logCancelledRequest(error);
                 }
 
-                const apiError = await transformError(error);
+                const apiError = await transformError(error, enhanceError);
                 if (onError) onError(apiError);
                 // eslint-disable-next-line @typescript-eslint/no-throw-literal
                 throw apiError;
+            })
+            .finally(() => {
+                if (trackNrOfRunningApiCalls) {
+                    nrOfRunningApiCalls -= 1;
+                }
             }) as TRequestWrapperPromise<Result>;
 
         requestPromise.cancelRequest = source.cancel;
@@ -253,17 +283,21 @@ export default function getRequestWrapper<
         return requestPromise;
     }
 
-    async function transformError(error: AxiosError): Promise<ResultingApiError> {
+    async function transformError(
+        error: AxiosError,
+        enhanceError: TErrorEnhancer<ApiErrorClientSide>,
+    ): Promise<ApiErrorClientSide> {
         const traceableApiError = await toTraceableApiErrorBase(error);
         return mapError
-            ? mapError(traceableApiError as unknown as TraceableApiError)
-            : traceableApiError as unknown as ResultingApiError;
+            ? enhanceError(mapError(traceableApiError as unknown as OrigApiErrorClientSide))
+            : enhanceError(traceableApiError as unknown as ApiErrorClientSide);
     }
 
     return requestWrapper;
 }
 
-async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApiErrorBase<object>> {
+// eslint-disable-next-line @typescript-eslint/ban-types
+async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApiErrorBase<{}>> {
     const serverErrorResponse = await extractServerErrorResponseData(error);
     const requestMethod = error.config && error.config.method && error.config.method.toUpperCase();
     const wasCancelled = wasApiCancelled(error);
@@ -286,7 +320,8 @@ async function toTraceableApiErrorBase(error: AxiosError): Promise<ITraceableApi
     };
 }
 
-async function extractServerErrorResponseData(error: AxiosError): Promise<object> {
+// eslint-disable-next-line @typescript-eslint/ban-types
+async function extractServerErrorResponseData(error: AxiosError): Promise<{}> {
     if (error.response) {
         let responseJson = error.response.data;
         // Some browsers like IE don't parse the JSON automatically
@@ -297,7 +332,7 @@ async function extractServerErrorResponseData(error: AxiosError): Promise<object
                 // Not a valid json
             }
         }
-        if (responseJson instanceof Blob) {
+        if (IS_BROWSER && responseJson instanceof Blob) {
             try {
                 const data = await blobToString(responseJson);
                 responseJson = JSON.parse(data);
@@ -307,7 +342,8 @@ async function extractServerErrorResponseData(error: AxiosError): Promise<object
         }
         return responseJson;
     }
-    return undefined as unknown as IApiErrorBase<object>;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    return undefined as unknown as IApiErrorBase<{}>;
 }
 
 function wasApiCancelled(error: AxiosError): boolean {

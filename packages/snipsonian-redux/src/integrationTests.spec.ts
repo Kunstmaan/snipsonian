@@ -11,7 +11,7 @@ import { createActionHandlersForType } from './reducer/createActionHandlersForTy
 import { clearRegisteredJourneys, registerJourney } from './middleware/journey/journeyManager';
 import createJourneyMiddleware from './middleware/journey/createJourneyMiddleware';
 import createReduxStore from './store/createReduxStore';
-import getReduxIntegrationTester from './test/getReduxIntegrationTester';
+import getReduxIntegrationTester from './testing/getReduxIntegrationTester';
 
 const dummyActionTypes = {
     DUMMY_UPDATE: 'DUMMY_UPDATE',
