@@ -1,10 +1,10 @@
 import isObjectPure from '../is/isObjectPure';
 import isSetString from '../string/isSetString';
 
-export function isErrorTypeGuard(error: unknown | Error): error is Error {
+export function isError(error: unknown | Error): error is Error {
     if (!isObjectPure(error)) {
         return false;
     }
 
-    return isSetString((error as Error).message);
+    return isSetString((error as unknown as Error).message);
 }

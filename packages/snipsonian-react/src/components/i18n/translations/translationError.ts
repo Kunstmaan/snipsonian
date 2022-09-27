@@ -1,4 +1,4 @@
-import { isErrorTypeGuard } from '@snipsonian/core/src/error/isErrorTypeGuard';
+import { isError } from '@snipsonian/core/es/error/isError';
 
 const TRANSLATION_ERROR_NAME = 'TranslationError';
 
@@ -24,7 +24,7 @@ export class TranslationError extends Error {
 export function isTranslationErrorTypeGuard(
     input: unknown | TranslationError,
 ): input is TranslationError {
-    if (isErrorTypeGuard(input)) {
+    if (isError(input)) {
         return input.name === TRANSLATION_ERROR_NAME;
     }
 
