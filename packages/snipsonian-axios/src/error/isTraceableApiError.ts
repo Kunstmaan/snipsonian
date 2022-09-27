@@ -10,7 +10,7 @@ export default function isTraceableApiError(error: any): error is ITraceableApiE
         return false;
     }
 
-    const traceableAPiError = error as ITraceableApiErrorBase<object>;
+    const traceableAPiError = error as unknown as ITraceableApiErrorBase<object>;
 
     return (
         traceableAPiError &&

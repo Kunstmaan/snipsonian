@@ -31,6 +31,8 @@
     "strictFunctionTypes": true,          /* Disable bivariant parameter checking for function types. */
     "strictPropertyInitialization": false,/* Ensure non-undefined class properties are initialized in the constructor. This option requires 'strictNullChecks' be enabled in order to take effect. */
 
+    "allowSyntheticDefaultImports": true,
+
     /* Module Resolution Options */
     "moduleResolution": "node",           /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
 
