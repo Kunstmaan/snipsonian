@@ -109,6 +109,9 @@ describe('is:', () => {
             expect(is.number([])).toEqual(false);
             expect(is.number({})).toEqual(false);
             expect(is.number(() => {})).toEqual(false);
+
+            expect(is.number(Number('123'))).toEqual(true);
+            expect(is.number(Number('abc'))).toEqual(false);
         });
     });
 
