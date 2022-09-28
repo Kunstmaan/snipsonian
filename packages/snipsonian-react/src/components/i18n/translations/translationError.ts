@@ -1,4 +1,4 @@
-import { isError } from '@snipsonian/core/src/error/isError';
+import isError from '@snipsonian/core/src/error/isError';
 
 const TRANSLATION_ERROR_NAME = 'TranslationError';
 

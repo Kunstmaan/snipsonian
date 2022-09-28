@@ -1,8 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import produce from 'immer';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import cloneDeep from 'lodash/cloneDeep';
 import isArrayWithValues from '@snipsonian/core/src/array/verification/isArrayWithValues';
+import cloneObjectDataProps from '@snipsonian/core/es/object/cloneObjectDataProps';
 import { getNrOfRunningApiCalls } from '@snipsonian/axios/src/request/getRequestWrapper';
 import {
     getRestServerMock,
@@ -24,7 +23,7 @@ export default function getActionableStoreIntegrationTester<State, StateChangeNo
     initialState: State;
     defaultBaseApiUrl?: string;
 }): IStateIntegrationTester<State> {
-    const initialStateWhenResetting = cloneDeep(initialState);
+    const initialStateWhenResetting = cloneObjectDataProps(initialState);
     let restServerMock: IRestServerMock = null;
 
     const tester: IStateIntegrationTester<State> = {

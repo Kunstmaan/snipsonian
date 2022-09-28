@@ -1,7 +1,7 @@
 import isObjectPure from '../is/isObjectPure';
 import isSetString from '../string/isSetString';
 
-export function isError(error: unknown | Error): error is Error {
+export default function isError(error: unknown | Error): error is Error {
     if (!isObjectPure(error)) {
         return false;
     }
