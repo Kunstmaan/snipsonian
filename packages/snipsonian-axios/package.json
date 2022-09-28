@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/axios",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Axios snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -8,7 +8,7 @@
     "axios": "^0.21.x"
   },
   "dependencies": {
-    "@snipsonian/core": "^3.0.2"
+    "@snipsonian/core": "^3.0.3"
   },
   "devDependencies": {
     "axios": "^0.21.0",

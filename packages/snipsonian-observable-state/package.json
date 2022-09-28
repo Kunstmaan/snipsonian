@@ -1,13 +1,13 @@
 {
   "name": "@snipsonian/observable-state",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Observable-state snippets (redux-like)",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
   "dependencies": {
-    "@snipsonian/axios": "^3.0.2",
-    "@snipsonian/browser": "^3.0.2",
-    "@snipsonian/core": "^3.0.2"
+    "@snipsonian/axios": "^3.0.3",
+    "@snipsonian/browser": "^3.0.3",
+    "@snipsonian/core": "^3.0.3"
   },
   "devDependencies": {
     "immer": "^7.0.1"

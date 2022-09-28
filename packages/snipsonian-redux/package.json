@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/redux",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Redux snippets",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -8,8 +8,8 @@
     "redux": "4.x"
   },
   "dependencies": {
-    "@snipsonian/browser": "^3.0.2",
-    "@snipsonian/core": "^3.0.2"
+    "@snipsonian/browser": "^3.0.3",
+    "@snipsonian/core": "^3.0.3"
   },
   "devDependencies": {
     "redux": "4.0.1"
