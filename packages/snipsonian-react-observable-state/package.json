@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/react-observable-state",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Snippets to observe (~ redux connect) the observable state from react components",
   "main": "es/index.js",
   "typings": "es/index.d.ts",
@@ -9,7 +9,7 @@
     "react-dom": "^16.8.x"
   },
   "dependencies": {
-    "@snipsonian/observable-state": "^3.0.3"
+    "@snipsonian/observable-state": "^3.1.0"
   },
   "devDependencies": {
     "@types/react": "16.8.8",
