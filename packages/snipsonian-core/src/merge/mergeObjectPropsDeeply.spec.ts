@@ -1,4 +1,4 @@
-import mergeObjectPropsDeeply from './mergeObjectPropsDeeply';
+import mergeObjectPropsDeeply, { mergeObjectPropsDeeplyOptionable } from './mergeObjectPropsDeeply';
 
 describe('mergeObjectPropsDeeply()', () => {
     it('if less than 2 input objects', () => {
@@ -273,5 +273,87 @@ describe('mergeObjectPropsDeeply()', () => {
         expect(actual['f'] === source1['f']).toBeFalsy();
         expect(actual['h'] === source1['h']).toBeFalsy();
         /* eslint-enable @typescript-eslint/dot-notation */
+    });
+
+    it('by default does not overwrite props that are null/undefined in later sources', () => {
+        const source1 = {
+            a: {
+                b: 'should remain',
+                c: 'should also remain',
+                d: 'will be overwritten',
+                e: null as number,
+            },
+            x: {
+                y: 999,
+            },
+        };
+        const source2 = {
+            a: {
+                b: null as string,
+                c: undefined as string,
+                d: 'new value',
+                e: 123,
+            },
+            x: null as string,
+        };
+
+        const actual = mergeObjectPropsDeeply(
+            source1,
+            source2,
+        );
+
+        expect(actual).toEqual({
+            a: {
+                b: 'should remain',
+                c: 'should also remain',
+                d: 'new value',
+                e: 123,
+            },
+            x: {
+                y: 999,
+            },
+        });
+    });
+
+    it('allows to overrule the default behaviour so that props who are null/undefined in later sources ' +
+        'are used to overwrite the original value', () => {
+        const source1 = {
+            a: {
+                b: 'should be overwritten by null',
+                c: 'should be overwritten by undefined',
+                d: 'will be overwritten',
+                e: null as number,
+            },
+            x: {
+                y: 999,
+            },
+        };
+        const source2 = {
+            a: {
+                b: null as string,
+                c: undefined as string,
+                d: 'new value',
+                e: 123,
+            },
+            x: null as string,
+        };
+
+        const actual = mergeObjectPropsDeeplyOptionable({
+            sources: [source1, source2],
+            options: {
+                ignoreUndefinedSourceProps: false,
+                ignoreNullSourceProps: false,
+            },
+        });
+
+        expect(actual).toEqual({
+            a: {
+                b: null,
+                c: undefined,
+                d: 'new value',
+                e: 123,
+            },
+            x: null,
+        });
     });
 });

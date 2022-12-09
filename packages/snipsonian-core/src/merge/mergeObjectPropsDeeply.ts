@@ -3,11 +3,18 @@ import isNull from '../is/isNull';
 import isObjectPure from '../is/isObjectPure';
 import cloneObjectDataProps from '../object/cloneObjectDataProps';
 
+interface IMergeObjectPropsDeeplyOptions {
+    ignoreUndefinedSourceProps?: boolean; /* default true */
+    ignoreNullSourceProps?: boolean; /* default true */
+    ignoreDifferentTypeSourceProps?: boolean; /* default true */
+}
+
 /**
  * Merges the properties of two or more input objects deeply, returning a new object with the properties of all
  * source objects.
  *
  * If a property is present in multiple source objects, the value from the last inputted source will take precedence.
+ * So the first source that is provided as input, is considered the "target" object.
  * For example:
  *   prop of source A       prop of source B        result
  *   ----------------       ----------------        ------
@@ -23,9 +30,23 @@ import cloneObjectDataProps from '../object/cloneObjectDataProps';
  *   null                   {b: 'zzz'}              {b: 'zzz'}
  *   undefined              {b: 'zzz'}              {b: 'zzz'}
  *
- * p.s. properties containing a function will not end up in the resulting object!
+ * p.s.
+ * - some of the above behaviour can we tweaked by passing some options
+ * - properties containing a function will not end up in the resulting object!
  */
 export default function mergeObjectPropsDeeply(...sources: object[]): object {
+    return mergeObjectPropsDeeplyOptionable({
+        sources,
+    });
+}
+
+export function mergeObjectPropsDeeplyOptionable({
+    options,
+    sources,
+}: {
+    options?: IMergeObjectPropsDeeplyOptions;
+    sources: object[];
+}): object {
     const initialValue = {};
 
     return sources.reduce(
@@ -37,6 +58,7 @@ export default function mergeObjectPropsDeeply(...sources: object[]): object {
             return mergeObjectPropsDeeplyFromSourceToTarget({
                 target: accumulator,
                 source,
+                options,
             });
         },
         initialValue,
@@ -46,20 +68,32 @@ export default function mergeObjectPropsDeeply(...sources: object[]): object {
 export function mergeObjectPropsDeeplyFromSourceToTarget({
     target,
     source,
+    options,
 }: {
     target: object;
     source: object;
+    options?: IMergeObjectPropsDeeplyOptions;
 }): object {
+    const {
+        ignoreUndefinedSourceProps = true,
+        ignoreNullSourceProps = true,
+        ignoreDifferentTypeSourceProps = true,
+    } = options || {};
+
     if (isUndefined(target) || isNull(target)) {
         return cloneProp(source);
     }
 
-    if (isUndefined(source) || isNull(source)) {
-        return target;
+    if (isUndefined(source)) {
+        return ignoreUndefinedSourceProps ? target : cloneProp(source);
     }
 
-    if (typeof source !== typeof target) {
-        return target;
+    if (isNull(source)) {
+        return ignoreNullSourceProps ? target : cloneProp(source);
+    }
+
+    if ((typeof source !== typeof target)) {
+        return ignoreDifferentTypeSourceProps ? target : cloneProp(source);
     }
 
     if (isObjectPure(target)) {
@@ -69,12 +103,16 @@ export function mergeObjectPropsDeeplyFromSourceToTarget({
                 target[key] = mergeObjectPropsDeeplyFromSourceToTarget({
                     target: target[key] as object,
                     source: source[key] as object,
+                    options,
                 });
             });
-        }
-        // else source is an array --> we just keep the target value
 
-        return target;
+            return target;
+        }
+
+        /* source is not a pure object like the target is but did still have the same type,
+           so it is an array. */
+        return ignoreDifferentTypeSourceProps ? target : cloneProp(source);
     }
 
     return cloneProp(source);
