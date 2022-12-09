@@ -10,7 +10,7 @@
     "@snipsonian/core": "^3.1.0"
   },
   "devDependencies": {
-    "immer": "^7.0.1"
+    "immer": "^9.0.6"
   },
   "keywords": [
     "observable",
