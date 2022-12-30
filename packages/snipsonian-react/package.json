@@ -12,7 +12,7 @@
     "@snipsonian/browser": "^3.1.0",
     "@snipsonian/core": "^3.1.0",
     "classnames": "^2.2.6",
-    "flat": "^4.1.0",
+    "flat": "^5.0.1",
     "formik": "1.5.7",
     "yup": "0.32.9"
   },
