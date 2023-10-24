@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import produce from 'immer';
 import isArrayWithValues from '@snipsonian/core/src/array/verification/isArrayWithValues';
-import cloneObjectDataProps from '@snipsonian/core/es/object/cloneObjectDataProps';
+import cloneObjectDataProps from '@snipsonian/core/src/object/cloneObjectDataProps';
 import { getNrOfRunningApiCalls } from '@snipsonian/axios/src/request/getRequestWrapper';
 import {
     getRestServerMock,
