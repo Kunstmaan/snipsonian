@@ -4,5 +4,8 @@ import isUndefined from './isUndefined';
 export const IS_BROWSER = !isNodejs();
 
 function isNodejs() {
-    return !isUndefined(process?.versions?.node);
+    if (typeof process !== 'undefined') {
+        return !isUndefined(process?.versions?.node);
+    }
+    return false;
 }
