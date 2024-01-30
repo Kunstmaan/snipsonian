@@ -7,7 +7,7 @@ import {
     RenderResult,
     cleanup,
     fireEvent,
-    waitForElement,
+    waitFor,
 } from '@testing-library/react';
 import {
     IComponentTester,
@@ -63,7 +63,7 @@ export default function getComponentTester<GivenProps extends object, ExtraThenP
                 callback({
                     ...renderResult,
                     fireEvent,
-                    waitForElement,
+                    waitFor,
                     ...extraThenProps,
                 });
             } finally {

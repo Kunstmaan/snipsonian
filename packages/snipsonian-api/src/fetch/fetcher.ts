@@ -69,6 +69,8 @@ const fetcher = {
      * You can override the actual fetch function e.g. with a dummy when running unit tests
      */
     setFetch: (fetch: (input: RequestInfo, init?: RequestInit) => Promise<Response>) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         fetchFn = fetch;
     },
 };

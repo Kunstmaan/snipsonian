@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { RenderResult, FireFunction, FireObject, waitForElement } from '@testing-library/react';
+import { RenderResult, FireFunction, FireObject, waitFor } from '@testing-library/react';
 
 export interface IComponentWrapperProps {
     children: ReactNode;
@@ -25,7 +25,7 @@ interface IWhenProps {
 
 interface ITestingLibrary {
     fireEvent: FireFunction & FireObject;
-    waitForElement: typeof waitForElement;
+    waitFor: typeof waitFor;
 }
 
 type TThenProps<ExtraThenProps> = RenderResult & ITestingLibrary & ExtraThenProps;

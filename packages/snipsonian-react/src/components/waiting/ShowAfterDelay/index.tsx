@@ -12,6 +12,7 @@ interface IComponentState {
 }
 
 export interface IShowAfterDelayProps {
+    children?: React.ReactNode;
     enabled: boolean;
     delayBeforeShow: number;
     minDurationToShow: number;

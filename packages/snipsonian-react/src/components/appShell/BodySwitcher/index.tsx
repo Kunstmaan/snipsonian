@@ -8,7 +8,7 @@ interface IPublicProps {
     page: IPage;
     pageProps?: object;
     renderProps?: object;
-    AsyncPageLoader?: React.ReactType;
+    AsyncPageLoader?: React.ElementType;
 }
 
 export default class BodySwitcher extends React.Component<IPublicProps> {
@@ -48,7 +48,7 @@ export default class BodySwitcher extends React.Component<IPublicProps> {
                 });
                 return !!AsyncPageLoader && <AsyncPageLoader />;
             }
-            return React.createElement<{ renderProps?: object }>(page.component as React.StatelessComponent, props);
+            return React.createElement<{ renderProps?: object }>(page.component as React.FunctionComponent, props);
         }
         return React.createElement<{ renderProps?: object }>(page.component, props);
     }

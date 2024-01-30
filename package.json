@@ -20,13 +20,16 @@
     "postversion": "git push && git push --tags",
     "npm-audit": "npm audit && npx lerna exec -- npm audit"
   },
+  "workspaces": [
+    "./packages/*"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
     "@kunstmaan/stylelint-config": "^3.0.0",
     "@types/jest": "^27.0.3",
-    "@types/node": "^14.18.0",
+    "@types/node": "^18.19.10",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "babel-jest": "^27.4.5",
