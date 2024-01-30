@@ -1,6 +1,6 @@
 {
   "name": "@snipsonian/kunstmaancms-spa-cli",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "CLI scripts that can be used for a SinglePageApp that's using the KunstmaanCMS",
   "main": "cjs/index.js",
   "typings": "cjs/index.d.ts",
