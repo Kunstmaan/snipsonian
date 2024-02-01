@@ -104,13 +104,15 @@ export default function getActionableStoreIntegrationTester<State, StateChangeNo
 
 /**
  * This line resolves every promise in a single event loop-tick.
- * window.setImmediate is used to break up long-running operations and run a callback function immediately
- * after the browser has completed other operations such as events and display updates. In this case, our
- * hanging HTTP request is this operation we want to finish. Also, since it’s not a standard feature, you
- * shouldn’t use it in production code.
+ * window.setTimeout (previously setImmediate) is used to break up long-running operations
+ * and run a callback function immediately after the browser has completed other operations
+ * such as events and display updates. In this case, our hanging HTTP request is this operation
+ * we want to finish. Also, since it’s not a standard feature, you shouldn’t use it in production code.
  */
 export function resolveAllPromises(): Promise<void> {
-    return new Promise((resolve) => setImmediate(resolve));
+    return new Promise((resolve) => {
+        setTimeout(resolve, 0);
+    });
 }
 
 function resolveAllPromisesUntilNoMoreRunningApiCalls(): Promise<void> {
